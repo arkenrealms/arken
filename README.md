@@ -16,6 +16,7 @@
   </a>
 
   <br>
+  <br>
   
   [![Join our Discord server!](https://invidget.switchblade.xyz/vMtb3WFfKZ)](https://discord.gg/vMtb3WFfKZ)
 </div>
