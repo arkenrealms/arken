@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.110.1",
+  "pnpmVersion": "6.7.1",
+  "nodeSupportedVersionRange": ">=20.0.0",
+  "projectFolderMaxDepth": 5,
+  "gitPolicy": {},
+  "repository": {
+    "defaultBranch": "main"
+  },
+  "eventHooks": {
+    "preRushInstall": [],
+    "postRushInstall": [],
+    "preRushBuild": [],
+    "postRushBuild": []
+  },
+  "variants": [],
+  "projects": [
+    {
+      "packageName": "@arken/node",
+      "projectFolder": "packages/node"
+    },
+    {
+      "packageName": "@arken/seer",
+      "projectFolder": "packages/seer"
+    },
+    {
+      "packageName": "@arken/link",
+      "projectFolder": "packages/link"
+    },
+    {
+      "packageName": "@arken/cerebro",
+      "projectFolder": "packages/cerebro"
+    },
+    {
+      "packageName": "@arken/shifter",
+      "projectFolder": "packages/shifter"
+    },
+    {
+      "packageName": "@arken/forge-ui",
+      "projectFolder": "packages/forge-ui"
+    },
+    {
+      "packageName": "@arken/forge-web",
+      "projectFolder": "packages/forge-web"
+    },
+    {
+      "packageName": "@arken/forge-backend",
+      "projectFolder": "packages/forge-backend"
+    },
+    {
+      "packageName": "@arken/portal-ui",
+      "projectFolder": "packages/portal-ui"
+    },
+    {
+      "packageName": "@arken/portal-web",
+      "projectFolder": "packages/portal-web"
+    },
+    {
+      "packageName": "@arken/portal-desktop",
+      "projectFolder": "packages/portal-desktop"
+    },
+    {
+      "packageName": "@arken/evolution-realm-server",
+      "projectFolder": "packages/evolution-realm-server"
+    }
+  ]
+}

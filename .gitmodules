@@ -1,0 +1,15 @@
+[submodule "packages/evolution-realm-server"]
+	path = packages/evolution-realm-server
+	url = git@github.com:arken-engineering/evolution-realm-server.git
+[submodule "packages/portal"]
+	path = packages/portal
+	url = git@github.com:arken-engineering/portal.git
+[submodule "packages/shifter"]
+	path = packages/shifter
+	url = git@github.com:arken-engineering/shifter.git
+[submodule "packages/node"]
+	path = packages/node
+	url = git@github.com:arken-engineering/node.git
+[submodule "packages/data"]
+	path = packages/data
+	url = git@github.com:arken-engineering/data.git
