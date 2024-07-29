@@ -6,7 +6,7 @@
   <br>
   <br>
 
-  <h2><strong>Arken</strong> is an <code>Open & Distributed Gaming Network</code></h2>
+  <h2><code>Arken: An Open & Distributed Gaming Network</code></h2>
     
   [![Badge License]][License]
   [![Button Website]][Website]
