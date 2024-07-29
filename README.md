@@ -6,7 +6,7 @@
   <br>
   <br>
 
-  <h2><strong>Arken</strong> is a <code>free and open source gaming network</code></h2>
+  <h2><strong>Arken</strong> is an <code>Open & Distributed Gaming Network</code></h2>
     
   [![Badge License]][License]
   [![Button Website]][Website]
@@ -29,7 +29,7 @@
 ## Introduction
 
 <p>
-  Welcome to Arken, a gaming network for an open omniverse by the Arken Engineering open initiative. Enjoy your stay.
+  Welcome to Arken, an open initiative by the Arken Engineering team. Enjoy your stay.
 </p>
 
 > [!NOTE]  
@@ -37,18 +37,18 @@
 
 ## Docs
 
-See our [docs and guides here](https://docs.arken.gg/installation)
+See our [docs and guides here](https://docs.arken.gg/)
 
 ## Quick Links
 
 - 🌐 [Arken Discord](https://discord.arken.gg)
 - 🌐 [Arken Telegram](https://telegram.arken.gg)
 - 📺 [Arken Realms](https://arken.gg/)
+- 🔗 [Arken Seer](https://github.com/arken-engineering/seer)
+- 🔗 [Arken Cerebro](https://github.com/arken-engineering/cerebro)
 - 📖 [Return Portal](http://return.gg/portal)
 - 💻 [Return Portal Web](https://github.com/arken-engineering/portal-web)
 - 💻 [Return Portal UI](https://github.com/arken-engineering/portal-ui)
-- 🔗 [Arken Seer](https://github.com/arken-engineering/seer)
-- 🔗 [Arken Cerebro](https://github.com/arken-engineering/cerebro)
 
 ## License
 
