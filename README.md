@@ -7,11 +7,21 @@
   <br>
 
   <h2><strong>Arken</strong> is a <code>free and open source gaming network</code></h2>
+    
+  [![Badge License]][License]
+  [![Button Website]][Website]
+  [![Button Telegram]][Telegram]<br>
 
-[![Build Status][github-actions-status]][github-actions-url]
-[![Github Tag][github-tag-image]][github-tag-url]
-[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.arken.gg)
+  <a href="http://discord.arken.gg">
+    <img src="https://img.shields.io/discord/857533189948964874.svg?style=for-the-badge&colorB=7581dc&logo=discord&logoColor=white">
+  </a>
 
+  <br>
+  <br>
+  
+  Join our Discord server:
+  
+  [![Join our Discord server!](https://invidget.switchblade.xyz/vMtb3WFfKZ)](https://discord.gg/vMtb3WFfKZ)
 </div>
 
 <br>
@@ -21,6 +31,9 @@
 <p>
   Welcome to Arken, a gaming network for an open omniverse by the Arken Engineering open initiative. Enjoy your stay.
 </p>
+
+> [!NOTE]  
+> **Much of what you see here is a work in progress.**
 
 ## Docs
 
@@ -39,9 +52,35 @@ See our [docs and guides here](https://docs.arken.gg/installation)
 
 ## License
 
-[WTFFPL](LICENSE)
+[![Badge License]][License]
 
-[github-actions-status]: https://github.com/arken-engineering/arken/workflows/Test/badge.svg
-[github-actions-url]: https://github.com/arken-engineering/arken/actions
-[github-tag-image]: https://img.shields.io/github/tag/arken-engineering/arken.svg?label=version
-[github-tag-url]: https://github.com/arken-engineering/arken/releases/latest
+<!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
+
+[License]: LICENSE
+[Issue]: https://github.com/arken-engineering/arken/issues
+[patreon]: https://patreon.com/Arken
+
+<!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮   Quicklinks   🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
+
+[Telegram]: https://telegram.arken.gg
+[Website]: https://arken.gg
+[Legacy]: https://swap.arken.gg
+[Usage]: https://docs.arken.gg
+[Demo]: https://arken.gg
+
+<!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮  Badges  🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
+
+[Badge License]: https://img.shields.io/badge/License-WTFPL-blue.svg?style=for-the-badge
+[Button Telegram]: https://img.shields.io/badge/💬-Telegram-2478b5?style=for-the-badge
+[Button Contributors]: https://img.shields.io/badge/Contributors-54b7dd?style=for-the-badge
+[Button Website]: https://img.shields.io/badge/🌐-Website-736e9b?style=for-the-badge
+[Button Legacy]: https://img.shields.io/badge/Legacy-ab910b?style=for-the-badge
+[Button Usage]: https://img.shields.io/badge/Usage-992cb3?style=for-the-badge
+[Button Demo]: https://img.shields.io/badge/Demo-528116?style=for-the-badge
+[Button Beta]: https://img.shields.io/badge/Beta-bb044f?style=for-the-badge
+[Button Arken Telegram]: https://img.shields.io/badge/Arken-Telegram-bb044f?style=for-the-badge
+[Button Arken Discord]: https://img.shields.io/badge/Arken-Discord-bb044f?style=for-the-badge
+[Button Arken Realms]: https://img.shields.io/badge/Arken-Realms-bb044f?style=for-the-badge
+[Button Return Portal]: https://img.shields.io/badge/Return-Portal-bb044f?style=for-the-badge
+[Button Arken Seer]: https://img.shields.io/badge/Arken-Seer-bb044f?style=for-the-badge
+[Button Arken Cerebro]: https://img.shields.io/badge/Arken-Cerebro-bb044f?style=for-the-badge

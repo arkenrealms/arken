@@ -1,6 +1,6 @@
 {
-  "name": "@arken/arken",
-  "version": "0.5.0",
+  "name": "arken",
+  "version": "0.1.0",
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
