@@ -8,7 +8,6 @@
 
   <h2><code>Arken: An Open & Distributed Gaming Network</code></h2>
     
-  [![Badge License]][License]
   [![Button Website]][Website]
   [![Button Telegram]][Telegram]<br>
 
@@ -17,9 +16,6 @@
   </a>
 
   <br>
-  <br>
-  
-  Join our Discord server:
   
   [![Join our Discord server!](https://invidget.switchblade.xyz/vMtb3WFfKZ)](https://discord.gg/vMtb3WFfKZ)
 </div>
@@ -70,7 +66,7 @@ See our [docs and guides here](https://docs.arken.gg/)
 
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮  Badges  🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
 
-[Badge License]: https://img.shields.io/badge/License-WTFPL-blue.svg?style=for-the-badge
+[Badge License]: https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge
 [Button Telegram]: https://img.shields.io/badge/💬-Telegram-2478b5?style=for-the-badge
 [Button Contributors]: https://img.shields.io/badge/Contributors-54b7dd?style=for-the-badge
 [Button Website]: https://img.shields.io/badge/🌐-Website-736e9b?style=for-the-badge
