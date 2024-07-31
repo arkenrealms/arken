@@ -9,7 +9,9 @@
   <h2><code>Arken: An Open & Distributed Gaming Network</code></h2>
     
   [![Button Website]][Website]
-  [![Button Telegram]][Telegram]<br>
+  [![Button Telegram]][Telegram]
+  
+  <br>
 
   <a href="http://discord.arken.gg">
     <img src="https://img.shields.io/discord/857533189948964874.svg?style=for-the-badge&colorB=7581dc&logo=discord&logoColor=white">
