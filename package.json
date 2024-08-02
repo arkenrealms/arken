@@ -1,7 +1,13 @@
 {
   "name": "arken",
   "version": "0.1.0",
-  "scripts": {},
+  "scripts": {
+    "commit": "npm-run-all commit:*",
+    "push": "npm-run-all push:*",
+    "push:evolution": "cd packages/evolution && git push && cd packages/protocol && git push && cd ../realm && git push && cd ../shard && git push",
+    "push:node": "cd packages/node && git push",
+    "pull": "npm-run-all pull:*"
+  },
   "dependencies": {},
   "devDependencies": {
     "npm-run-all": "^4.1.5"
