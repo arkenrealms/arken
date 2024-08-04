@@ -6,6 +6,9 @@
     "push": "npm-run-all push:*",
     "push:evolution": "cd packages/evolution && git push && cd packages/protocol && git push && cd ../realm && git push && cd ../shard && git push",
     "push:node": "cd packages/node && git push",
+    "push:cerebro": "cd packages/cerebro && git push",
+    "push:shifter": "cd packages/shifter && git push",
+    "push:main": "git push",
     "pull": "npm-run-all pull:*"
   },
   "dependencies": {},
