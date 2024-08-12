@@ -3,6 +3,7 @@ packages/protocol
 sites
 old
 repos
+storage
 
 # packages/*
 test-results

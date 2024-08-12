@@ -29,6 +29,10 @@
       "projectFolder": "packages/seer"
     },
     {
+      "packageName": "@arken/cube",
+      "projectFolder": "packages/cube"
+    },
+    {
       "packageName": "@arken/link",
       "projectFolder": "packages/link"
     },
