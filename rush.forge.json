@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.110.1",
+  "pnpmVersion": "6.7.1",
+  "nodeSupportedVersionRange": ">=20.0.0",
+  "projectFolderMaxDepth": 5,
+  "gitPolicy": {},
+  "repository": {
+    "defaultBranch": "main"
+  },
+  "eventHooks": {
+    "preRushInstall": [],
+    "postRushInstall": [],
+    "preRushBuild": [],
+    "postRushBuild": []
+  },
+  "variants": [],
+  "projects": [
+    {
+      "packageName": "@arken/node",
+      "projectFolder": "packages/node"
+    },
+    {
+      "packageName": "@arken/forge-ui",
+      "projectFolder": "packages/forge/packages/ui"
+    },
+    {
+      "packageName": "@arken/forge-web",
+      "projectFolder": "packages/forge/packages/web"
+    },
+    {
+      "packageName": "@arken/forge-backend",
+      "projectFolder": "packages/forge/packages/backend"
+    }
+  ]
+}

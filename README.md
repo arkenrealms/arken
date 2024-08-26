@@ -6,21 +6,20 @@
   <br>
   <br>
 
-  <h2><code>Arken: An Open & Distributed Gaming Network</code></h2>
-    
-  [![Button Website]][Website]
-  [![Button Telegram]][Telegram]
-  
-  <br>
-
-  <a href="http://discord.arken.gg">
-    <img src="https://img.shields.io/discord/857533189948964874.svg?style=for-the-badge&colorB=7581dc&logo=discord&logoColor=white">
-  </a>
+[![Button Website]][Website]
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Apache License 2.0][license-shield]][license-url]
 
   <br>
+
+[![Button Telegram]][Telegram]
+[![Discord][discord-shield]][discord-url]
+
   <br>
-  
-  [![Join our Discord server!](https://invidget.switchblade.xyz/vMtb3WFfKZ)](https://discord.gg/vMtb3WFfKZ)
+  <h2><code>Open & Distributed Gaming Systems</code></h2>
 </div>
 
 <br>
@@ -28,7 +27,7 @@
 ## Introduction
 
 <p>
-  Welcome to Arken, an open initiative by the Arken Engineering team. Enjoy your stay.
+  Welcome to Arken, stay awhile and listen...
 </p>
 
 > [!NOTE]  
@@ -82,4 +81,15 @@ See our [docs and guides here](https://docs.arken.gg/)
 [Button Arken Realms]: https://img.shields.io/badge/Arken-Realms-bb044f?style=for-the-badge
 [Button Return Portal]: https://img.shields.io/badge/Return-Portal-bb044f?style=for-the-badge
 [Button Arken Seer]: https://img.shields.io/badge/Arken-Seer-bb044f?style=for-the-badge
-[Button Arken Cerebro]: https://img.shields.io/badge/Arken-Cerebro-bb044f?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/arken-engineering/arken.svg?style=for-the-badge
+[contributors-url]: https://github.com/arken-engineering/arken/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/arken-engineering/arken.svg?style=for-the-badge
+[forks-url]: https://github.com/arken-engineering/arken/network/members
+[stars-shield]: https://img.shields.io/github/stars/arken-engineering/arken.svg?style=for-the-badge&colorB=c6af03
+[stars-url]: https://github.com/arken-engineering/arken/stargazers
+[issues-shield]: https://img.shields.io/github/issues/arken-engineering/arken.svg?style=for-the-badge&colorB=1b9233
+[issues-url]: https://github.com/arken-engineering/arken/issues
+[license-shield]: https://img.shields.io/github/license/arken-engineering/arken.svg?style=for-the-badge&colorB=c60388
+[license-url]: https://github.com/arken-engineering/arken/blob/master/LICENSE
+[discord-shield]: https://img.shields.io/discord/857533189948964874.svg?style=for-the-badge&colorB=7581dc&logo=discord&logoColor=white
+[discord-url]: https://discord.gg/vMtb3WFfKZ

@@ -4,12 +4,25 @@
   "scripts": {
     "commit": "npm-run-all commit:*",
     "push": "npm-run-all push:*",
-    "push:evolution": "cd packages/evolution && git push && cd packages/protocol && git push && cd ../realm && git push && cd ../shard && git push",
     "push:node": "cd packages/node && git push",
+    "push:evolution": "cd packages/evolution && git push",
+    "push:evolution:protocol": "cd packages/evolution/packages/protocol",
+    "push:evolution:realm": "cd packages/evolution/packages/realm",
+    "push:evolution:shard": "cd packages/evolution/packages/shard",
+    "push:forge": "cd packages/forge && git push",
+    "push:forge:backend": "cd packages/forge/packages/backend",
+    "push:forge:web": "cd packages/forge/packages/web",
+    "push:forge:ui": "cd packages/forge/packages/ui",
     "push:cerebro": "cd packages/cerebro && git push",
+    "push:cerebro:hub": "cd packages/cerebro/packages/hub && git push",
+    "push:cerebro:link": "cd packages/cerebro/packages/link && git push",
     "push:shifter": "cd packages/shifter && git push",
+    "push:cube": "cd packages/cube && git push",
+    "push:seer": "cd packages/seer && git push",
     "push:main": "git push",
-    "pull": "npm-run-all pull:*"
+    "pull": "npm-run-all pull:*",
+    "install-cerebro": "mv rush.json rush.all.json && mv rush.cerebro.json rush.json && rush update",
+    "install-forge": "mv rush.json rush.all.json && mv rush.forge.json rush.json && rush update"
   },
   "dependencies": {},
   "devDependencies": {

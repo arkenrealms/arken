@@ -34,8 +34,12 @@ function readPackage(packageJson, context) {
   const overrideDependencies = {
     leveldown: "6.1.1",
     "iconv-lite": "0.6.3",
+    react: "^18",
+    "react-dom": "^18",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "node-gyp": "10.2.0",
     // "iconv-utf-8-mac": "2.4.0",
-    // "node-gyp": "10.0.1",
     // "babel-loader": "8.3.0"
   };
 

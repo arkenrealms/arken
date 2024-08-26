@@ -3,8 +3,9 @@
   "rushVersion": "5.110.1",
   "pnpmVersion": "6.7.1",
   "nodeSupportedVersionRange": ">=20.0.0",
-  "projectFolderMaxDepth": 5,
+  "projectFolderMaxDepth": 10,
   "gitPolicy": {},
+  "ensureConsistentVersions": false,
   "repository": {
     "defaultBranch": "main"
   },
@@ -21,10 +22,6 @@
       "projectFolder": "packages/node"
     },
     {
-      "packageName": "@arken/bot",
-      "projectFolder": "packages/bot"
-    },
-    {
       "packageName": "@arken/seer",
       "projectFolder": "packages/seer"
     },
@@ -33,28 +30,36 @@
       "projectFolder": "packages/cube"
     },
     {
-      "packageName": "@arken/link",
-      "projectFolder": "packages/link"
+      "packageName": "@arken/shifter",
+      "projectFolder": "packages/shifter"
     },
     {
       "packageName": "@arken/cerebro",
       "projectFolder": "packages/cerebro"
     },
     {
-      "packageName": "@arken/shifter",
-      "projectFolder": "packages/shifter"
+      "packageName": "@arken/cerebro-link",
+      "projectFolder": "packages/cerebro/packages/link"
+    },
+    {
+      "packageName": "@arken/cerebro-hub",
+      "projectFolder": "packages/cerebro/packages/hub"
+    },
+    {
+      "packageName": "@arken/forge-protocol",
+      "projectFolder": "packages/forge/packages/protocol"
     },
     {
       "packageName": "@arken/forge-ui",
-      "projectFolder": "packages/forge-ui"
+      "projectFolder": "packages/forge/packages/ui"
     },
     {
       "packageName": "@arken/forge-web",
-      "projectFolder": "packages/forge-web"
+      "projectFolder": "packages/forge/packages/web"
     },
     {
       "packageName": "@arken/forge-backend",
-      "projectFolder": "packages/forge-backend"
+      "projectFolder": "packages/forge/packages/backend"
     },
     {
       "packageName": "@arken/portal",
