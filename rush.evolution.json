@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.110.1",
+  "pnpmVersion": "6.7.1",
+  "nodeSupportedVersionRange": ">=20.0.0",
+  "projectFolderMaxDepth": 10,
+  "gitPolicy": {},
+  "ensureConsistentVersions": true,
+  "repository": {
+    "defaultBranch": "main"
+  },
+  "eventHooks": {
+    "preRushInstall": [],
+    "postRushInstall": [],
+    "preRushBuild": [],
+    "postRushBuild": []
+  },
+  "variants": [],
+  "projects": [
+    {
+      "packageName": "@arken/node",
+      "projectFolder": "packages/node"
+    },
+    {
+      "packageName": "@arken/evolution-protocol",
+      "projectFolder": "packages/evolution/packages/protocol"
+    },
+    {
+      "packageName": "@arken/evolution-realm",
+      "projectFolder": "packages/evolution/packages/realm"
+    },
+    {
+      "packageName": "@arken/evolution-shard",
+      "projectFolder": "packages/evolution/packages/shard"
+    }
+  ]
+}
