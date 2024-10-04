@@ -22,8 +22,12 @@
       "projectFolder": "packages/node"
     },
     {
-      "packageName": "@arken/seer",
-      "projectFolder": "packages/seer"
+      "packageName": "@arken/seer-protocol",
+      "projectFolder": "packages/seer/packages/protocol"
+    },
+    {
+      "packageName": "@arken/seer-node",
+      "projectFolder": "packages/seer/packages/node"
     },
     {
       "packageName": "@arken/cube",

@@ -341,7 +341,6 @@ importers:
     specifiers:
       '@arken/evolution-protocol': workspace:*
       '@arken/node': workspace:*
-      '@arken/seer': workspace:*
       '@ethersproject/address': ^5
       '@ethersproject/contracts': ^5
       '@ethersproject/networks': ^5
@@ -410,14 +409,13 @@ importers:
     devDependencies:
       '@arken/evolution-protocol': 'link:'
       '@arken/node': link:../../../node
-      '@arken/seer': link:../../../seer
       '@ethersproject/address': 5.7.0
       '@ethersproject/contracts': 5.7.0
       '@ethersproject/networks': 5.7.1
       '@ethersproject/providers': 5.7.2
       '@ethersproject/solidity': 5.7.0
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/common-tags': 1.8.4
@@ -553,8 +551,8 @@ importers:
       '@arken/evolution-protocol': link:../protocol
       '@arken/evolution-shard': link:../shard
       '@arken/node': link:../../../node
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/common-tags': 1.8.4
@@ -605,7 +603,6 @@ importers:
     specifiers:
       '@arken/evolution-protocol': workspace:*
       '@arken/node': workspace:*
-      '@arken/seer': workspace:*
       '@trpc/client': next
       '@trpc/server': next
       '@typechain/ethers-v4': ^1
@@ -654,7 +651,6 @@ importers:
     dependencies:
       '@arken/evolution-protocol': link:../protocol
       '@arken/node': link:../../../node
-      '@arken/seer': link:../../../seer
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       axios: 1.7.4
       body-parser: 1.20.2
@@ -677,8 +673,8 @@ importers:
       utf8: 3.0.0
       web3: 1.10.4
     devDependencies:
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
       '@types/common-tags': 1.8.4
       '@types/cors': 2.8.17
       '@types/ethereum-protocol': 1.0.5
@@ -766,7 +762,7 @@ importers:
       uuid: ^9
     dependencies:
       '@arken/node': link:../../../node
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/server': 11.0.0-rc.553
       axios: 1.7.4
       body-parser: 1.20.2
       cors: 2.8.5
@@ -943,12 +939,13 @@ importers:
       '@ant-design/icons': ^5
       '@ant-design/plots': ^1
       '@ant-design/pro-components': ^2
-      '@apollo/client': ^3
+      '@ant-design/pro-provider': ~2.14.9
       '@arcanefinance/sdk': ^1
+      '@arken/evolution-protocol': workspace:*
       '@arken/forge-backend': workspace:*
       '@arken/forge-ui': workspace:*
       '@arken/node': workspace:*
-      '@auth0/auth0-react': ^2
+      '@arken/seer-protocol': workspace:*
       '@babel/core': ^7
       '@babel/preset-react': ^7
       '@babel/preset-typescript': ^7
@@ -1103,7 +1100,6 @@ importers:
       style-loader: ^3
       styled-components: ^5
       styled-system: ^5
-      superjson: ^2
       swiper: ^9
       tiny-invariant: ^1
       ts-loader: ^9
@@ -1126,12 +1122,13 @@ importers:
       '@ant-design/icons': 5.4.0_react-dom@18.3.1+react@18.3.1
       '@ant-design/plots': 1.2.6_react-dom@18.3.1+react@18.3.1
       '@ant-design/pro-components': 2.7.15_369c55bcdb09ab6c5c50b547d7ad1713
-      '@apollo/client': 3.11.4_3fc67b590c9cb3ca95dfd0d15c9bab2e
+      '@ant-design/pro-provider': 2.14.9_369c55bcdb09ab6c5c50b547d7ad1713
       '@arcanefinance/sdk': 1.0.5_58298390df473b2cd5dc79bcce511006
+      '@arken/evolution-protocol': link:../../../evolution/packages/protocol
       '@arken/forge-backend': link:../backend
       '@arken/forge-ui': link:../ui
       '@arken/node': link:../../../node
-      '@auth0/auth0-react': 2.2.4_react-dom@18.3.1+react@18.3.1
+      '@arken/seer-protocol': link:../../../seer/packages/protocol
       '@binance-chain/bsc-connector': 1.0.0
       '@ethersproject/abi': 5.7.0
       '@ethersproject/abstract-provider': 5.7.0
@@ -1150,9 +1147,9 @@ importers:
       '@reduxjs/toolkit': 1.9.7_react-redux@7.2.9+react@18.3.1
       '@tanstack/react-query': 5.52.1_react@18.3.1
       '@tanstack/react-query-devtools': 5.52.2_27aaef9d0dee031f086daba2c1425cf3
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/react-query': 11.0.0-rc.498_95898a6b23848931074ee7c046c4c858
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/react-query': 11.0.0-rc.553_872f8fe1f33e270bcf221398dbd1bc0a
+      '@trpc/server': 11.0.0-rc.553
       '@uniswap/token-lists': 1.0.0-beta.34
       '@uniswap/v2-core': 1.0.1
       '@uniswap/v2-periphery': 1.1.0-beta.0
@@ -1233,7 +1230,6 @@ importers:
       stream-browserify: 3.0.0
       styled-components: 5.3.11_f62614d69b9e0e87586e17ac07f113ed
       styled-system: 5.1.5
-      superjson: 2.2.1
       swiper: 9.1.0
       tiny-invariant: 1.3.3
       use-sound: 4.0.3_react@18.3.1
@@ -1327,6 +1323,7 @@ importers:
       '@types/node': ^20
       '@types/react': ^18
       '@types/react-dom': ^18
+      '@types/socket.io-client': ~3.0.0
       '@types/web3': ^1
       '@typescript-eslint/eslint-plugin': ^8
       '@typescript-eslint/parser': ^8
@@ -1382,10 +1379,11 @@ importers:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/providers': 5.7.2
       '@ethersproject/solidity': 5.7.0
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
+      '@types/socket.io-client': 3.0.0
       axios: 1.7.4
       compromise: 14.14.0
       cross-fetch: 4.0.0
@@ -1589,9 +1587,10 @@ importers:
       webpack-dev-server: 5.0.4_webpack-cli@5.1.4+webpack@5.93.0
       webpack-merge: 5.10.0
 
-  ../../packages/seer:
+  ../../packages/seer/packages/node:
     specifiers:
       '@arken/node': workspace:*
+      '@arken/seer-protocol': workspace:*
       '@nomiclabs/buidler': ^1
       '@nomiclabs/buidler-ethers': ^1
       '@nomiclabs/buidler-etherscan': ^2
@@ -1601,7 +1600,6 @@ importers:
       '@openzeppelin/contracts': ^3
       '@openzeppelin/test-environment': ^0
       '@openzeppelin/test-helpers': ^0
-      '@prisma/client': ^4
       '@trpc/client': next
       '@trpc/server': next
       '@truffle/hdwallet-provider': ^1
@@ -1613,8 +1611,12 @@ importers:
       '@types/express': ^4
       '@types/express-rate-limit': ^3
       '@types/helmet': ^0
+      '@types/lodash': ^4
+      '@types/lodash.merge': ^4
+      '@types/mongoose': ^5
       '@types/morgan': ^1
       '@types/node': ^20
+      '@types/socket.io-client': ~3.0.0
       '@types/web3': ^1
       '@typescript-eslint/eslint-plugin': ^8
       '@typescript-eslint/parser': ^8
@@ -1627,6 +1629,7 @@ importers:
       canonical-weth: ^1
       chai: ^4
       coingecko-api: ^1
+      dayjs: ^1
       dotenv: ^16
       ethereum-waffle: ^2
       ethers: ^5
@@ -1639,16 +1642,18 @@ importers:
       json-beautify: ^1
       knex: ^0
       knex-migrate: ^1
+      lodash: ^4
+      lodash.merge: ^4
       lokijs: ^1
       mocha: ^8
       moment: ^2
+      mongoose: ^8
       node-fetch: ^3
       objection: ^2
       pg: ^8
       pixelmatch: ^5
       prettier: ^3
       prettier-plugin-solidity: ^1
-      prisma: ^4
       rxjs: ^7
       shortid: ^2
       socket.io: ^4
@@ -1660,28 +1665,30 @@ importers:
       ts-node-dev: ^2
       tsconfig-paths: ^4
       tslint: ^6
-      tsnd: ^1
       typechain: ^2
       typescript: ^5
       web3: ^1
       zod: ^3
     dependencies:
-      '@prisma/client': 4.16.2_prisma@4.16.2
+      '@arken/node': link:../../../node
+      '@arken/seer-protocol': link:../protocol
+      '@types/socket.io-client': 3.0.0
       airtable: 0.11.6
+      dayjs: 1.11.12
       ipfs-http-client: 50.1.2_node-fetch@3.3.2
       js-md5: 0.7.3
       json-beautify: 1.1.1
+      lodash: 4.17.21
+      lodash.merge: 4.6.2
       lokijs: 1.5.12
       moment: 2.30.1
+      mongoose: 8.5.3
       pixelmatch: 5.3.0
-      prisma: 4.16.2
       rxjs: 7.8.1
       shortid: 2.2.16
       sqlite3: 5.1.7
       tsconfig-paths: 4.2.0
-      tsnd: 1.1.0
     devDependencies:
-      '@arken/node': link:../node
       '@nomiclabs/buidler': 1.4.8
       '@nomiclabs/buidler-ethers': 1.3.4_dfbf83396c09fd7bb6456ca1163bc2f0
       '@nomiclabs/buidler-etherscan': 2.1.0_@nomiclabs+buidler@1.4.8
@@ -1691,8 +1698,8 @@ importers:
       '@openzeppelin/contracts': 3.4.2
       '@openzeppelin/test-environment': 0.1.9
       '@openzeppelin/test-helpers': 0.5.16
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2+typechain@2.0.1
       '@types/axios': 0.14.0
@@ -1702,6 +1709,9 @@ importers:
       '@types/express': 4.17.21
       '@types/express-rate-limit': 3.3.5
       '@types/helmet': 0.0.46
+      '@types/lodash': 4.17.7
+      '@types/lodash.merge': 4.6.9
+      '@types/mongoose': 5.11.97
       '@types/morgan': 1.9.9
       '@types/node': 20.16.0
       '@types/web3': 1.0.20
@@ -1740,6 +1750,20 @@ importers:
       typechain: 2.0.1_typescript@5.5.4
       typescript: 5.5.4
       web3: 1.10.4
+      zod: 3.23.8
+
+  ../../packages/seer/packages/protocol:
+    specifiers:
+      '@arken/node': workspace:*
+      '@trpc/client': next
+      '@trpc/server': next
+      dotenv: ^16
+      zod: ^3
+    dependencies:
+      '@arken/node': link:../../../node
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
+      dotenv: 16.4.5
       zod: 3.23.8
 
   ../../packages/shifter:
@@ -1934,7 +1958,7 @@ packages:
       react: ^18
     dependencies:
       '@ant-design/icons': 5.4.0_react-dom@18.3.1+react@18.3.1
-      '@ant-design/pro-editor': 1.2.1_f7e073d37a8c7683cc82934f182648cc
+      '@ant-design/pro-editor': 1.3.0_f7e073d37a8c7683cc82934f182648cc
       '@babel/runtime': 7.25.0
       '@emotion/react': 11.13.0_@types+react@18.3.1+react@18.3.1
       '@testing-library/jest-dom': 6.4.8
@@ -2145,8 +2169,8 @@ packages:
       - supports-color
     dev: false
 
-  /@ant-design/pro-editor/1.2.1_f7e073d37a8c7683cc82934f182648cc:
-    resolution: {integrity: sha512-pDAH/07KcnaySiQxImL7rG5aDYMPjNyGSd4VABPESnNCW2/PwHvqeMviwfWnwaBkgzoIqgAnzHgIV3xWuocNuA==}
+  /@ant-design/pro-editor/1.3.0_f7e073d37a8c7683cc82934f182648cc:
+    resolution: {integrity: sha512-F6jQl0AMyD2IGRAWCdQeeybJlL5ms15r3RRNj+5UKeyMqfW6lVMoYU6X2HexWO4T3tQ28iLXu7zr0VEBGzVKdg==}
     peerDependencies:
       antd: '>=5'
       antd-style: '>=3'
@@ -2253,7 +2277,7 @@ packages:
       fast-deep-equal: 3.1.3
       immer: 10.1.1
       lodash-es: 4.17.21
-      lucide-react: 0.438.0_react@18.3.1
+      lucide-react: 0.447.0_react@18.3.1
       nanoid: 4.0.2
       polished: 4.3.1
       react: 18.3.1
@@ -2659,45 +2683,6 @@ packages:
     peerDependencies:
       graphql: 14.x || 15.x || 16.x
     dev: true
-
-  /@apollo/client/3.11.4_3fc67b590c9cb3ca95dfd0d15c9bab2e:
-    resolution: {integrity: sha512-bmgYKkULpym8wt8aXlAZ1heaYo0skLJ5ru0qJ+JCRoo03Pe+yIDbBCnqlDw6Mjj76hFkDw3HwFMgZC2Hxp30Mg==}
-    peerDependencies:
-      graphql: ^15.0.0 || ^16.0.0
-      graphql-ws: ^5.5.5
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || >=19.0.0-rc <19.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || >=19.0.0-rc <19.0.0
-      subscriptions-transport-ws: ^0.9.0 || ^0.11.0
-    peerDependenciesMeta:
-      graphql-ws:
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-      subscriptions-transport-ws:
-        optional: true
-    dependencies:
-      '@graphql-typed-document-node/core': 3.2.0_graphql@16.9.0
-      '@wry/caches': 1.0.1
-      '@wry/equality': 0.5.7
-      '@wry/trie': 0.5.0
-      graphql: 16.9.0
-      graphql-tag: 2.12.6_graphql@16.9.0
-      hoist-non-react-statics: 3.3.2
-      optimism: 0.18.0
-      prop-types: 15.8.1
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
-      rehackt: 0.1.0_react@18.3.1
-      response-iterator: 0.2.6
-      symbol-observable: 4.0.0
-      ts-invariant: 0.10.3
-      tslib: 2.6.3
-      zen-observable-ts: 1.2.5
-    transitivePeerDependencies:
-      - '@types/react'
-    dev: false
 
   /@apollo/client/3.11.4_8e12e5360b7d2a1d6d8166257b1621f3:
     resolution: {integrity: sha512-bmgYKkULpym8wt8aXlAZ1heaYo0skLJ5ru0qJ+JCRoo03Pe+yIDbBCnqlDw6Mjj76hFkDw3HwFMgZC2Hxp30Mg==}
@@ -3148,21 +3133,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-    dev: false
-
-  /@auth0/auth0-react/2.2.4_react-dom@18.3.1+react@18.3.1:
-    resolution: {integrity: sha512-l29PQC0WdgkCoOc6WeMAY26gsy/yXJICW0jHfj0nz8rZZphYKrLNqTRWFFCMJY+sagza9tSgB1kG/UvQYgGh9A==}
-    peerDependencies:
-      react: ^16.11.0 || ^17 || ^18
-      react-dom: ^16.11.0 || ^17 || ^18
-    dependencies:
-      '@auth0/auth0-spa-js': 2.1.3
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
-    dev: false
-
-  /@auth0/auth0-spa-js/2.1.3:
-    resolution: {integrity: sha512-NMTBNuuG4g3rame1aCnNS5qFYIzsTUV5qTFPRfTyYFS1feS6jsCBR+eTq9YkxCp1yuoM2UIcjunPaoPl77U9xQ==}
     dev: false
 
   /@aw-web-design/x-default-browser/1.4.126:
@@ -5544,6 +5514,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [aix]
+    dev: true
     optional: true
 
   /@esbuild/android-arm/0.18.20:
@@ -5559,6 +5530,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm]
     os: [android]
+    dev: true
     optional: true
 
   /@esbuild/android-arm64/0.18.20:
@@ -5574,6 +5546,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [android]
+    dev: true
     optional: true
 
   /@esbuild/android-x64/0.18.20:
@@ -5589,6 +5562,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [android]
+    dev: true
     optional: true
 
   /@esbuild/darwin-arm64/0.18.20:
@@ -5604,6 +5578,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [darwin]
+    dev: true
     optional: true
 
   /@esbuild/darwin-x64/0.18.20:
@@ -5619,6 +5594,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [darwin]
+    dev: true
     optional: true
 
   /@esbuild/freebsd-arm64/0.18.20:
@@ -5634,6 +5610,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [freebsd]
+    dev: true
     optional: true
 
   /@esbuild/freebsd-x64/0.18.20:
@@ -5649,6 +5626,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [freebsd]
+    dev: true
     optional: true
 
   /@esbuild/linux-arm/0.18.20:
@@ -5664,6 +5642,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-arm64/0.18.20:
@@ -5679,6 +5658,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-ia32/0.18.20:
@@ -5694,6 +5674,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-loong64/0.14.54:
@@ -5701,6 +5682,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-loong64/0.18.20:
@@ -5716,6 +5698,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [loong64]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-mips64el/0.18.20:
@@ -5731,6 +5714,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [mips64el]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-ppc64/0.18.20:
@@ -5746,6 +5730,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-riscv64/0.18.20:
@@ -5761,6 +5746,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [riscv64]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-s390x/0.18.20:
@@ -5776,6 +5762,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [s390x]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/linux-x64/0.18.20:
@@ -5791,6 +5778,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [linux]
+    dev: true
     optional: true
 
   /@esbuild/netbsd-x64/0.18.20:
@@ -5806,6 +5794,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [netbsd]
+    dev: true
     optional: true
 
   /@esbuild/openbsd-arm64/0.23.1:
@@ -5813,6 +5802,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [openbsd]
+    dev: true
     optional: true
 
   /@esbuild/openbsd-x64/0.18.20:
@@ -5828,6 +5818,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [openbsd]
+    dev: true
     optional: true
 
   /@esbuild/sunos-x64/0.18.20:
@@ -5843,6 +5834,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [sunos]
+    dev: true
     optional: true
 
   /@esbuild/win32-arm64/0.18.20:
@@ -5858,6 +5850,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [win32]
+    dev: true
     optional: true
 
   /@esbuild/win32-ia32/0.18.20:
@@ -5873,6 +5866,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [win32]
+    dev: true
     optional: true
 
   /@esbuild/win32-x64/0.18.20:
@@ -5888,6 +5882,7 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+    dev: true
     optional: true
 
   /@eslint-community/eslint-utils/4.4.0:
@@ -8768,7 +8763,7 @@ packages:
   /@pm2/pm2-version-check/1.0.4:
     resolution: {integrity: sha512-SXsM27SGH3yTWKc2fKR4SYNxsmnvuBQ9dd6QHtEWmiZ/VqaOYPAIlS8+vMcn27YLtAEBGvNRSh3TPNvtjZgfqA==}
     dependencies:
-      debug: 4.3.6
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -8909,6 +8904,7 @@ packages:
     dependencies:
       '@prisma/engines-version': 4.16.1-1.4bc8b6e1b66cb932731fb1bdbbc550d1e010de81
       prisma: 4.16.2
+    dev: true
 
   /@prisma/debug/4.16.2:
     resolution: {integrity: sha512-7L7WbG0qNNZYgLpsVB8rCHCXEyHFyIycRlRDNwkVfjQmACC2OW6AWCYCbfdjQhkF/t7+S3njj8wAWAocSs+Brw==}
@@ -8922,10 +8918,12 @@ packages:
 
   /@prisma/engines-version/4.16.1-1.4bc8b6e1b66cb932731fb1bdbbc550d1e010de81:
     resolution: {integrity: sha512-q617EUWfRIDTriWADZ4YiWRZXCa/WuhNgLTVd+HqWLffjMSPzyM5uOWoauX91wvQClSKZU4pzI4JJLQ9Kl62Qg==}
+    dev: true
 
   /@prisma/engines/4.16.2:
     resolution: {integrity: sha512-vx1nxVvN4QeT/cepQce68deh/Turxy5Mr+4L4zClFuK1GlxN3+ivxfuv+ej/gvidWn1cE1uAhW7ALLNlYbRUAw==}
     requiresBuild: true
+    dev: true
 
   /@prisma/fetch-engine/4.16.2:
     resolution: {integrity: sha512-lnCnHcOaNn0kw8qTJbVcNhyfIf5Lus2GFXbj3qpkdKEIB9xLgqkkuTP+35q1xFaqwQ0vy4HFpdRUpFP7njE15g==}
@@ -12226,31 +12224,31 @@ packages:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
     dev: false
 
-  /@trpc/client/11.0.0-rc.498_@trpc+server@11.0.0-rc.498:
-    resolution: {integrity: sha512-a1VjvLHCo8gPENMfzI8lVF1ys6kOGI3f/cIAZUMB0d2TlkDERlFYANnSnzFvmiKy6ICh3lsQQ3OIMmIfyd8OtQ==}
+  /@trpc/client/11.0.0-rc.553_@trpc+server@11.0.0-rc.553:
+    resolution: {integrity: sha512-ICgziilbuAslRgHIVJZ162KaHQRpHXA1C1LPRsNpxPa9aStPF7eThAjn4V3JmDyJsuDLQgAmqLVRImlLPMYR5Q==}
     peerDependencies:
-      '@trpc/server': 11.0.0-rc.498+5714423cc
+      '@trpc/server': 11.0.0-rc.553+9b629cc67
     dependencies:
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/server': 11.0.0-rc.553
 
-  /@trpc/react-query/11.0.0-rc.498_95898a6b23848931074ee7c046c4c858:
-    resolution: {integrity: sha512-il/fgO9DSTHmrJbDInGNl8PymLo19CEfIjBXmerTm4hg/p438fQb4ZKDVbpBxEThgAaaP6D0HTELWn5VDWG3VQ==}
+  /@trpc/react-query/11.0.0-rc.553_872f8fe1f33e270bcf221398dbd1bc0a:
+    resolution: {integrity: sha512-m88HBhpfIDJccJCXycHtkGS82RG2TVPsZUFIWswR8m6ip5eFNmqWASanu7DiiFbY6sufLT1S8ee28towrPUgoA==}
     peerDependencies:
-      '@tanstack/react-query': ^5.49.2
-      '@trpc/client': 11.0.0-rc.498+5714423cc
-      '@trpc/server': 11.0.0-rc.498+5714423cc
+      '@tanstack/react-query': ^5.54.1
+      '@trpc/client': 11.0.0-rc.553+9b629cc67
+      '@trpc/server': 11.0.0-rc.553+9b629cc67
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
     dependencies:
       '@tanstack/react-query': 5.52.1_react@18.3.1
-      '@trpc/client': 11.0.0-rc.498_@trpc+server@11.0.0-rc.498
-      '@trpc/server': 11.0.0-rc.498
+      '@trpc/client': 11.0.0-rc.553_@trpc+server@11.0.0-rc.553
+      '@trpc/server': 11.0.0-rc.553
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
     dev: false
 
-  /@trpc/server/11.0.0-rc.498:
-    resolution: {integrity: sha512-LECCOz8JNB67CBasPA6fkLbhJIbUQRP1wq02xUfUMeaSEZFWJL+7fcTgLaWFQSHMMnMsvkLuDuDDkUSCF2SXmg==}
+  /@trpc/server/11.0.0-rc.553:
+    resolution: {integrity: sha512-pYUhxV3QU834jP1ugJk1uhtPwwaY1ymIuupb4DiWOhNCl68syuXPlUdD8IYsYKd3BjLkmnjlsOUMoyd/aoOF/Q==}
 
   /@truffle/abi-utils/1.0.3:
     resolution: {integrity: sha512-AWhs01HCShaVKjml7Z4AbVREr/u4oiWxCcoR7Cktm0mEvtT04pvnxW5xB/cI4znRkrbPdFQlFt67kgrAjesYkw==}
@@ -13781,6 +13779,17 @@ packages:
   /@types/sinonjs__fake-timers/8.1.5:
     resolution: {integrity: sha512-mQkU2jY8jJEF7YHjHvsQO8+3ughTL1mcnn96igfhONmR+fUPSKIkefQYpSe8bsly2Ep7oQbn/6VG5/9/0qcArQ==}
     dev: true
+
+  /@types/socket.io-client/3.0.0:
+    resolution: {integrity: sha512-s+IPvFoEIjKA3RdJz/Z2dGR4gLgysKi8owcnrVwNjgvc01Lk68LJDDsG2GRqegFITcxmvCMYM7bhMpwEMlHmDg==}
+    deprecated: This is a stub types definition. socket.io-client provides its own type definitions, so you do not need this installed.
+    dependencies:
+      socket.io-client: 4.7.5
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: false
 
   /@types/sockjs/0.3.36:
     resolution: {integrity: sha512-MK9V6NzAS1+Ud7JV9lJLFqW85VbC9dq3LmwZCuBe4wBDgKC0Kj/jd8Xl+nSviU+Qc3+m7umHHyHg//2KSa0a0Q==}
@@ -19388,13 +19397,6 @@ packages:
   /cookiejar/2.1.4:
     resolution: {integrity: sha512-LDx6oHrK+PhzLKJU9j5S7/Y3jM/mUHvD/DeI1WQmJn652iPC5Y4TBzC9l+5OMOXlyTTA+SmVUPm0HQUwpD5Jqw==}
 
-  /copy-anything/3.0.5:
-    resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
-    engines: {node: '>=12.13'}
-    dependencies:
-      is-what: 4.1.16
-    dev: false
-
   /copy-descriptor/0.1.1:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
     engines: {node: '>=0.10.0'}
@@ -20454,6 +20456,18 @@ packages:
     dependencies:
       ms: 2.1.2
       supports-color: 5.5.0
+    dev: false
+
+  /debug/4.3.7:
+    resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.3
     dev: false
 
   /decamelize-keys/1.1.1:
@@ -21933,6 +21947,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
+    dev: true
     optional: true
 
   /esbuild-android-arm64/0.14.54:
@@ -21940,6 +21955,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
+    dev: true
     optional: true
 
   /esbuild-darwin-64/0.14.54:
@@ -21947,6 +21963,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
+    dev: true
     optional: true
 
   /esbuild-darwin-arm64/0.14.54:
@@ -21954,6 +21971,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
+    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.14.54:
@@ -21961,6 +21979,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
+    dev: true
     optional: true
 
   /esbuild-freebsd-arm64/0.14.54:
@@ -21968,6 +21987,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
+    dev: true
     optional: true
 
   /esbuild-linux-32/0.14.54:
@@ -21975,6 +21995,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-64/0.14.54:
@@ -21982,6 +22003,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-arm/0.14.54:
@@ -21989,6 +22011,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-arm64/0.14.54:
@@ -21996,6 +22019,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-mips64le/0.14.54:
@@ -22003,6 +22027,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-ppc64le/0.14.54:
@@ -22010,6 +22035,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-riscv64/0.14.54:
@@ -22017,6 +22043,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-linux-s390x/0.14.54:
@@ -22024,6 +22051,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
+    dev: true
     optional: true
 
   /esbuild-netbsd-64/0.14.54:
@@ -22031,6 +22059,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
+    dev: true
     optional: true
 
   /esbuild-node-loader/0.8.0:
@@ -22039,12 +22068,14 @@ packages:
       esbuild: 0.23.1
       node-fetch: 3.3.2
       semver: 7.6.3
+    dev: true
 
   /esbuild-openbsd-64/0.14.54:
     resolution: {integrity: sha512-Qyk7ikT2o7Wu76UsvvDS5q0amJvmRzDyVlL0qf5VLsLchjCa1+IAvd8kTBgUxD7VBUUVgItLkk609ZHUc1oCaw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
+    dev: true
     optional: true
 
   /esbuild-plugin-alias/0.2.1:
@@ -22060,6 +22091,7 @@ packages:
       esbuild: 0.14.54
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /esbuild-register/3.6.0_esbuild@0.18.20:
     resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
@@ -22077,6 +22109,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
+    dev: true
     optional: true
 
   /esbuild-windows-32/0.14.54:
@@ -22084,6 +22117,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
+    dev: true
     optional: true
 
   /esbuild-windows-64/0.14.54:
@@ -22091,6 +22125,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+    dev: true
     optional: true
 
   /esbuild-windows-arm64/0.14.54:
@@ -22098,6 +22133,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
+    dev: true
     optional: true
 
   /esbuild/0.14.54:
@@ -22127,6 +22163,7 @@ packages:
       esbuild-windows-32: 0.14.54
       esbuild-windows-64: 0.14.54
       esbuild-windows-arm64: 0.14.54
+    dev: true
 
   /esbuild/0.18.20:
     resolution: {integrity: sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==}
@@ -22188,6 +22225,7 @@ packages:
       '@esbuild/win32-arm64': 0.23.1
       '@esbuild/win32-ia32': 0.23.1
       '@esbuild/win32-x64': 0.23.1
+    dev: true
 
   /escalade/3.1.2:
     resolution: {integrity: sha512-ErCHMCae19vR8vQGe50xIsVomy19rg6gFu3+r3jkEO46suLMWBksvVyoGgQV+jOfl84ZSOSlmv6Gxa89PmTGmA==}
@@ -24393,6 +24431,15 @@ packages:
       tslib: 2.6.3
     dev: false
 
+  /follow-redirects/1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   /follow-redirects/1.15.6_debug@4.3.6:
     resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
     engines: {node: '>=4.0'}
@@ -24973,7 +25020,7 @@ packages:
     dependencies:
       buffer-crc32: 1.0.0
       colors: 1.4.0
-      debug: 4.3.6
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -26210,7 +26257,7 @@ packages:
     dependencies:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
-      debug: 4.3.6
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -26280,7 +26327,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.6_debug@4.3.6
+      follow-redirects: 1.15.6
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
@@ -26562,6 +26609,7 @@ packages:
 
   /import-meta-resolve/2.2.2:
     resolution: {integrity: sha512-f8KcQ1D80V7RnqVm+/lirO9zkOxjGxhaTC1IPrBGd3MEfNgmNG67tSUO9gTi2F3Blr2Az6g1vocaxzkVnWl9MA==}
+    dev: true
 
   /imurmurhash/0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -27418,11 +27466,6 @@ packages:
     dependencies:
       call-bind: 1.0.7
       get-intrinsic: 1.2.4
-
-  /is-what/4.1.16:
-    resolution: {integrity: sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==}
-    engines: {node: '>=12.13'}
-    dev: false
 
   /is-windows/1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
@@ -30492,8 +30535,8 @@ packages:
       react: 18.3.1
     dev: false
 
-  /lucide-react/0.438.0_react@18.3.1:
-    resolution: {integrity: sha512-uq6yCB+IzVfgIPMK8ibkecXSWTTSOMs9UjUgZigfrDCVqgdwkpIgYg1fSYnf0XXF2AoSyCJZhoZXQwzoai7VGw==}
+  /lucide-react/0.447.0_react@18.3.1:
+    resolution: {integrity: sha512-SZ//hQmvi+kDKrNepArVkYK7/jfeZ5uFNEnYmd45RKZcbGD78KLnrcNXmgeg6m+xNHFvTG+CblszXCy4n6DN4w==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
     dependencies:
@@ -35754,6 +35797,7 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 4.16.2
+    dev: true
 
   /prismjs/1.27.0:
     resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
@@ -38346,20 +38390,6 @@ packages:
       react: 18.3.1
     dev: false
 
-  /rehackt/0.1.0_react@18.3.1:
-    resolution: {integrity: sha512-7kRDOuLHB87D/JESKxQoRwv4DzbIdwkAGQ7p6QKGdVlY1IZheUnVhlk/4UZlNUVxdAXpyxikE3URsG067ybVzw==}
-    peerDependencies:
-      '@types/react': '*'
-      react: '*'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react:
-        optional: true
-    dependencies:
-      react: 18.3.1
-    dev: false
-
   /rehype-katex/6.0.3:
     resolution: {integrity: sha512-ByZlRwRUcWegNbF70CVRm2h/7xy7jQ3R9LaY4VVSvjnoVWwWVhNL60DiZsBpC5tSzYQOCvDbzncIpIjPZWodZA==}
     dependencies:
@@ -39813,7 +39843,7 @@ packages:
     engines: {node: '>= 10'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.6
+      debug: 4.3.7
       socks: 2.8.3
     transitivePeerDependencies:
       - supports-color
@@ -40859,13 +40889,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /superjson/2.2.1:
-    resolution: {integrity: sha512-8iGv75BYOa0xRJHK5vRLEjE2H/i4lulTjzpUXic3Eg8akftYjkmQDa8JARQ42rlczXyFR3IeRoeFCc7RxHsYZA==}
-    engines: {node: '>=16'}
-    dependencies:
-      copy-anything: 3.0.5
-    dev: false
 
   /superstruct/1.0.4:
     resolution: {integrity: sha512-7JpaAoX2NGyoFlI9NBh66BQXGONc+uE+MRS5i2iOBKuS4e+ccgMDjATgZldkah+33DakBxDHiss9kvUcGAO8UQ==}
@@ -42354,6 +42377,7 @@ packages:
       import-meta-resolve: 2.2.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /tsort/0.0.1:
     resolution: {integrity: sha512-Tyrf5mxF8Ofs1tNoxA13lFeZ2Zrbd6cKbuH3V+MQ5sb6DtBj5FjrXVsRWT8YvNAQTqNoz66dz1WsbigI22aEnw==}

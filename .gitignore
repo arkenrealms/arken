@@ -133,3 +133,4 @@ common/autoinstallers/*/.npmrc
 .rush/temp/
 
 Desktop.ini
+.DS_Store

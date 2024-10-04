@@ -19,6 +19,8 @@
     "push:shifter": "cd packages/shifter && git push",
     "push:cube": "cd packages/cube && git push",
     "push:seer": "cd packages/seer && git push",
+    "push:seer:protocol": "cd packages/seer/packages/protocol && git push",
+    "push:seer:node": "cd packages/seer/packages/node && git push",
     "push:main": "git push",
     "pull": "npm-run-all pull:*",
     "install-cerebro": "mv rush.json rush.all.json && mv rush.cerebro.json rush.json && rush update",

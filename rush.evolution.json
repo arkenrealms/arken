@@ -22,6 +22,10 @@
       "projectFolder": "packages/node"
     },
     {
+      "packageName": "@arken/seer-protocol",
+      "projectFolder": "packages/seer/packages/protocol"
+    },
+    {
       "packageName": "@arken/evolution-protocol",
       "projectFolder": "packages/evolution/packages/protocol"
     },
