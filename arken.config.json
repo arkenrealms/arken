@@ -1,0 +1,7 @@
+{
+  "option": {
+    "metaverse": "Arken",
+    "application": "Cerebro"
+  },
+  "commands": "./commands"
+}
