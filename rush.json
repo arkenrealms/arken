@@ -70,8 +70,16 @@
       "projectFolder": "packages/forge/packages/backend"
     },
     {
-      "packageName": "@arken/portal",
-      "projectFolder": "packages/portal"
+      "packageName": "@arken/portal-desktop",
+      "projectFolder": "packages/portal/packages/desktop"
+    },
+    {
+      "packageName": "@arken/portal-ui",
+      "projectFolder": "packages/portal/packages/ui"
+    },
+    {
+      "packageName": "@arken/portal-web",
+      "projectFolder": "packages/portal/packages/web"
     },
     {
       "packageName": "@arken/evolution-protocol",
@@ -84,6 +92,14 @@
     {
       "packageName": "@arken/evolution-shard",
       "projectFolder": "packages/evolution/packages/shard"
+    },
+    {
+      "packageName": "@arken/oasis-protocol",
+      "projectFolder": "packages/oasis/packages/protocol"
+    },
+    {
+      "packageName": "@arken/oasis-realm",
+      "projectFolder": "packages/oasis/packages/realm"
     }
   ]
 }
