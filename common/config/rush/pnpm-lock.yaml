@@ -123,7 +123,7 @@ importers:
       '@arken/node': link:../../../node
       '@google-cloud/speech': 6.7.0
       '@mtproto/core': 6.3.0
-      '@trpc/server': 11.0.0-rc.630_@babel+core@7.25.2
+      '@trpc/server': 11.0.0-rc.633_@babel+core@7.25.2
       '@truffle/hdwallet-provider': 1.7.0_@babel+core@7.25.2
       '@types/cors': 2.8.17
       '@types/helmet': 0.0.46
@@ -239,8 +239,8 @@ importers:
       zod: ^3
     dependencies:
       '@arken/node': link:../../../node
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       dotenv: 16.4.5
       zod: 3.23.8
 
@@ -248,6 +248,7 @@ importers:
     specifiers:
       '@arken/cerebro-protocol': workspace:*
       '@arken/evolution-protocol': workspace:*
+      '@arken/meme-isles-protocol': workspace:*
       '@arken/node': workspace:*
       '@arken/oasis-protocol': workspace:*
       '@arken/seer-protocol': workspace:*
@@ -281,11 +282,12 @@ importers:
     dependencies:
       '@arken/cerebro-protocol': link:../cerebro/packages/protocol
       '@arken/evolution-protocol': link:../evolution/packages/protocol
+      '@arken/meme-isles-protocol': link:../meme-isles/packages/protocol
       '@arken/node': link:../node
       '@arken/oasis-protocol': link:../oasis/packages/protocol
       '@arken/seer-protocol': link:../seer/packages/protocol
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@types/jest': 29.5.12
       '@types/node': 20.16.0
       '@types/yargs': 17.0.33
@@ -508,8 +510,8 @@ importers:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/providers': 5.7.2
       '@ethersproject/solidity': 5.7.0
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/common-tags': 1.8.4
@@ -645,8 +647,8 @@ importers:
       '@arken/evolution-protocol': link:../protocol
       '@arken/evolution-shard': link:../shard
       '@arken/node': link:../../../node
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/common-tags': 1.8.4
@@ -767,8 +769,8 @@ importers:
       utf8: 3.0.0
       web3: 1.10.4
     devDependencies:
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@types/common-tags': 1.8.4
       '@types/cors': 2.8.17
       '@types/ethereum-protocol': 1.0.5
@@ -856,7 +858,7 @@ importers:
       uuid: ^9
     dependencies:
       '@arken/node': link:../../../node
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/server': 11.0.0-rc.633
       axios: 1.7.4
       body-parser: 1.20.2
       cors: 2.8.5
@@ -1244,9 +1246,9 @@ importers:
       '@reduxjs/toolkit': 1.9.7_react-redux@7.2.9+react@18.3.1
       '@tanstack/react-query': 5.52.1_react@18.3.1
       '@tanstack/react-query-devtools': 5.52.2_27aaef9d0dee031f086daba2c1425cf3
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/react-query': 11.0.0-rc.630_4baf9e096082709177ef0d0c0b75c636
-      '@trpc/server': 11.0.0-rc.630_f62614d69b9e0e87586e17ac07f113ed
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/react-query': 11.0.0-rc.633_63e018050972b7bc1dc68b2e91a44079
+      '@trpc/server': 11.0.0-rc.633_f62614d69b9e0e87586e17ac07f113ed
       '@uniswap/token-lists': 1.0.0-beta.34
       '@uniswap/v2-core': 1.0.1
       '@uniswap/v2-periphery': 1.1.0-beta.0
@@ -1401,6 +1403,365 @@ importers:
       webpack-bundle-analyzer: 4.10.2
       webpack-cli: 5.1.4_d9e0e853486693bb02cef9b9edda8eea
 
+  ../../packages/meme-isles/packages/protocol:
+    specifiers:
+      '@arken/node': workspace:*
+      '@ethersproject/address': ^5
+      '@ethersproject/contracts': ^5
+      '@ethersproject/networks': ^5
+      '@ethersproject/providers': ^5
+      '@ethersproject/solidity': ^5
+      '@trpc/client': next
+      '@trpc/server': next
+      '@truffle/hdwallet-provider': ^1
+      '@typechain/ethers-v4': ^1
+      '@types/common-tags': ^1
+      '@types/cors': ^2
+      '@types/ethereum-protocol': ^1
+      '@types/express': ^4
+      '@types/express-rate-limit': ^3
+      '@types/helmet': ^0
+      '@types/jest': ^29
+      '@types/morgan': ^1
+      '@types/node': ^20
+      '@types/web3': ^1
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
+      axios: ^1
+      body-parser: ^1
+      chalk: ^4
+      cors: ^2
+      dd-trace: ^1
+      dotenv: ^16
+      eslint: ^8
+      eslint-config-marine: ^3
+      eslint-config-prettier: ^8
+      eslint-plugin-prettier: ^3
+      eslint-plugin-react: ^7
+      eslint-plugin-react-hooks: ^4
+      ethereum-protocol: ^1
+      ethers: ^5
+      express: ^4
+      express-rate-limit: ^5
+      fast-safe-stringify: ^2
+      fs-jetpack: ^4
+      git: ^0
+      helmet: ^7
+      jest: ^29
+      js-md5: ^0
+      moment: ^2
+      mongoose: ^8
+      morgan: ^1
+      nodemon: ^2
+      rune-backend-sdk: ^1
+      semver: ^7
+      shortid: ^2
+      socket.io: ^4
+      socket.io-client: ^4
+      supertest: ^7
+      ts-jest: ^29
+      ts-node: ^10
+      ts-node-dev: ^2
+      tsc-alias: ^1
+      tsconfig-paths: ^4
+      typescript: ^5
+      utf8: ^3
+      web3: ^1
+      zod: ^3
+    dependencies:
+      dotenv: 16.4.5
+      zod: 3.23.8
+    devDependencies:
+      '@arken/node': link:../../../node
+      '@ethersproject/address': 5.7.0
+      '@ethersproject/contracts': 5.7.0
+      '@ethersproject/networks': 5.7.1
+      '@ethersproject/providers': 5.7.2
+      '@ethersproject/solidity': 5.7.0
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
+      '@truffle/hdwallet-provider': 1.7.0
+      '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
+      '@types/common-tags': 1.8.4
+      '@types/cors': 2.8.17
+      '@types/ethereum-protocol': 1.0.5
+      '@types/express': 4.17.21
+      '@types/express-rate-limit': 3.3.5
+      '@types/helmet': 0.0.46
+      '@types/jest': 29.5.12
+      '@types/morgan': 1.9.9
+      '@types/node': 20.16.0
+      '@types/web3': 1.0.20
+      '@typescript-eslint/eslint-plugin': 8.8.1_a39d1e1f7dcec28bf08acfe08d655709
+      '@typescript-eslint/parser': 8.8.1_eslint@8.57.0+typescript@5.5.4
+      axios: 1.7.4
+      body-parser: 1.20.2
+      chalk: 4.1.2
+      cors: 2.8.5
+      dd-trace: 1.7.1
+      eslint: 8.57.0
+      eslint-config-marine: 3.0.3_a53a81d40bb4b6d3200638bf614fe9e6
+      eslint-config-prettier: 8.10.0_eslint@8.57.0
+      eslint-plugin-prettier: 3.4.1_c278f3972eca57d128b38bb4c5bb01c4
+      eslint-plugin-react: 7.35.0_eslint@8.57.0
+      eslint-plugin-react-hooks: 4.6.2_eslint@8.57.0
+      ethereum-protocol: 1.0.1
+      ethers: 5.7.2
+      express: 4.19.2
+      express-rate-limit: 5.5.1
+      fast-safe-stringify: 2.1.1
+      fs-jetpack: 4.3.1
+      git: 0.1.5
+      helmet: 7.1.0
+      jest: 29.7.0_f4ccef32da4b9952966fe3a9f6911000
+      js-md5: 0.7.3
+      moment: 2.30.1
+      mongoose: 8.5.3
+      morgan: 1.10.0
+      nodemon: 2.0.22
+      rune-backend-sdk: 1.2.66_202f943dff4409a51fbb3d3c8c72e10b
+      semver: 7.6.3
+      shortid: 2.2.16
+      socket.io: 4.7.5
+      socket.io-client: 4.7.5
+      supertest: 7.0.0
+      ts-jest: 29.2.4_jest@29.7.0+typescript@5.5.4
+      ts-node: 10.9.2_1018ebaf03305b31b0640e98e7fb51ac
+      ts-node-dev: 2.0.0_1018ebaf03305b31b0640e98e7fb51ac
+      tsc-alias: 1.8.10
+      tsconfig-paths: 4.2.0
+      typescript: 5.5.4
+      utf8: 3.0.0
+      web3: 1.10.4
+
+  ../../packages/meme-isles/packages/realm:
+    specifiers:
+      '@arken/meme-isles-protocol': workspace:*
+      '@arken/meme-isles-shard': workspace:*
+      '@arken/node': workspace:*
+      '@trpc/client': next
+      '@trpc/server': next
+      '@truffle/hdwallet-provider': ^1
+      '@typechain/ethers-v4': ^1
+      '@types/common-tags': ^1
+      '@types/cors': ^2
+      '@types/ethereum-protocol': ^1
+      '@types/express': ^4
+      '@types/express-rate-limit': ^3
+      '@types/helmet': ^0
+      '@types/jest': ^29
+      '@types/morgan': ^1
+      '@types/node': ^20
+      '@types/web3': ^1
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
+      axios: ^1
+      body-parser: ^1
+      chalk: ^4
+      cors: ^2
+      dayjs: ^1
+      dd-trace: ^1
+      dotenv: ^16
+      eslint: ^8
+      eslint-config-marine: ^3
+      eslint-config-prettier: ^8
+      eslint-plugin-prettier: ^3
+      eslint-plugin-react: ^7
+      eslint-plugin-react-hooks: ^4
+      ethereum-protocol: ^1
+      ethers: ^5
+      express: ^4
+      express-rate-limit: ^5
+      fast-safe-stringify: ^2
+      fs-jetpack: ^4
+      git: ^0
+      helmet: ^7
+      isomorphic-ws: ^5
+      jest: ^29
+      js-md5: ^0
+      moment: ^2
+      mongoose: ^8
+      morgan: ^1
+      nodemon: ^2
+      rune-backend-sdk: ^1
+      semver: ^7
+      shortid: ^2
+      socket.io: ^4
+      socket.io-client: ^4
+      supertest: ^7
+      ts-jest: ^29
+      ts-node: ^10
+      ts-node-dev: ^2
+      tsc-alias: ^1
+      tsconfig-paths: ^4
+      typescript: ^5
+      utf8: ^3
+      web3: ^1
+      zod: ^3
+    dependencies:
+      body-parser: 1.20.2
+      cors: 2.8.5
+      dayjs: 1.11.12
+      dotenv: 16.4.5
+      express: 4.19.2
+      express-rate-limit: 5.5.1
+      helmet: 7.1.0
+      isomorphic-ws: 5.0.0
+      morgan: 1.10.0
+      socket.io: 4.7.5
+      utf8: 3.0.0
+      zod: 3.23.8
+    devDependencies:
+      '@arken/meme-isles-protocol': link:../protocol
+      '@arken/meme-isles-shard': link:../shard
+      '@arken/node': link:../../../node
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
+      '@truffle/hdwallet-provider': 1.7.0
+      '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
+      '@types/common-tags': 1.8.4
+      '@types/cors': 2.8.17
+      '@types/ethereum-protocol': 1.0.5
+      '@types/express': 4.17.21
+      '@types/express-rate-limit': 3.3.5
+      '@types/helmet': 0.0.46
+      '@types/jest': 29.5.12
+      '@types/morgan': 1.9.9
+      '@types/node': 20.16.0
+      '@types/web3': 1.0.20
+      '@typescript-eslint/eslint-plugin': 8.8.1_a39d1e1f7dcec28bf08acfe08d655709
+      '@typescript-eslint/parser': 8.8.1_eslint@8.57.0+typescript@5.5.4
+      axios: 1.7.4
+      chalk: 4.1.2
+      dd-trace: 1.7.1
+      eslint: 8.57.0
+      eslint-config-marine: 3.0.3_a53a81d40bb4b6d3200638bf614fe9e6
+      eslint-config-prettier: 8.10.0_eslint@8.57.0
+      eslint-plugin-prettier: 3.4.1_c278f3972eca57d128b38bb4c5bb01c4
+      eslint-plugin-react: 7.35.0_eslint@8.57.0
+      eslint-plugin-react-hooks: 4.6.2_eslint@8.57.0
+      ethereum-protocol: 1.0.1
+      ethers: 5.7.2
+      fast-safe-stringify: 2.1.1
+      fs-jetpack: 4.3.1
+      git: 0.1.5
+      jest: 29.7.0_f4ccef32da4b9952966fe3a9f6911000
+      js-md5: 0.7.3
+      moment: 2.30.1
+      mongoose: 8.5.3
+      nodemon: 2.0.22
+      rune-backend-sdk: 1.2.66_eslint@8.57.0
+      semver: 7.6.3
+      shortid: 2.2.16
+      socket.io-client: 4.7.5
+      supertest: 7.0.0
+      ts-jest: 29.2.4_jest@29.7.0+typescript@5.5.4
+      ts-node: 10.9.2_1018ebaf03305b31b0640e98e7fb51ac
+      ts-node-dev: 2.0.0_1018ebaf03305b31b0640e98e7fb51ac
+      tsc-alias: 1.8.10
+      tsconfig-paths: 4.2.0
+      typescript: 5.5.4
+      web3: 1.10.4
+
+  ../../packages/meme-isles/packages/shard:
+    specifiers:
+      '@arken/meme-isles-protocol': workspace:*
+      '@arken/node': workspace:*
+      '@trpc/client': next
+      '@trpc/server': next
+      '@typechain/ethers-v4': ^1
+      '@types/common-tags': ^1
+      '@types/cors': ^2
+      '@types/ethereum-protocol': ^1
+      '@types/express': ^4
+      '@types/express-rate-limit': ^3
+      '@types/helmet': ^0
+      '@types/jest': ^29
+      '@types/morgan': ^1
+      '@types/node': ^20
+      '@types/web3': ^1
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
+      axios: ^1
+      body-parser: ^1
+      chalk: ^4
+      cors: ^2
+      dd-trace: ^1
+      eslint: ^8
+      eslint-config-marine: ^3
+      eslint-config-prettier: ^8
+      eslint-plugin-prettier: ^3
+      eslint-plugin-react: ^7
+      eslint-plugin-react-hooks: ^4
+      ethereum-protocol: ^1
+      ethers: ^5
+      express: ^4
+      express-rate-limit: ^5
+      fast-safe-stringify: ^2
+      fs-jetpack: ^4
+      helmet: ^7
+      jest: ^29
+      moment: ^2
+      morgan: ^1
+      nodemon: ^2
+      semver: ^7
+      shortid: ^2
+      socket.io: ^4
+      ts-jest: ^29
+      ts-node: ^10
+      typescript: ^5
+      utf8: ^3
+      web3: ^1
+    dependencies:
+      '@arken/meme-isles-protocol': link:../protocol
+      '@arken/node': link:../../../node
+      '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
+      axios: 1.7.4
+      body-parser: 1.20.2
+      chalk: 4.1.2
+      cors: 2.8.5
+      dd-trace: 1.7.1
+      ethereum-protocol: 1.0.1
+      ethers: 5.7.2
+      express: 4.19.2
+      express-rate-limit: 5.5.1
+      fast-safe-stringify: 2.1.1
+      fs-jetpack: 4.3.1
+      helmet: 7.1.0
+      moment: 2.30.1
+      morgan: 1.10.0
+      semver: 7.6.3
+      shortid: 2.2.16
+      socket.io: 4.7.5
+      typescript: 5.5.4
+      utf8: 3.0.0
+      web3: 1.10.4
+    devDependencies:
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
+      '@types/common-tags': 1.8.4
+      '@types/cors': 2.8.17
+      '@types/ethereum-protocol': 1.0.5
+      '@types/express': 4.17.21
+      '@types/express-rate-limit': 3.3.5
+      '@types/helmet': 0.0.46
+      '@types/jest': 29.5.12
+      '@types/morgan': 1.9.9
+      '@types/node': 20.16.0
+      '@types/web3': 1.0.20
+      '@typescript-eslint/eslint-plugin': 8.8.1_a39d1e1f7dcec28bf08acfe08d655709
+      '@typescript-eslint/parser': 8.8.1_eslint@8.57.0+typescript@5.5.4
+      eslint: 8.57.0
+      eslint-config-marine: 3.0.3_a53a81d40bb4b6d3200638bf614fe9e6
+      eslint-config-prettier: 8.10.0_eslint@8.57.0
+      eslint-plugin-prettier: 3.4.1_c278f3972eca57d128b38bb4c5bb01c4
+      eslint-plugin-react: 7.35.0_eslint@8.57.0
+      eslint-plugin-react-hooks: 4.6.2_eslint@8.57.0
+      jest: 29.7.0_f4ccef32da4b9952966fe3a9f6911000
+      nodemon: 2.0.22
+      ts-jest: 29.2.4_jest@29.7.0+typescript@5.5.4
+      ts-node: 10.9.2_1018ebaf03305b31b0640e98e7fb51ac
+
   ../../packages/node:
     specifiers:
       '@ethersproject/address': ^5
@@ -1478,8 +1839,8 @@ importers:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/providers': 5.7.2
       '@ethersproject/solidity': 5.7.0
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/socket.io-client': 3.0.0
@@ -1617,8 +1978,8 @@ importers:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/providers': 5.7.2
       '@ethersproject/solidity': 5.7.0
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/common-tags': 1.8.4
@@ -1754,8 +2115,8 @@ importers:
       '@arken/evolution-protocol': link:../../../evolution/packages/protocol
       '@arken/evolution-shard': link:../../../evolution/packages/shard
       '@arken/node': link:../../../node
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       '@types/common-tags': 1.8.4
@@ -2180,8 +2541,8 @@ importers:
       '@openzeppelin/contracts': 3.4.2
       '@openzeppelin/test-environment': 0.1.9
       '@openzeppelin/test-helpers': 0.5.16
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2+typechain@2.0.1
       '@types/axios': 0.14.0
@@ -2243,8 +2604,8 @@ importers:
       zod: ^3
     dependencies:
       '@arken/node': link:../../../node
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633
       dotenv: 16.4.5
       zod: 3.23.8
 
@@ -15057,31 +15418,31 @@ packages:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
     dev: false
 
-  /@trpc/client/11.0.0-rc.630_@trpc+server@11.0.0-rc.630:
-    resolution: {integrity: sha512-kHs2pa6oGiHRgF+hzLerGP4Vqm16t9KUrjunijIXPVco6oiYQ6IYy2vWOEgZk21/KjrwxBIv3Q7bqAZCQ7T3PA==}
+  /@trpc/client/11.0.0-rc.633_@trpc+server@11.0.0-rc.633:
+    resolution: {integrity: sha512-fha4Mix/birOFNMIutHXAhkJuZ8Zob0PGZ5s0NVyt4VbIGIpuvx2DYjFQG9lmyt+LEGZklsi1G0QfY+7rNaSmg==}
     peerDependencies:
-      '@trpc/server': 11.0.0-rc.630+73639524c
+      '@trpc/server': 11.0.0-rc.633+55512768a
     dependencies:
-      '@trpc/server': 11.0.0-rc.630
+      '@trpc/server': 11.0.0-rc.633
 
-  /@trpc/react-query/11.0.0-rc.630_4baf9e096082709177ef0d0c0b75c636:
-    resolution: {integrity: sha512-V/1xSfxznRaS+hSKk/B92+WfBqzdjJ4czoQxtlNS3ny+hsMPhhYNZVGa1laQDHTIeJUOBlUf7k+HKj0McK6L9g==}
+  /@trpc/react-query/11.0.0-rc.633_63e018050972b7bc1dc68b2e91a44079:
+    resolution: {integrity: sha512-qrisejoXkk0l+dWiV3ruP2zVboavkm/WHQIm2eAf4mQhvOD6uKbWd7M37ywZZkvPfiPBQRZDWN9y0d1DOsEgcQ==}
     peerDependencies:
       '@tanstack/react-query': ^5.59.15
-      '@trpc/client': 11.0.0-rc.630+73639524c
-      '@trpc/server': 11.0.0-rc.630+73639524c
+      '@trpc/client': 11.0.0-rc.633+55512768a
+      '@trpc/server': 11.0.0-rc.633+55512768a
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
     dependencies:
       '@tanstack/react-query': 5.52.1_react@18.3.1
-      '@trpc/client': 11.0.0-rc.630_@trpc+server@11.0.0-rc.630
-      '@trpc/server': 11.0.0-rc.630_f62614d69b9e0e87586e17ac07f113ed
+      '@trpc/client': 11.0.0-rc.633_@trpc+server@11.0.0-rc.633
+      '@trpc/server': 11.0.0-rc.633_f62614d69b9e0e87586e17ac07f113ed
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
     dev: false
 
-  /@trpc/server/11.0.0-rc.630:
-    resolution: {integrity: sha512-4zmlqbLscjJNIsj8VuY38vdaDFxukdmqOOO4y3CoXQBNSLLtcpeecoRUHISpEcImtfvqEAW+gikxAxpoicUNkQ==}
+  /@trpc/server/11.0.0-rc.633:
+    resolution: {integrity: sha512-R26i5aP7/DvgIp3YbU+0u0nbggqItMLYvPmVBOyTP8rD5+wrifZ9ZKp8p+KMzhQEGeBv5mJ48TjJ2URcKwxg6g==}
     optionalDependencies:
       '@types/aws-lambda': 8.10.145
       express: 4.19.2
@@ -15100,8 +15461,8 @@ packages:
       - sass
       - utf-8-validate
 
-  /@trpc/server/11.0.0-rc.630_@babel+core@7.25.2:
-    resolution: {integrity: sha512-4zmlqbLscjJNIsj8VuY38vdaDFxukdmqOOO4y3CoXQBNSLLtcpeecoRUHISpEcImtfvqEAW+gikxAxpoicUNkQ==}
+  /@trpc/server/11.0.0-rc.633_@babel+core@7.25.2:
+    resolution: {integrity: sha512-R26i5aP7/DvgIp3YbU+0u0nbggqItMLYvPmVBOyTP8rD5+wrifZ9ZKp8p+KMzhQEGeBv5mJ48TjJ2URcKwxg6g==}
     optionalDependencies:
       '@types/aws-lambda': 8.10.145
       express: 4.19.2
@@ -15121,8 +15482,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@trpc/server/11.0.0-rc.630_f62614d69b9e0e87586e17ac07f113ed:
-    resolution: {integrity: sha512-4zmlqbLscjJNIsj8VuY38vdaDFxukdmqOOO4y3CoXQBNSLLtcpeecoRUHISpEcImtfvqEAW+gikxAxpoicUNkQ==}
+  /@trpc/server/11.0.0-rc.633_f62614d69b9e0e87586e17ac07f113ed:
+    resolution: {integrity: sha512-R26i5aP7/DvgIp3YbU+0u0nbggqItMLYvPmVBOyTP8rD5+wrifZ9ZKp8p+KMzhQEGeBv5mJ48TjJ2URcKwxg6g==}
     optionalDependencies:
       '@types/aws-lambda': 8.10.145
       express: 4.19.2
@@ -29364,6 +29725,15 @@ packages:
       tslib: 2.6.3
     dev: false
 
+  /follow-redirects/1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   /follow-redirects/1.15.6_debug@4.3.6:
     resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
     engines: {node: '>=4.0'}
@@ -31372,7 +31742,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.6_debug@4.3.6
+      follow-redirects: 1.15.6
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
