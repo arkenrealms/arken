@@ -42,11 +42,11 @@ See our [docs and guides here](https://docs.arken.gg/)
 - 🌐 [Arken Discord](https://discord.arken.gg)
 - 🌐 [Arken Telegram](https://telegram.arken.gg)
 - 📺 [Arken Realms](https://arken.gg/)
-- 🔗 [Arken Seer](https://github.com/arken-engineering/seer)
-- 🔗 [Arken Cerebro](https://github.com/arken-engineering/cerebro)
+- 🔗 [Arken Seer](https://github.com/arkenrealms/seer)
+- 🔗 [Arken Cerebro](https://github.com/arkenrealms/cerebro)
 - 📖 [Return Portal](http://return.gg/portal)
-- 💻 [Return Portal Web](https://github.com/arken-engineering/portal-web)
-- 💻 [Return Portal UI](https://github.com/arken-engineering/portal-ui)
+- 💻 [Return Portal Web](https://github.com/arkenrealms/portal-web)
+- 💻 [Return Portal UI](https://github.com/arkenrealms/portal-ui)
 
 ## License
 
@@ -55,7 +55,7 @@ See our [docs and guides here](https://docs.arken.gg/)
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
 
 [License]: LICENSE
-[Issue]: https://github.com/arken-engineering/arken/issues
+[Issue]: https://github.com/arkenrealms/arken/issues
 [patreon]: https://patreon.com/Arken
 
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮   Quicklinks   🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
@@ -81,15 +81,15 @@ See our [docs and guides here](https://docs.arken.gg/)
 [Button Arken Realms]: https://img.shields.io/badge/Arken-Realms-bb044f?style=for-the-badge
 [Button Return Portal]: https://img.shields.io/badge/Return-Portal-bb044f?style=for-the-badge
 [Button Arken Seer]: https://img.shields.io/badge/Arken-Seer-bb044f?style=for-the-badge
-[contributors-shield]: https://img.shields.io/github/contributors/arken-engineering/arken.svg?style=for-the-badge
-[contributors-url]: https://github.com/arken-engineering/arken/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/arken-engineering/arken.svg?style=for-the-badge
-[forks-url]: https://github.com/arken-engineering/arken/network/members
-[stars-shield]: https://img.shields.io/github/stars/arken-engineering/arken.svg?style=for-the-badge&colorB=c6af03
-[stars-url]: https://github.com/arken-engineering/arken/stargazers
-[issues-shield]: https://img.shields.io/github/issues/arken-engineering/arken.svg?style=for-the-badge&colorB=1b9233
-[issues-url]: https://github.com/arken-engineering/arken/issues
-[license-shield]: https://img.shields.io/github/license/arken-engineering/arken.svg?style=for-the-badge&colorB=c60388
-[license-url]: https://github.com/arken-engineering/arken/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/arkenrealms/arken.svg?style=for-the-badge
+[contributors-url]: https://github.com/arkenrealms/arken/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/arkenrealms/arken.svg?style=for-the-badge
+[forks-url]: https://github.com/arkenrealms/arken/network/members
+[stars-shield]: https://img.shields.io/github/stars/arkenrealms/arken.svg?style=for-the-badge&colorB=c6af03
+[stars-url]: https://github.com/arkenrealms/arken/stargazers
+[issues-shield]: https://img.shields.io/github/issues/arkenrealms/arken.svg?style=for-the-badge&colorB=1b9233
+[issues-url]: https://github.com/arkenrealms/arken/issues
+[license-shield]: https://img.shields.io/github/license/arkenrealms/arken.svg?style=for-the-badge&colorB=c60388
+[license-url]: https://github.com/arkenrealms/arken/blob/master/LICENSE
 [discord-shield]: https://img.shields.io/discord/857533189948964874.svg?style=for-the-badge&colorB=7581dc&logo=discord&logoColor=white
 [discord-url]: https://discord.gg/vMtb3WFfKZ
