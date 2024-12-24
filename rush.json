@@ -88,26 +88,6 @@
     {
       "packageName": "@arken/evolution-shard",
       "projectFolder": "packages/evolution/packages/shard"
-    },
-    {
-      "packageName": "@arken/meme-isles-protocol",
-      "projectFolder": "packages/meme-isles/packages/protocol"
-    },
-    {
-      "packageName": "@arken/meme-isles-realm",
-      "projectFolder": "packages/meme-isles/packages/realm"
-    },
-    {
-      "packageName": "@arken/meme-isles-shard",
-      "projectFolder": "packages/meme-isles/packages/shard"
-    },
-    {
-      "packageName": "@arken/oasis-protocol",
-      "projectFolder": "packages/oasis/packages/protocol"
-    },
-    {
-      "packageName": "@arken/oasis-realm",
-      "projectFolder": "packages/oasis/packages/realm"
     }
   ]
 }
