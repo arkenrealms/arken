@@ -24,7 +24,8 @@
     "push:main": "git push",
     "pull": "npm-run-all pull:*",
     "install-cerebro": "mv rush.json rush.all.json && mv rush.cerebro.json rush.json && rush update",
-    "install-forge": "mv rush.json rush.all.json && mv rush.forge.json rush.json && rush update"
+    "install-forge": "mv rush.json rush.all.json && mv rush.forge.json rush.json && rush update",
+    "pull:prod": "cd /opt/arken/packages/node && git pull &&   cd /opt/arken/packages/seer/packages/protocol && git pull &&   cd /opt/arken/packages/seer/packages/node && git pull &&   cd /opt/arken/packages/evolution/packages/protocol && git pull &&   cd /opt/arken/packages/evolution/packages/shard && git pull &&   cd /opt/arken/packages/evolution/packages/realm && git pull &&   cd /opt/arken/packages/cli && git pull &&   cd /opt/arken/sites/beta.arken.gg && git pull    && cd /opt/arken/packages/evolution/packages/realm"
   },
   "dependencies": {
     "@arken/cli": "workspace:*"
