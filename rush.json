@@ -5,7 +5,7 @@
   "nodeSupportedVersionRange": ">=20.0.0",
   "projectFolderMaxDepth": 10,
   "gitPolicy": {},
-  "ensureConsistentVersions": true,
+  "ensureConsistentVersions": false,
   "repository": {
     "defaultBranch": "main"
   },

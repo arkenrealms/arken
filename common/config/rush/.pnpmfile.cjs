@@ -39,6 +39,10 @@ function readPackage(packageJson, context) {
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "node-gyp": "10.2.0",
+    "@solana/spl-token": "0.4.9",
+    // "rpc-websockets": "7.11.2",
+    "@solana/web3.js": "1.31.0",
+    // "@solana/web3.js": "1.66.2",
     // "iconv-utf-8-mac": "2.4.0",
     // "babel-loader": "8.3.0"
   };
