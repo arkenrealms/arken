@@ -1,7 +1,7 @@
 [submodule "packages/evolution"]
 	path = packages/evolution
-	url = git@github.com:arkenrealms/evolution.git
+	url = https://github.com/arkenrealms/evolution.git
 	branch = main
 [submodule "packages/node"]
 	path = packages/node
-	url = git@github.com:arkenrealms/node.git
+	url = https://github.com/arkenrealms/node.git

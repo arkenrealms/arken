@@ -3,6 +3,8 @@ packages/protocol
 packages/infinite
 packages/portal-ui
 
+utils
+mongo_backups
 temp
 sites
 old
