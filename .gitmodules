@@ -5,3 +5,6 @@
 [submodule "packages/node"]
 	path = packages/node
 	url = https://github.com/arkenrealms/node.git
+[submodule "packages/seer"]
+	path = packages/seer
+	url = https://github.com/arkenrealms/seer.git
