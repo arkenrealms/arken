@@ -8,3 +8,7 @@
 [submodule "packages/seer"]
 	path = packages/seer
 	url = https://github.com/arkenrealms/seer.git
+[submodule "packages/forge"]
+	path = packages/forge
+	url = https://github.com/arkenrealms/forge.git
+	branch = main
