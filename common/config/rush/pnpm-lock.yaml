@@ -780,6 +780,7 @@ importers:
       borsh: ~2.0.0
       browserify-fs: ^1
       canvas-confetti: ^1
+      cids: ^1
       classnames: ^2
       cross-fetch: ^4
       css-loader: ^5
@@ -814,6 +815,7 @@ importers:
       multicodec: ^3
       multihashes: ^4
       npm-run-all: ^4
+      path-browserify: ^1.0.0
       polished: ^4
       postcss-loader: ^7
       prettier: ^3
@@ -867,6 +869,7 @@ importers:
       ts-loader: ^9
       tweetnacl: ~1.0.3
       typescript: ^5
+      url: ~0.11.4
       use-sound: ^4
       utf8: ^3
       uuid: ^9
@@ -934,6 +937,7 @@ importers:
       borsh: 2.0.0
       browserify-fs: 1.0.0
       canvas-confetti: 1.9.3
+      cids: 1.1.9
       classnames: 2.5.1
       cross-fetch: 4.0.0
       customize-cra: 1.0.0
@@ -1000,6 +1004,7 @@ importers:
       swiper: 9.1.0
       tiny-invariant: 1.3.3
       tweetnacl: 1.0.3
+      url: 0.11.4
       use-sound: 4.0.3_react@18.3.1
       utf8: 3.0.0
       uuid: 9.0.1
@@ -1048,6 +1053,7 @@ importers:
       fork-ts-checker-webpack-plugin: 9.0.2_typescript@5.5.4+webpack@5.93.0
       make-dir-cli: 3.1.0
       npm-run-all: 4.1.5
+      path-browserify: 1.0.1
       postcss-loader: 7.3.3_typescript@5.5.4+webpack@5.93.0
       prettier: 3.3.3
       react-app-rewire-babel-loader: 0.1.1_react-scripts@5.0.1
@@ -1257,6 +1263,7 @@ importers:
       flatted: ^2
       fs-jetpack: ^4
       ganache-cli: ^6
+      helmet: ^7
       ipfs-http-client: ^50
       js-md5: ^0
       json-beautify: ^1
@@ -1295,6 +1302,7 @@ importers:
       '@types/socket.io-client': 3.0.0
       airtable: 0.11.6
       dayjs: 1.11.12
+      helmet: 7.1.0
       ipfs-http-client: 50.1.2_node-fetch@3.3.2
       js-md5: 0.7.3
       json-beautify: 1.1.1
@@ -1383,7 +1391,7 @@ importers:
       bs58: ~6.0.0
       dayjs: ^1
       dotenv: ^16
-      ethers: ^6
+      ethers: ~6.13.4
       tweetnacl: ~1.0.3
       web3: ^1
       zod: ^3
@@ -1726,7 +1734,7 @@ packages:
       fast-deep-equal: 3.1.3
       immer: 10.1.1
       lodash-es: 4.17.21
-      lucide-react: 0.542.0_react@18.3.1
+      lucide-react: 0.544.0_react@18.3.1
       nanoid: 4.0.2
       polished: 4.3.1
       react: 18.3.1
@@ -31639,8 +31647,8 @@ packages:
   /ltgt/2.2.1:
     resolution: {integrity: sha512-AI2r85+4MquTw9ZYqabu4nMwy9Oftlfa/e/52t9IjtfG+mGBbTNdAoZ3RQKLHR6r0wQnwZnPIEh/Ya6XTWAKNA==}
 
-  /lucide-react/0.542.0_react@18.3.1:
-    resolution: {integrity: sha512-w3hD8/SQB7+lzU2r4VdFyzzOzKnUjTZIF/MQJGSSvni7Llewni4vuViRppfRAa2guOsY5k4jZyxw/i9DQHv+dw==}
+  /lucide-react/0.544.0_react@18.3.1:
+    resolution: {integrity: sha512-t5tS44bqd825zAW45UQxpG2CvcC4urOwn2TrwSH8u+MjeE+1NnWl6QqeQ/6NdjMqdOygyiT9p3Ev0p1NJykxjw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
     dependencies:
