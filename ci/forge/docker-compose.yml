@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  arken-forge-web:
+    container_name: arken-forge-web
+    build:
+      context: arken/packages/forge/packages/web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8021:8021"
+    environment:
+      NODE_ENV: production
+    mem_limit: 2g
+    memswap_limit: 4g
+    volumes:
+      - forge-npm-cache:/root/.npm
+      - forge-rush-cache:/root/.rush
+
+volumes:
+  arken-npm-cache:
+  arken-rush-cache:
