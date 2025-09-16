@@ -18,5 +18,5 @@ services:
       - forge-rush-cache:/root/.rush
 
 volumes:
-  arken-npm-cache:
-  arken-rush-cache:
+  forge-npm-cache:
+  forge-rush-cache:
