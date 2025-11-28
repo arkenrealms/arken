@@ -34,5 +34,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "pretty": true
-  }
+  },
+  "exclude": ["node_modules"]
 }
