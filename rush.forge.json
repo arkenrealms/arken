@@ -18,19 +18,19 @@
   "projects": [
     {
       "packageName": "@arken/node",
-      "projectFolder": "packages/node"
+      "projectFolder": "node"
     },
     {
       "packageName": "@arken/seer-protocol",
-      "projectFolder": "packages/seer/packages/protocol"
+      "projectFolder": "seer/protocol"
     },
     {
       "packageName": "@arken/evolution-protocol",
-      "projectFolder": "packages/evolution/packages/protocol"
+      "projectFolder": "evolution/protocol"
     },
     {
       "packageName": "@arken/forge-web",
-      "projectFolder": "packages/forge/packages/web"
+      "projectFolder": "forge/web"
     }
   ]
 }

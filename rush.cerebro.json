@@ -18,19 +18,19 @@
   "projects": [
     {
       "packageName": "@arken/node",
-      "projectFolder": "packages/node"
+      "projectFolder": "node"
     },
     {
       "packageName": "@arken/cerebro",
-      "projectFolder": "packages/cerebro"
+      "projectFolder": "cerebro"
     },
     {
       "packageName": "@arken/cerebro-link",
-      "projectFolder": "packages/cerebro/packages/link"
+      "projectFolder": "cerebro/link"
     },
     {
       "packageName": "@arken/cerebro-hub",
-      "projectFolder": "packages/cerebro/packages/hub"
+      "projectFolder": "cerebro/hub"
     }
   ]
 }

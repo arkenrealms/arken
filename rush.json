@@ -19,47 +19,55 @@
   "projects": [
     {
       "packageName": "@arken/node",
-      "projectFolder": "packages/node"
+      "projectFolder": "node"
     },
     {
       "packageName": "@arken/cli",
-      "projectFolder": "packages/cli"
+      "projectFolder": "cli"
     },
     {
       "packageName": "@arken/seer-protocol",
-      "projectFolder": "packages/seer/packages/protocol"
+      "projectFolder": "seer/protocol"
     },
     {
       "packageName": "@arken/seer-node",
-      "projectFolder": "packages/seer/packages/node"
+      "projectFolder": "seer/node"
+    },
+    {
+      "packageName": "@arken/forge-protocol",
+      "projectFolder": "forge/protocol"
+    },
+    {
+      "packageName": "@arken/forge-web",
+      "projectFolder": "forge/web"
     },
     {
       "packageName": "@arken/cerebro",
-      "projectFolder": "packages/cerebro"
+      "projectFolder": "cerebro"
     },
     {
       "packageName": "@arken/cerebro-protocol",
-      "projectFolder": "packages/cerebro/packages/protocol"
+      "projectFolder": "cerebro/protocol"
     },
     {
       "packageName": "@arken/cerebro-link",
-      "projectFolder": "packages/cerebro/packages/link"
+      "projectFolder": "cerebro/link"
     },
     {
       "packageName": "@arken/cerebro-hub",
-      "projectFolder": "packages/cerebro/packages/hub"
+      "projectFolder": "cerebro/hub"
     },
     {
       "packageName": "@arken/evolution-protocol",
-      "projectFolder": "packages/evolution/packages/protocol"
+      "projectFolder": "evolution/protocol"
     },
     {
       "packageName": "@arken/evolution-realm",
-      "projectFolder": "packages/evolution/packages/realm"
+      "projectFolder": "evolution/realm"
     },
     {
       "packageName": "@arken/evolution-shard",
-      "projectFolder": "packages/evolution/packages/shard"
+      "projectFolder": "evolution/shard"
     }
   ]
 }

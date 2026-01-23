@@ -19,23 +19,23 @@
   "projects": [
     {
       "packageName": "@arken/node",
-      "projectFolder": "packages/node"
+      "projectFolder": "node"
     },
     {
       "packageName": "@arken/seer-protocol",
-      "projectFolder": "packages/seer/packages/protocol"
+      "projectFolder": "seer/protocol"
     },
     {
       "packageName": "@arken/evolution-protocol",
-      "projectFolder": "packages/evolution/packages/protocol"
+      "projectFolder": "evolution/protocol"
     },
     {
       "packageName": "@arken/evolution-realm",
-      "projectFolder": "packages/evolution/packages/realm"
+      "projectFolder": "evolution/realm"
     },
     {
       "packageName": "@arken/evolution-shard",
-      "projectFolder": "packages/evolution/packages/shard"
+      "projectFolder": "evolution/shard"
     }
   ]
 }
