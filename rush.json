@@ -70,6 +70,18 @@
       "projectFolder": "evolution/shard"
     },
     {
+      "packageName": "@arken/oasis-protocol",
+      "projectFolder": "oasis/protocol"
+    },
+    {
+      "packageName": "@arken/oasis-realm",
+      "projectFolder": "oasis/realm"
+    },
+    {
+      "packageName": "@arken/oasis-shard",
+      "projectFolder": "oasis/shard"
+    },
+    {
       "packageName": "@arken/sigil-protocol",
       "projectFolder": "sigil/protocol"
     }

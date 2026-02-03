@@ -548,6 +548,7 @@ importers:
     specifiers:
       '@arken/evolution-protocol': workspace:*
       '@arken/node': workspace:*
+      '@arken/seer-protocol': workspace:*
       '@trpc/client': 11.0.0-rc.660
       '@trpc/server': 11.0.0-rc.660
       '@typechain/ethers-v4': ^1
@@ -598,6 +599,7 @@ importers:
     dependencies:
       '@arken/evolution-protocol': link:../protocol
       '@arken/node': link:../../node
+      '@arken/seer-protocol': link:../../seer/protocol
       '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
       axios: 1.10.0
       body-parser: 1.20.2
@@ -1196,6 +1198,299 @@ importers:
       npm-run-all: 4.1.5
       ts-jest: 29.2.4_jest@29.7.0
 
+  ../../oasis/protocol:
+    specifiers:
+      '@trpc/client': 11.0.0-rc.660
+      '@trpc/server': 11.0.0-rc.660
+      '@types/common-tags': ^1
+      '@types/jest': ^29
+      '@types/lodash': ^4
+      '@types/mongoose': ^5
+      '@types/node': ^20
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
+      del-cli: ^5
+      dotenv: ^16
+      eslint: ^8
+      eslint-config-marine: ^3
+      eslint-config-prettier: ^8
+      eslint-plugin-prettier: ^3
+      eslint-plugin-react: ^7
+      eslint-plugin-react-hooks: ^4
+      jest: ^29
+      jest-environment-jsdom: ^29
+      jest-html-reporters: ^2
+      jest-junit: ^12
+      lodash: ^4
+      make-dir-cli: ^3
+      moment: ^2
+      mongoose: ^8
+      npm-run-all: ^4
+      pluralize: ^8
+      ts-jest: ^29
+      zod: ^3
+    dependencies:
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
+      '@trpc/server': 11.0.0-rc.660
+      dotenv: 16.4.5
+      lodash: 4.17.21
+      moment: 2.30.1
+      mongoose: 8.5.3
+      pluralize: 8.0.0
+      zod: 3.25.76
+    devDependencies:
+      '@types/common-tags': 1.8.4
+      '@types/jest': 29.5.12
+      '@types/lodash': 4.17.7
+      '@types/mongoose': 5.11.97
+      '@types/node': 20.16.0
+      '@typescript-eslint/eslint-plugin': 8.8.1_4e51e422884e0a2984e8f6eb8c9d464d
+      '@typescript-eslint/parser': 8.8.1_eslint@8.57.0
+      del-cli: 5.1.0
+      eslint: 8.57.0
+      eslint-config-marine: 3.0.3_a53a81d40bb4b6d3200638bf614fe9e6
+      eslint-config-prettier: 8.10.0_eslint@8.57.0
+      eslint-plugin-prettier: 3.4.1_c278f3972eca57d128b38bb4c5bb01c4
+      eslint-plugin-react: 7.35.0_eslint@8.57.0
+      eslint-plugin-react-hooks: 4.6.2_eslint@8.57.0
+      jest: 29.7.0_@types+node@20.16.0
+      jest-environment-jsdom: 29.7.0
+      jest-html-reporters: 2.1.7
+      jest-junit: 12.3.0
+      make-dir-cli: 3.1.0
+      npm-run-all: 4.1.5
+      ts-jest: 29.2.4_jest@29.7.0
+
+  ../../oasis/realm:
+    specifiers:
+      '@arken/node': workspace:*
+      '@arken/oasis-protocol': workspace:*
+      '@arken/oasis-shard': workspace:*
+      '@arken/seer-protocol': workspace:*
+      '@trpc/client': 11.0.0-rc.660
+      '@trpc/server': 11.0.0-rc.660
+      '@truffle/hdwallet-provider': ^1
+      '@typechain/ethers-v4': ^1
+      '@types/common-tags': ^1
+      '@types/cors': ^2
+      '@types/ethereum-protocol': ^1
+      '@types/express': ^4
+      '@types/express-rate-limit': ^3
+      '@types/helmet': ^0
+      '@types/jest': ^29
+      '@types/morgan': ^1
+      '@types/node': ^20
+      '@types/web3': ^1
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
+      axios: ^1
+      body-parser: ^1
+      chalk: ^4
+      cors: ^2
+      dayjs: ^1
+      dd-trace: ^1
+      dotenv: ^16
+      eslint: ^8
+      eslint-config-marine: ^3
+      eslint-config-prettier: ^8
+      eslint-plugin-prettier: ^3
+      eslint-plugin-react: ^7
+      eslint-plugin-react-hooks: ^4
+      ethereum-protocol: ^1
+      ethers: ^5
+      express: ^4
+      express-rate-limit: ^5
+      fast-safe-stringify: ^2
+      fs-jetpack: ^4
+      git: ^0
+      helmet: ^7
+      jest: ^29
+      js-md5: ^0
+      moment: ^2
+      mongoose: ^8
+      morgan: ^1
+      nodemon: ^2
+      semver: ^7
+      shortid: ^2
+      socket.io: ^4
+      socket.io-client: ^4
+      supertest: ^7
+      ts-jest: ^29
+      ts-node: ^10
+      ts-node-dev: ^2
+      tsc-alias: ^1
+      tsconfig-paths: ^4
+      typescript: ^5
+      utf8: ^3
+      web3: ^1
+      zod: ^3
+    dependencies:
+      body-parser: 1.20.2
+      cors: 2.8.5
+      dayjs: 1.11.19
+      dotenv: 16.4.5
+      express: 4.19.2
+      express-rate-limit: 5.5.1
+      helmet: 7.1.0
+      morgan: 1.10.0
+      socket.io: 4.7.5
+      utf8: 3.0.0
+      zod: 3.25.76
+    devDependencies:
+      '@arken/node': link:../../node
+      '@arken/oasis-protocol': link:../protocol
+      '@arken/oasis-shard': link:../shard
+      '@arken/seer-protocol': link:../../seer/protocol
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
+      '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
+      '@truffle/hdwallet-provider': 1.7.0
+      '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
+      '@types/common-tags': 1.8.4
+      '@types/cors': 2.8.17
+      '@types/ethereum-protocol': 1.0.5
+      '@types/express': 4.17.21
+      '@types/express-rate-limit': 3.3.5
+      '@types/helmet': 0.0.46
+      '@types/jest': 29.5.12
+      '@types/morgan': 1.9.9
+      '@types/node': 20.16.0
+      '@types/web3': 1.0.20
+      '@typescript-eslint/eslint-plugin': 8.8.1_1e8373f43a480a8641c4cc9f74c89dd3
+      '@typescript-eslint/parser': 8.8.1_eslint@8.57.0+typescript@5.9.3
+      axios: 1.10.0
+      chalk: 4.1.2
+      dd-trace: 1.7.1
+      eslint: 8.57.0
+      eslint-config-marine: 3.0.3_a53a81d40bb4b6d3200638bf614fe9e6
+      eslint-config-prettier: 8.10.0_eslint@8.57.0
+      eslint-plugin-prettier: 3.4.1_c278f3972eca57d128b38bb4c5bb01c4
+      eslint-plugin-react: 7.35.0_eslint@8.57.0
+      eslint-plugin-react-hooks: 4.6.2_eslint@8.57.0
+      ethereum-protocol: 1.0.1
+      ethers: 5.7.2
+      fast-safe-stringify: 2.1.1
+      fs-jetpack: 4.3.1
+      git: 0.1.5
+      jest: 29.7.0_f4ccef32da4b9952966fe3a9f6911000
+      js-md5: 0.7.3
+      moment: 2.30.1
+      mongoose: 8.5.3
+      nodemon: 2.0.22
+      semver: 7.7.3
+      shortid: 2.2.16
+      socket.io-client: 4.7.5
+      supertest: 7.1.4
+      ts-jest: 29.2.4_jest@29.7.0+typescript@5.9.3
+      ts-node: 10.9.2_191e966ea3e7107379a50dd09195e17b
+      ts-node-dev: 2.0.0_191e966ea3e7107379a50dd09195e17b
+      tsc-alias: 1.8.10
+      tsconfig-paths: 4.2.0
+      typescript: 5.9.3
+      web3: 1.10.4
+
+  ../../oasis/shard:
+    specifiers:
+      '@arken/node': workspace:*
+      '@arken/oasis-protocol': workspace:*
+      '@trpc/client': 11.0.0-rc.660
+      '@trpc/server': 11.0.0-rc.660
+      '@typechain/ethers-v4': ^1
+      '@types/common-tags': ^1
+      '@types/cors': ^2
+      '@types/ethereum-protocol': ^1
+      '@types/express': ^4
+      '@types/express-rate-limit': ^3
+      '@types/helmet': ^0
+      '@types/jest': ^29
+      '@types/morgan': ^1
+      '@types/node': ^20
+      '@types/web3': ^1
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
+      axios: ^1
+      body-parser: ^1
+      chalk: ^4
+      cors: ^2
+      dd-trace: ^1
+      dotenv: ~17.2.3
+      eslint: ^8
+      eslint-config-marine: ^3
+      eslint-config-prettier: ^8
+      eslint-plugin-prettier: ^3
+      eslint-plugin-react: ^7
+      eslint-plugin-react-hooks: ^4
+      ethereum-protocol: ^1
+      ethers: ^5
+      express: ^4
+      express-rate-limit: ^5
+      fast-safe-stringify: ^2
+      fs-jetpack: ^4
+      helmet: ^7
+      jest: ^29
+      moment: ^2
+      morgan: ^1
+      nodemon: ^2
+      puppeteer: ~24.31.0
+      semver: ^7
+      shortid: ^2
+      socket.io: ^4
+      ts-jest: ^29
+      ts-node: ^10
+      typescript: ^5
+      utf8: ^3
+      web3: ^1
+    dependencies:
+      '@arken/node': link:../../node
+      '@arken/oasis-protocol': link:../protocol
+      '@typechain/ethers-v4': 1.0.1_ethers@5.7.2
+      axios: 1.10.0
+      body-parser: 1.20.2
+      chalk: 4.1.2
+      cors: 2.8.5
+      dd-trace: 1.7.1
+      dotenv: 17.2.3
+      ethereum-protocol: 1.0.1
+      ethers: 5.7.2
+      express: 4.19.2
+      express-rate-limit: 5.5.1
+      fast-safe-stringify: 2.1.1
+      fs-jetpack: 4.3.1
+      helmet: 7.1.0
+      moment: 2.30.1
+      morgan: 1.10.0
+      puppeteer: 24.31.0_typescript@5.9.3
+      semver: 7.7.3
+      shortid: 2.2.16
+      socket.io: 4.7.5
+      typescript: 5.9.3
+      utf8: 3.0.0
+      web3: 1.10.4
+    devDependencies:
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
+      '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
+      '@types/common-tags': 1.8.4
+      '@types/cors': 2.8.17
+      '@types/ethereum-protocol': 1.0.5
+      '@types/express': 4.17.21
+      '@types/express-rate-limit': 3.3.5
+      '@types/helmet': 0.0.46
+      '@types/jest': 29.5.12
+      '@types/morgan': 1.9.9
+      '@types/node': 20.16.0
+      '@types/web3': 1.0.20
+      '@typescript-eslint/eslint-plugin': 8.8.1_1e8373f43a480a8641c4cc9f74c89dd3
+      '@typescript-eslint/parser': 8.8.1_eslint@8.57.0+typescript@5.9.3
+      eslint: 8.57.0
+      eslint-config-marine: 3.0.3_a53a81d40bb4b6d3200638bf614fe9e6
+      eslint-config-prettier: 8.10.0_eslint@8.57.0
+      eslint-plugin-prettier: 3.4.1_c278f3972eca57d128b38bb4c5bb01c4
+      eslint-plugin-react: 7.35.0_eslint@8.57.0
+      eslint-plugin-react-hooks: 4.6.2_eslint@8.57.0
+      jest: 29.7.0_f4ccef32da4b9952966fe3a9f6911000
+      nodemon: 2.0.22
+      ts-jest: 29.2.4_jest@29.7.0+typescript@5.9.3
+      ts-node: 10.9.2_191e966ea3e7107379a50dd09195e17b
+
   ../../seer/node:
     specifiers:
       '@arken/forge-protocol': workspace:*
@@ -1404,6 +1699,7 @@ importers:
       lodash: ^4
       make-dir-cli: ^3
       mongoose: ^8
+      npm-run-all: ^4.1.5
       pluralize: ^8
       zod: ^3
     dependencies:
@@ -1417,6 +1713,7 @@ importers:
       lodash: 4.17.21
       make-dir-cli: 3.1.0
       mongoose: 8.5.3
+      npm-run-all: 4.1.5
       pluralize: 8.0.0
       zod: 3.25.76
     devDependencies:
@@ -18251,7 +18548,7 @@ packages:
   /axios/0.26.1:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
     transitivePeerDependencies:
       - debug
     dev: false
@@ -18259,7 +18556,7 @@ packages:
   /axios/0.27.2_debug@4.3.4:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
       form-data: 4.0.5
     transitivePeerDependencies:
       - debug
@@ -18268,7 +18565,7 @@ packages:
   /axios/1.10.0:
     resolution: {integrity: sha512-/1xYAC4MP/HEG+3duIhFr4ZQXR4sQXOIe+o6sdqzeykGLx6Upp/1p8MHqhINOvGeP7xyNHe7tsiJByc4SSVUxw==}
     dependencies:
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
       form-data: 4.0.5
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -18277,7 +18574,7 @@ packages:
   /axios/1.5.0_debug@4.4.3:
     resolution: {integrity: sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==}
     dependencies:
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
       form-data: 4.0.5
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -25848,7 +26145,7 @@ packages:
   /extrareqp2/1.0.0_debug@4.3.7:
     resolution: {integrity: sha512-Gum0g1QYb6wpPJCVypWP3bbIuaibcFiJcpuPM10YSXp/tzqi84x9PJageob+eN4xVRIOto4wjSGNLyMD54D2xA==}
     dependencies:
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
     transitivePeerDependencies:
       - debug
     dev: false
@@ -26417,7 +26714,7 @@ packages:
       tslib: 2.8.1
     dev: false
 
-  /follow-redirects/1.15.11_debug@4.4.3:
+  /follow-redirects/1.15.11_debug@4.3.4:
     resolution: {integrity: sha512-deG2P0JfjrTxl50XGCDyfI97ZGVCxIpfKYmfyrQ54n5FO/0gfIES8C/Psl6kWVDolizcaaxZJnTS0QSMxvnsBQ==}
     engines: {node: '>=4.0'}
     peerDependencies:
@@ -26426,7 +26723,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.4.3
+      debug: 4.3.4
 
   /follow-redirects/1.5.10:
     resolution: {integrity: sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==}
@@ -28213,7 +28510,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
@@ -34441,7 +34738,7 @@ packages:
       camelcase: 6.3.0
       debug: 4.4.3
       find-cache-dir: 3.3.2
-      follow-redirects: 1.15.11_debug@4.4.3
+      follow-redirects: 1.15.11_debug@4.3.4
       https-proxy-agent: 7.0.6
       mongodb: 6.20.0
       new-find-package-json: 2.0.0
@@ -43038,6 +43335,7 @@ packages:
   /tar/4.4.19:
     resolution: {integrity: sha512-a20gEsvHnWe0ygBY8JbxoM4w3SJdhc7ZAuxkLqh+nvNQN2IOt0B5lLgM490X5Hl8FF0dl0tOf2ewFYAlIFgzVA==}
     engines: {node: '>=4.5'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
     dependencies:
       chownr: 1.1.4
       fs-minipass: 1.2.7
