@@ -466,6 +466,27 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
 - Next chunk (rotation): move to `evolution` and continue blocker-aware local analysis unless submodule mapping is repaired.
 
+### 2026-02-17 08:04–08:20 PST
+- Rotation continued from `forge` to `evolution` per cadence.
+- Loaded all evolution target `.md` files first and re-checked repo state:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Blocker remains unchanged in `evolution`:
+  - submodule init still blocked by missing `.gitmodules` mapping for `packages/client` gitlink,
+  - push permission to `arkenrealms/evolution` still unavailable for current token.
+- Per policy, advanced to next repo in rotation (`node`) and completed deepest-first leaf analysis in `data/zk/*`.
+- Loaded source files (no pre-existing `.md` in leaf folders) and added concise docs/analysis:
+  - `packages/node/data/zk/{README.md,ANALYSIS.md}`
+  - `packages/node/data/zk/circuits/{README.md,ANALYSIS.md}`
+  - `packages/node/data/zk/updateLeaf_js/{README.md,ANALYSIS.md}`
+- Updated parent rollup:
+  - `packages/node/data/ANALYSIS.md`
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes)
+- Commit/push/PR status:
+  - pending local commit in `arkenrealms/node` (`sable/maintenance-trpc-ws-cycle`), then parent `arken` submodule rollup push.
+- Next chunk (rotation): move to `seer` (next leaf-first module pass, likely `protocol/src/modules/evolution`) unless priority override is set.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

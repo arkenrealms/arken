@@ -158,6 +158,21 @@
 - [x] Captured key architecture risk: `evolution/leaderboard/index.tsx` is a monolithic route with direct Envoy polling and mixed data authority concerns.
 - [x] Commit/push forge-web + forge + arken rollup updates for this chunk (`forge-web` `6426073`, `forge` `88819c8`, `arken` `740b9e9`).
 
+### Newly completed (evolution blocker check + node zk leaf analysis)
+- [x] Rotated to `evolution` after `forge`, loaded active `.md` docs first, and re-validated blocker status.
+- [x] Confirmed `evolution` remains blocked by both missing `.gitmodules` mapping for `packages/client` and 403 push permissions.
+- [x] Advanced per rotation policy to `node` and completed deepest-first leaf analysis in `packages/node/data/zk`.
+- [x] Added concise docs:
+  - `packages/node/data/zk/{README.md,ANALYSIS.md}`
+  - `packages/node/data/zk/circuits/{README.md,ANALYSIS.md}`
+  - `packages/node/data/zk/updateLeaf_js/{README.md,ANALYSIS.md}`
+- [x] Updated parent rollup: `packages/node/data/ANALYSIS.md`.
+- [x] Captured key risks: hardcoded circuit depth coupling (`UpdateLeaf(16)`), generated witness runtime without dedicated tests, and unguarded binary artifact drift.
+
+### In progress (rotation)
+- [ ] Commit/push latest `node` docs chunk and roll updated submodule pointer into `arken` branch.
+- [ ] Continue to `seer` next (`protocol/src/modules/evolution` leaf-first) unless priority override is set.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
