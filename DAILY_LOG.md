@@ -58,6 +58,9 @@
 - [x] Rotated to `node` and added callback-boundary mixed-envelope robustness test in `packages/node/test/socketLink.spec.ts`.
 - [x] Updated `packages/node/test/{README.md,ANALYSIS.md}` to capture new edge-case coverage.
 - [x] Re-ran protocol suites: `test/socketLink.spec.ts` + `test/socketServer.spec.ts` (pass: 36/36).
+- [x] Committed/pushed node update: `e3e2583` (updates <https://github.com/arkenrealms/node/pull/15>).
+- [x] Committed evolution blocker docs locally: `74d4a6e` (push blocked: 403 on `arkenrealms/evolution`).
+- [x] Committed/pushed parent arken rollup: `bb1a36e`.
 
 ### In progress (rotation)
 - [ ] Continue to `seer` next (`protocol/src/modules/isles` leaf-first).

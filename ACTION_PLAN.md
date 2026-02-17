@@ -316,7 +316,10 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `packages/node/test/{README.md,ANALYSIS.md}`
 - Tests run:
   - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 36/36)
-- Commit/push: pending local commit in `arkenrealms/node` (not yet created in this chunk).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `e3e2583` — Add callback-boundary mixed-envelope websocket handler test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `74d4a6e` — Document evolution submodule-mapping blocker for client gitlink (local commit only; push blocked by 403 permission)
+  - `arkenrealms/arken` `sable/arken-maintenance-trpc-ws-cycle`: `bb1a36e` — Log evolution blocker and roll submodule pointers (pushed)
 - Next unblocked chunk:
   - continue `seer` rotation (`protocol/src/modules/isles` leaf-first) unless explicit priority override is set.
 
