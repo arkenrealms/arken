@@ -264,5 +264,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - CLI PR-open blocker: `gh` not installed in runtime (`command not found`), so PR creation was not executed from shell.
 - Next chunk (rotation): move to `forge`; for Seer follow-up queue starts at `protocol/src/modules/isles` leaf-first.
 
+### 2026-02-17 07:29–07:36 PST
+- Rotation moved to `forge` chunk.
+- Initialized nested Forge submodule:
+  - `packages/forge/packages/web` (`arkenrealms/forge-web`)
+- Completed deepest-first leaf analysis for `packages/forge/packages/web/src/modules/royale` and bubbled summaries upward to `src/modules` and `src`.
+- Added/updated concise docs + analysis in touched Forge folders:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/modules/royale/{README.md,ANALYSIS.md}`
+  - `packages/forge/ANALYSIS.md`
+  - `packages/forge/packages/{README.md,ANALYSIS.md}`
+- Key findings:
+  - `src/modules/royale` currently contains empty placeholders (`royale.router.ts`, `royale.service.ts`).
+  - Runtime Royale behavior is implemented via `views/royale/index.tsx`, `components/Royale.tsx`, and `/royale` route wiring in `hooks/useWindows.tsx`.
+  - Live-event/socket handling is coupled to component code, increasing protocol-hardening test friction.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `6c9f3f2` — Add Royale module deep-dive docs and src rollup analysis
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `3972d9f` — Initialize forge-web submodule and document Royale module architecture
+  - pushed both branches to origin.
+- PR status:
+  - Existing Forge PR remains: https://github.com/arkenrealms/forge/pull/1
+  - New Forge-web PR link (branch pushed): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+  - CLI PR-open blocker persists: `gh` not installed in runtime.
+- Next chunk (rotation): move to `evolution` and continue deepest-first local analysis/docs while push remains permission-blocked.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.

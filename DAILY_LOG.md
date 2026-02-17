@@ -28,9 +28,25 @@
 - [x] Pushed Seer updates: `seer-protocol` commit `895767b` and `seer` commit `b6c0b90` on `sable/repo-analysis-notes-20260217`.
 
 ### In progress (updated)
-- [ ] Continue rotation to `forge` for next chunk.
+- [x] Continue rotation to `forge` for next chunk.
+- [ ] Continue rotation to `evolution` for next chunk.
 - [ ] Continue Seer leaf-first analysis queue: `protocol/src/modules/isles` -> `infinite` -> `evolution`.
 - [ ] Open/update Seer-protocol PR from pushed branch (`sable/repo-analysis-notes-20260217`) — shell blocker: `gh` CLI unavailable in runtime.
+- [ ] Open/update Forge-web PR from pushed branch (`sable/repo-analysis-notes-20260217-2`) — shell blocker: `gh` CLI unavailable in runtime.
+
+### Newly completed (forge chunk)
+- [x] Initialized `forge-web` nested submodule in `packages/forge/packages/web`.
+- [x] Completed deepest-first analysis in `forge-web/src/modules/royale` and bubbled context to `src/modules` and `src`.
+- [x] Added concise `README.md` + `ANALYSIS.md` coverage in:
+  - `packages/forge/packages/web/src`
+  - `packages/forge/packages/web/src/modules`
+  - `packages/forge/packages/web/src/modules/royale`
+- [x] Updated parent Forge summaries in:
+  - `packages/forge/ANALYSIS.md`
+  - `packages/forge/packages/{README.md,ANALYSIS.md}`
+- [x] Pushed Forge commits:
+  - `forge-web` `6c9f3f2` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `3972d9f` (branch `sable/repo-analysis-notes-20260217`)
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
