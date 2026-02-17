@@ -17,20 +17,22 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 
 ## Working method (chunked, bottom-up)
 1. Pick a small folder chunk.
-2. **Read actual files in the folder** (not just names) to infer purpose, key flows, and how it fits Arken project context.
-3. Start with **deepest leaf folders first**, then move upward to parent folders.
-4. At each parent folder, **merge/summarize child context** so navigation from top-down remains clear.
-5. Write/update `ANALYSIS.md` with:
+2. **Load all `.md` files in that folder first** (README/NOTES/ANALYSIS/etc) before code edits.
+3. **Read actual files in the folder** (not just names) to infer purpose, key flows, and how it fits Arken project context.
+4. Start with **deepest leaf folders first**, then move upward to parent folders.
+5. At each parent folder, **merge/summarize child context** so navigation from top-down remains clear.
+6. Write/update `ANALYSIS.md` with checklists and sections for:
    - folder purpose in project context,
    - notable files and responsibilities,
    - protocol/test relevance,
    - risks/gaps and follow-ups.
-6. Update `README.md` if missing/outdated so another agent can quickly orient.
-7. Normalize top path headers in touched source files to `arken/...`.
-8. Add/extend tests where applicable.
-9. Commit + push.
-10. Open/update PR (stack branches when needed).
-11. Append progress log entry below with exact folders covered.
+7. Update `README.md` if missing/outdated so another agent can quickly orient.
+8. Normalize top path headers in touched source files to `arken/...`.
+9. Add/extend tests where applicable.
+10. Commit + push.
+11. Open/update PR (stack branches when needed).
+12. Append progress log entry below with exact folders covered.
+13. Update `DAILY_LOG.md` checklist with completed tasks + new improvement opportunities discovered.
 
 ## Progress log
 
@@ -124,6 +126,14 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
   - `git push origin sable/arken-maintenance-trpc-ws-cycle` (super-repo plan/log branch) failed with the same auth blocker.
 - Next unblocked chunk:
   - extend malformed payload/ID-field permutations in `attachTrpcResponseHandler` tests (e.g., numeric/empty IDs, malformed server-push params) and/or continue deepest-first `packages/node/data/zk/*` analysis.
+
+### 2026-02-17 06:58+ PST
+- Added persistent daily checklist log: `arken/DAILY_LOG.md`.
+- Added large-work workstream scaffolding:
+  - `arken/workstreams/README.md`
+  - `arken/workstreams/matchmaking-system/CHECKLIST.md`
+- Updated method to require reading all folder `.md` files before edits.
+- Updated method to require checklist-driven `ANALYSIS.md` updates and daily log maintenance.
 
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
