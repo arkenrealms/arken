@@ -1187,3 +1187,27 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push/PR status:
   - pending commit/push in `arkenrealms/node` (`sable/maintenance-trpc-ws-cycle`) and parent `arken` rollup update.
 - Next chunk (rotation): move to `seer` after node + parent rollup commit/push.
+
+### 2026-02-17 12:36–12:43 PST
+- Rotation moved to `seer` chunk (continuing cadence after latest `node` pass).
+- Loaded all `.md` docs first in target leaf folder:
+  - `packages/seer/packages/protocol/src/modules/isles/{README.md,ANALYSIS.md}`
+- Completed source pass for Isles module files:
+  - `index.ts`
+  - `isles.models.ts`
+  - `isles.schema.ts`
+  - `isles.types.ts`
+  - `isles.service.ts`
+  - `isles.router.ts`
+- Normalized top path headers to `arken/...` in touched source files:
+  - `isles.models.ts`
+  - `isles.schema.ts`
+  - `isles.types.ts`
+  - `isles.service.ts`
+  - `isles.router.ts`
+- Tests run:
+  - none (comment-only source normalization; no runtime logic changes).
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `fe8cb90` — Normalize Isles module path headers
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `397cd0a` — Roll Isles header normalization from seer-protocol (updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.

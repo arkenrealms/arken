@@ -659,3 +659,21 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass in checked-out scope.
 - [ ] Continue to `forge` then `evolution` per broad rotation cadence.
+
+### Newly completed (seer isles header-normalization chunk)
+- [x] Rotated to `seer` after the latest `node` pass and loaded required `.md` docs first in `packages/seer/packages/protocol/src/modules/isles`.
+- [x] Completed source pass for Isles module files (`index.ts`, `isles.models.ts`, `isles.schema.ts`, `isles.types.ts`, `isles.service.ts`, `isles.router.ts`).
+- [x] Normalized top path headers to `arken/...` in touched Isles source files:
+  - `isles.models.ts`
+  - `isles.schema.ts`
+  - `isles.types.ts`
+  - `isles.service.ts`
+  - `isles.router.ts`
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `fe8cb90` (branch `sable/repo-analysis-notes-20260217`)
+  - `seer` `397cd0a` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
+- [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
+- [ ] Commit/push parent `arken` rollup updates for this run.
