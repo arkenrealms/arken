@@ -181,4 +181,3 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
-- `arkenrealms/node` push auth currently unavailable in this runtime (`could not read Username for 'https://github.com': Device not configured`).
