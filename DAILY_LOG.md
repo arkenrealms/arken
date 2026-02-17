@@ -1190,3 +1190,22 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer wrapper-governance dotfile chunk)
+- [x] Rotated to `seer` and loaded required `.md` docs first:
+  - `packages/seer/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/seer/packages/{README.md,ANALYSIS.md}`
+- [x] Completed source/config pass for wrapper-governance files:
+  - `.editorconfig`, `.eslintrc`, `.gitignore`, `.gitmodules`, `.prettierrc`, `LICENSE`
+- [x] Updated concise docs:
+  - `packages/seer/README.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Captured key findings: permissive root lint posture, strong secret/artifact ignore coverage, and wrapper-level quality gates still mostly descriptive.
+- [x] Committed/pushed Seer update:
+  - `3b31038` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (next rotation)
+- [ ] Move to next `forge` chunk (deepest-first) and continue source + rollup analysis.
+- [ ] Re-check `evolution` blocker after forge chunk; if unchanged, advance to `node` per policy.
+- [ ] Commit/push parent `arken` rollup updates for this run.
