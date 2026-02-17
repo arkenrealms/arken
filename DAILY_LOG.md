@@ -171,7 +171,33 @@
 
 ### In progress (rotation)
 - [ ] Commit/push latest `node` docs chunk and roll updated submodule pointer into `arken` branch.
-- [ ] Continue to `seer` next (`protocol/src/modules/evolution` leaf-first) unless priority override is set.
+- [x] Continue to `seer` next (`protocol/src/modules/evolution` leaf-first) unless priority override is set.
+
+### Newly completed (seer evolution chunk)
+- [x] Rotated to `seer` and loaded active parent `.md` docs first (`src/modules`, `src`, `packages/protocol`, `packages`, and Seer root analyses).
+- [x] Completed deepest-first source analysis for `packages/seer/packages/protocol/src/modules/evolution`:
+  - `index.ts`
+  - `evolution.models.ts`
+  - `evolution.schema.ts`
+  - `evolution.types.ts`
+  - `evolution.router.ts`
+  - `evolution.service.ts`
+- [x] Added concise leaf docs:
+  - `packages/seer/packages/protocol/src/modules/evolution/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Captured key risks: permissive `z.any` contracts on critical procedures, monolithic Evolution service surface, mixed auth semantics, and likely party/payment invariant issues.
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `7659c5a` (branch `sable/repo-analysis-notes-20260217`)
+  - `seer` `467184c` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next (next deepest-first pass in checked-out `forge-web` scope).
+- [ ] Commit/push parent `arken` rollup updates for this chunk.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.

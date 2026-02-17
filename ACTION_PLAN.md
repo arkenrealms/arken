@@ -487,6 +487,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - pending local commit in `arkenrealms/node` (`sable/maintenance-trpc-ws-cycle`), then parent `arken` submodule rollup push.
 - Next chunk (rotation): move to `seer` (next leaf-first module pass, likely `protocol/src/modules/evolution`) unless priority override is set.
 
+### 2026-02-17 08:09–08:18 PST
+- Rotation moved to `seer` chunk (continuing cadence after `node` docs pass).
+- Loaded required `.md` docs first in active parent folders:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/{ANALYSIS.md,packages/ANALYSIS.md}`
+- Completed deepest-first source read for `packages/seer/packages/protocol/src/modules/evolution`:
+  - `index.ts`, `evolution.models.ts`, `evolution.schema.ts`, `evolution.types.ts`, `evolution.router.ts`, `evolution.service.ts`.
+- Added concise leaf docs:
+  - `packages/seer/packages/protocol/src/modules/evolution/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Key findings:
+  - Evolution module concentrates high-risk reward/payment/round logic in a monolithic service surface.
+  - Router contract strictness is uneven (`z.any` across critical procedures), with mixed auth semantics between middleware and service checks.
+  - Party/payment paths expose likely invariant risks (`leaveParty` guard inversion; payment session lifecycle fragility).
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `7659c5a` — Add Evolution module leaf analysis docs and protocol risk rollups (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `467184c` — Document Seer Evolution protocol leaf analysis and rollups (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge` (next deepest-first pass in checked-out `forge-web` scope) unless priority override is provided.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
