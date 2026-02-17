@@ -1305,3 +1305,20 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next.
 - [ ] Commit/push Seer submodule updates and parent `arken` rollup update.
+
+### Newly completed (forge royale component chunk)
+- [x] Rotated to `forge` and loaded required `.md` docs first in `packages/forge/packages/web/src/components` + parent rollups.
+- [x] Completed direct source pass for `packages/forge/packages/web/src/components/Royale.tsx`.
+- [x] Normalized `Royale.tsx` top path header to `arken/...` format.
+- [x] Refreshed concise docs/analysis in:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key findings: monolithic live-feed ownership (socket + polling + filter fanout + Rune Royale moderator-event transitions), module-scoped timer/socket globals, and repeated string-key filter drift risk.
+- [x] Pushed Forge updates:
+  - `forge-web` `caaebc6` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `fb61604` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [ ] Move to `evolution`; if blocker persists, log blocker and continue to `node`.

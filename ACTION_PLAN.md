@@ -2205,3 +2205,30 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push status:
   - pending commit/push in `arkenrealms/seer-node` and `arkenrealms/seer` (to update PR https://github.com/arkenrealms/seer/pull/1).
 - Next chunk (rotation): move to `forge` unless priority override is provided.
+
+### 2026-02-17 15:39–15:41 PST
+- Rotation moved to `forge` chunk (continuing cadence after latest `seer` pass).
+- Loaded required `.md` docs first in active folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/{ANALYSIS.md}`
+  - `packages/forge/ANALYSIS.md`
+- Completed source pass for:
+  - `packages/forge/packages/web/src/components/Royale.tsx`
+- Normalized top path header to `arken/...` in touched source file:
+  - `packages/forge/packages/web/src/components/Royale.tsx`
+- Updated concise docs/analysis in touched folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `Royale.tsx` is a monolithic live-feed runtime that combines socket `PlayerAction` stream handling, notices polling, filter fanout, and Rune Royale moderator-event transitions.
+  - module-scoped mutable globals (`socket`, `timeout`, `reloadTimeout`) remain core lifecycle control points.
+  - repeated string-key filtering across feed paths increases maintenance/test drift risk.
+- Tests run:
+  - none (docs/header-normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `caaebc6` — Document Royale live-feed runtime ownership and risks (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `fb61604` — Roll Royale component analysis updates from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
