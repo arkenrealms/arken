@@ -615,8 +615,26 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Tests run:
   - none (docs/analysis-only chunk; no runtime behavior changes).
 - Commit/push/PR status:
-  - pending commit/push in `arkenrealms/forge-web` and `arkenrealms/forge` (and parent `arken` rollup).
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `0b3c046` — Document MemeIsles component runtime ownership and risks (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `faaebef` — Roll MemeIsles component analysis into forge summaries (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - `arkenrealms/arken` `sable/arken-maintenance-trpc-ws-cycle`: `4677d11` — Log forge MemeIsles maintenance chunk and roll pointers (pushed)
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
+### 2026-02-17 08:38–08:40 PST
+- Rotation moved to `evolution` chunk.
+- Loaded all required local `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization check:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Tests run:
+  - none (blocker verification chunk).
+- Commit/push/PR status:
+  - no new evolution commit in this micro-chunk (blocker unchanged).
+- Next chunk (rotation): advance to `node` for next small protocol/test/docs pass.
 
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.

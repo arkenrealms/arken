@@ -271,6 +271,17 @@
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push forge-web + forge + parent `arken` rollup updates for this run.
 
+### Newly completed (forge push + evolution blocker re-check)
+- [x] Committed/pushed forge chunk updates:
+  - `forge-web` `0b3c046` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `faaebef` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+  - `arken` `4677d11` (branch `sable/arken-maintenance-trpc-ws-cycle`)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+
+### In progress (rotation)
+- [x] Continue to `node` next for next small protocol/test/docs pass after evolution blocker.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
