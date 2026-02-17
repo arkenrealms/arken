@@ -370,6 +370,39 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - forge-web branch PR link: https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
 - Next chunk (rotation): move to `evolution` and continue local blocker-aware analysis unless `.gitmodules` mapping is repaired.
 
+### 2026-02-17 07:49–07:56 PST
+- Rotation moved to `evolution` chunk.
+- Loaded all `.md` files first in target scope:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Read concrete source metadata files and tree state:
+  - `packages/evolution/.gitmodules`
+  - `git ls-tree HEAD packages/` (verified gitlinks/SHAs).
+- Updated blocker documentation with concrete gitlink SHAs and renewed verification:
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+- Commit/push status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `5ce2a6c` — Document evolution client gitlink metadata mismatch with SHA (local commit)
+  - push remains blocked: `403 Permission denied` on `arkenrealms/evolution`.
+- Per policy after blocker, rotation advanced to next repo (`node`).
+
+### 2026-02-17 07:56–08:01 PST
+- Rotation moved to `node` chunk.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Added websocket callback-boundary resilience test:
+  - `packages/node/test/socketLink.spec.ts`
+  - new assertion covers `attachTrpcResponseHandler` `trpcResponse`-fallback server-push path where `params` deserialize fails (`params` safely becomes `undefined` and no throw).
+- Updated concise docs in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 37/37)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `65ebab5` — Add trpcResponse fallback malformed-params websocket test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): `seer` (`protocol/src/modules/infinite` leaf-first) unless priority override is provided.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

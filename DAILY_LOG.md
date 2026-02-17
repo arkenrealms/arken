@@ -103,6 +103,24 @@
   - `forge` `34a07bf` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
 - [x] Captured forge-web PR branch link for manual PR open: <https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2>
 
+### Newly completed (evolution blocker re-validation + node test chunk)
+- [x] Rotated to `evolution`, loaded all local `.md` docs first, and re-read concrete metadata sources (`.gitmodules`, `git ls-tree HEAD packages/`).
+- [x] Re-validated evolution blocker with concrete gitlink SHAs and updated docs:
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+- [x] Captured local evolution commit: `5ce2a6c` (`sable/repo-analysis-notes-20260217`).
+- [x] Confirmed evolution push remains blocked (403 permission denied on `arkenrealms/evolution`).
+- [x] Advanced rotation to `node` after blocker and added `attachTrpcResponseHandler` fallback resilience test for malformed `trpcResponse` push params.
+- [x] Updated node test docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `test/socketLink.spec.ts` + `test/socketServer.spec.ts` (pass: 37/37).
+- [x] Committed/pushed node update: `65ebab5` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [ ] Continue to `seer` next (`protocol/src/modules/infinite` leaf-first).
+- [ ] Mirror latest run logs in parent `arken` branch commit and push.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
