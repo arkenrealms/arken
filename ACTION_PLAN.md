@@ -460,7 +460,10 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Tests run:
   - none (docs/analysis-only chunk; no behavior changes).
 - Commit/push/PR status:
-  - pending commit/push in `forge-web`, `forge`, and parent `arken` rollup.
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `6426073` — Document evolution game view leafs and roll up analysis (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `88819c8` — Roll forge-web evolution view analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - `arkenrealms/arken` `sable/arken-maintenance-trpc-ws-cycle`: `740b9e9` — Log forge evolution views maintenance chunk (pushed)
+  - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
 - Next chunk (rotation): move to `evolution` and continue blocker-aware local analysis unless submodule mapping is repaired.
 
 ## Blockers

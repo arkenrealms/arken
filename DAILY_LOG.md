@@ -156,7 +156,7 @@
   - `packages/forge/packages/ANALYSIS.md`
   - `packages/forge/ANALYSIS.md`
 - [x] Captured key architecture risk: `evolution/leaderboard/index.tsx` is a monolithic route with direct Envoy polling and mixed data authority concerns.
-- [ ] Commit/push forge-web + forge + arken rollup updates for this chunk.
+- [x] Commit/push forge-web + forge + arken rollup updates for this chunk (`forge-web` `6426073`, `forge` `88819c8`, `arken` `740b9e9`).
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
