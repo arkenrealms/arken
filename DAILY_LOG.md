@@ -425,3 +425,27 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next for next deepest-first pass in checked-out `forge-web` scope.
 - [ ] Commit/push `seer-protocol` + `seer` + parent `arken` rollup updates for this run.
+
+### Newly completed (forge guilds component chunk)
+- [x] Rotated to `forge` after prior `seer` chunk and loaded required parent `.md` docs first (`src/components`, `src`, `packages`, and Forge root analyses).
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/guilds`:
+  - `NoProfileCard.tsx`
+  - `ProfileAvatar.tsx`
+  - `TeamCard.tsx`
+  - `TeamHeader.tsx`
+  - `TeamListCard.tsx`
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/guilds/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risks: TeamCard query-contract coupling to Seer profile payloads, loose typing (`team: any`), and potential profile-status icon semantics drift in `ProfileAvatar`.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `a55812c` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `5b9af54` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.

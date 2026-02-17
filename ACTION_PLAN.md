@@ -840,3 +840,30 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push status:
   - pending local commit/push in `seer-protocol` and parent `seer` rollup update.
 - Next chunk (rotation): move to `forge` after seer push completes.
+
+### 2026-02-17 11:24–11:33 PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in active parent folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/components/guilds`:
+  - `NoProfileCard.tsx`, `ProfileAvatar.tsx`, `TeamCard.tsx`, `TeamHeader.tsx`, `TeamListCard.tsx`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/guilds/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `TeamCard.tsx` directly couples Forge UI to Seer profile query shape (`trpc.seer.profile.getProfiles`) while using loose typing (`team: any`).
+  - `ProfileAvatar.tsx` contains likely status/icon semantics drift (`Active` branch displays inactive icon).
+  - Guild component folder retains unused imports/commented blocks, indicating maintenance debt and unclear cleanup ownership.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `a55812c` — Add guilds component analysis docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `5b9af54` — Document guilds component boundary in forge analysis (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
