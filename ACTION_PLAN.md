@@ -636,6 +636,24 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - no new evolution commit in this micro-chunk (blocker unchanged).
 - Next chunk (rotation): advance to `node` for next small protocol/test/docs pass.
 
+### 2026-02-17 08:40–08:46 PST
+- Rotation advanced to `node` chunk after evolution blocker.
+- Loaded required `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Implemented small protocol-hardening update in `packages/node/trpc/socketLink.ts`:
+  - proxy timeout errors now attach `reqId` metadata (parity with other transport error paths).
+- Added targeted regression coverage in `packages/node/test/socketLink.spec.ts`:
+  - proxy timeout rejection now asserts `data.reqId` matches emitted request id.
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 38/38)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `2b02bf8` — Attach reqId metadata to proxy timeout errors (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer` for next deepest-first pass in checked-out scope.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

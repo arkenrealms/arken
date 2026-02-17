@@ -282,6 +282,20 @@
 ### In progress (rotation)
 - [x] Continue to `node` next for next small protocol/test/docs pass after evolution blocker.
 
+### Newly completed (node proxy-timeout reqId parity chunk)
+- [x] Rotated to `node` after `evolution` blocker and loaded required `.md` docs first in `trpc/` and `test/`.
+- [x] Hardened websocket proxy timeout path in `packages/node/trpc/socketLink.ts` to include `data.reqId` metadata.
+- [x] Added regression coverage in `packages/node/test/socketLink.spec.ts` asserting timeout rejection preserves emitted request id metadata.
+- [x] Updated concise docs in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `test/socketLink.spec.ts` + `test/socketServer.spec.ts` (pass: 38/38).
+- [x] Committed/pushed node update: `2b02bf8` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first module pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
