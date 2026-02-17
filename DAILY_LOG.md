@@ -924,3 +924,34 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer ops-config + forge constants + evolution blocker + node root-config chunk)
+- [x] Rotated to `seer` and loaded required `.md` docs first in `packages/seer/packages/node` + parent rollups.
+- [x] Completed non-`src` seer-node source pass (`Dockerfile`, `forever-config.json`, `package.json`, `tsconfig.json`, `genesis.json`).
+- [x] Updated concise docs:
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `6bd5266`
+  - `seer` `6f60be1` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge` and loaded required `.md` docs first in `src/config` + parent rollups.
+- [x] Completed deepest-first source pass for `packages/forge/packages/web/src/config/constants/*`.
+- [x] Added/updated concise docs:
+  - `packages/forge/packages/web/src/config/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/config/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `5f7f96c`
+  - `forge` `f7cb55a` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per policy and completed root-config source pass (`package.json`, `tsconfig.json`, `tsconfig.build.json`, `jest.unit.config.js`).
+- [x] Updated `packages/node/ANALYSIS.md` with root build/test config risks and follow-ups.
+- [x] Committed/pushed node update: `c9b29ba` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Keep parent `arken` rollup branch in sync with latest submodule pointers + logs.

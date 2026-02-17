@@ -1585,3 +1585,61 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `7b0ea2f` — Add socket listener-hook safety regression test (updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:44–2:03 PM PST
+- Rotation moved to `seer` chunk.
+- Loaded `.md` docs first in target scope:
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Completed non-`src` seer-node operational/config source pass:
+  - `packages/seer/packages/node/Dockerfile`
+  - `packages/seer/packages/node/forever-config.json`
+  - `packages/seer/packages/node/package.json`
+  - `packages/seer/packages/node/tsconfig.json`
+  - `packages/seer/packages/node/genesis.json`
+- Updated concise docs/analysis:
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `6bd5266` — Document seer-node runtime config surfaces and deployment risks (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `6f60be1` — Roll seer-node ops-config analysis updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded `.md` docs first in target scope:
+  - `packages/forge/packages/web/src/config/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source pass for `packages/forge/packages/web/src/config/constants`:
+  - `campaigns.ts`, `farms.ts`, `ifo.ts`, `index.ts`, `nfts.ts`, `pools.ts`, `runes.ts`, `teams.ts`, `types.ts`
+- Added/updated concise docs:
+  - `packages/forge/packages/web/src/config/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/config/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `5f7f96c` — Add config constants catalog analysis docs (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `f7cb55a` — Roll forge-web constants config analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule checks; blocker unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded `.md` docs first in target scope:
+  - `packages/node/{README.md,ANALYSIS.md}`
+- Completed root config source pass:
+  - `packages/node/package.json`
+  - `packages/node/tsconfig.json`
+  - `packages/node/tsconfig.build.json`
+  - `packages/node/jest.unit.config.js`
+- Updated rollup analysis:
+  - `packages/node/ANALYSIS.md`
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `c9b29ba` — Document node root build and test config risks (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
