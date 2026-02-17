@@ -619,3 +619,23 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge Logo component chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first in `src/components`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/Logo/index.tsx`.
+- [x] Normalized top path header in touched source file to `arken/...` format.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Logo/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key findings: module-global failed-URL suppression in `Logo`, empty terminal fallback behavior, and loose `style: any` typing.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `e634dc1` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `c3a2711` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.

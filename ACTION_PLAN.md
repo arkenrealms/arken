@@ -1128,3 +1128,31 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `7c4443d` — Normalize Oasis module path headers and refresh analysis (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `2cbc9be` — Roll Oasis header-normalization updates from seer-protocol (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 11:54–12:03 PST
+- Rotation moved to `forge` chunk.
+- Loaded required parent `.md` docs first:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for:
+  - `packages/forge/packages/web/src/components/Logo/index.tsx`
+- Normalized top path header in touched source file to `arken/...` format.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Logo/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `Logo/index.tsx` uses module-scoped `BAD_SRCS` to suppress failing image URLs across component instances.
+  - Terminal fallback currently renders empty output, reducing diagnosability when all sources fail.
+  - `LogoProps.style` remains loosely typed (`any`).
+- Tests run:
+  - none (docs/header-normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `e634dc1` — Document Logo fallback component behavior and risks (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `c3a2711` — Roll Logo component analysis into forge summaries (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
