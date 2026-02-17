@@ -1248,3 +1248,39 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer+forge docs, evolution blocker recheck, node method-trim hardening)
+- [x] Rotated to `seer` and loaded required `.md` docs first in `packages/seer/packages/node/src` and parent rollups.
+- [x] Hardened `packages/seer/packages/node/src/tests.ts` by replacing recursive self-calls in `migrateTrades`/`saveToken` with DB-method delegation + fail-fast guards.
+- [x] Updated Seer analysis rollups:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `47f2c47`
+  - `seer` `28dbf1a` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge`, read `src/state/application` source (`actions.ts`, `hooks.ts`, `reducer.ts`, `updater.ts`), and added missing docs:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/state/application/{README.md,ANALYSIS.md}`
+- [x] Updated Forge rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `2f694b8`
+  - `forge` `32de422` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, re-ran recursive submodule checks, and reconfirmed blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Updated blocker continuity note and created local Evolution commit:
+  - `evolution` `12352fc` (local only; push still blocked by 403 permission)
+- [x] Rotated to `node` and hardened websocket server dispatch to trim valid method strings before lookup while keeping blank/non-string method rejection strict.
+- [x] Added regression in `packages/node/test/socketServer.spec.ts` for whitespace-padded method dispatch success.
+- [x] Updated node docs:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 45/45).
+- [x] Committed/pushed node update: `798d628` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

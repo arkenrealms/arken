@@ -2123,3 +2123,64 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `399f55e` — Reject blank tRPC methods in socket server handler (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 3:34–3:50 PM PST
+- Rotation moved to `seer` chunk (next after prior `node` run).
+- Loaded required `.md` docs first in active Seer node folders:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Implemented small safe hardening fix in `packages/seer/packages/node/src/tests.ts`:
+  - replaced recursive self-calls in `migrateTrades`/`saveToken` with explicit DB-method delegation,
+  - added fail-fast guards when required DB methods are unavailable.
+- Updated concise analysis docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `47f2c47` — Harden seer-node maintenance helpers against recursion (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `28dbf1a` — Roll seer-node helper hardening and risk notes (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in active Forge folders:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed source read for `packages/forge/packages/web/src/state/application`:
+  - `actions.ts`, `hooks.ts`, `reducer.ts`, `updater.ts`.
+- Added concise docs:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/state/application/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `2f694b8` — Document Forge application state slice ownership (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `32de422` — Roll Forge state-slice analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Blocker revalidated:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `12352fc` — Log latest submodule mapping blocker verification (local commit only; push blocked by 403 permission)
+- Rotation advanced to `node` chunk.
+- Loaded required `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Updated runtime behavior in `packages/node/trpc/socketServer.ts`:
+  - valid methods with surrounding whitespace are now trimmed before target resolution,
+  - blank/non-string methods remain explicit invalid-method failures.
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - whitespace-padded method dispatch succeeds and returns status-1 result.
+- Updated concise docs in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 45/45)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `798d628` — Trim socket server method names before dispatch (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
