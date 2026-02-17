@@ -158,6 +158,27 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
   - defensive deserialize fallback for malformed push payloads.
 - Re-ran protocol test suites successfully (`test/socketLink.spec.ts`, `test/socketServer.spec.ts`).
 
+### 2026-02-17 07:03–07:06 PST
+- Executed next highest-priority protocol robustness chunk for websocket wrappers/use-cases in `packages/node/trpc` + `packages/node/test`.
+- Hardened `attachTrpcResponseHandler` in `packages/node/trpc/socketLink.ts`:
+  - validate server-push `method` as non-empty string before forwarding,
+  - apply same validation for unmatched `trpcResponse` payloads to avoid malformed push dispatch.
+- Expanded `packages/node/test/socketLink.spec.ts` coverage for:
+  - `preferOnAny` non-`trpcResponse` filtering invariants,
+  - `preferOnAny` fallback to `on/off` when `onAny` is unavailable,
+  - safe detach when `offAny` is unavailable,
+  - malformed server-push `method` permutations on both `trpc` and `trpcResponse` paths.
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 29/29)
+- Commit/push:
+  - `9d0d9c9` — Harden trpcResponse push filtering and onAny fallback coverage
+  - pushed to `origin/sable/maintenance-trpc-ws-cycle` (updates existing `arkenrealms/node` PR #15)
+- Next unblocked chunk:
+  - add duplicate-delivery idempotency assertions for callback resolution/rejection (double `trpcResponse` for same id) and proxy timeout-vs-late-response race tests.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arkenrealms/node` push auth currently unavailable in this runtime (`could not read Username for 'https://github.com': Device not configured`).

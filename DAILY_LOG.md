@@ -19,6 +19,7 @@
 - [x] Mitigated cron push-auth issue by configuring global git credential storage.
 - [x] Added websocket response-id permutation tests (non-string/blank IDs) for `attachTrpcResponseHandler`.
 - [x] Added malformed server-push param resilience test (decode failure remains non-fatal) and refreshed related `README.md`/`ANALYSIS.md` docs.
+- [x] Hardened `attachTrpcResponseHandler` push-method validation and added `preferOnAny` fallback/teardown robustness tests; pushed commit `9d0d9c9` to `node` PR #15.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
