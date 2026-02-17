@@ -391,3 +391,23 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node legacy/contracts analysis chunk)
+- [x] Rotated to `evolution` and loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- [x] Re-ran recursive submodule checks and reconfirmed blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Advanced per rotation policy to `node` after blocker.
+- [x] Completed deepest-first analysis in `packages/node/legacy/contracts` (113 artifact JSONs; mixed schema families).
+- [x] Added concise docs:
+  - `packages/node/legacy/contracts/{README.md,ANALYSIS.md}`
+- [x] Updated parent rollup:
+  - `packages/node/legacy/ANALYSIS.md`
+- [x] Captured key risk: legacy contract artifacts span mixed Truffle/Hardhat/ABI-only formats with no artifact-shape guard tests.
+- [x] Committed/pushed node update:
+  - `50a0294` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

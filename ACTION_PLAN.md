@@ -795,3 +795,31 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `e60ddd5` — Roll Sanctuary component analysis into Forge summaries (pushed; updates https://github.com/arkenrealms/forge/pull/1)
   - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
+### 2026-02-17 11:10–11:17 PST
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization check:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded target docs first in `node` scope:
+  - `packages/node/legacy/ANALYSIS.md`
+- Completed deepest-first artifact-surface analysis for `packages/node/legacy/contracts` by reading representative contract artifact files and schema families.
+- Added concise leaf docs:
+  - `packages/node/legacy/contracts/{README.md,ANALYSIS.md}`
+- Updated parent rollup:
+  - `packages/node/legacy/ANALYSIS.md`
+- Key findings:
+  - folder contains 113 large legacy contract artifact JSONs,
+  - artifacts span mixed schema families (Truffle-like, Hardhat-style, ABI-only),
+  - no local artifact-shape guardrails currently enforce compatibility assumptions.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `50a0294` — Document legacy contract artifact surface and schema risks (pushed; updates https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
