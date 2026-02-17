@@ -17,6 +17,8 @@
 - [x] Pushed previously queued branch commits in `node`, `seer`, and `forge` after credential setup.
 - [x] Expanded tRPC websocket edge-case tests and reliability improvements (`node` PR #15 updates).
 - [x] Mitigated cron push-auth issue by configuring global git credential storage.
+- [x] Added websocket response-id permutation tests (non-string/blank IDs) for `attachTrpcResponseHandler`.
+- [x] Added malformed server-push param resilience test (decode failure remains non-fatal) and refreshed related `README.md`/`ANALYSIS.md` docs.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.

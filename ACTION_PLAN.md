@@ -135,6 +135,21 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Updated method to require reading all folder `.md` files before edits.
 - Updated method to require checklist-driven `ANALYSIS.md` updates and daily log maintenance.
 
+### 2026-02-17 07:03–07:08 PST
+- Executed next highest-priority protocol robustness test chunk for websocket wrappers/use-cases in `packages/node/trpc` + `packages/node/test`.
+- Expanded `attachTrpcResponseHandler` edge-case coverage in `packages/node/test/socketLink.spec.ts`:
+  - non-string/blank response-id handling (`0`, `''`, `'   '`),
+  - server-push malformed-param resilience (`params` decode failure should not throw, push still delivered with `params: undefined`).
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 25/25)
+- Commit/PR status:
+  - pending local commit in `arkenrealms/node` on `sable/maintenance-trpc-ws-cycle`; push + PR update not attempted in this chunk.
+- Next unblocked chunk:
+  - add `preferOnAny` negative-path assertions (`offAny` safety when unavailable, non-`trpcResponse` filtering invariants) and malformed `trpcResponse` method/push permutations.
+
 ### 2026-02-17 07:00+ PST
 - Configured persistent git credentials and identity for scheduled push contexts.
 - Flushed queued commits to remotes in `node`, `seer`, and `forge`.
