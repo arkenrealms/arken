@@ -684,3 +684,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
+
+### 2026-02-17 08:53–09:01 PST
+- Rotation moved to `forge` chunk (continuing cadence after `seer`).
+- Loaded parent `.md` docs first before source analysis:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/views/games/oasis`:
+  - `index.tsx`, all entity/list route wrappers, `lore.tsx`, and `tutorial.tsx`.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/games/oasis/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - Oasis routes are mostly thin wrappers around `~/components/Sanctuary/*`.
+  - `tutorial.tsx` is a monolithic outlier with mixed UI/data-hook responsibilities and `@arken/node/legacy/data/items` coupling.
+  - Multiple wrappers retain unused imports and untyped route params, indicating low lint/type pressure.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `0b656cc` — Add Oasis game route analysis docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `df934ed` — Document Oasis route-wrapper analysis in Forge rollups (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.

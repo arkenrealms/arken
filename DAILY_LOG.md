@@ -319,3 +319,23 @@
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
 - [x] Add dedicated `workstreams/` area for larger features (e.g., matchmaking) with research + architecture notes.
+
+### Newly completed (forge oasis route chunk)
+- [x] Rotated to `forge` after `seer` and loaded required parent `.md` docs before source analysis.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/views/games/oasis` route files (`index.tsx`, entity/list wrappers, `lore.tsx`, `tutorial.tsx`).
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/games/oasis/{README.md,ANALYSIS.md}`
+- [x] Updated rollups:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risk: Oasis route layer is wrapper-heavy but `tutorial.tsx` is monolithic and coupled to node legacy item data/hooks.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `0b656cc` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `df934ed` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.
