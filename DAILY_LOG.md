@@ -1209,3 +1209,42 @@
 - [ ] Move to next `forge` chunk (deepest-first) and continue source + rollup analysis.
 - [ ] Re-check `evolution` blocker after forge chunk; if unchanged, advance to `node` per policy.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer recursion-risk + forge utils + evolution blocker + node blank-method hardening)
+- [x] Rotated to `seer`, loaded required `.md` docs first in `packages/seer/packages/node/src`, and completed source pass over `index.ts`, `web3.ts`, and `tests.ts`.
+- [x] Updated Seer docs/rollups:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Captured concrete risk: `src/tests.ts` contains recursive helper defects (`migrateTrades`, `saveToken`) that can recurse infinitely if invoked.
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `6fe531b` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `756c57b` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge`, loaded parent `.md` docs first, and completed utility-layer source pass (`utils/trpc.ts`, `utils/index.ts`, `utils/hooks/useClickOutside.tsx`).
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/utils/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/utils/hooks/{README.md,ANALYSIS.md}`
+- [x] Updated Forge rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `1e1130d` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `ac4830b` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and revalidated blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Updated blocker continuity note: `packages/evolution/NOTES.md`.
+- [x] Captured local evolution commit: `4f6c6be` (push still blocked with 403 permission denied on `arkenrealms/evolution`).
+- [x] Advanced to `node` after blocker and hardened server handler validation:
+  - `packages/node/trpc/socketServer.ts` now rejects blank-string `method` values as invalid.
+- [x] Added regression test:
+  - `packages/node/test/socketServer.spec.ts` (`blank-string method` invalid envelope assertion).
+- [x] Updated touched docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 44/44).
+- [x] Committed/pushed node update: `399f55e` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

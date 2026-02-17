@@ -2065,3 +2065,61 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `0d5f1d2` — Add non-string method server-handler websocket regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 3:20–3:34 PM PST
+- Rotation moved to `seer` chunk.
+- Loaded required `.md` docs first in target leaf:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+- Completed source pass for:
+  - `packages/seer/packages/node/src/{index.ts,web3.ts,tests.ts}`
+- Updated concise docs/analysis and bubbled summary upward:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Key findings:
+  - `src/tests.ts` includes recursive helper defects (`migrateTrades`, `saveToken`) that would recurse infinitely if invoked.
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `6fe531b` — Document seer-node tests helper recursion defects (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `756c57b` — Roll seer-node recursion-risk analysis updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded required parent `.md` docs first:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+- Completed source pass for utility leafs:
+  - `packages/forge/packages/web/src/utils/trpc.ts`
+  - `packages/forge/packages/web/src/utils/index.ts`
+  - `packages/forge/packages/web/src/utils/hooks/useClickOutside.tsx`
+- Added concise docs:
+  - `packages/forge/packages/web/src/utils/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/utils/hooks/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `1e1130d` — Add utils and hooks analysis docs (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `ac4830b` — Roll forge-web utils-layer analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Blocker revalidated:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit/push status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `4f6c6be` — Record latest submodule mapping blocker verification (local commit only; push blocked by 403 permission)
+- Rotation advanced to `node` chunk.
+- Loaded required `.md` docs first in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Updated runtime behavior in `packages/node/trpc/socketServer.ts`:
+  - blank-string `method` values now fail validation as `Missing or invalid tRPC method`.
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - blank-string method payloads now assert explicit invalid-method envelope behavior.
+- Updated concise docs in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 44/44)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `399f55e` — Reject blank tRPC methods in socket server handler (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
