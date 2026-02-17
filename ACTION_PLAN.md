@@ -713,3 +713,31 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `0b656cc` — Add Oasis game route analysis docs and rollups (pushed)
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `df934ed` — Document Oasis route-wrapper analysis in Forge rollups (pushed; updates https://github.com/arkenrealms/forge/pull/1)
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
+### 2026-02-17 09:01–09:10 PST
+- Rotation moved to `evolution` chunk after `forge`.
+- Loaded required evolution docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran blocker verification commands:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+- Blocker remains unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to next repo in rotation (`node`) and executed a small docs/analysis chunk in `packages/node/data/db`.
+- Loaded `.md` docs first in parent folder:
+  - `packages/node/data/ANALYSIS.md`
+- Read current folder state/source metadata:
+  - `packages/node/data/db/.gitkeep`
+- Added concise leaf docs:
+  - `packages/node/data/db/{README.md,ANALYSIS.md}`
+- Updated upward rollup:
+  - `packages/node/data/ANALYSIS.md`
+- Key findings:
+  - `data/db` is currently an empty placeholder (`.gitkeep` only) with no documented fixture/seeding contract.
+  - Absence of an explicit policy risks ad-hoc artifact commits and inconsistent environment bootstrapping.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `9c6afeb` — Document node data/db placeholder ownership and gaps (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer` for next deepest-first pass.

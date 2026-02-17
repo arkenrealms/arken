@@ -339,3 +339,17 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node data/db docs chunk)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule init checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path "packages/client" in .gitmodules`.
+- [x] Advanced per policy to `node` and completed deepest-first analysis/docs pass in `packages/node/data/db` (`.gitkeep` placeholder).
+- [x] Added concise leaf docs:
+  - `packages/node/data/db/{README.md,ANALYSIS.md}`
+- [x] Updated parent rollup: `packages/node/data/ANALYSIS.md`.
+- [x] Captured key risk: no explicit fixture/seeding policy for `data/db`, enabling ad-hoc artifact drift.
+- [x] Committed/pushed node update: `9c6afeb` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass in checked-out scope.
+- [ ] Commit/push parent `arken` rollup updates for this run.
