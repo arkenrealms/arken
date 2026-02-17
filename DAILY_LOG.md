@@ -791,3 +791,37 @@
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge localisation contexts + evolution blocker + node .erb docs chunk)
+- [x] Rotated to `forge` and loaded required `.md` docs first in:
+  - `packages/forge/packages/web/src`
+  - `packages/forge/packages/web/src/contexts`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/contexts/Localisation`:
+  - `languageContext.tsx`
+  - `translationsContext.ts`
+- [x] Normalized top path headers to `arken/...` in touched Forge source files.
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/contexts/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/contexts/Localisation/{README.md,ANALYSIS.md}`
+- [x] Updated Forge rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `d2fca52` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `fe5a57a` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule init checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed `.erb` asset-surface docs pass (`logo.png` metadata + ownership docs).
+- [x] Added concise node docs:
+  - `packages/node/.erb/README.md`
+  - `packages/node/.erb/img/{README.md,ANALYSIS.md}`
+  - refreshed `packages/node/.erb/ANALYSIS.md`
+  - refreshed `packages/node/ANALYSIS.md`
+- [x] Committed/pushed node update: `8e26155` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

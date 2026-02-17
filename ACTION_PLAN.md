@@ -1381,3 +1381,54 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `f88aa75` — Normalize Evolution module path headers
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `f6fce49` — Roll Evolution header normalization from seer-protocol (updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 12:29–12:58 PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in active parent folders:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/contexts/{README.md,ANALYSIS.md}` (created in this chunk)
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/contexts/Localisation`:
+  - `languageContext.tsx`
+  - `translationsContext.ts`
+- Normalized top path headers to `arken/...` in touched source files:
+  - `contexts/Localisation/languageContext.tsx`
+  - `contexts/Localisation/translationsContext.ts`
+- Added concise docs/analysis in touched Forge folders:
+  - `packages/forge/packages/web/src/contexts/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/contexts/Localisation/{README.md,ANALYSIS.md}`
+  - refreshed `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - refreshed `packages/forge/packages/ANALYSIS.md`
+  - refreshed `packages/forge/ANALYSIS.md`
+- Tests run:
+  - none (docs/header normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `d2fca52` — Document localisation contexts and normalize source headers (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `fe5a57a` — Roll localisation context analysis from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization checks:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded target `.md` docs first in node scope:
+  - `packages/node/README.md`
+  - `packages/node/ANALYSIS.md`
+  - `packages/node/.erb/ANALYSIS.md`
+- Completed source/asset pass for `.erb` leaf:
+  - `packages/node/.erb/img/logo.png` (1830x734 metadata check)
+- Added concise docs:
+  - `packages/node/.erb/README.md`
+  - `packages/node/.erb/img/{README.md,ANALYSIS.md}`
+  - refreshed `packages/node/.erb/ANALYSIS.md`
+  - refreshed `packages/node/ANALYSIS.md`
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `8e26155` — Add .erb asset-folder docs and rollup notes (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
