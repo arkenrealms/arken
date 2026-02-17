@@ -194,5 +194,20 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Next unblocked chunk:
   - extend duplicate-delivery coverage to explicit resolve-then-error / error-then-resolve permutations at handler boundary and validate single terminal observer signaling in link/proxy paths.
 
+### 2026-02-17 07:14–07:19 PST
+- Executed highest-priority pending chunk: explicit settle-order permutations for websocket wrappers/use-cases in `packages/node/test`.
+- Expanded `packages/node/test/socketLink.spec.ts` coverage for:
+  - `createSocketLink` resolve-then-error callback permutations (single terminal observer signaling: one `next` + one `complete`, no late error path),
+  - `createSocketProxyClient` error-then-resolve callback permutations (single terminal promise settlement with safe late-callback no-throw behavior).
+- Updated concise docs/analysis in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 33/33)
+- Commit/push:
+  - `a545830` — Add single-settlement websocket permutation tests
+  - pushed to `origin/sable/maintenance-trpc-ws-cycle` (updates `arkenrealms/node` PR #15)
+- Next unblocked chunk:
+  - add unsubscribe-vs-response race assertions (unsubscribe before timeout, then late resolve/reject no-op) for both link/proxy wrappers and verify callback-map invariants.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
