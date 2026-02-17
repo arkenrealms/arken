@@ -988,3 +988,41 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer protocol package-root config chunk)
+- [x] Rotated to `seer` and loaded required `.md` docs first in `packages/seer/packages/protocol` + parent rollups.
+- [x] Completed package-root source/config pass for:
+  - `package.json`, `tsconfig.json`, `.eslintrc`, `.prettierrc`, `.editorconfig`
+- [x] Updated analysis rollups:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Captured key risk: relaxed TS/lint strictness + empty local scripts reduce package-level guardrails.
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `4cbf3e3`
+  - `seer` `de9a8b0` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### Newly completed (forge constants/localisation chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first.
+- [x] Completed source read for `src/constants/localisation/languageCodes.ts` and normalized path header to `arken/...`.
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/constants/localisation/{README.md,ANALYSIS.md}`
+- [x] Updated rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risk: comment-toggled locale activation (`allLanguages`) has no automated parity check with i18n bundles.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `cbfa7a0`
+  - `forge` `8cb16d9` (updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### Newly completed (evolution blocker re-check + node coverage-boundary chunk)
+- [x] Rotated to `evolution`, loaded required docs, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed source pass for `coverage/lcov.info` boundary.
+- [x] Updated `packages/node/ANALYSIS.md` with generated-artifact ownership note for `coverage/`.
+- [x] Committed/pushed node update: `34936bd` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.

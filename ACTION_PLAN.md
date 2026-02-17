@@ -1687,3 +1687,83 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `c19ba85` — Add socketServer bad-params deserialization regression test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:09–1:16 PM PST
+- Rotation moved to `seer` chunk (continuing cadence after latest `node` pass).
+- Loaded required `.md` docs first:
+  - `packages/seer/packages/protocol/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Completed package-root source/config pass for `packages/seer/packages/protocol`:
+  - `package.json`
+  - `tsconfig.json`
+  - `.eslintrc`
+  - `.prettierrc`
+  - `.editorconfig`
+- Updated concise analysis rollups:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Key findings:
+  - protocol package strictness remains intentionally relaxed (`noImplicitAny: false`, `strictNullChecks: false`) with broad eslint rule disablement,
+  - package has no local `scripts` guard commands, increasing dependence on workspace-level orchestration.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `4cbf3e3` — Document seer-protocol package config strictness and guard gaps (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `de9a8b0` — Roll protocol package config-risk analysis updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 1:16–1:23 PM PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in parent folders:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for:
+  - `packages/forge/packages/web/src/constants/localisation/languageCodes.ts`
+- Normalized top path header in touched source file to `arken/...` format.
+- Added concise docs:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/constants/localisation/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - many locale constants are defined but only `EN` is active in `allLanguages` via comment toggles,
+  - no automated parity checks currently enforce consistency between active locales and translation bundles.
+- Tests run:
+  - none (docs/header normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `cbfa7a0` — Add constants/localisation docs and locale activation risk notes (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `8cb16d9` — Roll constants-localisation analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocked, proceed to `node`.
+
+### 2026-02-17 1:23–1:27 PM PST
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/ANALYSIS.md`
+- Re-ran recursive submodule checks:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+
+### 2026-02-17 1:27–1:31 PM PST
+- Rotation moved to `node` chunk after evolution blocker.
+- Loaded required `.md` docs first:
+  - `packages/node/{README.md,ANALYSIS.md}`
+- Completed artifact-boundary source pass for:
+  - `packages/node/coverage/lcov.info`
+- Updated parent analysis rollup:
+  - `packages/node/ANALYSIS.md`
+- Key findings:
+  - coverage artifacts are generated diagnostic output and should remain generated-only to avoid manual drift/noisy diffs.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `34936bd` — Document coverage artifact ownership boundary (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
