@@ -1889,3 +1889,42 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `2146205` — Add __proto__ callback-id safety websocket test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:36–1:47 PM PST
+- Rotation moved to `forge` chunk (continuing cadence after `seer`).
+- Loaded required `.md` docs first in parent folders:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for ABI leaf in `packages/forge/packages/web/src/constants/abis`:
+  - `erc20.ts`
+  - `erc20.json`
+  - `erc20_bytes32.json`
+  - `weth.json`
+  - `ens-registrar.json`
+  - `ens-public-resolver.json`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/constants/abis/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Rotation moved to `evolution` chunk and blocker was revalidated:
+  - `git -C packages/evolution submodule update --init --recursive` still fails with
+    `fatal: No url found for submodule path 'packages/client' in .gitmodules`.
+- Per policy after blocker, rotation advanced to `node`.
+- Loaded required `.md` docs first in `packages/node` and completed source pass for:
+  - `packages/node/seer.ts`
+  - `packages/node/util.ts`
+- Updated node rollup analysis:
+  - `packages/node/ANALYSIS.md`
+- Key findings:
+  - Forge ABI catalog mixes legacy/new artifact shapes and lacks integrity-check automation.
+  - Node `util.ts` currently re-exports from `'.'`, creating a broad alias surface with potential circular-boundary drift.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push status:
+  - pending commit/push in `forge-web`, `forge`, `node`, and parent `arken` rollup.
+- Next chunk (rotation): move to `seer`.

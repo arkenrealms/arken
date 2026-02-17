@@ -1081,3 +1081,30 @@
 
 ### In progress (next rotation)
 - [ ] Move to next `seer` chunk (deepest-first) and continue config/runtime boundary analysis.
+
+### Newly completed (forge ABI constants + evolution blocker + node util alias chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first in `src/constants`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/constants/abis`:
+  - `erc20.ts`
+  - `erc20.json`
+  - `erc20_bytes32.json`
+  - `weth.json`
+  - `ens-registrar.json`
+  - `ens-public-resolver.json`
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/constants/abis/{README.md,ANALYSIS.md}`
+- [x] Updated upward Forge rollups:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed source pass for:
+  - `packages/node/seer.ts`
+  - `packages/node/util.ts`
+- [x] Updated node rollup: `packages/node/ANALYSIS.md` with `util.ts` alias/circular-boundary risk notes.
+- [ ] Commit/push forge-web + forge + node + parent `arken` rollup updates for this run.
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
