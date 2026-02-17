@@ -296,6 +296,25 @@
 - [x] Continue to `seer` next for next deepest-first module pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
 
+### Newly completed (seer-node src/data legacy artifact chunk)
+- [x] Rotated to `seer` after `node` and loaded required parent `.md` docs first.
+- [x] Completed deepest-first source read in `packages/seer/packages/node/src/data/oldPaymentRequests.json`.
+- [x] Added concise leaf docs:
+  - `packages/seer/packages/node/src/data/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Captured key risk: legacy payment artifact includes signed payload/account metadata and currently lacks explicit schema/test guardrails.
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `fc1de20` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `257e441` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out `forge-web` scope.
+- [ ] Commit/push parent `arken` rollup updates for this run.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.

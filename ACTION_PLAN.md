@@ -654,6 +654,33 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `2b02bf8` — Attach reqId metadata to proxy timeout errors (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer` for next deepest-first pass in checked-out scope.
 
+### 2026-02-17 08:46–08:53 PST
+- Rotation moved to `seer` chunk.
+- Loaded required parent `.md` docs first:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Completed deepest-first source read in `packages/seer/packages/node/src/data`:
+  - `oldPaymentRequests.json`
+- Added concise leaf docs:
+  - `packages/seer/packages/node/src/data/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Key findings:
+  - `oldPaymentRequests.json` contains legacy completed payment-request records with wallet addresses and raw signed payload blobs.
+  - This artifact is sensitive and currently lacks explicit schema/test guardrails in-folder.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `fc1de20` — Add seer-node src/data legacy payment artifact analysis docs (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `257e441` — Document seer-node src/data leaf analysis and rollups (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+  - seer-node branch PR link (manual open/update): https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- Next chunk (rotation): move to `forge` for next deepest-first pass in checked-out `forge-web` scope.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
