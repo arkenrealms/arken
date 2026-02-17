@@ -685,6 +685,68 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
 
+### 2026-02-17 12:09–12:16 PST
+- Rotation moved to `forge` chunk (continuing cadence after latest `seer` pass).
+- Loaded required `.md` docs first in active folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/components/Menu/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/components/Menu/icons/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/{ANALYSIS.md,packages/ANALYSIS.md}`
+- Completed source read for Menu root primitives:
+  - `packages/forge/packages/web/src/components/Menu/Menu.tsx`
+  - `packages/forge/packages/web/src/components/Menu/config.ts`
+  - `packages/forge/packages/web/src/components/Menu/theme.ts`
+  - `packages/forge/packages/web/src/components/Menu/types.ts`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Menu/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `Menu.tsx` currently returns an empty fragment (dormant/bypassed top-level menu container).
+  - `config.ts` contains duplicated social locale entries and large commented legacy blocks.
+  - `types.ts` still uses loose `any` surfaces for `children/content` contracts.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `9e31d20` — Add Menu root analysis docs and rollup notes (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `4fa2d7f` — Document Forge Menu root architecture chunk (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+- Next chunk (rotation): move to `evolution`; if blocker persists, record blocker and advance to `node`.
+
+### 2026-02-17 12:16–12:26 PST
+- Rotation moved to `evolution` after forge chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran blocker verification commands:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker remains unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy after blocker, rotation advanced to `node`.
+- Loaded `.md` docs first in touched node folders:
+  - `packages/node/.rush/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Completed source-level pass for:
+  - `packages/node/.rush/temp/shrinkwrap-deps.json`
+- Added concise folder docs:
+  - `packages/node/.rush/README.md`
+- Updated rollups:
+  - `packages/node/.rush/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Key findings:
+  - `.rush/temp/shrinkwrap-deps.json` is a high-volume integrity map that should remain generated-only.
+  - Manual edits to Rush shrinkwrap metadata can desynchronize dependency determinism and mask drift.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push status:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `0bf6780` — Document Rush cache metadata ownership (pushed; updates https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer` for next deepest-first pass.
+
 ### 2026-02-17 08:53–09:01 PST
 - Rotation moved to `forge` chunk (continuing cadence after `seer`).
 - Loaded parent `.md` docs first before source analysis:

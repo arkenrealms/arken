@@ -677,3 +677,41 @@
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge Menu root primitives chunk)
+- [x] Rotated to `forge` and loaded required `.md` docs first in `src/components`, `src/components/Menu/{components,icons}`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/Menu` root primitives:
+  - `Menu.tsx`
+  - `config.ts`
+  - `theme.ts`
+  - `types.ts`
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Menu/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key findings: dormant `Menu.tsx` container (`return <></>`), duplicate social-locale entries in `config.ts`, and loose `any` contract surfaces in `types.ts`.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `9e31d20` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `4fa2d7f` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node .rush docs chunk)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule init checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed source pass for `packages/node/.rush/temp/shrinkwrap-deps.json`.
+- [x] Added concise docs in `packages/node/.rush`:
+  - `README.md` (new)
+  - `ANALYSIS.md` (updated)
+- [x] Updated parent rollup: `packages/node/ANALYSIS.md`.
+- [x] Captured key risk: manual edits in Rush shrinkwrap metadata can desynchronize dependency determinism and obscure lock drift.
+- [x] Committed/pushed node update: `0bf6780` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
