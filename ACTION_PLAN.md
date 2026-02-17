@@ -1479,3 +1479,54 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `05997b2` — Document api filter-adapter contract and test risks (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:06–1:27 PM PST
+- Rotation moved to `seer` chunk.
+- Loaded all `.md` docs first in target folder:
+  - `packages/seer/packages/protocol/.rush/temp` (none present before this chunk).
+- Read source metadata file:
+  - `packages/seer/packages/protocol/.rush/temp/shrinkwrap-deps.json`
+- Added concise leaf docs:
+  - `packages/seer/packages/protocol/.rush/temp/{README.md,ANALYSIS.md}`
+- Updated upward rollup:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `b4af5df` — Add .rush/temp docs for protocol lock metadata
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `9c60556` — Roll protocol .rush temp metadata docs (updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded all `.md` docs first in target folder:
+  - `packages/forge/packages/web/src/config/localisation` (none present before this chunk).
+- Read source file:
+  - `packages/forge/packages/web/src/config/localisation/languageCodes.ts`
+- Normalized top path header to `arken/...` in touched source file.
+- Added concise docs/analysis:
+  - `packages/forge/packages/web/src/config/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/config/localisation/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `5619d66` — Document localisation config leaf and normalize header
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `9fb7455` — Roll localisation config analysis updates (updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization checks and blocker remains unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded all `.md` docs first in target folder:
+  - `packages/node/.rush/temp` (none present before this chunk).
+- Read source metadata file:
+  - `packages/node/.rush/temp/shrinkwrap-deps.json`
+- Added concise leaf docs:
+  - `packages/node/.rush/temp/{README.md,ANALYSIS.md}`
+- Updated rollups:
+  - `packages/node/.rush/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `eb4c57a` — Add .rush/temp lock-metadata docs (updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

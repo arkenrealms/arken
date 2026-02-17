@@ -851,3 +851,38 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer .rush + forge localisation config + node .rush/temp chunk)
+- [x] Rotated to `seer` and completed a deepest-first metadata leaf pass in `packages/seer/packages/protocol/.rush/temp`.
+- [x] Read `shrinkwrap-deps.json` and added concise leaf docs:
+  - `packages/seer/packages/protocol/.rush/temp/{README.md,ANALYSIS.md}`
+- [x] Updated rollup: `packages/seer/packages/protocol/ANALYSIS.md`.
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `b4af5df`
+  - `seer` `9c60556` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge` and completed deepest-first source pass in `packages/forge/packages/web/src/config/localisation/languageCodes.ts`.
+- [x] Normalized top path header in touched source to `arken/...` format.
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/config/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/config/localisation/{README.md,ANALYSIS.md}`
+- [x] Updated rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `5619d66`
+  - `forge` `9fb7455` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, re-checked blocker, unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Advanced to `node` and completed metadata leaf pass in `packages/node/.rush/temp`.
+- [x] Added concise docs:
+  - `packages/node/.rush/temp/{README.md,ANALYSIS.md}`
+- [x] Updated rollups:
+  - `packages/node/.rush/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- [x] Committed/pushed node update:
+  - `eb4c57a` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
