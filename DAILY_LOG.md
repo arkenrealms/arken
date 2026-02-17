@@ -1054,3 +1054,30 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for the next deepest-first chunk.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (rotation: seer -> forge -> evolution blocker -> node) — 2026-02-17 1:19–1:36 PM PST
+- [x] **seer:** Read package docs first, then analyzed `packages/seer/packages/node/{package.json,tsconfig.json,.eslintrc}` and updated:
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] **seer pushes:**
+  - `seer-node` `fbf94cc` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `07f0949` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] **forge:** Read constants docs first, then analyzed `src/constants/{index.ts,lists.ts}` and updated:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] **forge pushes:**
+  - `forge-web` `d44dde3` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `c198de9` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] **evolution blocker recheck:** `git submodule update --init --recursive` still fails with:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] **node:** Added websocket regression for inherited-key edge case (`id: '__proto__'`) in:
+  - `packages/node/test/socketLink.spec.ts`
+  - updated `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] **tests:** `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 41/41)
+- [x] **node push:** `2146205` on `sable/maintenance-trpc-ws-cycle` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (next rotation)
+- [ ] Move to next `seer` chunk (deepest-first) and continue config/runtime boundary analysis.

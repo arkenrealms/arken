@@ -1832,3 +1832,60 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `9acf496` — Clarify generated coverage artifact ownership in node analysis (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:19–1:36 PM PST
+- Rotation moved to `seer` chunk after prior `node` pass.
+- Loaded `.md` docs first in target Seer folders:
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Completed source/config read for `packages/seer/packages/node` package-root files:
+  - `package.json`, `tsconfig.json`, `.eslintrc`
+- Updated concise docs/analysis:
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Key findings:
+  - seer-node package lint/typing strictness remains intentionally relaxed, reducing static guardrail coverage at protocol boundaries.
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `fbf94cc` — Document seer-node lint strictness guard gaps (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `07f0949` — Roll seer-node config strictness analysis updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded `.md` docs first in target Forge folders:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed source read for:
+  - `packages/forge/packages/web/src/constants/index.ts`
+  - `packages/forge/packages/web/src/constants/lists.ts`
+- Updated concise docs/analysis:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - root constants include hardcoded router/token defaults and sentinel list id values with limited environment/schema guardrails.
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `d44dde3` — Document forge constants root defaults and drift risks (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `c198de9` — Roll forge-web constants root analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded `.md` docs first and re-ran blocker verification:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node` chunk.
+- Loaded `.md` docs first in touched node folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Added websocket callback-boundary regression test:
+  - `packages/node/test/socketLink.spec.ts`
+  - new coverage verifies `id: '__proto__'` is not treated as active callback and still forwards server-push payload safely.
+- Updated concise node test docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 41/41)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `2146205` — Add __proto__ callback-id safety websocket test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
