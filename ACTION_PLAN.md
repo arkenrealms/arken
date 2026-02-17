@@ -867,3 +867,33 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `a55812c` — Add guilds component analysis docs and rollups (pushed)
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `5b9af54` — Document guilds component boundary in forge analysis (pushed; updates https://github.com/arkenrealms/forge/pull/1)
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
+### 2026-02-17 11:33–11:41 PST
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization check:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded target docs first in node scope:
+  - `packages/node/web3/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Completed deepest-first source read for:
+  - `packages/node/web3/httpProvider.ts`
+- Added/updated concise docs:
+  - `packages/node/web3/README.md` (new)
+  - `packages/node/web3/ANALYSIS.md` (refreshed)
+  - `packages/node/ANALYSIS.md` (parent rollup update)
+- Key findings:
+  - `httpProvider.ts` ignores constructor URL and selects from hardcoded provider list.
+  - JSON-RPC request id is forced to a constant (`56`), reducing request-correlation fidelity.
+  - Browser Cache API globals are assumed in runtime without explicit compatibility guardrails.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `9c9ad01` — Document web3 provider runtime assumptions and risks (pushed; updates https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

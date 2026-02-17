@@ -449,3 +449,18 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node web3 docs chunk)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed deepest-first source read for `packages/node/web3/httpProvider.ts`.
+- [x] Added concise folder docs in `packages/node/web3`:
+  - `README.md` (new)
+  - `ANALYSIS.md` (updated)
+- [x] Updated parent rollup: `packages/node/ANALYSIS.md`.
+- [x] Captured key risks: hardcoded provider selection, forced JSON-RPC request id (`56`), and browser-cache runtime assumptions.
+- [x] Committed/pushed node update: `9c9ad01` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
