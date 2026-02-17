@@ -1156,3 +1156,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `e634dc1` — Document Logo fallback component behavior and risks (pushed)
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `c3a2711` — Roll Logo component analysis into forge summaries (pushed; updates https://github.com/arkenrealms/forge/pull/1)
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
+### 2026-02-17 12:27–12:36 PST
+- Rotation moved to `evolution` chunk (continuing cadence after `forge`).
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization check:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded all target folder `.md` docs first in node scope:
+  - `packages/node/legacy/ANALYSIS.md`
+  - `packages/node/legacy/data/ANALYSIS.md`
+  - `packages/node/legacy/data/generated/ANALYSIS.md`
+- Completed source read in `packages/node/legacy/data` for representative active files:
+  - `index.ts`
+  - `achievements.ts`
+  - `items.type.ts`
+  - `restrictList.ts`
+  - `probabilityCache.ts`
+- Added concise missing README coverage for touched folders:
+  - `packages/node/legacy/README.md`
+  - `packages/node/legacy/data/README.md`
+  - `packages/node/legacy/data/generated/README.md`
+- Tests run:
+  - none (docs/orientation-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - pending commit/push in `arkenrealms/node` (`sable/maintenance-trpc-ws-cycle`) and parent `arken` rollup update.
+- Next chunk (rotation): move to `seer` after node + parent rollup commit/push.

@@ -639,3 +639,23 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node legacy README coverage chunk)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and loaded all target `.md` docs first in `packages/node/legacy`, `packages/node/legacy/data`, and `packages/node/legacy/data/generated`.
+- [x] Completed source pass for representative active files:
+  - `packages/node/legacy/data/index.ts`
+  - `packages/node/legacy/data/achievements.ts`
+  - `packages/node/legacy/data/items.type.ts`
+  - `packages/node/legacy/data/restrictList.ts`
+  - `packages/node/legacy/data/probabilityCache.ts`
+- [x] Added concise missing folder READMEs:
+  - `packages/node/legacy/README.md`
+  - `packages/node/legacy/data/README.md`
+  - `packages/node/legacy/data/generated/README.md`
+- [ ] Commit/push node + parent `arken` rollup updates for this run.
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass in checked-out scope.
+- [ ] Continue to `forge` then `evolution` per broad rotation cadence.
