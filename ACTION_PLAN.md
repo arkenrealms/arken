@@ -350,6 +350,26 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - CLI PR-open blocker persists: `gh` not installed in runtime.
 - Next chunk (rotation): move to `forge` and continue deepest-first module analysis in checked-out scope.
 
+### 2026-02-17 07:44–07:52 PST
+- Rotation moved to `forge` chunk (continuing cadence after `seer`).
+- Loaded target folder docs first (existing Forge analysis docs) then performed deepest-first source read in:
+  - `packages/forge/packages/web/src/views/games/infinite/{index.tsx,tutorial.tsx,players.json}`
+- Added concise README/ANALYSIS coverage for touched view hierarchy:
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/infinite/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `bee7f46` — Add Forge views/games/infinite analysis docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `34a07bf` — Document Forge infinite views leaf analysis and rollups (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - forge-web branch PR link: https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+- Next chunk (rotation): move to `evolution` and continue local blocker-aware analysis unless `.gitmodules` mapping is repaired.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

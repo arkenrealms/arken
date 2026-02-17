@@ -83,8 +83,25 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer` next (`protocol/src/modules/isles` leaf-first).
-- [ ] Continue to `forge` next (`forge-web` leaf-first) per rotation cadence.
+- [x] Continue to `forge` next (`forge-web` leaf-first) per rotation cadence.
 - [x] Commit/push Seer Isles doc-analysis updates (`seer-protocol` `1332301`, `seer` `3352b42`, `arken` `90fbbce`) and refresh Seer PR #1 / seer-protocol PR branch.
+- [ ] Continue to `evolution` next (blocker-aware leaf-first pass).
+
+### Newly completed (forge infinite views chunk)
+- [x] Rotated to `forge` after `seer` and completed a deepest-first leaf pass in `packages/forge/packages/web/src/views/games/infinite`.
+- [x] Read source files in leaf (`index.tsx`, `tutorial.tsx`, `players.json`) and documented ownership/protocol boundaries.
+- [x] Added concise `README.md` + `ANALYSIS.md` files for:
+  - `packages/forge/packages/web/src/views`
+  - `packages/forge/packages/web/src/views/games`
+  - `packages/forge/packages/web/src/views/games/infinite`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Pushed Forge commits:
+  - `forge-web` `bee7f46` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `34a07bf` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Captured forge-web PR branch link for manual PR open: <https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2>
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
