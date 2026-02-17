@@ -235,5 +235,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Next unblocked chunk:
   - extend callback-map invariants to response-handler boundary: malformed `trpcResponse` payloads carrying callback ids with mixed `error`/`result` shapes and ensure deterministic single-terminal behavior remains intact.
 
+### 2026-02-17 07:24–07:33 PST
+- Rotation moved to `seer` chunk (per cadence after `node`).
+- Initialized nested Seer submodules:
+  - `packages/seer/packages/node` (`arkenrealms/seer-node`)
+  - `packages/seer/packages/protocol` (`arkenrealms/seer-protocol`)
+- Completed deepest-first leaf analysis for `packages/seer/packages/protocol/src/modules/oasis` and bubbled summaries upward.
+- Added/updated concise docs + analysis in touched Seer protocol folders:
+  - `packages/seer/packages/protocol/README.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/oasis/{README.md,ANALYSIS.md}`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Key findings:
+  - Oasis routes still rely on permissive `z.any()` inputs and include stubbed mutation behavior (`interact`), raising contract-reliability risk.
+  - Seer root router composes many Arken node routers plus Seer modules, increasing blast radius of weak module validation.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `895767b` — Add deepest-first Oasis protocol analysis docs
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `b6c0b90` — Initialize protocol submodule and document Oasis analysis
+  - pushed both branches to origin.
+- PR status:
+  - Existing Seer PR remains: https://github.com/arkenrealms/seer/pull/1
+  - New Seer-protocol PR link (branch pushed): https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+  - CLI PR-open blocker: `gh` not installed in runtime (`command not found`), so PR creation was not executed from shell.
+- Next chunk (rotation): move to `forge`; for Seer follow-up queue starts at `protocol/src/modules/isles` leaf-first.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.

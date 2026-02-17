@@ -23,8 +23,16 @@
 - [x] Added duplicate-delivery idempotency and proxy timeout-vs-late-response race tests for websocket wrappers; pushed commit `ea8136b` to `node` PR #15.
 - [x] Added explicit single-settlement permutation tests (resolve→error, error→resolve) for websocket link/proxy wrappers; pushed commit `a545830` to `node` PR #15.
 - [x] Added unsubscribe/teardown-before-timeout late resolve/reject no-op race tests with callback-map invariant checks (link + proxy); pushed commit `0591552` to `node` PR #15.
+- [x] Rotated to `seer` and initialized nested submodules (`seer-node`, `seer-protocol`).
+- [x] Completed deepest-first `seer-protocol` Oasis leaf analysis and bubbled summaries to `src`, `src/modules`, and package root docs.
+- [x] Pushed Seer updates: `seer-protocol` commit `895767b` and `seer` commit `b6c0b90` on `sable/repo-analysis-notes-20260217`.
+
+### In progress (updated)
+- [ ] Continue rotation to `forge` for next chunk.
+- [ ] Continue Seer leaf-first analysis queue: `protocol/src/modules/isles` -> `infinite` -> `evolution`.
+- [ ] Open/update Seer-protocol PR from pushed branch (`sable/repo-analysis-notes-20260217`) — shell blocker: `gh` CLI unavailable in runtime.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
-- [ ] Ensure each run loads all `.md` files in target folder before edits.
-- [ ] Add dedicated `workstreams/` area for larger features (e.g., matchmaking) with research + architecture notes.
+- [x] Ensure each run loads all `.md` files in target folder before edits.
+- [x] Add dedicated `workstreams/` area for larger features (e.g., matchmaking) with research + architecture notes.
