@@ -15,6 +15,16 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - `arkenrealms/forge` (active, write access confirmed)
 - `arkenrealms/evolution` (local work only currently; push blocked by repo permission)
 
+## Rotation strategy (holistic architecture view)
+Use a broad rotating cadence so context compounds across repos:
+1. `node` chunk (protocol/tests/SDK reliability)
+2. `seer` chunk (orchestration/protocol integration boundaries)
+3. `forge` chunk (client/platform integration + UX-facing constraints)
+4. `evolution` chunk (game-domain/data/runtime structure; local if push blocked)
+5. Repeat cycle with next queued chunk per repo.
+
+Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new architectural coupling is discovered.
+
 ## Working method (chunked, bottom-up)
 1. Pick a small folder chunk.
 2. **Load all `.md` files in that folder first** (README/NOTES/ANALYSIS/etc) before code edits.
