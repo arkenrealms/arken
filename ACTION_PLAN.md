@@ -1102,3 +1102,29 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `b24229b` — Add time folder README and utility implementation notes (pushed; updates https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer` for next deepest-first pass.
+
+### 2026-02-17 11:49–11:57 PST
+- Rotation moved to `seer` chunk (next repo after latest `node` pass).
+- Loaded all `.md` files first in target leaf folder:
+  - `packages/seer/packages/protocol/src/modules/oasis/{README.md,ANALYSIS.md}`
+- Completed full source pass in Oasis module leaf files:
+  - `index.ts`
+  - `oasis.models.ts`
+  - `oasis.schema.ts`
+  - `oasis.types.ts`
+  - `oasis.service.ts`
+  - `oasis.router.ts`
+- Normalized top path headers to `arken/...` in touched source files:
+  - `oasis.models.ts`
+  - `oasis.schema.ts`
+  - `oasis.types.ts`
+  - `oasis.service.ts`
+  - `oasis.router.ts`
+- Updated concise leaf analysis doc:
+  - `packages/seer/packages/protocol/src/modules/oasis/ANALYSIS.md`
+- Tests run:
+  - none (comment/docs normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `7c4443d` — Normalize Oasis module path headers and refresh analysis (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `2cbc9be` — Roll Oasis header-normalization updates from seer-protocol (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.

@@ -599,3 +599,23 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer oasis header-normalization chunk)
+- [x] Rotated to `seer` after latest `node` pass and loaded required `.md` docs first in `packages/seer/packages/protocol/src/modules/oasis`.
+- [x] Completed source pass for Oasis module files:
+  - `index.ts`
+  - `oasis.models.ts`
+  - `oasis.schema.ts`
+  - `oasis.types.ts`
+  - `oasis.service.ts`
+  - `oasis.router.ts`
+- [x] Normalized top path headers to `arken/...` in touched Oasis source files (`oasis.models.ts`, `oasis.schema.ts`, `oasis.types.ts`, `oasis.service.ts`, `oasis.router.ts`).
+- [x] Updated concise leaf analysis:
+  - `packages/seer/packages/protocol/src/modules/oasis/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `7c4443d` (branch `sable/repo-analysis-notes-20260217`)
+  - `seer` `2cbc9be` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
+- [ ] Commit/push parent `arken` rollup updates for this run.
