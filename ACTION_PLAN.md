@@ -179,5 +179,20 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Next unblocked chunk:
   - add duplicate-delivery idempotency assertions for callback resolution/rejection (double `trpcResponse` for same id) and proxy timeout-vs-late-response race tests.
 
+### 2026-02-17 07:09–07:13 PST
+- Executed highest-priority pending chunk from prior run: websocket wrapper/use-case race/idempotency tests in `packages/node/test`.
+- Expanded `packages/node/test/socketLink.spec.ts` coverage for:
+  - duplicate `trpcResponse` delivery idempotency (same callback id should resolve once without reject side-effects),
+  - proxy timeout-vs-late-response race (late resolve after timeout settlement is safely ignored/no throw).
+- Updated concise docs/analysis in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 31/31)
+- Commit/push:
+  - `ea8136b` — Add duplicate-delivery and timeout-late-race websocket tests
+  - pushed to `origin/sable/maintenance-trpc-ws-cycle` (updates `arkenrealms/node` PR #15)
+- Next unblocked chunk:
+  - extend duplicate-delivery coverage to explicit resolve-then-error / error-then-resolve permutations at handler boundary and validate single terminal observer signaling in link/proxy paths.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
