@@ -1026,3 +1026,31 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
+
+### Newly completed (seer/forge meta-repo governance + evolution blocker recheck + node coverage metadata chunk)
+- [x] Rotated to `seer` and loaded required `.md` docs first before source/config review.
+- [x] Reviewed Seer wrapper-repo governance surfaces (`.gitmodules`, `.gitignore`, `NOTES.md`) and updated:
+  - `packages/seer/README.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Committed/pushed Seer update:
+  - `162716c` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge`, loaded required `.md` docs first, reviewed `.gitmodules`, and updated:
+  - `packages/forge/README.md`
+  - `packages/forge/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+- [x] Committed/pushed Forge update:
+  - `ba16c83` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, re-ran recursive submodule init checks, and reconfirmed blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Updated blocker continuity note in `packages/evolution/NOTES.md` and committed locally:
+  - `d3e74fc` (push still blocked on `arkenrealms/evolution`)
+- [x] Advanced to `node` per policy, reviewed coverage metadata (`coverage/clover.xml`, `coverage/coverage-final.json`), and updated:
+  - `packages/node/ANALYSIS.md`
+- [x] Captured commit constraint: `coverage/` is gitignored, so folder-local docs cannot be versioned there; ownership guidance remains in parent analysis.
+- [x] Committed/pushed Node update:
+  - `9acf496` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer` next for the next deepest-first chunk.
+- [ ] Commit/push parent `arken` rollup updates for this run.
