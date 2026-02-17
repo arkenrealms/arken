@@ -897,3 +897,19 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `9c9ad01` — Document web3 provider runtime assumptions and risks (pushed; updates https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 11:41–11:47 PST
+- Rotation moved to `seer` chunk.
+- Loaded required `.md` docs first in target folder:
+  - `packages/seer/packages/protocol/src/{README.md,ANALYSIS.md}`
+- Completed source pass for protocol root files:
+  - `packages/seer/packages/protocol/src/index.ts`
+  - `packages/seer/packages/protocol/src/router.ts`
+  - `packages/seer/packages/protocol/src/types.ts`
+- Normalized top path headers in touched source files to `arken/...` format.
+- Tests run:
+  - none (comment-only source normalization; no runtime logic changes).
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `97df19c` — Normalize protocol src file path headers (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `024b655` — Roll seer-protocol src header normalization (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.
