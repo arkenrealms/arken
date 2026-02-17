@@ -431,6 +431,38 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - pending commit/push in `seer-protocol`, `seer`, and parent `arken` rollup.
 - Next chunk (rotation): move to `forge` (next leaf-first pass in `forge-web` checked-out scope).
 
+### 2026-02-17 08:08–08:17 PST
+- Rotation moved to `forge` chunk.
+- Loaded existing `.md` docs first in parent folders:
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read in `packages/forge/packages/web/src/views/games/evolution` leaves:
+  - `leaderboard/index.tsx`
+  - `tournament/index.tsx`
+  - plus parent files `index.tsx`, `items.tsx`, `runeforms.tsx`, `tutorial.tsx`.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/games/evolution/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/evolution/leaderboard/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/evolution/tournament/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `evolution/leaderboard/index.tsx` is a monolithic view that directly polls Envoy JSON endpoints and owns large query/tab state orchestration.
+  - `evolution/tournament/index.tsx` is a thin adapter over shared component surfaces.
+  - Evolution views mix thin wrappers and heavy inline logic, creating fragmented protocol ownership/test strategy.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - pending commit/push in `forge-web`, `forge`, and parent `arken` rollup.
+- Next chunk (rotation): move to `evolution` and continue blocker-aware local analysis unless submodule mapping is repaired.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

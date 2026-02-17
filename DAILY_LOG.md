@@ -135,8 +135,28 @@
 - [x] Recorded Infinite protocol risks: Evolution-service routing mismatch, permissive `z.any` boundaries, placeholder service outputs, and oversized commented legacy router block.
 
 ### In progress (rotation)
-- [ ] Continue to `forge` next (leaf-first pass in checked-out `forge-web` scope).
+- [x] Continue to `forge` next (leaf-first pass in checked-out `forge-web` scope).
 - [ ] Commit/push seer-protocol + seer + arken rollup updates for this chunk.
+- [ ] Continue to `evolution` next (blocker-aware local pass) per rotation.
+
+### Newly completed (forge evolution views chunk)
+- [x] Rotated to `forge` after `seer` and loaded active `.md` docs first in `views`, `views/games`, and parent Forge rollups.
+- [x] Completed deepest-first analysis of `packages/forge/packages/web/src/views/games/evolution` leaves:
+  - `leaderboard/index.tsx`
+  - `tournament/index.tsx`
+  - plus parent files `index.tsx`, `items.tsx`, `runeforms.tsx`, `tutorial.tsx`.
+- [x] Added concise `README.md` + `ANALYSIS.md` docs in:
+  - `packages/forge/packages/web/src/views/games/evolution`
+  - `packages/forge/packages/web/src/views/games/evolution/leaderboard`
+  - `packages/forge/packages/web/src/views/games/evolution/tournament`
+- [x] Updated parent rollups:
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key architecture risk: `evolution/leaderboard/index.tsx` is a monolithic route with direct Envoy polling and mixed data authority concerns.
+- [ ] Commit/push forge-web + forge + arken rollup updates for this chunk.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
