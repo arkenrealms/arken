@@ -913,3 +913,30 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `97df19c` — Normalize protocol src file path headers (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `024b655` — Roll seer-protocol src header normalization (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 11:47–11:56 PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in active parent folders:
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for:
+  - `packages/forge/packages/web/src/views/royale/index.tsx`
+- Normalized top path header in touched source file to `arken/...` format.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/royale/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `views/royale` is a thin route wrapper that gates on `active` and delegates runtime behavior to `~/components/Royale`.
+  - Route-level ownership remains lightweight while transport/event logic stays in component/hook layers.
+- Tests run:
+  - none (docs/header-normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `7066f08` — Document royale route wrapper ownership and add leaf docs (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `bf63f19` — Roll royale view analysis and web submodule updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.

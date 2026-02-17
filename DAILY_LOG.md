@@ -479,3 +479,23 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge royale view chunk)
+- [x] Rotated to `forge` after `seer` and loaded required parent `.md` docs first.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/views/royale/index.tsx`.
+- [x] Normalized top file-path header to `arken/...` in touched source.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/royale/{README.md,ANALYSIS.md}`
+- [x] Updated parent rollups:
+  - `packages/forge/packages/web/src/views/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key finding: Royale route layer is a thin `active` gate and delegates runtime behavior to `~/components/Royale`.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `7066f08` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `bf63f19` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.
