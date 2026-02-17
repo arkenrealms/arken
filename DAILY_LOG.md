@@ -255,6 +255,22 @@
 - [x] Continue to `forge` next for next deepest-first pass in checked-out `forge-web` scope.
 - [ ] Commit/push parent `arken` rollup updates for this run.
 
+### Newly completed (forge MemeIsles component-runtime chunk)
+- [x] Rotated to `forge` after `seer` and loaded required parent `.md` docs before source analysis.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/MemeIsles.tsx`.
+- [x] Added concise component-folder docs:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+- [x] Updated rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/web/src/views/games/isles/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risk: Isles runtime is concentrated in a monolithic component that mixes socket + Unity bridge globals + wallet flow, reducing deterministic testability.
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push forge-web + forge + parent `arken` rollup updates for this run.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.

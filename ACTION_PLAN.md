@@ -593,6 +593,31 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - seer-node branch PR link: https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
 - Next chunk (rotation): move to `forge` for next deepest-first pass in checked-out `forge-web` scope.
 
+### 2026-02-17 08:31–08:38 PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in active parent folders:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/web/src/views/games/isles/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/components/MemeIsles.tsx`.
+- Added concise folder docs:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/web/src/views/games/isles/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `MemeIsles.tsx` is a monolithic runtime bridge mixing socket transport, Unity bridge globals, wallet signature flow, and UI state.
+  - Module-level mutable singletons (`socket`, `unityInstance`, `realm2`, etc.) increase race/leakage risk across React lifecycle transitions.
+  - Event decoding/parsing uses positional string payload assumptions and lacks typed schema guards.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - pending commit/push in `arkenrealms/forge-web` and `arkenrealms/forge` (and parent `arken` rollup).
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
