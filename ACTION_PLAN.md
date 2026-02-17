@@ -988,3 +988,51 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `bb32a9f` — Normalize seer-node src headers and refresh docs (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `3a86192` — Roll seer-node src header normalization updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 12:02–12:16 PST
+- Rotation moved to `forge` chunk.
+- Loaded required parent `.md` docs first:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/components/Menu/icons/*` and `index.ts`.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Menu/icons/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/components/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - Menu icons are mostly static SVG wrappers with low protocol risk.
+  - `Logo.tsx` is the runtime outlier (browser load listener, styling/timing behavior, broad `any` props) and is the main testability/typing drift surface in this leaf.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `626435e` — Add Menu/icons leaf docs and logo-outlier analysis (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `eda42ec` — Document Menu/icons ownership and roll forge-web pointer (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first and re-ran recursive submodule initialization:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded required `.md` docs first in target scope:
+  - `packages/node/types/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Completed source pass for:
+  - `packages/node/types/mongo.d.ts`
+- Added/updated concise docs:
+  - `packages/node/types/README.md` (new)
+  - `packages/node/types/ANALYSIS.md` (refreshed)
+  - `packages/node/ANALYSIS.md` (parent rollup update)
+- Key findings:
+  - `types/mongo.d.ts` augments mongoose Query surfaces with `asJSON(): Promise<any>` for compatibility.
+  - This is declaration-only but has type-drift risk across mongoose generic signature changes.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `383a5f9` — Add types folder docs and mongoose augmentation risk notes (pushed; updates https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

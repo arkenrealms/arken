@@ -531,3 +531,30 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next (deepest-first pass after this seer chunk).
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
+
+### Newly completed (forge Menu/icons + evolution blocker + node types chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first in `src/components`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/Menu/icons/*` and barrel `index.ts`.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Menu/icons/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/components/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `626435e` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `eda42ec` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed deepest-first source read for `packages/node/types/mongo.d.ts`.
+- [x] Added/updated concise docs in `packages/node/types`:
+  - `README.md` (new)
+  - `ANALYSIS.md` (refreshed)
+- [x] Updated parent rollup: `packages/node/ANALYSIS.md`.
+- [x] Captured key risk: ambient mongoose augmentation (`asJSON(): Promise<any>`) can drift with upstream generic signature changes and currently weakens typing with `any`.
+- [x] Committed/pushed node update: `383a5f9` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
