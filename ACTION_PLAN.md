@@ -567,6 +567,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `64c0c04` — Harden ioCallback own-key matching in socket response handler (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer` for the next deepest-first module pass in checked-out protocol scope.
 
+### 2026-02-17 08:24–08:31 PST
+- Rotation moved to `seer` chunk (continuing cadence after `node`).
+- Loaded required `.md` docs first in active parent folders:
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/packages/node/README.md`
+- Completed deepest-first source read for `packages/seer/packages/node/src`:
+  - `index.ts`, `web3.ts`, `tests.ts`
+- Added concise leaf + package docs:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- Updated upward rollups:
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Key findings:
+  - `src/index.ts` is a monolithic bootstrap combining env/db/server/socket/router concerns.
+  - Socket callback handling in Seer runtime lacks parity with hardened callback lifecycle safeguards added in `@arken/node` wrappers.
+  - `src/tests.ts` contains ad-hoc helpers outside structured test harnesses.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `b4855a6` — Add seer-node src analysis docs and package overview (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `1c21a26` — Document seer-node src leaf analysis and rollups (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+  - seer-node branch PR link: https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- Next chunk (rotation): move to `forge` for next deepest-first pass in checked-out `forge-web` scope.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

@@ -237,6 +237,24 @@
 - [x] Continue to `seer` next (deepest-first protocol module pass) after node chunk.
 - [ ] Commit/push parent `arken` rollup updates for this run.
 
+### Newly completed (seer-node src chunk)
+- [x] Rotated to `seer` after `node` per cadence and loaded parent + package `.md` docs first.
+- [x] Completed deepest-first source analysis in `packages/seer/packages/node/src` (`index.ts`, `web3.ts`, `tests.ts`).
+- [x] Added concise docs:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- [x] Updated Seer rollup analyses:
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `b4855a6` on `sable/repo-analysis-notes-20260217-node-src`
+  - `seer` `1c21a26` on `sable/repo-analysis-notes-20260217` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Captured seer-node PR branch link for manual open/update: <https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src>
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out `forge-web` scope.
+- [ ] Commit/push parent `arken` rollup updates for this run.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
