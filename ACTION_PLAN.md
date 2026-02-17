@@ -403,6 +403,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `65ebab5` — Add trpcResponse fallback malformed-params websocket test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): `seer` (`protocol/src/modules/infinite` leaf-first) unless priority override is provided.
 
+### 2026-02-17 08:01–08:08 PST
+- Rotation moved to `seer` chunk.
+- Loaded `.md` docs first in active parent folders:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Completed deepest-first source read for `packages/seer/packages/protocol/src/modules/infinite`:
+  - `index.ts`, `infinite.models.ts`, `infinite.schema.ts`, `infinite.types.ts`, `infinite.router.ts`, `infinite.service.ts`
+- Added concise leaf docs:
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Key findings:
+  - Infinite router procedures currently route through Evolution service path (`ctx.app.service.Evolution.saveRound`).
+  - Service methods are placeholder/logging-heavy with weak explicit output guarantees.
+  - Input contracts remain permissive (`z.any`), and router contains large commented legacy block.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - pending commit/push in `seer-protocol`, `seer`, and parent `arken` rollup.
+- Next chunk (rotation): move to `forge` (next leaf-first pass in `forge-web` checked-out scope).
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

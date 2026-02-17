@@ -118,8 +118,25 @@
 - [x] Committed/pushed node update: `65ebab5` (updates <https://github.com/arkenrealms/node/pull/15>).
 
 ### In progress (rotation)
-- [ ] Continue to `seer` next (`protocol/src/modules/infinite` leaf-first).
+- [x] Continue to `seer` next (`protocol/src/modules/infinite` leaf-first).
 - [ ] Mirror latest run logs in parent `arken` branch commit and push.
+
+### Newly completed (seer infinite chunk)
+- [x] Rotated to `seer` after `node` and loaded parent protocol analysis `.md` files before source edits.
+- [x] Completed deepest-first source analysis for `packages/seer/packages/protocol/src/modules/infinite` (`index.ts`, `infinite.models.ts`, `infinite.schema.ts`, `infinite.types.ts`, `infinite.router.ts`, `infinite.service.ts`).
+- [x] Added concise leaf docs:
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+- [x] Updated roll-up analysis docs:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Recorded Infinite protocol risks: Evolution-service routing mismatch, permissive `z.any` boundaries, placeholder service outputs, and oversized commented legacy router block.
+
+### In progress (rotation)
+- [ ] Continue to `forge` next (leaf-first pass in checked-out `forge-web` scope).
+- [ ] Commit/push seer-protocol + seer + arken rollup updates for this chunk.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
