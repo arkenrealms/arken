@@ -735,3 +735,24 @@
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge hooks chunk)
+- [x] Rotated to `forge` and loaded all required parent `.md` docs first before source analysis.
+- [x] Completed source read for key hook-layer files in `packages/forge/packages/web/src/hooks`:
+  - `index.ts`
+  - `useWindows.tsx`
+  - `useAuth.tsx`
+  - `useWeb3.ts`
+  - `useNotice.tsx`
+  - `useLive.tsx`
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/hooks/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risks: monolithic `useWindows` route registry, mixed active/legacy auth paths in `useAuth`, and broad `any`/browser-global assumptions across hook boundaries.
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push forge-web + forge + parent `arken` rollup updates for this run.

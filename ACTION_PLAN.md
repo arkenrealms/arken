@@ -1293,3 +1293,35 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `ff66d08` — Normalize Infinite module path headers (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `c0d6129` — Roll seer-protocol Infinite header normalization (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge` for next deepest-first pass in checked-out scope.
+
+### 2026-02-17 12:43–12:50 PST
+- Rotation moved to `forge` chunk.
+- Loaded all target-folder `.md` docs first in active scope:
+  - `packages/forge/packages/web/src/components/Menu/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/components/Menu/ANALYSIS.md`
+  - `packages/forge/packages/web/src/components/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed source read for hook-layer files in `packages/forge/packages/web/src/hooks`:
+  - `index.ts`
+  - `useWindows.tsx`
+  - `useAuth.tsx`
+  - `useWeb3.ts`
+  - `useNotice.tsx`
+  - `useLive.tsx`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/hooks/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - `useWindows.tsx` is a monolithic route/window registry with high change blast-radius.
+  - `useAuth.tsx` mixes active auth provider flow with retained legacy connector path (`useAuthOld`).
+  - Hook layer contains broad `any` typing and browser-global assumptions, reducing contract/test strictness.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - pending local commit/push in `forge-web` + `forge` and parent `arken` rollup update.
+- Next chunk (rotation): move to `evolution`; if blocker persists, record and continue to `node`.
