@@ -1036,3 +1036,20 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `383a5f9` — Add types folder docs and mongoose augmentation risk notes (pushed; updates https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 11:39–11:40 PST
+- Rotation moved to `seer` chunk (continuing cadence after latest `node` pass).
+- Loaded required `.md` docs first in target scope:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- Completed source pass for:
+  - `packages/seer/packages/node/src/index.ts`
+- Normalized top path header in touched source file to `arken/...` format.
+- Updated concise touched-folder analysis doc:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+- Tests run:
+  - none (comment/docs normalization chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `32e7f0c` — Normalize seer-node runtime entry header policy (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `5b08dc0` — Roll seer-node header-normalization update (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.

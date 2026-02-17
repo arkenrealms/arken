@@ -558,3 +558,18 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer-node index header normalization chunk)
+- [x] Rotated to `seer` and loaded required `.md` docs first in `packages/seer/packages/node/src`.
+- [x] Completed source pass for `packages/seer/packages/node/src/index.ts`.
+- [x] Normalized top path header to `arken/...` format in touched source file.
+- [x] Updated touched-folder analysis doc:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `32e7f0c` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `5b08dc0` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
+- [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
+- [ ] Commit/push parent `arken` rollup updates for this run.
