@@ -1322,3 +1322,20 @@
 
 ### In progress (rotation)
 - [ ] Move to `evolution`; if blocker persists, log blocker and continue to `node`.
+
+### Newly completed (evolution blocker re-check + node socketServer hardening)
+- [x] Rotated to `evolution` after `forge`, loaded required `.md` docs first, and re-ran recursive submodule verification.
+- [x] Confirmed blocker remains unchanged: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Updated evolution blocker continuity note: `packages/evolution/NOTES.md`.
+- [x] Committed evolution note locally: `e5ba85e` (`sable/repo-analysis-notes-20260217`); push remains blocked with 403 permission denial.
+- [x] Advanced to `node` per rotation policy after blocker.
+- [x] Hardened `packages/node/trpc/socketServer.ts` to reject prototype-path traversal segments (`__proto__`, `prototype`, `constructor`) during method resolution.
+- [x] Added regression test in `packages/node/test/socketServer.spec.ts` for `method: '__proto__.toString'` traversal rejection.
+- [x] Updated concise docs in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 46/46).
+- [x] Committed/pushed node update: `e736d2a` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [ ] Continue to `seer` next (deepest-first leaf pass in checked-out scope).

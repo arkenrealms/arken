@@ -2232,3 +2232,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `caaebc6` — Document Royale live-feed runtime ownership and risks (pushed)
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `fb61604` — Roll Royale component analysis updates from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+### 2026-02-17 15:44–15:50 PST
+- Rotation moved to `evolution` chunk (next after prior `forge` run).
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran blocker verification:
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule sync --recursive`
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit/push status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `e5ba85e` — Log latest submodule mapping blocker verification (local commit)
+  - push remains blocked: `403 Permission denied` on `arkenrealms/evolution`
+- Rotation advanced to `node` chunk after blocker.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Implemented small protocol hardening in `packages/node/trpc/socketServer.ts`:
+  - blocks prototype-path method segments (`__proto__`, `prototype`, `constructor`) during method resolution.
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - rejects prototype-chain traversal attempt (`method: '__proto__.toString'`) with status-0 missing-handler envelope.
+- Updated concise docs in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 46/46)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `e736d2a` — Guard socket server prototype path traversal (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
