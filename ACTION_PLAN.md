@@ -209,5 +209,21 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Next unblocked chunk:
   - add unsubscribe-vs-response race assertions (unsubscribe before timeout, then late resolve/reject no-op) for both link/proxy wrappers and verify callback-map invariants.
 
+### 2026-02-17 07:19–07:23 PST
+- Executed highest-priority pending chunk: unsubscribe/teardown-vs-response race assertions for websocket wrappers/use-cases in `packages/node/test`.
+- Expanded `packages/node/test/socketLink.spec.ts` coverage for:
+  - `createSocketLink` unsubscribe-before-timeout with late resolve/reject no-op behavior,
+  - callback-map invariants after unsubscribe (no callback re-entry, no timer side-effects, no observer terminal notifications),
+  - proxy teardown-before-timeout late resolve/reject no-op behavior with callback-map invariants preserved.
+- Updated concise docs/analysis in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 35/35)
+- Commit/push:
+  - `0591552` — Add unsubscribe/teardown late-response websocket race tests
+  - pushed to `origin/sable/maintenance-trpc-ws-cycle` (updates `arkenrealms/node` PR #15)
+- Next unblocked chunk:
+  - extend callback-map invariants to response-handler boundary: malformed `trpcResponse` payloads carrying callback ids with mixed `error`/`result` shapes and ensure deterministic single-terminal behavior remains intact.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
