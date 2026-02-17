@@ -353,3 +353,20 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass in checked-out scope.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer protocol-root src merge chunk)
+- [x] Rotated to `seer` after `node` and loaded required `.md` files first in `packages/seer/packages/protocol/src`.
+- [x] Completed source read for protocol root files:
+  - `packages/seer/packages/protocol/src/index.ts`
+  - `packages/seer/packages/protocol/src/router.ts`
+  - `packages/seer/packages/protocol/src/types.ts`
+- [x] Updated concise analysis docs with rolled-up findings:
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Captured key risks: permissive/stubbed root procedures (`auth`, `banProfile`, `info`), broad `any` runtime typing in `types.ts`, and import-time `dotenv.config()` coupling in `index.ts`.
+
+### In progress (rotation)
+- [ ] Commit/push `seer-protocol` + `seer` + parent `arken` rollup updates for this run.
+- [x] Continue to `forge` next for next deepest-first pass in checked-out scope after seer push.

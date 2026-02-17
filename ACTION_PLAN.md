@@ -741,3 +741,26 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push/PR status:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `9c6afeb` — Document node data/db placeholder ownership and gaps (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer` for next deepest-first pass.
+
+### 2026-02-17 09:10–09:18 PST
+- Rotation moved to `seer` chunk after `node`.
+- Loaded target folder docs first in `packages/seer/packages/protocol/src`:
+  - `README.md`, `ANALYSIS.md`, `modules/README.md`, `modules/ANALYSIS.md`
+- Completed source-level read for protocol-root files:
+  - `packages/seer/packages/protocol/src/index.ts`
+  - `packages/seer/packages/protocol/src/router.ts`
+  - `packages/seer/packages/protocol/src/types.ts`
+- Updated concise docs/analysis with upward merge of leaf findings:
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Key findings:
+  - Root `router.ts` contains permissive/stubbed top-level procedures (`auth`, `banProfile`, `info`) with weak schema/authorization guarantees.
+  - `types.ts` keeps broad `any` surfaces across app/runtime fields, increasing integration drift risk.
+  - `index.ts` performs import-time `dotenv.config()` side effects, which can couple test/runtime behavior to load order.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - pending local commit/push in `seer-protocol`, `seer`, and parent `arken` rollup.
+- Next chunk (rotation): move to `forge` after this seer commit/push cycle.
