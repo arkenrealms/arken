@@ -1432,3 +1432,50 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `8e26155` — Add .erb asset-folder docs and rollup notes (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 12:34–1:18 PM PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in active folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for account achievements leaf:
+  - `packages/forge/packages/web/src/components/account/AchievementRow/index.tsx`
+  - `packages/forge/packages/web/src/components/account/AchievementRow/PointsLabel.tsx`
+- Added concise docs/analysis in touched Forge folders:
+  - `packages/forge/packages/web/src/components/account/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/components/account/AchievementRow/{README.md,ANALYSIS.md}`
+  - refreshed `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - refreshed `packages/forge/packages/web/src/ANALYSIS.md`
+  - refreshed `packages/forge/packages/ANALYSIS.md`
+  - refreshed `packages/forge/ANALYSIS.md`
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `57fc060` — Add account achievement-row analysis docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `15b0755` — Roll account achievement-row analysis into forge summaries (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization checks:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded target `.md` docs first in node scope:
+  - `packages/node/{README.md,ANALYSIS.md}`
+- Completed source pass for:
+  - `packages/node/api.ts`
+- Updated rollup analysis:
+  - `packages/node/ANALYSIS.md`
+- Key findings:
+  - `getFilter` performs dynamic query-shape translation with broad `any` surfaces,
+  - nested AND/OR mapping and regex path need focused tests to preserve behavior/invariants.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `05997b2` — Document api filter-adapter contract and test risks (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

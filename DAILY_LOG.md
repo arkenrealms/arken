@@ -825,3 +825,29 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge account achievement-row + evolution blocker + node api chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first in `src/components`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for account achievements leaf:
+  - `packages/forge/packages/web/src/components/account/AchievementRow/index.tsx`
+  - `packages/forge/packages/web/src/components/account/AchievementRow/PointsLabel.tsx`
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/components/account/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/components/account/AchievementRow/{README.md,ANALYSIS.md}`
+- [x] Updated Forge rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `57fc060` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `15b0755` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed source pass for `packages/node/api.ts`.
+- [x] Updated parent rollup: `packages/node/ANALYSIS.md` with `getFilter` contract/test-risk notes.
+- [x] Committed/pushed node update: `05997b2` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
