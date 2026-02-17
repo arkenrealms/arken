@@ -940,3 +940,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `7066f08` — Document royale route wrapper ownership and add leaf docs (pushed)
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `bf63f19` — Roll royale view analysis and web submodule updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
+### 2026-02-17 11:24–11:25 PST
+- Rotation moved to `evolution` chunk after prior `forge` pass.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization check:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded target docs first in node scope:
+  - `packages/node/scripts/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Completed source read for:
+  - `packages/node/scripts/zk-regen-updateLeaf.ts`
+- Added/updated concise docs:
+  - `packages/node/scripts/README.md` (new)
+  - `packages/node/scripts/ANALYSIS.md` (refreshed)
+  - `packages/node/ANALYSIS.md` (parent rollup update)
+- Key findings:
+  - ZK regeneration script depends on host-global CLIs (`circom`, `snarkjs`, `wget`) and shell execution.
+  - Regeneration outputs in `data/zk/build/*` can drift without explicit deterministic/versioning checks.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `a800227` — Add scripts folder orientation and ZK regen risk analysis (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

@@ -499,3 +499,18 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node scripts docs chunk)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed deepest-first source read for `packages/node/scripts/zk-regen-updateLeaf.ts`.
+- [x] Added concise docs in `packages/node/scripts`:
+  - `README.md` (new)
+  - `ANALYSIS.md` (refreshed)
+- [x] Updated parent rollup: `packages/node/ANALYSIS.md`.
+- [x] Captured key risks: host-global toolchain dependency (`circom`/`snarkjs`/`wget`), shell-exec guardrail gaps, and artifact-drift risk in `data/zk/build/*`.
+- [x] Committed/pushed node update: `a800227` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
