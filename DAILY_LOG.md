@@ -1108,3 +1108,26 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
+
+### Newly completed (seer protocol guard-script mapping chunk)
+- [x] Rotated to `seer` and loaded required `.md` docs first in:
+  - `packages/seer/packages/protocol`
+  - `packages/seer/packages`
+  - `packages/seer`
+- [x] Read package-root source/config files before edits:
+  - `packages/seer/packages/protocol/package.json`
+  - `packages/seer/packages/protocol/tsconfig.json`
+  - `packages/seer/packages/protocol/.eslintrc`
+- [x] Updated concise analysis docs:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Captured guardrail gap and concrete follow-up: package-local script proposals for `typecheck`, `lint`, and `test:protocol`.
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `1155cef` (branch `sable/repo-analysis-notes-20260217`)
+  - `seer` `2a55a6e` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass.
+- [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
+- [ ] Commit/push parent `arken` rollup updates for this run.
