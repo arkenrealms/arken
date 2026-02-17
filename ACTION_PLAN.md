@@ -2263,3 +2263,23 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `e736d2a` — Guard socket server prototype path traversal (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 15:50–15:56 PST
+- Rotation moved to `seer` chunk (next after prior `node` run).
+- Loaded required `.md` docs first in active Seer node folders:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Implemented small safe maintenance hardening in `packages/seer/packages/node/src/tests.ts`:
+  - `saveToken` now validates `app.db.loadToken` exists and fails fast when target token is missing,
+  - `userLoadAndSave` now validates `app.db.loadUser`/`app.db.saveUser` and fails fast when target user is missing.
+- Updated concise docs/analysis:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- Tests run:
+  - none (no automated harness for `src/tests.ts` helpers in current package scripts).
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `0b10e59` — Harden seer-node maintenance helper preconditions (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `85184d3` — Roll seer-node helper precondition hardening (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.

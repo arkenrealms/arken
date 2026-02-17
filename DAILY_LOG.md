@@ -1339,3 +1339,19 @@
 
 ### In progress (rotation)
 - [ ] Continue to `seer` next (deepest-first leaf pass in checked-out scope).
+
+### Newly completed (seer-node helper precondition hardening chunk)
+- [x] Rotated to `seer` after latest `node` pass and loaded required `.md` docs first in `packages/seer/packages/node/src` and parent Seer analysis folders.
+- [x] Hardened maintenance helpers in `packages/seer/packages/node/src/tests.ts`:
+  - `saveToken` now guards `app.db.loadToken` presence and fails fast for missing token payload.
+  - `userLoadAndSave` now guards `app.db.loadUser` + `app.db.saveUser` presence and fails fast for missing user payload.
+- [x] Updated concise docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `0b10e59` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `85184d3` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for the next deepest-first pass in checked-out scope.
+- [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
