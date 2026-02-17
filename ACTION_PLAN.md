@@ -1952,3 +1952,42 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `1155cef` — Document protocol guard-script mapping proposals (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `2a55a6e` — Roll protocol guard-script mapping analysis updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 2:12–2:26 PM PST
+- Rotation moved to `forge` chunk (continuing cadence after `seer`).
+- Loaded required `.md` docs first in active folders:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source/artifact read for:
+  - `packages/forge/packages/web/src/constants/multicall/{index.ts,abi.json}`
+  - `packages/forge/packages/web/src/constants/token/pancakeswap.json`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/constants/multicall/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/constants/token/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `bbe0b58` — Add constants multicall/token leaf docs and risk notes (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `d81ec7b` — Roll constants multicall/token analysis from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Blocker revalidated:
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy after blocker, rotation advanced to `node`.
+- Loaded required `.md` docs first in touched node folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Added websocket server-handler regression in `packages/node/test/socketServer.spec.ts`:
+  - invalid binary-string payload decode path now asserts malformed status-0 envelope behavior.
+- Updated concise docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 42/42)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `67b685a` — Add malformed binary payload server-handler regression test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

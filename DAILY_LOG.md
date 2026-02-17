@@ -1131,3 +1131,31 @@
 - [x] Continue to `forge` next for next deepest-first pass.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge constants multicall/token + evolution blocker + node malformed-binary regression chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first in `src/constants`, `src`, and Forge rollups.
+- [x] Completed deepest-first source/artifact read for:
+  - `packages/forge/packages/web/src/constants/multicall/{index.ts,abi.json}`
+  - `packages/forge/packages/web/src/constants/token/pancakeswap.json`
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/constants/multicall/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/constants/token/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/constants/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `bbe0b58` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `d81ec7b` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and added websocket server-handler regression coverage for malformed binary-string payload decode path.
+- [x] Updated node docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `test/socketServer.spec.ts` + `test/socketLink.spec.ts` (pass: 42/42).
+- [x] Committed/pushed node update: `67b685a` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
