@@ -15,16 +15,22 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - `arkenrealms/forge` (active, write access confirmed)
 - `arkenrealms/evolution` (local work only currently; push blocked by repo permission)
 
-## Working method (chunked)
+## Working method (chunked, bottom-up)
 1. Pick a small folder chunk.
-2. Analyze protocol/test behavior + risks.
-3. Write/update `ANALYSIS.md` in that folder.
-4. Update `README.md` if missing/outdated.
-5. Normalize top path headers in touched source files to `arken/...`.
-6. Add/extend tests where applicable.
-7. Commit + push.
-8. Open/update PR (stack branches when needed).
-9. Append progress log entry below.
+2. **Read actual files in the folder** (not just names) to infer purpose, key flows, and how it fits Arken project context.
+3. Start with **deepest leaf folders first**, then move upward to parent folders.
+4. At each parent folder, **merge/summarize child context** so navigation from top-down remains clear.
+5. Write/update `ANALYSIS.md` with:
+   - folder purpose in project context,
+   - notable files and responsibilities,
+   - protocol/test relevance,
+   - risks/gaps and follow-ups.
+6. Update `README.md` if missing/outdated so another agent can quickly orient.
+7. Normalize top path headers in touched source files to `arken/...`.
+8. Add/extend tests where applicable.
+9. Commit + push.
+10. Open/update PR (stack branches when needed).
+11. Append progress log entry below with exact folders covered.
 
 ## Progress log
 
@@ -40,10 +46,11 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Added same initial analysis locally in `evolution`; push still blocked (403).
 
 ## Next chunks (queued)
-1. `node`: deeper chunk in `legacy/data`, `time`, `web3`, then `data/zk` docs/tests.
-2. `node`: add next protocol edge-case tests (id collisions, late responses, malformed payload permutations).
-3. `seer` / `forge`: continue folder-by-folder analysis and README refresh in available checked-out scope.
-4. `evolution`: continue local analysis/docs; push once permission is granted.
+1. `node`: deepest-first pass in `legacy/data/*` leaves, then bubble up to `legacy/data`, `legacy`, and `packages/node` summaries.
+2. `node`: deepest-first pass in `data/zk/*` leaves, then parent summaries + protocol/test implications.
+3. `node`: add protocol edge-case tests (id collisions, late responses, malformed payload permutations).
+4. `seer` / `forge`: continue deepest-first analysis and README refresh in available checked-out scope, clearly documenting submodule boundaries.
+5. `evolution`: continue deepest-first local analysis/docs; push once permission is granted.
 
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
