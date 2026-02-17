@@ -1991,3 +1991,53 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `67b685a` — Add malformed binary payload server-handler regression test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 2:26–2:39 PM PST
+- Rotation moved to `seer` chunk.
+- Loaded required `.md` docs first in:
+  - `packages/seer/packages/node/.rush/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/.rush/temp/{README.md,ANALYSIS.md}`
+  - parent rollups in `packages/seer/packages/node`, `packages/seer/packages`, and `packages/seer`.
+- Completed source read for:
+  - `packages/seer/packages/node/.rush/temp/shrinkwrap-deps.json`
+- Updated concise analysis:
+  - `packages/seer/packages/node/.rush/temp/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- Key findings:
+  - lock metadata includes a broad mixed legacy dependency graph (firebase v0.x + hardhat/buidler-era packages), increasing transitive blast radius for lock drift.
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `e1d4d26` — Document seer-node lockgraph blast-radius notes (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `bff8d05` — Roll seer-node lockgraph analysis updates (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in:
+  - `packages/forge/packages/web/src/config/abi/{README.md,ANALYSIS.md}`
+  - parent rollups (`src/ANALYSIS.md`, `packages/ANALYSIS.md`, root `ANALYSIS.md`).
+- Completed source/artifact read in `packages/forge/packages/web/src/config/abi/*.json` (function/event inventory pass) and updated:
+  - `packages/forge/packages/web/src/config/abi/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+- Key findings:
+  - ABI catalog includes large high-impact surfaces (`masterchef` 66 functions, `arcaneProfile` 39), magnifying drift risk without integrity checks.
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `3bd0272` — Refine Forge ABI catalog risk sizing notes (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `38e6411` — Roll forge-web ABI risk analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk and blocker was revalidated:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `c93be61` — Record latest evolution submodule blocker verification (local commit only; push remains permission-blocked)
+- Rotation advanced to `node` chunk.
+- Loaded required `.md` docs first in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Added websocket server-handler regression in `packages/node/test/socketServer.spec.ts`:
+  - non-string `method` payloads now explicitly assert `Missing or invalid tRPC method` envelope behavior.
+- Updated concise docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 43/43)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `0d5f1d2` — Add non-string method server-handler websocket regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

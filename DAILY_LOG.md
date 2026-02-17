@@ -1159,3 +1159,34 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer .rush lockgraph + forge ABI sizing + evolution blocker + node method-shape regression chunk)
+- [x] Rotated to `seer`, loaded required `.md` docs first in `.rush`/`.rush/temp`, and completed source read of `packages/seer/packages/node/.rush/temp/shrinkwrap-deps.json`.
+- [x] Updated Seer docs/analysis:
+  - `packages/seer/packages/node/.rush/temp/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- [x] Captured key risk: seer-node lock metadata spans a broad mixed legacy dependency graph (firebase v0.x + hardhat/buidler-era packages), so lock drift has high transitive blast radius.
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `e1d4d26`
+  - `seer` `bff8d05` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge`, loaded `config/abi` docs first, and completed artifact inventory pass for `src/config/abi/*.json`.
+- [x] Updated Forge docs/analysis:
+  - `packages/forge/packages/web/src/config/abi/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+- [x] Captured key risk: high-function ABI artifacts (`masterchef` 66 functions, `arcaneProfile` 39) increase impact of unvalidated ABI drift.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `3bd0272`
+  - `forge` `38e6411` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, re-ran recursive submodule checks, and reconfirmed unchanged blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Updated evolution continuity note and committed locally:
+  - `evolution` `c93be61` (push still blocked by permission)
+- [x] Advanced to `node` per policy, added websocket server-handler regression for non-string `method` payloads in `test/socketServer.spec.ts`, and refreshed:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 43/43).
+- [x] Committed/pushed node update:
+  - `0d5f1d2` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
