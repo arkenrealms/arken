@@ -48,6 +48,21 @@
   - `forge-web` `6c9f3f2` (branch `sable/repo-analysis-notes-20260217-2`)
   - `forge` `3972d9f` (branch `sable/repo-analysis-notes-20260217`)
 
+### Newly completed (evolution + node chunks)
+- [x] Rotated to `evolution`, loaded all local `.md` docs first, and re-validated submodule topology.
+- [x] Confirmed hard blocker with command output: `git submodule update --init --recursive` fails because `packages/client` gitlink has no `.gitmodules` URL mapping.
+- [x] Updated evolution docs for continuity:
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+- [x] Rotated to `node` and added callback-boundary mixed-envelope robustness test in `packages/node/test/socketLink.spec.ts`.
+- [x] Updated `packages/node/test/{README.md,ANALYSIS.md}` to capture new edge-case coverage.
+- [x] Re-ran protocol suites: `test/socketLink.spec.ts` + `test/socketServer.spec.ts` (pass: 36/36).
+
+### In progress (rotation)
+- [ ] Continue to `seer` next (`protocol/src/modules/isles` leaf-first).
+- [ ] Commit/push latest `node` test/doc updates to refresh PR #15.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.

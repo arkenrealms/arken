@@ -291,5 +291,35 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - CLI PR-open blocker persists: `gh` not installed in runtime.
 - Next chunk (rotation): move to `evolution` and continue deepest-first local analysis/docs while push remains permission-blocked.
 
+### 2026-02-17 07:34–07:42 PST
+- Rotation moved to `evolution` chunk.
+- Loaded all local `.md` docs first (`README.md`, `ANALYSIS.md`, `NOTES.md`, `packages/{README.md,ANALYSIS.md}`) and validated current submodule topology.
+- Attempted nested checkout initialization:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker confirmed: `fatal: No url found for submodule path 'packages/client' in .gitmodules`.
+- Additional finding: `packages/client` exists as a gitlink in HEAD but is not declared in `.gitmodules`; prevents recursive submodule initialization and blocks leaf-source analysis in evolution child repos.
+- Tests run: none (infra/blocker discovery chunk only).
+- Commit/push: none (analysis/logging chunk only).
+- Next per rotation: proceed to `node` with next websocket callback-boundary edge-case tests while evolution access is blocked.
+
+### 2026-02-17 07:42–07:48 PST
+- Rotation moved to `node` chunk.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Added callback-boundary robustness test in `packages/node/test/socketLink.spec.ts`:
+  - mixed `error`/`result` envelope where callback `resolve` throws,
+  - verifies fallback `reject` fires once,
+  - verifies late duplicate delivery for same id is no-op.
+- Updated concise docs in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 36/36)
+- Commit/push: pending local commit in `arkenrealms/node` (not yet created in this chunk).
+- Next unblocked chunk:
+  - continue `seer` rotation (`protocol/src/modules/isles` leaf-first) unless explicit priority override is set.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
+- `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
