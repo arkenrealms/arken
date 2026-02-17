@@ -370,3 +370,24 @@
 ### In progress (rotation)
 - [ ] Commit/push `seer-protocol` + `seer` + parent `arken` rollup updates for this run.
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope after seer push.
+
+### Newly completed (forge Sanctuary component chunk)
+- [x] Rotated to `forge` after `seer` and loaded all required `.md` docs first in `components`, `views/games/oasis`, and Forge rollup folders.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/Sanctuary/*.tsx`.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Sanctuary/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/oasis/ANALYSIS.md`
+  - `packages/forge/packages/web/src/views/games/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risk: Oasis content components use mixed data authorities (generated node JSON, Envoy fetch, and seer tRPC) with several retained placeholder surfaces.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `77063f3` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `e60ddd5` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.

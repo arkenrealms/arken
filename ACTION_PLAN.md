@@ -764,3 +764,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push/PR status:
   - pending local commit/push in `seer-protocol`, `seer`, and parent `arken` rollup.
 - Next chunk (rotation): move to `forge` after this seer commit/push cycle.
+
+### 2026-02-17 09:18–09:27 PST
+- Rotation moved to `forge` chunk (continuing cadence after `seer`).
+- Loaded required `.md` docs first in active folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/oasis/ANALYSIS.md`
+  - `packages/forge/packages/web/src/views/games/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/components/Sanctuary/*.tsx`.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Sanctuary/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/games/oasis/ANALYSIS.md`
+  - `packages/forge/packages/web/src/views/games/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - Oasis runtime ownership primarily lives in `components/Sanctuary/*` rather than route wrappers.
+  - Sanctuary components currently mix generated node data, direct Envoy fetches, and seer tRPC hooks within one folder.
+  - Multiple placeholder/stub files remain (`Boss*`, `Monster*`, `Item`, `Mechanics`, `Skills`), increasing ownership ambiguity.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `77063f3` — Document Sanctuary component ownership and Oasis data authority (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `e60ddd5` — Roll Sanctuary component analysis into Forge summaries (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
