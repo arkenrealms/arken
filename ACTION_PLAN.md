@@ -120,7 +120,8 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
   - local commit created in `arken/packages/node` on `sable/maintenance-trpc-ws-cycle`:
     - `c7008a0` — Harden websocket wrapper same-tick response races
 - Push/PR status:
-  - `git push origin sable/maintenance-trpc-ws-cycle` failed with auth blocker (`could not read Username for 'https://github.com': Device not configured`); PR update deferred until auth is restored.
+  - `git -C packages/node push origin sable/maintenance-trpc-ws-cycle` failed with auth blocker (`could not read Username for 'https://github.com': Device not configured`); PR update deferred until auth is restored.
+  - `git push origin sable/arken-maintenance-trpc-ws-cycle` (super-repo plan/log branch) failed with the same auth blocker.
 - Next unblocked chunk:
   - extend malformed payload/ID-field permutations in `attachTrpcResponseHandler` tests (e.g., numeric/empty IDs, malformed server-push params) and/or continue deepest-first `packages/node/data/zk/*` analysis.
 
