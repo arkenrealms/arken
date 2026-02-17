@@ -61,5 +61,47 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Updated `packages/node/time/ANALYSIS.md` with operational reliability concerns (UTC policy, queue observability, cancellation/backpressure gaps).
 - Captured concrete follow-ups: schema validation for generated catalogs, modularization of `legacy/data/items.ts`, and targeted tests for time/event gating.
 
+### 2026-02-17 06:44–06:58 PST
+- Executed priority protocol hardening chunk for `packages/node/trpc` + `packages/node/test`.
+- Added request-id collision guard in `packages/node/trpc/socketLink.ts` for both `createSocketLink` and `createSocketProxyClient` (bounded retries, fail-fast error).
+- Expanded edge-case coverage in `packages/node/test/socketLink.spec.ts` for:
+  - repeated request-id collisions,
+  - late/unmatched responses,
+  - malformed payload permutations (`null`, non-object, invalid JSON string).
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 19/19)
+- Commit created in `arkenrealms/node` local branch `sable/maintenance-trpc-ws-cycle`:
+  - `1c8ad89` — Harden socket tRPC ID allocation and edge-case tests
+- Push/PR update blocker:
+  - `git push origin sable/maintenance-trpc-ws-cycle` failed with auth error (`could not read Username for 'https://github.com': Device not configured`).
+- Next unblocked chunk if auth remains blocked:
+  - continue local deepest-first analysis pass for `packages/node/data/zk/*` and stage doc updates for later push.
+
+### 2026-02-17 06:49–07:02 PST
+- Executed next protocol-hardening chunk in `packages/node/trpc` + `packages/node/test` (websocket wrapper robustness).
+- Updated runtime behavior in `packages/node/trpc/socketLink.ts`:
+  - `createSocketProxyClient` now catches malformed `result` deserialize failures,
+  - converts them to structured `TRPCClientError`s,
+  - preserves `reqId` metadata,
+  - guarantees callback cleanup in `finally`.
+- Expanded `packages/node/test/socketLink.spec.ts` coverage for:
+  - `createSocketLink` deserialize-failure propagation with wire-level `reqId`,
+  - `createSocketProxyClient` malformed-response rejection + callback cleanup invariants.
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 21/21)
+- Commit created in `arken/packages/node`:
+  - `b9231d1` — Harden proxy malformed-response handling and extend socket tests
+- Push/PR update blocker:
+  - `git push origin sable/maintenance-trpc-ws-cycle` failed with auth error (`could not read Username for 'https://github.com': Device not configured`).
+- Next unblocked chunk if auth remains blocked:
+  - continue queued deepest-first analysis in `packages/node/data/zk/*` and stage docs/tests for later push.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
+- `arkenrealms/node` push auth currently unavailable in this runtime (`could not read Username for 'https://github.com': Device not configured`).
