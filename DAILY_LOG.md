@@ -756,3 +756,18 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push forge-web + forge + parent `arken` rollup updates for this run.
+
+### Newly completed (forge hooks push + evolution blocker check + node websocket chunk)
+- [x] Committed/pushed Forge hooks chunk updates:
+  - `forge-web` `f3d4846` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `de77ab6` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+  - `arken` `6453691` (branch `sable/arken-maintenance-trpc-ws-cycle`)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed source pass for `packages/node/websocket.ts`.
+- [x] Updated parent rollup: `packages/node/ANALYSIS.md` with websocket utility-boundary risk notes.
+- [x] Committed/pushed node update: `9ba66e9` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

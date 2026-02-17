@@ -1325,3 +1325,33 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push/PR status:
   - pending local commit/push in `forge-web` + `forge` and parent `arken` rollup update.
 - Next chunk (rotation): move to `evolution`; if blocker persists, record and continue to `node`.
+
+### 2026-02-17 12:50–12:58 PST
+- Completed pending forge commit/push cycle for prior hooks chunk.
+- Commit/push status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `f3d4846` — Add hooks layer analysis docs and runtime risk notes (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `de77ab6` — Document forge hooks-layer architecture chunk (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - `arkenrealms/arken` `sable/arken-maintenance-trpc-ws-cycle`: `6453691` — Log forge hooks analysis chunk and roll submodule pointers (pushed)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization checks:
+  - `git -C arken/packages/evolution submodule sync --recursive`
+  - `git -C arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded target `.md` docs first in node scope:
+  - `packages/node/{README.md,ANALYSIS.md}`
+- Completed source pass for:
+  - `packages/node/websocket.ts`
+- Updated parent analysis rollup:
+  - `packages/node/ANALYSIS.md`
+- Key findings:
+  - websocket utility helper remains lightweight but untyped at emit boundaries and lacks reconnect/backoff policy surfaces.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `9ba66e9` — Document websocket utility boundary risks (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer` for next deepest-first pass.
