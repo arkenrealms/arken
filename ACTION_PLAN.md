@@ -2184,3 +2184,24 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `798d628` — Trim socket server method names before dispatch (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 3:34–3:42 PM PST
+- Rotation continued in `seer` (next repo after prior `node` chunk).
+- Loaded required `.md` docs first in active Seer node folders:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Implemented small safe maintenance hardening in `packages/seer/packages/node/src/tests.ts`:
+  - `updateUserAchievements` now validates required DB methods (`loadUser`, `updateAchievementsByUser`, `saveUser`), fails fast on missing dependencies, and fails fast when target user is missing.
+  - `monitorMarketEvents` now validates `app.modules.getAllMarketEvents` before scheduling and returns the timer handle.
+- Updated concise rollup analysis docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Tests run:
+  - none (no automated harness for `src/tests.ts` helpers in current package scripts).
+- Commit/push status:
+  - pending commit/push in `arkenrealms/seer-node` and `arkenrealms/seer` (to update PR https://github.com/arkenrealms/seer/pull/1).
+- Next chunk (rotation): move to `forge` unless priority override is provided.

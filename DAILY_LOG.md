@@ -1284,3 +1284,24 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer helper guard hardening)
+- [x] Continued repo rotation in `seer` after prior `node` chunk.
+- [x] Loaded required Seer `.md` docs first:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Hardened `packages/seer/packages/node/src/tests.ts` helper preconditions:
+  - `updateUserAchievements` now fail-fast validates `loadUser`/`updateAchievementsByUser`/`saveUser` dependencies and target user presence.
+  - `monitorMarketEvents` now fail-fast validates `getAllMarketEvents` and returns timer handle.
+- [x] Updated Seer analysis rollups:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Tests run: none (package lacks automated harness coverage for `src/tests.ts` helpers).
+
+### In progress (rotation)
+- [x] Continue to `forge` next.
+- [ ] Commit/push Seer submodule updates and parent `arken` rollup update.
