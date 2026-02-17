@@ -1643,3 +1643,47 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `c9b29ba` — Document node root build and test config risks (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:03–1:07 PM PST
+- Rotation moved to `seer` chunk.
+- Loaded target `.md` docs first in `packages/seer/packages/protocol` context:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `.rush/temp/{README.md,ANALYSIS.md}`
+- Completed source/metadata pass for `packages/seer/packages/protocol/.rush` boundary and added missing parent docs:
+  - `packages/seer/packages/protocol/.rush/{README.md,ANALYSIS.md}`
+- Updated upward rollup:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `4940bba` — Add protocol .rush ownership docs (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `b7f85a1` — Roll seer-protocol .rush docs update (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded `.md` docs first in target scope:
+  - `packages/forge/packages/web/src/config/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+- Completed deepest-first source read in `packages/forge/packages/web/src/config/abi/*` and added concise docs:
+  - `packages/forge/packages/web/src/config/abi/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/config/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `e0a9f64` — Add config ABI catalog docs and risk notes (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `43d413a` — Roll forge-web ABI docs update (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization check; blocker unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded `.md` docs first in touched node folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Added websocket server-handler regression in `packages/node/test/socketServer.spec.ts`:
+  - invalid/undecodable `params` payload now explicitly asserts status-0 envelope behavior.
+- Updated concise docs/analysis in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 40/40)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `c19ba85` — Add socketServer bad-params deserialization regression test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

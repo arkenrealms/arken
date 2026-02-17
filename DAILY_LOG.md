@@ -955,3 +955,36 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Keep parent `arken` rollup branch in sync with latest submodule pointers + logs.
+
+### Newly completed (seer .rush parent docs + forge ABI + evolution blocker + node socketServer params regression)
+- [x] Rotated to `seer` and loaded required `.md` docs first in `packages/seer/packages/protocol` (`ANALYSIS.md` and `.rush/temp` docs).
+- [x] Added missing parent `.rush` docs:
+  - `packages/seer/packages/protocol/.rush/{README.md,ANALYSIS.md}`
+- [x] Updated rollup:
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `4940bba`
+  - `seer` `b7f85a1` (updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge`, loaded config `.md` docs first, and completed deepest-first pass in `packages/forge/packages/web/src/config/abi`.
+- [x] Added concise ABI docs:
+  - `packages/forge/packages/web/src/config/abi/{README.md,ANALYSIS.md}`
+- [x] Updated Forge rollups:
+  - `packages/forge/packages/web/src/config/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `e0a9f64`
+  - `forge` `43d413a` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `fatal: No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per policy and loaded target `.md` docs first in `packages/node/test` + `packages/node/trpc`.
+- [x] Added websocket server regression test in `packages/node/test/socketServer.spec.ts` for undecodable `params` payloads (status-0 envelope/error path assertion).
+- [x] Updated node docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran protocol suites:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 40/40)
+- [x] Committed/pushed node update:
+  - `c19ba85` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
