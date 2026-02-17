@@ -1355,3 +1355,32 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next for the next deepest-first pass in checked-out scope.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
+
+### Newly completed (forge user-state docs + evolution blocker recheck + node empty-segment method hardening)
+- [x] Rotated to `forge`, loaded required `.md` docs first, and completed deepest-first source pass in `packages/forge/packages/web/src/state/user` (`actions.ts`, `reducer.ts`, `hooks.tsx`).
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/state/user/{README.md,ANALYSIS.md}`
+- [x] Updated rollups:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `5c70ff8`
+  - `forge` `6ce7620` (updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and revalidated blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Updated blocker continuity note: `packages/evolution/NOTES.md`.
+- [x] Captured local evolution commit: `9db91c9` (push still blocked by 403 permission on `arkenrealms/evolution`).
+- [x] Advanced to `node` after blocker and hardened websocket server method validation:
+  - `packages/node/trpc/socketServer.ts` now rejects empty method path segments (e.g., `core..ping`) during target resolution.
+- [x] Added regression test:
+  - `packages/node/test/socketServer.spec.ts` asserts empty-segment method paths fail with status-0 missing-handler envelope.
+- [x] Updated node docs:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 47/47).
+- [x] Committed/pushed node update: `d97192d` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [ ] Continue to `seer` next (deepest-first leaf pass in checked-out scope).

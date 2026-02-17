@@ -2283,3 +2283,48 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `0b10e59` — Harden seer-node maintenance helper preconditions (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `85184d3` — Roll seer-node helper precondition hardening (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 15:54–16:03 PST
+- Rotation moved to `forge` chunk (next after latest `seer` pass).
+- Loaded `.md` docs first in active Forge folders:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/{ANALYSIS.md}`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/state/user`:
+  - `actions.ts`, `reducer.ts`, `hooks.tsx`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/state/user/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `5c70ff8` — Add Forge user state slice docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `6ce7620` — Roll forge-web user state analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Blocker revalidated:
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule sync --recursive`
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule update --init --recursive`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `9db91c9` — Log latest evolution submodule blocker verification (local commit only; push blocked by 403 permission)
+- Rotation advanced to `node` chunk after blocker.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Implemented small protocol hardening in `packages/node/trpc/socketServer.ts`:
+  - method resolution now rejects empty path segments (e.g. `core..ping`) in addition to prototype-path guards.
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - rejects empty-segment traversal attempt (`method: 'core..ping'`) with status-0 missing-handler envelope.
+- Updated concise docs in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 47/47)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `d97192d` — Reject empty method path segments in socket server (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
