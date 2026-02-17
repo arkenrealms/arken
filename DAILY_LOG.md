@@ -573,3 +573,29 @@
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (forge Menu/components + evolution blocker + node time docs chunk)
+- [x] Rotated to `forge` and loaded required parent `.md` docs first in `src/components`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/components/Menu/components/*.tsx`.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Menu/components/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risks: wallet/profile-side effect ownership sits in render components; `MenuLink`/`Logo` use loose typing; `SocialLinks` mixes declarative and imperative navigation paths.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `290a9da` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `0b99bc9` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule initialization checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Advanced to `node` per rotation policy and completed source pass for `packages/node/time/{index.ts,now.ts,date.ts,fancyTimeFormat.ts}`.
+- [x] Added/updated concise docs in `packages/node/time`:
+  - `README.md` (new)
+  - `ANALYSIS.md` (refreshed)
+- [x] Captured key risks: UTC/local mix in shared helpers, serial queue with console-only error handling, and loose helper typing.
+- [x] Committed/pushed node update: `b24229b` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

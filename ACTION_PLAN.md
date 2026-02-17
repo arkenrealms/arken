@@ -1053,3 +1053,52 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `32e7f0c` — Normalize seer-node runtime entry header policy (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `5b08dc0` — Roll seer-node header-normalization update (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 12:16–12:27 PST
+- Rotation moved to `forge` chunk.
+- Loaded required parent `.md` docs first in active folders:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/components/Menu/components/*.tsx`.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/components/Menu/components/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/components/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - Menu runtime composition is concentrated in `PanelBody`/`PanelFooter`/`UserBlock` with wallet and profile state bridging in render components.
+  - `MenuLink` and `Logo` retain loose `any` typings; `SocialLinks` mixes declarative links with imperative redirects.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `290a9da` — Add Menu/components runtime ownership analysis docs (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `0b99bc9` — Roll Menu/components analysis and web submodule pointer (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required local `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization checks:
+  - `git -C packages/evolution submodule sync --recursive`
+  - `git -C packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded required `.md` docs first in target scope:
+  - `packages/node/time/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Completed source pass for:
+  - `packages/node/time/{index.ts,now.ts,date.ts,fancyTimeFormat.ts}`
+- Added/updated concise docs:
+  - `packages/node/time/README.md` (new)
+  - `packages/node/time/ANALYSIS.md` (refreshed implementation notes)
+- Key findings:
+  - utility layer mixes UTC and local-time helpers in one surface,
+  - queue helper defaults to delayed serial execution with console-only error reporting,
+  - several helper APIs remain loosely typed.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `b24229b` — Add time folder README and utility implementation notes (pushed; updates https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer` for next deepest-first pass.
