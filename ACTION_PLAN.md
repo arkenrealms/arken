@@ -323,6 +323,27 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Next unblocked chunk:
   - continue `seer` rotation (`protocol/src/modules/isles` leaf-first) unless explicit priority override is set.
 
+### 2026-02-17 07:39–07:50 PST
+- Rotation moved to `seer` chunk (continuing cadence after `node`).
+- Loaded `.md` docs first for active protocol folders (`src/modules`, `src`, `packages/protocol`, and Seer parent analysis docs).
+- Completed deepest-first leaf analysis for `packages/seer/packages/protocol/src/modules/isles` by reading all module source files.
+- Added/updated concise docs + analysis in touched Seer protocol folders:
+  - `packages/seer/packages/protocol/src/modules/isles/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- Key findings:
+  - Isles routes are likely miswired to Evolution service handlers.
+  - Isles contracts remain permissive (`z.any`) with ambiguous query/mutation semantics.
+  - `isles.router.ts` includes a large commented legacy block (~3.6k lines), increasing maintenance risk.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push/PR status:
+  - pending in this chunk (to be recorded after git operations complete).
+- Next chunk (rotation): move to `forge` and continue deepest-first module analysis in checked-out scope.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.

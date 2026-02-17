@@ -66,6 +66,26 @@
 - [ ] Continue to `seer` next (`protocol/src/modules/isles` leaf-first).
 - [ ] Commit/push latest `node` test/doc updates to refresh PR #15.
 
+### Newly completed (seer isles chunk)
+- [x] Continued repo rotation into `seer` after `node` per cadence.
+- [x] Loaded active Seer protocol `.md` files first before source analysis (`src/modules`, `src`, `packages/protocol`, parent Seer analysis docs).
+- [x] Completed deepest-first source analysis for `packages/seer/packages/protocol/src/modules/isles`.
+- [x] Added concise Isles module docs:
+  - `packages/seer/packages/protocol/src/modules/isles/README.md`
+  - `packages/seer/packages/protocol/src/modules/isles/ANALYSIS.md`
+- [x] Updated roll-up analysis docs with Isles findings:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+- [x] Recorded key protocol risks: likely Isles→Evolution route miswiring, permissive `z.any` boundaries, and oversized commented legacy block in `isles.router.ts`.
+
+### In progress (rotation)
+- [x] Continue to `seer` next (`protocol/src/modules/isles` leaf-first).
+- [ ] Continue to `forge` next (`forge-web` leaf-first) per rotation cadence.
+- [ ] Commit/push Seer Isles doc-analysis updates and refresh PR #1 and seer-protocol PR branch.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.
