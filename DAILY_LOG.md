@@ -886,3 +886,41 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer-node .rush + forge connectors + evolution blocker + node socketServer chunk)
+- [x] Rotated to `seer` and loaded all target `.md` docs first for `packages/seer/packages/node/.rush/temp` (none existed before this chunk), then reviewed `shrinkwrap-deps.json`.
+- [x] Added concise docs:
+  - `packages/seer/packages/node/.rush/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/.rush/temp/{README.md,ANALYSIS.md}`
+- [x] Updated Seer rollups:
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `4be3c45` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `1ccf33b` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Rotated to `forge`, loaded parent `.md` docs first, and completed source read in `src/connectors` (`NetworkConnector.ts`, `index.ts`).
+- [x] Added concise docs:
+  - `packages/forge/packages/web/src/connectors/{README.md,ANALYSIS.md}`
+- [x] Updated Forge rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `d9e4ba4` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `b4d036b` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-confirmed blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Advanced to `node` per policy and added websocket server listener safety regression coverage:
+  - `packages/node/test/socketServer.spec.ts` (safe detach when socket lacks `on`/`off`)
+- [x] Updated node docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/ANALYSIS.md`
+- [x] Ran protocol suites:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 39/39)
+- [x] Committed/pushed node update:
+  - `7b0ea2f` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

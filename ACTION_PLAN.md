@@ -1530,3 +1530,58 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `eb4c57a` — Add .rush/temp lock-metadata docs (updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 1:27–1:44 PM PST
+- Rotation moved to `seer` chunk.
+- Loaded all `.md` docs first in target scope:
+  - `packages/seer/packages/node/.rush/temp` (none existed before this chunk)
+  - parent rollups: `packages/seer/packages/node/ANALYSIS.md`, `packages/seer/packages/ANALYSIS.md`, `packages/seer/ANALYSIS.md`
+- Read source metadata file:
+  - `packages/seer/packages/node/.rush/temp/shrinkwrap-deps.json`
+- Added concise docs/analysis:
+  - `packages/seer/packages/node/.rush/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/.rush/temp/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `4be3c45` — Add seer-node .rush metadata docs and rollup notes
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `1ccf33b` — Roll seer-node .rush analysis updates (updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded `.md` docs first in target scope:
+  - parent docs: `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`, `packages/forge/packages/ANALYSIS.md`, `packages/forge/ANALYSIS.md`
+  - `packages/forge/packages/web/src/connectors` had no `.md` before this chunk.
+- Read source files:
+  - `packages/forge/packages/web/src/connectors/NetworkConnector.ts`
+  - `packages/forge/packages/web/src/connectors/index.ts`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/connectors/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `d9e4ba4` — Document connector-layer RPC batching ownership
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `b4d036b` — Roll connector analysis updates from forge-web (updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran recursive submodule initialization checks; blocker unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per policy, advanced to `node`.
+- Loaded `.md` docs first in target folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - parent `packages/node/ANALYSIS.md`
+- Added websocket server-listener safety test:
+  - `packages/node/test/socketServer.spec.ts`
+  - new case validates `attachSocketTrpcListener` detach no-op when socket lacks `on`/`off` hooks.
+- Updated concise docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/ANALYSIS.md`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 39/39)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `7b0ea2f` — Add socket listener-hook safety regression test (updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
