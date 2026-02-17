@@ -102,6 +102,28 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 - Next unblocked chunk if auth remains blocked:
   - continue queued deepest-first analysis in `packages/node/data/zk/*` and stage docs/tests for later push.
 
+### 2026-02-17 06:52–06:56 PST
+- Executed next highest-priority protocol robustness chunk in `packages/node/trpc` + `packages/node/test` (websocket wrapper/use-case race hardening).
+- Updated `packages/node/trpc/socketLink.ts` to register `ioCallbacks[reqId]` before `socket.emit` in both:
+  - `createSocketLink`
+  - `createSocketProxyClient`
+- Added settled-state guards around proxy timeout/reject/resolve paths to avoid duplicate terminal signaling in tight race windows.
+- Added targeted same-tick response tests in `packages/node/test/socketLink.spec.ts`:
+  - `createSocketLink` immediate synchronous response during emit,
+  - `createSocketProxyClient` immediate synchronous response during emit.
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 23/23)
+- Commit status:
+  - local commit created in `arken/packages/node` on `sable/maintenance-trpc-ws-cycle`:
+    - `c7008a0` — Harden websocket wrapper same-tick response races
+- Push/PR status:
+  - `git push origin sable/maintenance-trpc-ws-cycle` failed with auth blocker (`could not read Username for 'https://github.com': Device not configured`); PR update deferred until auth is restored.
+- Next unblocked chunk:
+  - extend malformed payload/ID-field permutations in `attachTrpcResponseHandler` tests (e.g., numeric/empty IDs, malformed server-push params) and/or continue deepest-first `packages/node/data/zk/*` analysis.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arkenrealms/node` push auth currently unavailable in this runtime (`could not read Username for 'https://github.com': Device not configured`).
