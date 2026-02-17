@@ -84,7 +84,7 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next (`protocol/src/modules/isles` leaf-first).
 - [ ] Continue to `forge` next (`forge-web` leaf-first) per rotation cadence.
-- [ ] Commit/push Seer Isles doc-analysis updates and refresh PR #1 and seer-protocol PR branch.
+- [x] Commit/push Seer Isles doc-analysis updates (`seer-protocol` `1332301`, `seer` `3352b42`, `arken` `90fbbce`) and refresh Seer PR #1 / seer-protocol PR branch.
 
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.

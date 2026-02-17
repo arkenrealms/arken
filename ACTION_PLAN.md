@@ -341,7 +341,13 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Tests run:
   - none (docs/analysis-only chunk; no runtime behavior changes).
 - Commit/push/PR status:
-  - pending in this chunk (to be recorded after git operations complete).
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `1332301` — Add Isles module deep-dive docs and protocol risk notes (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `3352b42` — Document Isles protocol analysis and roll up findings (pushed)
+  - `arkenrealms/arken` `sable/arken-maintenance-trpc-ws-cycle`: `90fbbce` — Log Seer Isles analysis chunk and update rotation plan (pushed)
+- PR status:
+  - Existing Seer PR remains: https://github.com/arkenrealms/seer/pull/1
+  - Seer-protocol branch PR link: https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+  - CLI PR-open blocker persists: `gh` not installed in runtime.
 - Next chunk (rotation): move to `forge` and continue deepest-first module analysis in checked-out scope.
 
 ## Blockers
