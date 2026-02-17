@@ -823,3 +823,20 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `50a0294` — Document legacy contract artifact surface and schema risks (pushed; updates https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 11:17–11:24 PST
+- Rotation moved to `seer` chunk.
+- Loaded all required `.md` docs first in active protocol folders:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Completed source pass in module leaf entrypoints:
+  - `packages/seer/packages/protocol/src/modules/{oasis,isles,infinite,evolution}/index.ts`
+- Normalized top path headers in touched source files to `arken/...` format.
+- Tests run:
+  - none (comment-only source normalization; no runtime logic changes).
+- Commit/push status:
+  - pending local commit/push in `seer-protocol` and parent `seer` rollup update.
+- Next chunk (rotation): move to `forge` after seer push completes.

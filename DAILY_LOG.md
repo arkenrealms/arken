@@ -411,3 +411,17 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer module-entry header-normalization chunk)
+- [x] Rotated to `seer` after prior `node` chunk and loaded required protocol `.md` docs first.
+- [x] Completed source pass in module leaf entrypoints:
+  - `packages/seer/packages/protocol/src/modules/oasis/index.ts`
+  - `packages/seer/packages/protocol/src/modules/isles/index.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/index.ts`
+  - `packages/seer/packages/protocol/src/modules/evolution/index.ts`
+- [x] Normalized top file path headers to `arken/...` in all touched source files.
+- [x] Updated run ledger in `arken/ACTION_PLAN.md` with concrete outputs and next rotation target.
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out `forge-web` scope.
+- [ ] Commit/push `seer-protocol` + `seer` + parent `arken` rollup updates for this run.
