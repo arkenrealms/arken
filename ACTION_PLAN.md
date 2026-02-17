@@ -52,5 +52,14 @@ Systematically harden protocol quality (especially tRPC websocket wrappers), exp
 4. `seer` / `forge`: continue deepest-first analysis and README refresh in available checked-out scope, clearly documenting submodule boundaries.
 5. `evolution`: continue deepest-first local analysis/docs; push once permission is granted.
 
+### 2026-02-17 06:28–06:36 PST
+- Refined methodology to require file-level analysis (not filename-only) with bottom-up (deepest-first) summarization.
+- Added explicit omniverse-platform framing (Steam/Battle.net-grade reliability and operability).
+
+### 2026-02-17 06:36+ PST (active chunk)
+- Completed bottom-up analysis in `packages/node/legacy/data/generated` -> `legacy/data` -> `legacy` -> `packages/node` summary update.
+- Updated `packages/node/time/ANALYSIS.md` with operational reliability concerns (UTC policy, queue observability, cancellation/backpressure gaps).
+- Captured concrete follow-ups: schema validation for generated catalogs, modularization of `legacy/data/items.ts`, and targeted tests for time/event gating.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
