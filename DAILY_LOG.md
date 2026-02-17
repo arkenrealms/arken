@@ -199,6 +199,26 @@
 - [x] Continue to `forge` next (next deepest-first pass in checked-out `forge-web` scope).
 - [ ] Commit/push parent `arken` rollup updates for this chunk.
 
+### Newly completed (forge isles chunk)
+- [x] Rotated to `forge` after `seer` and loaded relevant parent `.md` docs before source analysis.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/views/games/isles/index.tsx`.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/games/isles/{README.md,ANALYSIS.md}`
+- [x] Updated parent rollups:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `e6fd6c0` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `7d0b6f8` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Captured key risk: Isles route layer is thin and delegates protocol/state authority to `~/components/MemeIsles`.
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then advance to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this chunk.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.

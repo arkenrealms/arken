@@ -515,6 +515,34 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `467184c` — Document Seer Evolution protocol leaf analysis and rollups (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge` (next deepest-first pass in checked-out `forge-web` scope) unless priority override is provided.
 
+### 2026-02-17 08:14–08:22 PST
+- Rotation moved to `forge` chunk.
+- Loaded `.md` docs first in active parent folders:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for `packages/forge/packages/web/src/views/games/isles/index.tsx`.
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/views/games/isles/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/views/games/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/views/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - Isles game route is a minimal wrapper with all runtime behavior delegated to `~/components/MemeIsles`.
+  - Protocol/data authority for Isles cannot be validated from route layer alone; requires follow-up in component/hooks surfaces.
+- Tests run:
+  - none (docs/analysis-only chunk; no behavior changes).
+- Commit/push/PR status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `e6fd6c0` — Add Isles game view leaf analysis docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `7d0b6f8` — Roll forge-web Isles view analysis updates (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+  - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+- Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
