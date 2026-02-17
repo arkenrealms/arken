@@ -219,6 +219,24 @@
 - [x] Continue to `evolution` next (blocker-aware local pass), then advance to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this chunk.
 
+### Newly completed (evolution blocker re-check + node own-key hardening chunk)
+- [x] Rotated to `evolution` after `forge`, loaded required docs first, and re-ran recursive submodule initialization.
+- [x] Reconfirmed evolution blocker with exact errors:
+  - `fatal: no submodule mapping found in .gitmodules for path 'packages/client'`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Advanced per policy to `node` and completed websocket callback-map hardening in `packages/node/trpc/socketLink.ts`.
+- [x] Enforced own-property callback matching for `trpcResponse` IDs and aligned request-id allocation collision checks to own keys.
+- [x] Added regression coverage in `packages/node/test/socketLink.spec.ts` for inherited prototype-key safety (`id: 'toString'`).
+- [x] Updated concise docs in touched node folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `test/socketLink.spec.ts` + `test/socketServer.spec.ts` (pass: 38/38).
+- [x] Committed/pushed node update: `64c0c04` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next (deepest-first protocol module pass) after node chunk.
+- [ ] Commit/push parent `arken` rollup updates for this run.
+
 ### Improvements backlog
 - [ ] Add checklist template to every new `ANALYSIS.md` file.
 - [x] Ensure each run loads all `.md` files in target folder before edits.

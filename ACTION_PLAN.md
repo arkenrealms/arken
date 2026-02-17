@@ -543,6 +543,30 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - forge-web branch PR link (manual open/update): https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
 - Next chunk (rotation): move to `evolution`; if blocked, record blocker and continue to `node`.
 
+### 2026-02-17 08:19–08:27 PST
+- Rotation moved to `evolution` chunk after prior `forge` pass.
+- Loaded required evolution docs first and re-ran recursive submodule init check in `packages/evolution`.
+- Blocker persists exactly:
+  - `fatal: no submodule mapping found in .gitmodules for path 'packages/client'`
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Per execution policy, advanced to next repo in rotation (`node`) and executed a small protocol-hardening chunk in websocket wrappers/tests.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Updated runtime behavior in `packages/node/trpc/socketLink.ts`:
+  - callback matching for `trpcResponse` now requires own-property checks on `ioCallbacks`, avoiding inherited prototype-key collisions (e.g. `toString`),
+  - request-id allocation now also uses own-property checks for consistency.
+- Expanded `packages/node/test/socketLink.spec.ts` coverage for:
+  - inherited prototype-key safety in `attachTrpcResponseHandler` (`id: 'toString'` must not be treated as an active callback and should still route valid server-push payloads).
+- Updated concise docs/analysis in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 38/38)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `64c0c04` — Harden ioCallback own-key matching in socket response handler (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer` for the next deepest-first module pass in checked-out protocol scope.
+
 ## Blockers
 - `arkenrealms/evolution` push permission denied for current token.
 - `arken/packages/evolution`: submodule graph inconsistency (`packages/client` gitlink missing `.gitmodules` URL mapping) blocks `submodule update --init --recursive` and therefore deeper source-level evolution analysis.
