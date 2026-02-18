@@ -2543,3 +2543,21 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` availability check next, then follow strict direct-repo order.
+
+### Newly completed (rotation checks + evolution validator comment-tolerant parsing chunk)
+- [x] Verified strict rotation slots before edits:
+  - `sigil-protocol` missing in checkout (`.gitmodules` + `find`) → unavailable-in-checkout.
+  - `forge-protocol` missing in checkout (`packages/forge/.gitmodules` maps only `packages/web`) → unavailable-in-checkout.
+  - `forge-web` present but still blocked for source edits under source-change gate due missing runnable repo-defined test runtime in this environment.
+  - `evolution` present and selected for substantive, test-backed changes (non-client scope).
+- [x] Loaded all target-folder markdown context first in `packages/evolution` (root + `packages/` + `scripts/` + `test/`).
+- [x] Hardened wrapper validator parsing in `packages/evolution/scripts/validateSubmoduleMap.mjs` to tolerate inline unquoted `#`/`;` comments on `.gitmodules` `path = ...` lines while preserving normalization behavior.
+- [x] Added regression coverage in `packages/evolution/test/validateSubmoduleMap.test.mjs` for inline-comment parsing and normalization invariants.
+- [x] Updated concise docs in touched folders:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran wrapper tests: `npm test` in `packages/evolution` (pass: 12/12).
+- [x] Committed/pushed evolution update: `b495df3` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Continue to `evolution/packages/realm` next (slot 8 availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and continue strict direct-repo order.
