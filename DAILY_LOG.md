@@ -1685,3 +1685,25 @@
   - none in this run (evolution temporary skip policy still active and honored; no recursive submodule sync/update executed)
 - next rotation target:
   - `seer`
+
+### Run block — 2026-02-17T17:22:00-08:00 — seer-node chunk
+- files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/package.json`
+  - `packages/seer/packages/node/test/tests.helpers.test.cjs`
+  - `packages/seer/packages/node/test/README.md`
+  - `packages/seer/packages/node/test/ANALYSIS.md`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/node`) — pass (3/3)
+- commits:
+  - `arkenrealms/seer-node`: `9d3d063` (pushed)
+  - `arkenrealms/seer`: `01b6f71` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- blockers:
+  - none in this run
+- next rotation target:
+  - `seer-protocol`
