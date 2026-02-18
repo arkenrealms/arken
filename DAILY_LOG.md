@@ -3322,3 +3322,24 @@
   - No new blockers; existing checkout gaps unchanged (nested evolution repos uninitialized, cerebro/cli unavailable).
 - Next target:
   - `arken/packages/seer/packages/node`.
+
+## 2026-02-18T09:52:24-08:00 — seer-node BigInt throw-context serialization hardening
+- Rotation/path checks:
+  - Verified `packages/seer/packages/node` exists in checkout and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- Code/test/docs changes in `packages/seer/packages/node`:
+  - Added safe object-throw serializer in `src/tests.ts` so helper error context preserves BigInt/symbol payload details instead of collapsing to `[Object]`.
+  - Added regression in `test/tests.helpers.test.ts` for BigInt-bearing thrown objects.
+  - Updated concise touched-folder docs: `src/ANALYSIS.md`, `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `npm test` ✅ (32 passed)
+- Git:
+  - Commit: `246ea3b` (`fix(tests): preserve bigint object throw context`)
+  - Push: `sable/repo-analysis-notes-20260217-node-src` -> `origin`
+  - PR: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none in this slot.
+- Next target:
+  - `arken/packages/seer/packages/protocol`.
