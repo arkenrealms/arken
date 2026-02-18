@@ -2393,3 +2393,19 @@
 
 ### In progress (rotation)
 - [x] Continue to `evolution-realm` next (slot 8) availability/init check, then `evolution-shard`, `evolution-protocol`, `cerebro-hub`, `cli`, and resume at `node`.
+
+### Newly completed (evolution nested-slot verification + node cacheless provider hardening)
+- [x] Verified rotation slots 8–12 before source work:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist but are uninitialized/empty.
+  - `packages/cerebro/packages/hub` and `packages/cli` are missing in this checkout.
+- [x] Advanced to `node` (next actionable direct repo) and loaded target `.md` docs first in `web3/` and `test/`.
+- [x] Hardened `packages/node/web3/httpProvider.ts` to guard Cache API usage and preserve network-only behavior when `caches`/`Request`/`Response` globals are unavailable.
+- [x] Added regression coverage in `packages/node/test/httpProvider.spec.ts` for cacheless runtime fallback behavior.
+- [x] Updated concise folder docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran provider-focused suite: `npm test -- test/httpProvider.spec.ts --runInBand` (pass: 4/4).
+- [x] Committed/pushed node update: `2b8fac2` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next (`packages/seer/packages/node`) per strict slot order.
