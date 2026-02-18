@@ -2755,3 +2755,15 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `@arken/seer-protocol` lacks package-local test/typecheck/lint scripts, so source edits were deferred per mandatory source-change test gate.
 - next rotation target:
   - `sigil-protocol` (nested submodule path under seer parent)
+
+### Run block addendum — 2026-02-17T17:36:00-08:00 — seer-protocol docs/test-gate chunk commit finalization
+- commits finalized:
+  - `arkenrealms/seer-protocol`: `62ab129` (pushed)
+  - `arkenrealms/seer`: `0a1ce3a` (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+  - `arkenrealms/arken`: `d6eda14` (pushed)
+- tests:
+  - none (docs-only; source-change gate remains blocked by absent local scripts)
+- blockers:
+  - unchanged: seer-protocol needs package-local test harness before next source edit.
+- next rotation target:
+  - `sigil-protocol`
