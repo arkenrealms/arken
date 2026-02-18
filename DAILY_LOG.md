@@ -2495,3 +2495,19 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next for availability check, then proceed with strict direct-repo order.
+
+### Newly completed (node web3 403 recursion-guard chunk)
+- [x] Rotated through strict direct-repo order and re-validated checkout availability status:
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli` unavailable-in-checkout.
+  - `evolution/packages/{realm,shard,protocol}` present but uninitialized/empty.
+- [x] Advanced to `node` and loaded target `.md` docs first in `packages/node/web3` and `packages/node/test`.
+- [x] Hardened `packages/node/web3/httpProvider.ts` 403 failover behavior to fail closed when no alternate providers are configured, preventing unbounded recursive retries.
+- [x] Added regression coverage in `packages/node/test/httpProvider.spec.ts` to verify single-provider 403 handling performs one fetch attempt and rejects deterministically.
+- [x] Updated concise docs in touched folders:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran targeted unit tests: `npm test -- test/httpProvider.spec.ts --runInBand` (pass: 6/6).
+- [x] Committed/pushed node update: `cd6884a` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer-node` next per strict order.
