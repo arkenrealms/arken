@@ -2810,3 +2810,75 @@
 
 ### Run append — 2026-02-18T04:04:41-08:00 (correction note)
 - Correction: previous run-append timestamp (`2026-02-18T04:07:58-08:00`) was a clock typo; this line records the accurate append window for the same chunk.
+
+### Run append — 2026-02-18T04:13:51-0800 (seer-node monitor delay upper-bound guard)
+- Target attempted: .
+- Path verification:
+  - target exists in checkout and is mapped in .
+- Branch hygiene:
+  - 
+  - 
+- Source change:
+  - Hardened   delay normalization with explicit max-delay guard () to prevent timer clamp/overflow semantics drift.
+- Test coverage:
+  - Added regression assertion in  for out-of-range delay rejection ().
+- Docs updated:
+  - 
+  - 
+  - 
+- Validation:
+  -  in  ✅ pass (23/23)
+- Commit/PR:
+  -   pushed to  — PR update: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none.
+- Next target:
+  - .
+
+
+### Run append — 2026-02-18T04:14:04-0800 (seer-node monitor delay upper-bound guard)
+- Target attempted: `arken/packages/seer/packages/node`.
+- Path verification:
+  - target exists in checkout and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main`
+- Source change:
+  - Hardened `src/tests.ts` `monitorMarketEvents` delay normalization with explicit max-delay guard (`<= 2147483647`) to prevent timer clamp/overflow semantics drift.
+- Test coverage:
+  - Added regression assertion in `test/tests.helpers.test.ts` for out-of-range delay rejection (`2147483648`).
+- Docs updated:
+  - `src/ANALYSIS.md`
+  - `test/README.md`
+  - `test/ANALYSIS.md`
+- Validation:
+  - `npm test` in `packages/seer/packages/node` ✅ pass (23/23)
+- Commit/PR:
+  - `seer-node` `a344c3d` pushed to `sable/repo-analysis-notes-20260217-node-src` — PR update: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none.
+- Next target:
+  - `arken/packages/seer/packages/protocol`.
+
+## 2026-02-18T04:24:06-08:00 — seer-protocol saveRound mutation semantics alignment
+- Repo: `arken/packages/seer/packages/protocol`
+- Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main`
+- Source change:
+  - Converted `saveRound` transport shape from `.query` to `.mutation` in both Isles and Infinite routers to align write semantics with round persistence behavior.
+  - Kept existing direct Evolution handler routing and context-preserving `method.call(...)` behavior unchanged.
+- Test coverage:
+  - Extended `test/router-routing.test.ts` to assert the active `saveRound` block is mutation-based (and not query-based) for both routers.
+- Docs updated:
+  - `isles/{README.md,ANALYSIS.md}`
+  - `infinite/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `npm test` in `packages/seer/packages/protocol` ✅ pass (2/2)
+- Commit/PR:
+  - `seer-protocol` `832576d` pushed to `sable/repo-analysis-notes-20260217` — PR update: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers:
+  - none.
+- Next target:
+  - `arken/packages/sigil-protocol` availability check (slot 4).
