@@ -2175,3 +2175,5 @@
 ### In progress (rotation)
 - [x] Continue to `seer-node` next (`packages/seer/packages/node`) per strict direct-repo order.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+- [x] Committed/pushed parent `arken` rollup updates for this run:
+  - `42057eb` (branch `sable/arken-maintenance-trpc-ws-cycle`, updates <https://github.com/arkenrealms/arken/pull/2>)
