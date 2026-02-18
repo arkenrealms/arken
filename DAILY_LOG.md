@@ -2773,3 +2773,15 @@
   - `seer-protocol` `81115e5` (pushed) — <https://github.com/arkenrealms/seer-protocol/pull/1>
 - Blockers: none.
 - Next rotation target: `packages/sigil-protocol` availability check (slot 4), then continue strict order.
+
+### Newly completed (2026-02-18T03:52:16-08:00 evolution quoted-comment parser hardening)
+- [x] Rotation path verification completed for slots 4-7; `sigil-protocol` and `forge-protocol` remain unavailable-in-checkout, `forge-web` remains present-but-test-blocked, and work advanced to `packages/evolution`.
+- [x] Ran branch hygiene in `packages/evolution`: `git fetch origin` + `git merge --no-edit origin/main` (up to date).
+- [x] Hardened `packages/evolution/scripts/validateSubmoduleMap.mjs` to parse inline comments quote-aware, preserving `#`/`;` when they are inside quoted submodule paths.
+- [x] Expanded regression coverage in `packages/evolution/test/validateSubmoduleMap.test.mjs` for quoted-path comment-marker handling.
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Validation gate: `npm test` in `packages/evolution` ✅ pass (14/14).
+- [x] Commit/push: `evolution` `9e09b31` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+- [ ] Next rotation target: `arken/packages/evolution/packages/realm` (slot 8), then `shard`, `protocol`, `cerebro-hub`, `cli`, and continue strict order.
