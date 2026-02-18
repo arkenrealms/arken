@@ -2333,3 +2333,6 @@
   - Nested evolution direct repos still uninitialized in this checkout; `cerebro-hub` and `cli` absent.
 - Next direct target in rotation:
   - `packages/seer/packages/node`.
+
+## 2026-02-17T23:34:33-08:00 — correction note
+- Corrected timestamp context: previous block used `23:36:41-08:00` ahead of wall clock; actual completion window is around `23:34` local.
