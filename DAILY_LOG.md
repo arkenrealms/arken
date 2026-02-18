@@ -1964,3 +1964,17 @@
   - https://github.com/arkenrealms/node/pull/15
 - [x] Next rotation target:
   - `seer-node` (`arken/packages/seer/packages/node`)
+
+### Run block — 2026-02-17T20:42:17-0800 — seer-node async helper-contract hardening
+- [x] Verified active rotation target path exists before edits (`packages/seer/packages/node`) using `find` + `.gitmodules` check.
+- [x] Loaded all target-folder `.md` files first (`.rush/*`, root, `src/*`, `src/data/*`, `test/*`) before source changes.
+- [x] Hardened `src/tests.ts` by rejecting thenable returns from `db.loadToken` in `saveToken`, preventing Promise objects from being forwarded into sync save paths.
+- [x] Added regression test `saveToken rejects async db.loadToken return values` in `test/tests.helpers.test.ts`.
+- [x] Updated concise docs/analysis in touched folders:
+  - `src/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Ran tests: `npm test` in `packages/seer/packages/node` (pass: 8/8).
+- [x] Committed/pushed updates:
+  - `seer-node` `58e42bb`
+  - `seer` `27fdaec`
+- [ ] Next rotation target queued: `seer-protocol` (`packages/seer/packages/protocol`).

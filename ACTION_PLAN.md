@@ -3073,3 +3073,25 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `cerebro-hub` and `cli` direct target paths are missing in current workspace.
 - next rotation target:
   - `seer-node` (`arken/packages/seer/packages/node`)
+
+### Run block — 2026-02-17T20:42:17-0800 — seer-node async helper-contract hardening
+- rotation/path verification:
+  - active scheduled target `seer-node` exists: `arken/packages/seer/packages/node` (verified via `find` + `packages/seer/.gitmodules`).
+  - direct target path metadata remains present for sibling Seer package (`packages/seer/packages/protocol`) for next slot continuity.
+- files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- tests:
+  - `npm test` (in `packages/seer/packages/node`) — pass (8/8)
+- commits:
+  - `arkenrealms/seer-node`: `58e42bb` (pushed)
+  - `arkenrealms/seer`: `27fdaec` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- blockers:
+  - no new blocker in active `seer-node` slot.
+- next rotation target:
+  - `seer-protocol` (`arken/packages/seer/packages/protocol`)
