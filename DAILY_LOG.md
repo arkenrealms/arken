@@ -3732,3 +3732,20 @@
   - PR updated: <https://github.com/arkenrealms/seer-protocol/pull/1>
 - Blockers: none.
 - Next target: `packages/sigil-protocol` availability check (slot 4), then continue strict rotation.
+
+### Newly completed (evolution invalid-gitlink validator chunk)
+- [x] Continued strict direct-repo rotation through unavailable slots (`sigil-protocol`, `forge-protocol`) into actionable `packages/evolution` (non-client scope).
+- [x] Loaded all local `.md` files in `packages/evolution` before source edits (`README.md`, `ANALYSIS.md`, `NOTES.md`, `packages/*`, `scripts/*`, `test/*`).
+- [x] Applied branch hygiene in direct repo before edits:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- [x] Hardened wrapper validator to explicitly reject malformed empty/whitespace gitlink inputs.
+- [x] Added regression test coverage for invalid gitlink input rejection.
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (27/27)
+- [x] Committed/pushed evolution update:
+  - `1d0e93d` (updates <https://github.com/arkenrealms/evolution/pull/10>)
+- [ ] Continue rotation to `packages/evolution/packages/realm` next (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and back to `node`.
