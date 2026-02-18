@@ -1896,3 +1896,5 @@
   - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
 - [ ] Jest migration bootstrap in this direct repo still blocked in cron runtime by unresolved workspace package-manager install path for `workspace:*` dependencies.
 - [x] Next rotation target set: `sigil-protocol`.
+
+- [x] 2026-02-17 20:11 PST — Stabilized Node + Seer PR tests; migrated seer-node helper tests to TypeScript and reran passing suites.

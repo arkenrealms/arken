@@ -2986,3 +2986,10 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, and `cli` direct target paths remain unavailable in current workspace snapshot.
 - next rotation target:
   - `sigil-protocol`
+
+### 2026-02-17 20:11 PST
+- Manual user-requested test stabilization for Node + Seer PRs completed.
+- Verified Node PR tests pass: npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand (58/58).
+- Migrated seer-node helper tests from .cjs to .test.ts and validated: npm test (7/7).
+- Rolled seer-node test migration into seer parent repo and updated repo analysis notes.
+- Commits: seer-node c1aecd4, seer 309dcbd.
