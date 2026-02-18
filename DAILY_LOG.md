@@ -2269,3 +2269,23 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next (availability check), then continue strict direct-repo order.
+
+### Newly completed (2026-02-17T23:23:40-08:00 run: forge-web utils test-gate audit)
+- [x] Verified strict rotation paths before work:
+  - `sigil-protocol` unavailable-in-checkout.
+  - `forge-web` present and mapped in `packages/forge/.gitmodules`.
+  - `forge-protocol` unavailable-in-checkout.
+- [x] Loaded all local markdown files in `packages/forge/packages/web` prior to source analysis.
+- [x] Performed leaf-first `src/utils` review; identified `contenthashToUri.ts` hex coercion risk candidate.
+- [x] Enforced source-change test gate:
+  - attempted repo-defined test run: `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts` → failed (`react-app-rewired` missing).
+  - attempted workspace alternative: `pnpm test -- --runTestsByPath src/utils/contenthashToUri.test.ts` → failed (`pnpm` missing).
+  - reverted prepared source/test edits and kept docs-only updates.
+- [x] Updated concise touched-folder docs:
+  - `packages/forge/packages/web/src/utils/{README.md,ANALYSIS.md}`
+- [x] Committed/pushed:
+  - `forge-web` `c85cf12` (updates <https://github.com/arkenrealms/forge-web/pull/9>)
+  - `forge` `9802ff6` (submodule pointer, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [ ] Continue with `packages/evolution` next (non-client scope only), then check `packages/evolution/packages/{realm,shard,protocol}` init state.

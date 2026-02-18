@@ -256,3 +256,29 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`) availability check, then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-17T23:23:40-08:00 — forge-web utils audit under source-change gate
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+  - `arken/packages/forge/packages/web` (slot 5)
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules` has no mapping) → unavailable-in-checkout.
+  - `packages/forge/packages/web` exists and is mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` absent in checkout (`packages/forge/.gitmodules` contains only `packages/web`) → unavailable-in-checkout.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/forge/packages/web/src/utils/README.md`
+  - `packages/forge/packages/web/src/utils/ANALYSIS.md`
+  - `packages/forge/packages/web` submodule pointer in `packages/forge`
+- Test command + result:
+  - `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts` (in `packages/forge/packages/web`) ❌ fail (`react-app-rewired: command not found`)
+  - `pnpm test -- --runTestsByPath src/utils/contenthashToUri.test.ts` (in `packages/forge/packages/web`) ❌ fail (`pnpm: command not found`)
+  - Source edits prepared for `contenthashToUri.ts` were reverted to satisfy the source-change test gate.
+- Commits + PR links:
+  - `forge-web` `c85cf12` (pushed docs-only blocker/update) — updates <https://github.com/arkenrealms/forge-web/pull/9>
+  - `forge` `9802ff6` (pushed submodule pointer) — updates <https://github.com/arkenrealms/forge/pull/1>
+- Blockers:
+  - Repo-defined test runtime is unavailable in this checkout (`react-app-rewired` binary missing; `pnpm` unavailable), so safe source changes remain blocked.
+- Next rotation target:
+  - `arken/packages/evolution` (slot 7; non-client scope only), then `evolution-realm` availability/init check.
