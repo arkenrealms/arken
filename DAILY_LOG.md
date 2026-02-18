@@ -3749,3 +3749,24 @@
 - [x] Committed/pushed evolution update:
   - `1d0e93d` (updates <https://github.com/arkenrealms/evolution/pull/10>)
 - [ ] Continue rotation to `packages/evolution/packages/realm` next (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and back to `node`.
+
+### 2026-02-18T13:45:12-08:00 — rotation slot-8..12 verification + node hardening
+- Verified rotation slots before work:
+  - `packages/evolution/packages/{realm,shard,protocol}` still present but uninitialized/empty.
+  - `packages/cerebro/packages/hub` and `packages/cli` still unavailable-in-checkout.
+- Ran mandatory branch hygiene in `packages/node`:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- Implemented source fix in `packages/node/web3/httpProvider.ts`:
+  - JSON-RPC `error.code` now requires an integer finite number; non-integer numeric codes normalize to `-32000`.
+- Added regression coverage in `packages/node/test/httpProvider.spec.ts`:
+  - `normalizes non-integer JSON-RPC error codes to stable defaults`.
+- Updated concise docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (29/29)
+- Commit/push:
+  - `packages/node` `4253181` pushed to branch `sable/maintenance-trpc-ws-cycle` (updates node PR #15).
+- Next strict rotation target:
+  - `arken/packages/seer/packages/node`.
