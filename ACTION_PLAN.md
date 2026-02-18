@@ -2668,3 +2668,5 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commits: forge-web d06ac0f, forge 4ccc949.
 
 - Follow-up: reverted last forge-web source diff () and re-rolled forge pointer.
+
+- Follow-up: restored forge-web Royale.tsx to main and re-rolled forge pointer (docs-only PR enforcement).
