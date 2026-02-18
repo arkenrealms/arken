@@ -3508,3 +3508,23 @@
 
 ### In progress (rotation)
 - [x] Next direct slot is `sigil-protocol` availability check (slot 4), then continue strict direct-repo order.
+
+### Newly completed (evolution duplicate-normalized-gitlink guard chunk)
+- [x] Rotated through slots 4-7 with path verification (`find` + `.gitmodules` checks):
+  - `sigil-protocol` unavailable-in-checkout,
+  - `forge-protocol` unavailable-in-checkout,
+  - `forge-web` present,
+  - `evolution` present and actionable.
+- [x] Completed branch hygiene in `packages/evolution` (`git fetch origin` + merge `origin/main`, up to date).
+- [x] Hardened `packages/evolution/scripts/validateSubmoduleMap.mjs` to detect duplicate normalized gitlink paths (`duplicateGitlinks`) and fail validation when canonicalized collisions occur.
+- [x] Added regression coverage in `packages/evolution/test/validateSubmoduleMap.test.mjs`:
+  - fixture-level duplicate-normalized-gitlink failure case,
+  - live-repo assertion that duplicate normalized gitlinks are absent.
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined tests: `npm test` in `packages/evolution` (pass: 22/22).
+- [x] Pushed direct subrepo commit: `evolution` `47a6e08` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Next direct slot is `evolution-realm` availability/init check (slot 8), then continue strict direct-repo order.
