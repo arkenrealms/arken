@@ -2738,3 +2738,21 @@
 
 ### 2026-02-18T03:14:32-08:00 — correction note
 - Correction: previous daily-log block timestamp (`2026-02-18T03:16:54-08:00`) was appended with a clock typo; this note records the accurate append window for the same maintenance chunk.
+
+## 2026-02-18T03:22:00-08:00 — seer-node monitor delay integer guard
+- Followed guardrail order: read `/Users/web/.openclaw/workspace-nel/MEMORY.md` first, then `ACTION_PLAN.md`.
+- Rotation slot: `arken/packages/seer/packages/node`.
+- Pre-edit branch hygiene completed: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Source hardening:
+  - tightened `monitorMarketEvents` delay validation to require finite non-negative integer millisecond values.
+- Test updates:
+  - expanded invalid-delay coverage to include fractional values (`1.5`) and updated expected error text.
+- Docs kept current in touched folders:
+  - `src/ANALYSIS.md`
+  - `test/ANALYSIS.md`
+  - `test/README.md`
+- Validation:
+  - `npm test` in `packages/seer/packages/node` ✅ (23/23 passing).
+- Commit/push:
+  - `seer-node` `72bccd4` pushed to `sable/repo-analysis-notes-20260217-node-src` (PR: <https://github.com/arkenrealms/seer-node/pull/3>).
+- Next direct-rotation target: `arken/packages/seer/packages/protocol`.
