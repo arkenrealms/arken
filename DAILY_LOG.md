@@ -1639,3 +1639,5 @@
   - `seer`
 
 - [x] 2026-02-17 17:05 PST — Applied new policy requiring test-backed source changes; reverted forge-web source edits and rolled updated submodule pointers.
+
+- [x] 2026-02-17 17:05 PST — Finalized forge-web docs-only scope by reverting remaining Royale source diff.

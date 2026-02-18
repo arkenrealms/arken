@@ -2666,3 +2666,5 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Reverted prior forge-web source edits in PR branch; retained docs updates.
 - Rolled forge-web revert into forge parent repo.
 - Commits: forge-web d06ac0f, forge 4ccc949.
+
+- Follow-up: reverted last forge-web source diff () and re-rolled forge pointer.
