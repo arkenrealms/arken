@@ -2049,3 +2049,25 @@
   - `seer-node` `20b3062` (branch `sable/repo-analysis-notes-20260217-node-src`)
   - `seer` `52b95e9` (branch `sable/repo-analysis-notes-20260217`, submodule pointer roll)
 - Next rotation target: `seer-protocol` (`arken/packages/seer/packages/protocol`).
+
+### Run block — 2026-02-17T21:32:29-08:00 — seer-protocol infinite resolver context-binding hardening
+- files changed:
+  - `packages/seer/packages/protocol/src/modules/infinite/infinite.methodResolver.ts`
+  - `packages/seer/packages/protocol/test/infinite.router.test.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/README.md`
+  - `packages/seer/packages/protocol/test/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (7/7)
+- commits:
+  - `arkenrealms/seer-protocol`: `4cdb6b2` (pushed)
+  - `arkenrealms/seer`: `fb307a7` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `sigil-protocol` direct target path missing in this checkout: `arken/packages/sigil-protocol`.
+  - `forge-protocol` direct target path missing in this checkout: `arken/packages/forge/packages/protocol`.
+  - `cerebro-hub` and `cli` direct target paths missing in this checkout.
+- next rotation target:
+  - `sigil-protocol` (`arken/packages/sigil-protocol`), then continue strict direct-repo order.

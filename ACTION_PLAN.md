@@ -3199,3 +3199,24 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - no new blocker in active `seer-node` slot.
 - next rotation target:
   - `seer-protocol` (`arken/packages/seer/packages/protocol`)
+
+### 2026-02-17 21:32–21:36 PST
+- Rotation advanced to direct target `seer-protocol` (`arken/packages/seer/packages/protocol`) after path verification (`find` + `.gitmodules`).
+- Loaded all in-scope `.md` files before source edits.
+- Implemented source hardening in `src/modules/infinite/infinite.methodResolver.ts`:
+  - resolved handlers now invoke via `Reflect.apply(candidate, service, args)` to preserve owning service `this` context.
+- Expanded regression coverage in `test/infinite.router.test.ts`:
+  - existing resolver tests updated for wrapped handler behavior,
+  - new test verifies context-preserving invocation (`this`-bound method returns expected value).
+- Updated concise docs/analysis in touched folders:
+  - `src/modules/infinite/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (7/7)
+- Commit/push:
+  - `arkenrealms/seer-protocol` `4cdb6b2` — Preserve Infinite resolver service context in handler wrappers
+  - `arkenrealms/seer` `fb307a7` — Roll seer-protocol Infinite resolver context hardening
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- Next direct-rotation target: `sigil-protocol` (`arken/packages/sigil-protocol`; currently unavailable-in-checkout, verify then continue).
