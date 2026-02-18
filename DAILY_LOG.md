@@ -3787,3 +3787,43 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then run `sigil-protocol` availability check (slot 4).
+
+## 2026-02-18T14:09:41-08:00 — seer-protocol evolution updateConfig descriptor guard hardening
+- Target attempted: `packages/seer/packages/protocol`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Source change:
+  - Hardened `evolution.updateConfig` router dispatch to require own-property descriptor-based callable resolution and throw deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when unavailable.
+- Tests:
+  - `npm test` (cwd `packages/seer/packages/protocol`) ✅ pass (12/12).
+- Files changed:
+  - `packages/seer/packages/protocol/evolution/evolution.router.ts`
+  - `packages/seer/packages/protocol/test/evolution.router.test.ts`
+  - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Commit/PR:
+  - `seer-protocol` `f80c3f7` pushed to `sable/repo-analysis-notes-20260217` — PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers: none.
+- Next rotation target: `packages/sigil-protocol` availability check.
+
+### Run append (2026-02-18T14:14:13-08:00) — evolution unsafe-path mapping guard
+- Rotation/path checks:
+  - `sigil-protocol` unavailable-in-checkout.
+  - `forge-protocol` unavailable-in-checkout.
+  - `forge-web` present but source edits still blocked by missing runnable repo-defined test command in this runtime.
+  - `evolution` selected as next actionable direct repo (non-client scope only).
+- Branch hygiene:
+  - `git fetch origin && git merge --no-edit origin/main` in `packages/evolution` (`Already up to date`).
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command/result:
+  - `npm test` in `packages/evolution` ✅ pass (27/27)
+- Commit/PR:
+  - `evolution` commit `1d41b1e` pushed to `sable/repo-analysis-notes-20260217` (updates <https://github.com/arkenrealms/evolution/pull/10>)
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` remain uninitialized/empty.
+  - `cerebro-hub` and `cli` unavailable-in-checkout.
+- Next target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict rotation.
