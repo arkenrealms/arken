@@ -469,3 +469,6 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## Run ledger append — 2026-02-18T00:24:58-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T00:31:40-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same seer-node maintenance chunk.
