@@ -91,15 +91,17 @@ Before starting a slot, verify target path in current checkout (`find` + `.gitmo
   - `arken/packages/evolution/packages/shard`
   - `arken/packages/evolution/packages/protocol`
 
-## Active PR references
+## Active PR references (direct execution repos)
 - Node: https://github.com/arkenrealms/node/pull/15
-- Seer: https://github.com/arkenrealms/seer/pull/1
-- Forge: https://github.com/arkenrealms/forge/pull/1
-- Evolution: https://github.com/arkenrealms/evolution/pull/10
-- Arken: https://github.com/arkenrealms/arken/pull/2
 - Seer-node: https://github.com/arkenrealms/seer-node/pull/3
 - Seer-protocol: https://github.com/arkenrealms/seer-protocol/pull/1
 - Forge-web: https://github.com/arkenrealms/forge-web/pull/9
+- Evolution: https://github.com/arkenrealms/evolution/pull/10
+
+## Rollup/posterity PR references (not primary execution targets)
+- Seer: https://github.com/arkenrealms/seer/pull/1
+- Forge: https://github.com/arkenrealms/forge/pull/1
+- Arken: https://github.com/arkenrealms/arken/pull/2
 
 ## Next actionable target
 Continue strict rotation from the current pointer after latest completed slot.
