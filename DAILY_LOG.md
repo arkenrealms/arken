@@ -2479,3 +2479,19 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer` slot 3 next (`packages/seer/packages/protocol`).
+
+### Newly completed (seer-protocol shared resolver strict-fallback toggle chunk)
+- [x] Rotated to `seer-protocol` (slot 3) after verifying path presence via `find` + `packages/seer/.gitmodules`.
+- [x] Loaded all local `.md` files in `packages/seer/packages/protocol` before source edits.
+- [x] Hardened shared resolver in `packages/seer/packages/protocol/src/modules/methodResolver.ts` with explicit strict-mode policy toggle `allowMethodMatchedFallback` (default-on) so modules can disable all fallback resolution when needed.
+- [x] Added regression coverage in `packages/seer/packages/protocol/test/methodResolver.test.ts` for strict fallback disable behavior.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran package-local tests: `npm test` in `packages/seer/packages/protocol` (pass: 21/21).
+- [x] Committed/pushed updates:
+  - `seer-protocol` `a0312ff` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>)
+  - `seer` `2a5d699` (submodule pointer update, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next for availability check, then proceed with strict direct-repo order.
