@@ -1898,3 +1898,29 @@
 - [x] Next rotation target set: `sigil-protocol`.
 
 - [x] 2026-02-17 20:11 PST — Stabilized Node + Seer PR tests; migrated seer-node helper tests to TypeScript and reran passing suites.
+
+### Run block — 2026-02-17T20:22:30-08:00 — sigil/forge blockers + evolution quoted-path parser hardening
+- [x] Rotation path checks executed in strict order:
+  - `sigil-protocol` missing (`arken/packages/sigil-protocol`)
+  - `forge-web` present but test gate blocked in runtime (`react-app-rewired` unavailable)
+  - `forge-protocol` missing (`arken/packages/forge/packages/protocol`)
+  - advanced to actionable target `evolution`
+- [x] Attempted `forge-web` source pass but reverted all local edits due SOURCE-CHANGE TEST GATE failure.
+- [x] Implemented evolution wrapper source hardening:
+  - normalized quoted `.gitmodules` path values in `scripts/validateSubmoduleMap.mjs`.
+- [x] Added/updated regression coverage:
+  - `test/validateSubmoduleMap.test.mjs` fixture now asserts quoted+unquoted duplicate-path normalization.
+- [x] Updated concise touched docs:
+  - `scripts/{README.md,ANALYSIS.md}`
+  - `test/README.md`
+- [x] Test gate satisfied for retained source edits:
+  - `npm test` (in `packages/evolution`) ✅ pass (6/6)
+- [x] Commit/push:
+  - `arkenrealms/evolution` `081d8e8` pushed to `sable/repo-analysis-notes-20260217`
+- [x] PR reference:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- [ ] Blockers tracked:
+  - missing direct targets: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`
+  - `forge-web` local runtime missing `react-app-rewired` for test execution
+- [x] Next rotation target set:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`)

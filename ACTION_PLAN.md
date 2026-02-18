@@ -2993,3 +2993,29 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Migrated seer-node helper tests from .cjs to .test.ts and validated: npm test (7/7).
 - Rolled seer-node test migration into seer parent repo and updated repo analysis notes.
 - Commits: seer-node c1aecd4, seer 309dcbd.
+
+### Run block — 2026-02-17T20:22:30-08:00 — sigil/forge blockers + evolution quoted-path parser hardening
+- rotation/path verification:
+  - scheduled target `sigil-protocol` missing: `arken/packages/sigil-protocol`.
+  - next target `forge-web` exists, but source-change test gate blocked in current checkout (`react-app-rewired: command not found`), so source edits were reverted and no forge-web code/docs changes were kept.
+  - next target `forge-protocol` missing: `arken/packages/forge/packages/protocol`.
+  - advanced to next actionable direct target in order: `evolution` (`arken/packages/evolution`).
+- files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/README.md`
+- tests:
+  - `npm test` (in `packages/evolution`) — pass (6/6)
+  - attempted and reverted (no retained changes): `npm test -- src/components/Menu/config.test.ts` in `packages/forge/packages/web` — failed (`react-app-rewired: command not found`)
+- commits:
+  - `arkenrealms/evolution`: `081d8e8` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `sigil-protocol` direct path missing in workspace.
+  - `forge-protocol` direct path missing in workspace.
+  - `forge-web` test runtime bootstrap missing (`react-app-rewired` unavailable in cron environment), so source-change gate prevents retained code edits there.
+  - `cerebro-hub` and `cli` direct paths remain missing in workspace snapshot.
+- next rotation target:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`)
