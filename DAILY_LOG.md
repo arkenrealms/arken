@@ -1810,3 +1810,29 @@
   - `forge-protocol` direct path missing: `arken/packages/forge/packages/protocol`
 - next rotation target:
   - `evolution` (non-client scope only), then `evolution-realm` / `evolution-shard` / `evolution-protocol`
+
+### Run block — 2026-02-17T19:42:35-08:00 — evolution wrapper test-harness hardening
+- [x] Rotation/path verification completed before target work.
+- [x] Worked direct target `evolution` (`arken/packages/evolution`) with non-client scope only.
+- [x] Read all target-folder `.md` files before source edits:
+  - `README.md`, `ANALYSIS.md`, `NOTES.md`, `packages/{README.md,ANALYSIS.md}`,
+  - `scripts/{README.md,ANALYSIS.md}`,
+  - `test/{README.md,ANALYSIS.md}`.
+- [x] Implemented substantive source improvements with tests:
+  - hardened `scripts/validateSubmoduleMap.mjs` to detect duplicate `.gitmodules` path mappings,
+  - added required-path gitlink presence check (`missingGitlinksForRequired`),
+  - fixed gitlink enumeration to use recursive `git ls-tree -r --full-tree` with `160000 commit` filtering.
+- [x] Expanded test harness in `test/validateSubmoduleMap.test.mjs`:
+  - required mapping + gitlink parity check,
+  - duplicate mapping fixture coverage,
+  - live duplicate mapping guard.
+- [x] Updated concise docs/analysis in touched folders:
+  - `scripts/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+  - `ANALYSIS.md`, `NOTES.md`, `packages/ANALYSIS.md`.
+- [x] Test gate satisfied:
+  - `npm test` (in `packages/evolution`) final pass: 6/6.
+- [x] Commit/push:
+  - `arkenrealms/evolution` `ca6b651` pushed to `sable/repo-analysis-notes-20260217`.
+- [ ] Open/update PR link for pushed evolution branch (manual PR URL available).
+- [x] Next rotation target set to `evolution-realm` (`arken/packages/evolution/packages/realm`).

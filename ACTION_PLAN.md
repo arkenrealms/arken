@@ -2882,3 +2882,30 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `forge-protocol` direct path missing in workspace.
 - next rotation target:
   - `evolution` (non-client scope only; then `evolution-realm`/`evolution-shard`/`evolution-protocol` path-state checks)
+
+### Run block — 2026-02-17T19:42:35-08:00 — evolution wrapper test-harness hardening
+- rotation/path verification:
+  - active target: `evolution` (`arken/packages/evolution`) exists in workspace.
+  - verified direct-target path states for current cycle snapshot:
+    - present: `node`, `seer-node`, `seer-protocol`, `forge-web`, `evolution`, `evolution-realm`, `evolution-shard`, `evolution-protocol`
+    - missing: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`
+- files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+  - `packages/evolution/{ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/evolution`) — initial run failed (2/6 then 5/6 while iterating); final run passed (6/6)
+- commits:
+  - `arkenrealms/evolution`: `ca6b651` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `sigil-protocol` direct path missing in workspace
+  - `forge-protocol` direct path missing in workspace
+  - `cerebro-hub` direct path missing in workspace
+  - `cli` direct path missing in workspace
+- next rotation target:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`)
