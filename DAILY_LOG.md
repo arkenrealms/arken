@@ -2561,3 +2561,18 @@
 
 ### In progress (rotation)
 - [x] Continue to `evolution/packages/realm` next (slot 8 availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and continue strict direct-repo order.
+
+### Newly completed (node request-envelope immutability chunk)
+- [x] Rotated across `evolution` nested direct slots (`realm`, `shard`, `protocol`) and recorded they remain present-but-empty/uninitialized in this checkout.
+- [x] Verified `cerebro-hub` and `cli` remain unavailable-in-checkout; advanced to next actionable direct slot `node`.
+- [x] Loaded required `.md` docs first in `packages/node/web3` and `packages/node/test`.
+- [x] Hardened `packages/node/web3/httpProvider.ts` to clone caller request envelopes before JSON-RPC normalization, preventing upstream payload mutation.
+- [x] Added regression coverage in `packages/node/test/httpProvider.spec.ts` to assert caller request-object immutability.
+- [x] Updated concise docs in touched folders:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran provider suite: `npm test -- test/httpProvider.spec.ts --runInBand` (pass: 7/7).
+- [x] Committed/pushed node update: `3f43bb8` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer-node` next (`arken/packages/seer/packages/node`, slot 2), then strict order.
