@@ -3098,3 +3098,21 @@
   - `seer-node` `b343925` pushed to `sable/repo-analysis-notes-20260217-node-src` — <https://github.com/arkenrealms/seer-node/pull/3>
 - Blockers: none.
 - Next rotation target: `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## 2026-02-18T08:05:29-08:00 — seer-protocol slot (handler availability hardening)
+- Target: `arken/packages/seer/packages/protocol` (rotation slot 3).
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` completed (`Already up to date`).
+- Source changes:
+  - Hardened Isles/Infinite Evolution handler resolution in `isles/isles.router.ts` and `infinite/infinite.router.ts`.
+  - Added explicit `ctx.app?.service?.Evolution` guards before own-property checks.
+  - Switched missing-handler branches from generic `Error` to explicit `TRPCError({ code: 'INTERNAL_SERVER_ERROR', ... })` for deterministic protocol error surfaces.
+- Test/docs updates:
+  - Extended `test/router-routing.test.ts` assertions for optional service guards + explicit `TRPCError` code path.
+  - Updated touched-folder docs: `isles/ANALYSIS.md`, `infinite/ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md`.
+- Validation:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (4/4).
+- Commit/PR:
+  - `ba5c5b3` pushed to `sable/repo-analysis-notes-20260217`.
+  - PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers: none.
+- Next target: `arken/packages/sigil-protocol` availability check (slot 4).
