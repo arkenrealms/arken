@@ -2712,3 +2712,26 @@
 
 ### In progress (rotation)
 - [x] Continue to `evolution/packages/realm` next (slot 8 availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and resume at `node`.
+
+### 2026-02-18T03:16:54-08:00 — rotation slot checks + node invalid-constructor-url fallback hardening
+- Rotation/path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}`: present but uninitialized/empty.
+  - `packages/cerebro/packages/hub`, `packages/cli`, `packages/sigil-protocol`, `packages/forge/packages/protocol`: unavailable-in-checkout.
+- Branch hygiene:
+  - In `packages/node`: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Changes completed (`packages/node`):
+  - Hardened `web3/httpProvider.ts` constructor URL handling to fail over to first valid configured provider when passed malformed URL text, instead of throwing at initialization.
+  - Added regression in `test/httpProvider.spec.ts` for malformed constructor URL fallback.
+  - Updated concise docs/analysis in touched folders:
+    - `packages/node/web3/{README.md,ANALYSIS.md}`
+    - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (10/10)
+- Commit/PR:
+  - `packages/node` commit `24e954d` pushed to branch `sable/maintenance-trpc-ws-cycle`
+  - PR updated: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - Evolution nested direct repos still uninitialized/empty in this checkout.
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli` remain unavailable-in-checkout.
+- Next target:
+  - `packages/seer/packages/node` (rotation slot 2)
