@@ -3595,3 +3595,18 @@
   - `seer-protocol` `5db1154` pushed to branch `sable/repo-analysis-notes-20260217`; PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
 - Blockers: none.
 - Next target: `arken/packages/sigil-protocol` (slot 4) availability check.
+
+### Newly completed (evolution missing-path-owner validator chunk)
+- [x] Continued strict rotation from `seer-protocol` to slots 4–7 and recorded availability state before edits.
+- [x] In `packages/evolution`, ran branch hygiene (`git fetch origin` + `git merge --no-edit origin/main`) before any new edits.
+- [x] Hardened wrapper validator to detect `.gitmodules` submodule-owner sections that omit `path = ...` entirely.
+- [x] Added new regression coverage and live-repo assertions in `test/validateSubmoduleMap.test.mjs` for missing-path-owner detection.
+- [x] Updated concise docs in touched folders:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran wrapper test suite: `npm test` in `packages/evolution` (pass: 25/25).
+- [x] Committed/pushed evolution update: `b6daf6f` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Continue to `evolution/packages/realm` next (slot 8 availability/init check), then `shard` and `protocol`.
+- [ ] Continue strict direct-repo rotation after slot 10 checks (`cerebro-hub` slot 11, `cli` slot 12, then `node`).
