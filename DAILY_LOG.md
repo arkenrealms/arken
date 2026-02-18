@@ -3691,3 +3691,23 @@
 - [x] Tests run: `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (28/28).
 - [x] Commit/push: `node` `b8dcd22` (updates <https://github.com/arkenrealms/node/pull/15>).
 - [ ] Next rotation target: `arken/packages/seer/packages/node` (slot 2).
+
+## 2026-02-18T13:13:58-08:00 — seer-node empty-string throw context hardening
+- Target attempted: `packages/seer/packages/node` (slot 2).
+- Path verification: target present and mapped in `packages/seer/.gitmodules`.
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` (`Already up to date`).
+- Source/test/docs updates:
+  - `packages/seer/packages/node/src/tests.ts`
+    - `getCallFailureMessage` now renders empty-string throws as `: [empty string]` instead of dropping root-cause context.
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+    - added regression test covering empty-string throws from `db.loadUser`.
+  - docs refreshed:
+    - `packages/seer/packages/node/src/ANALYSIS.md`
+    - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command/result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (39/39).
+- Commit/PR:
+  - `seer-node` `7764d9c` pushed to `sable/repo-analysis-notes-20260217-node-src`.
+  - PR updated: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers: none.
+- Next target: `packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
