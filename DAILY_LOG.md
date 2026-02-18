@@ -3226,3 +3226,24 @@
   - Present-but-uninitialized/empty: `evolution/packages/{realm,shard,protocol}`
 - Next target:
   - `arken/packages/evolution/packages/realm` (slot 8), then continue strict rotation.
+
+### Newly completed (2026-02-18 09:10 PT — node JSON-RPC error-envelope normalization chunk)
+- [x] Verified rotation slots before node action:
+  - `packages/evolution/packages/{realm,shard,protocol}` are present but empty/uninitialized.
+  - `packages/cerebro/packages/hub` and `packages/cli` are missing in this checkout.
+- [x] Ran branch hygiene in `packages/node` before edits:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- [x] Hardened `web3/httpProvider.ts` JSON-RPC error handling:
+  - reject non-object `error` payloads as invalid envelopes.
+  - normalize invalid/missing `error.message` and `error.code` to stable defaults.
+- [x] Added regression coverage in `test/httpProvider.spec.ts` for malformed and partial JSON-RPC `error` envelopes.
+- [x] Updated concise touched-folder docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Test gate satisfied:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (19/19)
+- [x] Committed/pushed node update:
+  - `0a42bd9` (updates <https://github.com/arkenrealms/node/pull/15>)
+- [x] Next rotation target set:
+  - `arken/packages/seer/packages/node` (slot 2).
