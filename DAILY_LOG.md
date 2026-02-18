@@ -1423,3 +1423,22 @@
 ### In progress (rotation)
 - [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (evolution blocker check + node socketServer whitespace-prototype regression)
+- [x] Rotated to `evolution` and loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- [x] Re-ran recursive submodule checks and reconfirmed unchanged blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Advanced to `node` per rotation policy and loaded required `.md` docs first in:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Added targeted regression in `packages/node/test/socketServer.spec.ts` for whitespace-wrapped prototype traversal (`'  __proto__.toString  '`) to ensure trim normalization does not bypass unsafe-path guards.
+- [x] Updated concise docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 48/48).
+- [x] Committed/pushed node update: `dee6d7d` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [ ] Continue to `seer` next (deepest-first pass in checked-out scope).
+- [ ] Commit/push parent `arken` rollup updates for this run.

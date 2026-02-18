@@ -2375,3 +2375,27 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `fd201f0` — Add wallet state hook analysis docs and rollups (pushed)
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `25fba9f` — Document wallet state analysis rollup (pushed; updates https://github.com/arkenrealms/forge/pull/1)
 - Next chunk (rotation): move to `evolution`; if blocker persists, record blocker and continue to `node`.
+
+### 2026-02-17 16:18–16:24 PST
+- Rotation moved to `evolution` chunk (next after latest `forge` pass).
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran blocker verification:
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule sync --recursive`
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Rotation advanced to `node` chunk after blocker.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - rejects prototype-path traversal even when method string includes surrounding whitespace (`'  __proto__.toString  '`).
+- Updated concise docs in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 48/48)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `dee6d7d` — Add trimmed prototype-path socket server regression test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
