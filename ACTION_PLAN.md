@@ -2856,3 +2856,29 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `sigil-protocol` direct target path still missing in workspace (`arken/packages/sigil-protocol`) based on prior verification; will verify again at next slot.
 - next rotation target:
   - `sigil-protocol`
+
+### Run block — 2026-02-17T18:24:36-08:00 — sigil/forge-protocol path blockers + node socketServer hardening
+- rotation/path verification:
+  - `sigil-protocol` missing: `arken/packages/sigil-protocol`
+  - advanced per order to `forge-web` and deferred source edits (test-runner dependency issue remains from prior runs)
+  - `forge-protocol` missing: `arken/packages/forge/packages/protocol`
+  - continued rotation to next actionable direct target in cycle (`node`)
+- files changed:
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/trpc/README.md`
+  - `packages/node/trpc/ANALYSIS.md`
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 55/55)
+- commits:
+  - `arkenrealms/node`: `e846f6b` (pushed)
+  - `arkenrealms/arken`: `<pending>`
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - `sigil-protocol` direct path missing in workspace.
+  - `forge-protocol` direct path missing in workspace.
+- next rotation target:
+  - `evolution` (non-client scope only; then `evolution-realm`/`evolution-shard`/`evolution-protocol` path-state checks)

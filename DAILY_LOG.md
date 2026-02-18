@@ -1789,3 +1789,24 @@
   - `sigil-protocol` direct target path still missing in workspace (`arken/packages/sigil-protocol`) based on prior verification; re-verify at next slot.
 - next rotation target:
   - `sigil-protocol`
+
+### Run block — 2026-02-17T18:24:36-08:00 — sigil/forge-protocol blockers + node socketServer hardening
+- files changed:
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/trpc/README.md`
+  - `packages/node/trpc/ANALYSIS.md`
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 55/55)
+- commits:
+  - `arkenrealms/node`: `e846f6b` (pushed)
+  - `arkenrealms/arken`: `<pending>`
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - `sigil-protocol` direct path missing: `arken/packages/sigil-protocol`
+  - `forge-protocol` direct path missing: `arken/packages/forge/packages/protocol`
+- next rotation target:
+  - `evolution` (non-client scope only), then `evolution-realm` / `evolution-shard` / `evolution-protocol`
