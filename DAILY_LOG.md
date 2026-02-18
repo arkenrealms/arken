@@ -3414,3 +3414,38 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
+
+### Newly completed (seer-protocol evolution getScene guard chunk)
+- [x] Rotated to `seer-protocol` (slot 3), loaded all local `.md` docs in package scope before code edits, and applied branch hygiene (`git fetch origin` + merge `origin/main`).
+- [x] Hardened `packages/seer/packages/protocol/evolution/evolution.router.ts` `getScene` dispatch to require own-property descriptor resolution with deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when handler wiring is missing/non-callable.
+- [x] Added regression assertions in `packages/seer/packages/protocol/test/evolution.router.test.ts` for own-property checks, descriptor extraction, deterministic error messaging, and context-preserving invocation.
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined tests: `npm test` (in `packages/seer/packages/protocol`) — pass (7/7).
+- [x] Committed/pushed Seer-protocol update: `35c2f8d` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>).
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` availability check next (slot 4), then continue strict direct-repo order.
+
+## 2026-02-18T10:52:30-08:00 — evolution section-header parser compatibility hardening
+- Repo slot flow: checked slot 4 (`sigil-protocol`) missing, slot 5 (`forge-web`) present but test-gated, slot 6 (`forge-protocol`) missing, completed slot 7 (`evolution`).
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` in `packages/evolution` (already up to date).
+- Code/tests:
+  - Hardened `.gitmodules` section parsing to accept mixed-case `submodule`, bracket-spacing variance, and trailing section comments.
+  - Added regression test covering section-header variants.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `npm test` (in `packages/evolution`) ✅ pass (20/20)
+- Commit/PR:
+  - `packages/evolution` commit `5ac1acf` pushed to `sable/repo-analysis-notes-20260217`
+  - PR: <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Missing repos in checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - Nested evolution repos (`realm`,`shard`,`protocol`) still uninitialized/empty.
+  - `forge-web` remains source-change blocked due missing repo-defined test script in runtime.
+- Next direct rotation target: `arken/packages/evolution/packages/realm` (slot 8).
