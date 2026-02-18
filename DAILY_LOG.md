@@ -2289,3 +2289,25 @@
 
 ### In progress (rotation)
 - [ ] Continue with `packages/evolution` next (non-client scope only), then check `packages/evolution/packages/{realm,shard,protocol}` init state.
+
+### Newly completed (evolution validator hardening chunk)
+- [x] Rotated to `evolution` (slot 7) and loaded all local `.md` docs first in repo root, `packages`, `scripts`, and `test` before source edits.
+- [x] Verified target path presence and mapping via `find` + `.gitmodules` checks.
+- [x] Implemented wrapper-level safety hardening in `packages/evolution/scripts/validateSubmoduleMap.mjs`:
+  - normalized/deduplicated `requiredPaths` and `ignoredGitlinks` inputs,
+  - added deterministic guard that fails validation if any required path is also ignored,
+  - switched gitlink lookups to `Set` membership for deterministic checks.
+- [x] Added regression coverage in `packages/evolution/test/validateSubmoduleMap.test.mjs` for required-vs-ignored overlap rejection.
+- [x] Updated concise docs in touched folders:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined tests: `npm test` (in `packages/evolution`) ✅ pass (10/10).
+- [x] Committed/pushed evolution update: `be25a86` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+- [x] Re-verified nested direct repos currently uninitialized/empty in checkout:
+  - `packages/evolution/packages/realm`
+  - `packages/evolution/packages/shard`
+  - `packages/evolution/packages/protocol`
+
+### In progress (rotation)
+- [x] Continue to `evolution-realm` next (slot 8) availability/init check, then `evolution-shard` and `evolution-protocol`.
+- [ ] Roll parent `arken` submodule pointer/log continuity commit after nested-slot checks.

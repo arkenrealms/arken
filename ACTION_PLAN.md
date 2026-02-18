@@ -282,3 +282,28 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Repo-defined test runtime is unavailable in this checkout (`react-app-rewired` binary missing; `pnpm` unavailable), so safe source changes remain blocked.
 - Next rotation target:
   - `arken/packages/evolution` (slot 7; non-client scope only), then `evolution-realm` availability/init check.
+
+## Run ledger append — 2026-02-17T23:25:52-08:00 — evolution submodule-map validator overlap hardening
+- Target attempted:
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+  - verified upcoming nested slots: `arken/packages/evolution/packages/{realm,shard,protocol}`.
+- Path verification:
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`.
+  - `packages/evolution/.gitmodules` maps `packages/{protocol,realm,shard}`.
+  - `packages/evolution/packages/{realm,shard,protocol}` currently exist but are uninitialized/empty dirs in this checkout.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (10/10)
+- Commits + PR links:
+  - `evolution` `be25a86` (pushed) — updates <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Nested direct repos remain uninitialized/empty in this checkout: `evolution-realm`, `evolution-shard`, `evolution-protocol`.
+  - Jest+TS migration direction remains pending in this repo until runtime deps are introduced; retained existing repo-defined `npm test` harness for gate compliance.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8) availability/init check, then `shard` and `protocol`.
