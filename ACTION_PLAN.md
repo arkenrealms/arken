@@ -2399,3 +2399,57 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `dee6d7d` — Add trimmed prototype-path socket server regression test (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 16:24–16:33 PST
+- Rotation moved to `seer` chunk.
+- Loaded required `.md` docs first in touched scope:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Implemented small helper determinism hardening in `packages/seer/packages/node/src/tests.ts`:
+  - `userLoadAndSave` now returns the underlying `saveUser` promise result.
+- Updated concise docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `32fa64e` — Return save result from userLoadAndSave helper (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `6d403c1` — Roll seer-node helper return-value hardening (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in touched scope:
+  - `packages/forge/packages/web/src/state/wallet/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/state/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+- Implemented small runtime-efficiency hardening in `packages/forge/packages/web/src/state/wallet/hooks.ts`:
+  - normalized ETH address list now deduplicates via `Set` before multicall fanout.
+- Kept touched source header policy:
+  - added top path header `// arken/packages/forge/packages/web/src/state/wallet/hooks.ts`.
+- Updated concise docs:
+  - `packages/forge/packages/web/src/state/wallet/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `1f19867` — Deduplicate ETH balance addresses before multicall (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `b393334` — Roll wallet balance dedupe hardening from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran blocker verification:
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule sync --recursive`
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `c5a467f` — Log latest evolution submodule mapping blocker check (local commit; push blocked by 403 permission)
+- Rotation advanced to `node` chunk after blocker.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - rejects constructor-path traversal attempt (`method: 'core.constructor.name'`).
+- Updated concise docs in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 49/49)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `272a28b` — Add constructor-path socket server traversal regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

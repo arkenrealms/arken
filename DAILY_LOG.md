@@ -1442,3 +1442,44 @@
 ### In progress (rotation)
 - [ ] Continue to `seer` next (deepest-first pass in checked-out scope).
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer return-value hardening + forge wallet dedupe + evolution blocker check + node constructor-path regression)
+- [x] Rotated to `seer` after latest `node` pass and loaded required `.md` docs first in:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Hardened `packages/seer/packages/node/src/tests.ts`:
+  - `userLoadAndSave` now returns the underlying `saveUser` promise result for deterministic caller completion/failure handling.
+- [x] Updated concise Seer docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `32fa64e`
+  - `seer` `6d403c1` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+- [x] Rotated to `forge`, loaded required `.md` docs first in `src/state/wallet` and parent rollups, and implemented a small runtime-efficiency hardening in `packages/forge/packages/web/src/state/wallet/hooks.ts`.
+- [x] Deduplicated validated ETH addresses before multicall fanout in `useETHBalances`.
+- [x] Kept touched source header policy by adding `arken/...` path header to `hooks.ts`.
+- [x] Updated concise wallet docs:
+  - `packages/forge/packages/web/src/state/wallet/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `1f19867`
+  - `forge` `b393334` (updates <https://github.com/arkenrealms/forge/pull/1>)
+
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- [x] Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- [x] Captured local evolution commit:
+  - `c5a467f` (push still blocked by 403 permission on `arkenrealms/evolution`)
+
+- [x] Advanced to `node` per rotation policy after blocker and loaded required `.md` docs first in `trpc/` + `test/`.
+- [x] Added regression in `packages/node/test/socketServer.spec.ts` for constructor-path traversal rejection (`core.constructor.name`).
+- [x] Updated concise docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket suites: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 49/49).
+- [x] Committed/pushed node update: `272a28b` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [ ] Continue to `seer` next (deepest-first pass in checked-out scope).
+- [ ] Commit/push parent `arken` rollup updates for this run.
