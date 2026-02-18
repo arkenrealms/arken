@@ -2644,3 +2644,19 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - none in this run (temporary skip policy for `packages/client` remains intentionally active)
 - next rotation target:
   - `node`
+
+### Run block — 2026-02-17T17:06:00-08:00 — node chunk
+- files changed:
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 52/52)
+- commits:
+  - `arkenrealms/node`: `97f0052` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - none in this run
+- next rotation target:
+  - `seer`
