@@ -1739,3 +1739,15 @@
   - `forge-web` source-change gate blocked until package-local test runner dependencies are provisioned (`react-app-rewired` unavailable in current checkout).
 - next rotation target:
   - `forge-protocol`
+
+### Run block — 2026-02-17T17:54:32-08:00
+- Rotation checks: `forge-protocol` missing; evolution direct child targets (`realm/shard/protocol`) present but empty/uninitialized; `cerebro-hub` and `cli` missing.
+- Completed source+test chunk in `packages/node/trpc` + `packages/node/test`:
+  - Hardened socket server method traversal to reject inherited built-in prototype methods (e.g. `core.toString`) while preserving valid handler resolution.
+  - Added regression test coverage for inherited built-in method-path rejection.
+  - Updated concise test/protocol docs (`README.md`, `ANALYSIS.md`) in touched folders.
+- Test command/result:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 54/54)
+- Commit/push:
+  - `arkenrealms/node` `2e7c939` pushed to `sable/maintenance-trpc-ws-cycle` (updates PR <https://github.com/arkenrealms/node/pull/15>).
+- Next rotation target: `seer-node` (`arken/packages/seer/packages/node`).

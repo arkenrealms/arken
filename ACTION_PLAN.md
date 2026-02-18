@@ -2787,3 +2787,31 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `c70e6f7` — Roll forge-web submodule after multicall blocker docs (pushed)
 - Next rotation target:
   - `forge-protocol` (`arken/packages/forge/packages/protocol`)
+
+### Run block — 2026-02-17T17:54:32-08:00 — forge-protocol/evolution blocked, node hardening chunk
+- rotation/path verification:
+  - `forge-protocol` target missing: `arken/packages/forge/packages/protocol` (not present in workspace)
+  - `evolution` non-client scope loaded (`README.md`, `ANALYSIS.md`, `NOTES.md`, `packages/{README.md,ANALYSIS.md}`)
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` paths exist but are empty/uninitialized in this workspace (no source files/package scripts)
+  - `cerebro-hub` missing: `arken/packages/cerebro/packages/hub`
+  - `cli` missing: `arken/packages/cli`
+  - rotation continued to next cycle target `node`
+- files changed:
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/trpc/README.md`
+  - `packages/node/trpc/ANALYSIS.md`
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 54/54)
+- commits:
+  - `arkenrealms/node`: `2e7c939` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - `forge-protocol` target path missing in workspace
+  - `evolution-{realm,shard,protocol}` checkouts are empty/uninitialized, preventing direct source/test work in those direct targets this run
+  - `cerebro-hub` and `cli` target paths missing in workspace
+- next rotation target:
+  - `seer-node` (`arken/packages/seer/packages/node`)
