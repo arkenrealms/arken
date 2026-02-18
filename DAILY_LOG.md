@@ -1852,3 +1852,23 @@
   - `arkenrealms/node` `3dc337b` (pushed; updates PR #15)
 - Next target:
   - `seer-node` (`arken/packages/seer/packages/node`)
+
+### Run block — 2026-02-17T20:02:34-08:00 — seer-node async helper hardening
+- files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/tests.helpers.test.cjs`
+  - `packages/seer/packages/node/test/README.md`
+  - `packages/seer/packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/node`) — pass (7/7)
+- commits:
+  - `arkenrealms/seer-node`: `b91ce6a` (pushed)
+  - `arkenrealms/seer`: `27bfc3f` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- blockers:
+  - `sigil-protocol` direct path missing in workspace (`arken/packages/sigil-protocol`) — re-verify when rotation reaches that slot.
+- next rotation target:
+  - `seer-protocol` (`arken/packages/seer/packages/protocol`)

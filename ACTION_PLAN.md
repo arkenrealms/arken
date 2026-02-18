@@ -2932,3 +2932,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, and `cli` direct target paths missing in workspace.
 - next rotation target:
   - `seer-node` (`arken/packages/seer/packages/node`)
+
+### Run block — 2026-02-17T20:02:34-08:00 — seer-node async helper hardening
+- rotation/path verification:
+  - active scheduled target `seer-node` (`arken/packages/seer/packages/node`) exists and was used directly.
+- `.md` preload (before source edits):
+  - `README.md`, `ANALYSIS.md`
+  - `.rush/{README.md,ANALYSIS.md}`
+  - `.rush/temp/{README.md,ANALYSIS.md}`
+  - `src/{README.md,ANALYSIS.md}`
+  - `src/data/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/tests.helpers.test.cjs`
+  - `packages/seer/packages/node/test/README.md`
+  - `packages/seer/packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/node`) — pass (7/7)
+- commits:
+  - `arkenrealms/seer-node`: `b91ce6a` (pushed)
+  - `arkenrealms/seer`: `27bfc3f` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- blockers:
+  - `sigil-protocol` direct path remains missing in workspace (`arken/packages/sigil-protocol`) and will be re-verified at its next slot.
+- next rotation target:
+  - `seer-protocol` (`arken/packages/seer/packages/protocol`)
