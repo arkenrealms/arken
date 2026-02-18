@@ -2650,3 +2650,20 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer` next (`packages/seer/packages/node`) per strict direct-repo order.
+
+### Newly completed (seer-node updater-return persistence chunk)
+- [x] Rotated to `seer-node` after the latest `node` slot progression and loaded all `packages/seer/packages/node/**/*.md` docs before source edits.
+- [x] Applied branch hygiene in direct repo target: `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node`.
+- [x] Hardened `packages/seer/packages/node/src/tests.ts` so `updateUserAchievements` now persists updater-return replacement objects when provided, while rejecting non-object replacement values.
+- [x] Added regression coverage in `packages/seer/packages/node/test/tests.helpers.test.ts` for replacement-object persistence and invalid updater-return rejection.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran package test gate: `npm test` in `packages/seer/packages/node` (pass: 23/23).
+- [x] Committed/pushed direct repo update:
+  - `seer-node` `a6a58cb` (updates <https://github.com/arkenrealms/seer-node/pull/3>)
+- [x] Updated/pushed parent rollup pointer:
+  - `seer` `838b06c` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then perform `sigil-protocol` availability check before continuing strict direct-repo order.
