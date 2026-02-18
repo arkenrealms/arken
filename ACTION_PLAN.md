@@ -1232,3 +1232,6 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Nested evolution direct repos remain present-but-uninitialized/empty in this checkout: `realm`, `shard`, `protocol`.
 - Next rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T05:44:20-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T05:51:40-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution maintenance chunk.

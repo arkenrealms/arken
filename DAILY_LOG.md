@@ -2990,3 +2990,6 @@
   - Nested `packages/evolution/packages/{realm,shard,protocol}` remain present-but-uninitialized/empty.
 - Next target:
   - `arken/packages/evolution/packages/realm` (slot 8), then continue strict order.
+
+### 2026-02-18T05:44:20-08:00 — correction note
+- Correction: prior log timestamp (`2026-02-18T05:51:40-08:00`) was entered ahead of wall-clock time; this note captures the actual append window for the same evolution run.
