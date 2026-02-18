@@ -2409,3 +2409,21 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer` next (`packages/seer/packages/node`) per strict slot order.
+
+### Newly completed (seer-node user-entity guard chunk)
+- [x] Rotated to `seer-node` per strict order and verified checkout path mapping via `find` + `packages/seer/.gitmodules`.
+- [x] Loaded all local `.md` docs in `packages/seer/packages/node` before source edits.
+- [x] Hardened `src/tests.ts` helper flows with explicit user-entity guardrails:
+  - added object-shape enforcement for loaded users in `updateUserAchievements` and `userLoadAndSave`
+  - added deterministic non-extensible-user guard before setting `inventoryItemCount`.
+- [x] Expanded regression tests in `test/tests.helpers.test.ts` for non-object `loadUser` results and non-extensible user mutation failure path.
+- [x] Updated concise docs in touched folders:
+  - `src/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Ran package tests: `npm test` (pass: 16/16).
+- [x] Committed/pushed updates:
+  - `seer-node` `42ee851` (updates <https://github.com/arkenrealms/seer-node/pull/3>)
+  - `seer` `643d45b` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.

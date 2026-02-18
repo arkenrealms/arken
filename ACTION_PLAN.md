@@ -449,3 +449,23 @@ Continue strict rotation from the current pointer after latest completed slot.
 
 ## Run ledger append — 2026-02-18T00:14:18-08:00 — correction note
 - Correction: prior run-ledger timestamp (`2026-02-18T00:15:41-08:00`) was appended with a clock typo; this note records the accurate append window for the same maintenance chunk.
+
+## Run ledger append — 2026-02-18T00:31:40-08:00 — seer-node user-entity guard hardening
+- Target attempted: `arken/packages/seer/packages/node`.
+- Path verification: target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name node`) and is mapped in `packages/seer/.gitmodules`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (16/16)
+- Commits + PR links:
+  - `seer-node` `42ee851` (pushed) — updates <https://github.com/arkenrealms/seer-node/pull/3>
+  - `seer` `643d45b` (pushed submodule pointer) — updates <https://github.com/arkenrealms/seer/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
