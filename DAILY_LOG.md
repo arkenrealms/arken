@@ -3394,3 +3394,23 @@
   - `e36b1a2` pushed to `node` branch `sable/maintenance-trpc-ws-cycle`
   - PR: <https://github.com/arkenrealms/node/pull/15>
 - Next direct target: `packages/seer/packages/node`.
+
+### Newly completed (seer-node helper sync-contract hardening chunk)
+- [x] Rotated to `seer-node` per direct-repo order and loaded all local `.md` docs in the target folder before source edits.
+- [x] Ran mandatory branch hygiene in `packages/seer/packages/node`:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- [x] Hardened helper sync contracts in `packages/seer/packages/node/src/tests.ts`:
+  - `migrateTrades` now rejects thenable/async returns from `db.migrateTrades`.
+  - `saveToken` now rejects thenable/async returns from `db.saveToken`/`db.save`.
+- [x] Added Jest-direction-compatible TypeScript regression tests in `packages/seer/packages/node/test/tests.helpers.test.ts` for both sync-contract guards.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined test gate:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (34/34)
+- [x] Committed/pushed direct subrepo update:
+  - `seer-node` `910770a` (updates <https://github.com/arkenrealms/seer-node/pull/3>)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
