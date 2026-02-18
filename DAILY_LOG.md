@@ -3201,3 +3201,28 @@
   - `seer-protocol` `31b2af1` pushed to `sable/repo-analysis-notes-20260217` (PR: <https://github.com/arkenrealms/seer-protocol/pull/1>)
 - Blockers: none.
 - Next rotation target: `arken/packages/sigil-protocol` (slot 4) availability check, then strict direct rotation continuation.
+
+## 2026-02-18T08:53:15-08:00 — evolution BOM parser hardening
+- Rotation slot coverage:
+  - `sigil-protocol` unavailable-in-checkout
+  - `forge-web` present (still blocked for source edits by missing runnable repo-defined test command in this runtime)
+  - `forge-protocol` unavailable-in-checkout
+  - `evolution` (non-client scope) completed with source + tests
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` (`Already up to date`).
+- Source changes:
+  - Added UTF-8 BOM stripping at parser entry in `packages/evolution/scripts/validateSubmoduleMap.mjs` to keep first-section detection stable on BOM-prefixed `.gitmodules` files.
+  - Added regression test `parseGitmodules handles UTF-8 BOM-prefixed .gitmodules content` in `packages/evolution/test/validateSubmoduleMap.test.mjs`.
+- Docs updated:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (17/17)
+- Commit / PR:
+  - `evolution` commit `52715d1` pushed to branch `sable/repo-analysis-notes-20260217`
+  - PR updated: <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers unchanged:
+  - Unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`
+  - Present-but-uninitialized/empty: `evolution/packages/{realm,shard,protocol}`
+- Next target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict rotation.
