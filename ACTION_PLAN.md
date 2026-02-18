@@ -2670,3 +2670,8 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Follow-up: reverted last forge-web source diff () and re-rolled forge pointer.
 
 - Follow-up: restored forge-web Royale.tsx to main and re-rolled forge pointer (docs-only PR enforcement).
+
+### 2026-02-17 17:11 PST
+- User-directed revert: restored forge-web  to origin/main due to no test-backed validation.
+- Rolled updated forge-web and forge pointers.
+- Commits: forge-web <latest>, forge <latest>.

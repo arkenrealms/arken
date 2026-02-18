@@ -1643,3 +1643,5 @@
 - [x] 2026-02-17 17:05 PST — Finalized forge-web docs-only scope by reverting remaining Royale source diff.
 
 - [x] 2026-02-17 17:05 PST — Restored forge-web Royale.tsx to main; forge PR now docs-only for source scope.
+
+- [x] 2026-02-17 17:11 PST — Reverted forge-web src/state/wallet/hooks.ts and rolled parent pointers.
