@@ -3247,3 +3247,19 @@
   - `0a42bd9` (updates <https://github.com/arkenrealms/node/pull/15>)
 - [x] Next rotation target set:
   - `arken/packages/seer/packages/node` (slot 2).
+
+### Newly completed (seer-node structured throw-context hardening chunk)
+- [x] Rotated to `seer-node` after the prior node slot and loaded all local `.md` docs in `packages/seer/packages/node` before source analysis.
+- [x] Ran branch hygiene in direct repo before edits: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- [x] Hardened helper call-failure context in `packages/seer/packages/node/src/tests.ts` to include:
+  - JSON-serialized plain-object throw payloads when `message`/`name` are absent.
+  - Constructor-tag fallback (`[ConstructorName]`) for non-serializable thrown objects.
+- [x] Added regression coverage in `packages/seer/packages/node/test/tests.helpers.test.ts` for JSON object throws and circular-object throw fallback context.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran tests in direct repo: `npm test` (pass: 31/31).
+- [x] Committed/pushed seer-node update: `e258624` (updates <https://github.com/arkenrealms/seer-node/pull/3>).
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then run `sigil-protocol` availability check per strict order.
