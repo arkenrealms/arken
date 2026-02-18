@@ -3637,3 +3637,17 @@
   - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
 - [x] Re-ran package tests: `npm test` (pass: 38/38).
 - [x] Committed/pushed Seer-node update: `fd3b899` (updates <https://github.com/arkenrealms/seer-node/pull/3>).
+
+## 2026-02-18T12:43:50-0800 — seer-protocol updateGameStats handler guard hardening
+- Target: `packages/seer/packages/protocol`
+- Summary:
+  - Hardened `evolution.updateGameStats` in `evolution/evolution.router.ts` to use own-property descriptor lookup with deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when handler wiring is missing/non-callable.
+  - Added regression assertions in `test/evolution.router.test.ts` for `updateGameStats` guard/error/context-preserving invocation pattern.
+  - Updated touched-folder docs (`evolution/*`, `test/*`) to keep README/ANALYSIS aligned with current hardening coverage.
+- Validation:
+  - `npm test` ✅ (10/10)
+- Commit / PR:
+  - `seer-protocol` `bab75db` pushed to `sable/repo-analysis-notes-20260217`
+  - PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers: none
+- Next target: `packages/sigil-protocol` availability check (rotation slot 4)
