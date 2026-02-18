@@ -3083,3 +3083,18 @@
   - `evolution-realm`, `evolution-shard`, `evolution-protocol` uninitialized/empty; `cerebro-hub` + `cli` missing in this checkout.
 - Next target:
   - `packages/seer/packages/node`.
+
+## 2026-02-18T07:52:24-08:00 — seer-node primitive-throw helper error context hardening
+- Target attempted: `arken/packages/seer/packages/node`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/README.md`
+- Tests:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (27/27)
+- Commit/PR:
+  - `seer-node` `b343925` pushed to `sable/repo-analysis-notes-20260217-node-src` — <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers: none.
+- Next rotation target: `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
