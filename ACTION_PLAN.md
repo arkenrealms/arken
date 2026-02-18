@@ -2471,3 +2471,42 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `d95423f` — Harden test helper fallback method resolution (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `ba7f3cb` — Roll seer-node helper fallback-guard hardening (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 16:24–16:34 PST
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in target folders:
+  - `packages/forge/packages/web/src/state/wallet/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/state/ANALYSIS.md`
+- Implemented small runtime-efficiency hardening in `packages/forge/packages/web/src/state/wallet/hooks.ts`:
+  - deduplicate validated ERC20 token addresses before multicall fanout in `useTokenBalancesWithLoadingIndicator`.
+- Updated concise docs in touched folder:
+  - `packages/forge/packages/web/src/state/wallet/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `fcb1bc8` — Deduplicate ERC20 token addresses in wallet balance hooks (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `044d868` — Roll wallet hook token dedupe from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required evolution docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/ANALYSIS.md`
+- Re-ran blocker verification:
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule sync --recursive`
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `f4e3bd1` — Log latest evolution submodule mapping blocker check (local commit; push blocked by 403 permission)
+- Rotation advanced to `node` chunk after blocker.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - rejects nested prototype-chain method traversal attempt (`method: 'core.__proto__.ping'`).
+- Updated concise docs in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 50/50)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `2c6b0aa` — Add nested prototype-path socket server traversal regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.

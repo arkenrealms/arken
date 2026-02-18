@@ -1498,3 +1498,24 @@
 ### In progress (rotation)
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
 - [ ] Continue to `evolution` next; if blocker persists, record and advance to `node`.
+
+### Newly completed (forge wallet dedupe + evolution blocker + node nested-proto test chunk)
+- [x] Rotated to `forge` and loaded required wallet/state `.md` docs first.
+- [x] Hardened `packages/forge/packages/web/src/state/wallet/hooks.ts` by deduplicating validated ERC20 token addresses before multicall fanout.
+- [x] Updated touched-folder analysis doc:
+  - `packages/forge/packages/web/src/state/wallet/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `fcb1bc8` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `044d868` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule init checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Updated blocker continuity note in `packages/evolution/NOTES.md` and committed local evolution branch update `f4e3bd1` (push still blocked by 403 permission).
+- [x] Advanced to `node` per rotation policy and added socket-server regression in `packages/node/test/socketServer.spec.ts` for nested prototype traversal (`core.__proto__.ping`).
+- [x] Updated node test docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `test/socketServer.spec.ts` + `test/socketLink.spec.ts` (pass: 50/50).
+- [x] Committed/pushed node update: `2c6b0aa` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.
