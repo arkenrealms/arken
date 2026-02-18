@@ -3492,3 +3492,19 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
+
+### Newly completed (seer-protocol evolution info guard chunk)
+- [x] Rotated to `seer-protocol` (slot 3), re-verified path mapping (`find` + `packages/seer/.gitmodules`), and completed branch hygiene (`git fetch origin` + merge `origin/main`, up to date).
+- [x] Hardened `evolution.info` procedure dispatch in `packages/seer/packages/protocol/evolution/evolution.router.ts`:
+  - own-property descriptor lookup for `Evolution.info`,
+  - deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when missing/non-callable,
+  - context-safe invocation via `method.call(evolutionService, input, ctx)`.
+- [x] Added regression coverage in `packages/seer/packages/protocol/test/evolution.router.test.ts` for the new `evolution.info` guard path.
+- [x] Updated concise maintainer docs in touched folders:
+  - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined tests: `npm test` in `packages/seer/packages/protocol` (pass: 8/8).
+- [x] Pushed direct subrepo commit: `seer-protocol` `8063b1b` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>).
+
+### In progress (rotation)
+- [x] Next direct slot is `sigil-protocol` availability check (slot 4), then continue strict direct-repo order.
