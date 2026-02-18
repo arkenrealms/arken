@@ -743,3 +743,32 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`) availability check, then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T02:23:56-08:00 — evolution single-quoted submodule-path normalization
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules`) → unavailable-in-checkout.
+  - `packages/forge/packages/web` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` missing in checkout (`packages/forge/.gitmodules` maps only `packages/web`) → unavailable-in-checkout.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`; nested slots `packages/evolution/packages/{realm,shard,protocol}` remain present but uninitialized/empty.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and repo markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (12/12)
+- Commits + PR links:
+  - `evolution` `37612c4` (pushed) — updates <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - `forge-web` remains blocked for source edits under source-change gate until a runnable repo-defined test command is available in this runtime.
+  - Nested evolution direct repos remain present-but-uninitialized/empty in this checkout: `realm`, `shard`, `protocol`.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.

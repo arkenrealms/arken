@@ -2611,3 +2611,22 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next for availability check, then proceed through strict direct-repo order.
+
+### Newly completed (evolution single-quote path-normalization chunk)
+- [x] Rotated through strict slots and recorded availability before evolution work:
+  - `sigil-protocol` unavailable-in-checkout
+  - `forge-protocol` unavailable-in-checkout
+  - `forge-web` present but still source-edit blocked by missing runnable repo-defined test command in this runtime
+- [x] In `packages/evolution` (non-client scope), loaded all local `.md` files before source edits.
+- [x] Hardened wrapper validator path normalization for single-quoted `.gitmodules` `path = '...'` stanzas:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+- [x] Added regression coverage for single-quoted path parsing and normalization:
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined tests: `npm test` in `packages/evolution` (pass: 12/12).
+- [x] Committed/pushed evolution update: `37612c4` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Continue to `evolution/packages/realm` next (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and wrap back to `node`.
