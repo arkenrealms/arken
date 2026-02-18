@@ -2372,3 +2372,24 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next for availability check, then continue strict direct-repo order.
+
+### Newly completed (rotation: sigil/forge availability checks + evolution validator hardening)
+- [x] Verified strict rotation path status before work:
+  - `packages/sigil-protocol` unavailable-in-checkout.
+  - `packages/forge/packages/web` present.
+  - `packages/forge/packages/protocol` unavailable-in-checkout.
+  - `packages/evolution` present (nested `realm/shard/protocol` still uninitialized/empty).
+- [x] Rotated to `evolution` (non-client scope), loaded all local `.md` files first, then performed source + test changes.
+- [x] Hardened `packages/evolution/scripts/validateSubmoduleMap.mjs` path normalization:
+  - handles repeated `./` prefixes,
+  - collapses duplicate `/`,
+  - normalizes provided gitlink path variants before required-path comparison.
+- [x] Expanded regression coverage in `packages/evolution/test/validateSubmoduleMap.test.mjs` for repeated prefix/duplicate slash variants and normalized injected gitlink comparisons.
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Ran tests: `npm test` in `packages/evolution` (pass: 11/11).
+- [x] Committed/pushed evolution update: `e888590` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Continue to `evolution-realm` next (slot 8) availability/init check, then `evolution-shard`, `evolution-protocol`, `cerebro-hub`, `cli`, and resume at `node`.

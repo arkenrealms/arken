@@ -389,3 +389,32 @@ Continue strict rotation from the current pointer after latest completed slot.
 
 ## Run ledger append — 2026-02-17T23:53:45-08:00 — correction note
 - Correction: previous run-ledger timestamp (`2026-02-17T23:57:51-08:00`) was appended with a clock typo; this note records the accurate append window for the same seer-protocol chunk.
+
+## Run ledger append — 2026-02-18T00:04:35-08:00 — evolution validator path-normalization hardening
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules`) → unavailable-in-checkout.
+  - `packages/forge/packages/web` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` missing in checkout (`packages/forge/.gitmodules` has only `packages/web`) → unavailable-in-checkout.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`; nested `packages/evolution/packages/{realm,shard,protocol}` remain present-but-uninitialized/empty.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and repo markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (11/11)
+- Commits + PR links:
+  - `evolution` `e888590` (pushed) — updates <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`.
+  - `forge-web` still lacks a currently runnable repo-defined test command in this checkout runtime for safe source edits under the source-change gate.
+  - Nested evolution direct repos `realm`, `shard`, `protocol` remain uninitialized/empty in this checkout.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8) availability/init check, then `shard`, `protocol`, `cerebro-hub`, `cli`, and continue strict order.
