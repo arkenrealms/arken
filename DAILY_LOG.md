@@ -2943,3 +2943,26 @@
 - [x] Ran tests: `npm test` (in `packages/seer/packages/node`) — pass (25/25).
 - [x] Pushed `seer-node` commit `83041cb` (updates <https://github.com/arkenrealms/seer-node/pull/3>).
 - [ ] Next rotation target: `packages/seer/packages/protocol` (slot 3), then `packages/sigil-protocol` availability check.
+
+### Run append — 2026-02-18T05:25:39-08:00 (seer-protocol own-property Evolution handler guard)
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3).
+- Path verification:
+  - Confirmed target exists via `find packages/seer/packages -maxdepth 2 -type d -name protocol` and `.gitmodules` mapping in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` and `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (already up to date).
+- Files changed:
+  - `packages/seer/packages/protocol/isles/isles.router.ts`
+  - `packages/seer/packages/protocol/infinite/infinite.router.ts`
+  - `packages/seer/packages/protocol/test/router-routing.test.ts`
+  - `packages/seer/packages/protocol/isles/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/infinite/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (3/3)
+- Commit/PR:
+  - `seer-protocol` `2a86d9e` pushed to `sable/repo-analysis-notes-20260217` — updates <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4) availability check, then `arken/packages/forge/packages/web`.
