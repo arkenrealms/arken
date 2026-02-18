@@ -2961,3 +2961,28 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `sigil-protocol` direct path remains missing in workspace (`arken/packages/sigil-protocol`) and will be re-verified at its next slot.
 - next rotation target:
   - `seer-protocol` (`arken/packages/seer/packages/protocol`)
+
+### Run block — 2026-02-17T20:15:39-08:00 — seer-protocol infinite resolver own-key hardening
+- rotation/path verification:
+  - active scheduled target `seer-protocol` exists: `arken/packages/seer/packages/protocol`.
+  - direct-path snapshot unchanged for known missing targets this cycle: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+- files changed:
+  - `packages/seer/packages/protocol/src/modules/infinite/infinite.methodResolver.ts`
+  - `packages/seer/packages/protocol/test/infinite.router.test.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (4/4)
+- commits:
+  - `arkenrealms/seer-protocol`: `e5dad4e` (pushed)
+  - `arkenrealms/seer`: `5a2a06a` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - Jest migration attempt for this direct repo remains blocked in cron runtime by missing workspace package-manager bootstrap path for `workspace:*` installs.
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, and `cli` direct target paths remain unavailable in current workspace snapshot.
+- next rotation target:
+  - `sigil-protocol`

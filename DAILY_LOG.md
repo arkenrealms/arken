@@ -1872,3 +1872,27 @@
   - `sigil-protocol` direct path missing in workspace (`arken/packages/sigil-protocol`) — re-verify when rotation reaches that slot.
 - next rotation target:
   - `seer-protocol` (`arken/packages/seer/packages/protocol`)
+
+### Run block — 2026-02-17T20:15:39-08:00 — seer-protocol infinite resolver own-key hardening
+- [x] Rotation/path verification completed before target work.
+- [x] Worked direct target `seer-protocol` (`arken/packages/seer/packages/protocol`) with source + tests.
+- [x] Loaded all target `.md` files first (package root, `.rush`, `src`, `src/modules`, `test`).
+- [x] Implemented substantive source improvement:
+  - own-property-only method resolution in `src/modules/infinite/infinite.methodResolver.ts` to avoid inherited prototype handler routing.
+- [x] Expanded regression tests:
+  - `test/infinite.router.test.ts` now verifies inherited prototype handler rejection.
+- [x] Updated concise README/ANALYSIS docs in touched folders:
+  - `src/modules/infinite/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+  - `ANALYSIS.md` (protocol root)
+  - `packages/seer/ANALYSIS.md` (wrapper rollup)
+- [x] Test gate satisfied:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (4/4)
+- [x] Commit/push:
+  - `arkenrealms/seer-protocol` `e5dad4e` (pushed)
+  - `arkenrealms/seer` `5a2a06a` (pushed)
+- [x] PR references:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- [ ] Jest migration bootstrap in this direct repo still blocked in cron runtime by unresolved workspace package-manager install path for `workspace:*` dependencies.
+- [x] Next rotation target set: `sigil-protocol`.
