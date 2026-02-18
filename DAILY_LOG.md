@@ -2353,3 +2353,6 @@
   - `seer` `97556bb` pushed (updates <https://github.com/arkenrealms/seer/pull/1>)
 - Blockers: none.
 - Next rotation target: `packages/seer/packages/protocol`.
+
+### Run append — 2026-02-17T23:43:55-08:00 (correction note)
+- Correction: prior append block timestamp `2026-02-17T23:46:58-08:00` was a typo; this timestamp is the accurate append window for that same run.
