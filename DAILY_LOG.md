@@ -3860,3 +3860,47 @@
   - `cerebro-hub` and `cli` unavailable-in-checkout.
 - Next target:
   - `packages/seer/packages/node` (slot 2), then continue strict direct-repo rotation.
+
+## 2026-02-18T14:34:01-08:00 — seer-node helper-call Error.cause hardening
+- Target attempted: `packages/seer/packages/node`.
+- Loaded all local `.md` files in target before source edits (`.rush/**`, package root, `src/**`, `test/**`).
+- Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- Source/test/docs updates:
+  - `packages/seer/packages/node/src/tests.ts`
+    - added `createHelperCallError` wrapper and now preserve original thrown values on wrapped helper-call failures via `Error.cause`.
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+    - added regression assertions that wrapped sync (`saveToken`) and async (`userLoadAndSave`) helper failures retain the original root-cause object in `.cause`.
+  - updated touched docs:
+    - `packages/seer/packages/node/src/ANALYSIS.md`
+    - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (41/41)
+- Commit/PR:
+  - `seer-node` `2bea048` pushed to `sable/repo-analysis-notes-20260217-node-src` — PR: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers: none.
+- Next strict rotation target:
+  - `packages/seer/packages/protocol` (slot 3), then `packages/sigil-protocol` availability check.
+
+## 2026-02-18T14:43:35-08:00 — seer-protocol payment handler descriptor guards
+- Target attempted: `packages/seer/packages/protocol`.
+- Loaded markdown first in target folder before edits (repo-local docs and module/test notes).
+- Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- Source/test/docs updates:
+  - `packages/seer/packages/protocol/evolution/evolution.router.ts`
+    - hardened `getPayments` and `processPayments` router dispatch to resolve handlers via own-property descriptors and throw deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when unavailable/non-callable.
+  - `packages/seer/packages/protocol/test/evolution.router.test.ts`
+    - added guard regressions for `getPayments` and `processPayments` descriptor-based method resolution and deterministic error messaging.
+  - updated touched docs:
+    - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+    - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (14/14)
+- Commit/PR:
+  - `seer-protocol` `1d3b20b` pushed to `sable/repo-analysis-notes-20260217` — PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers: none.
+- Next strict rotation target:
+  - `packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
