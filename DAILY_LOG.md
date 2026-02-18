@@ -2311,3 +2311,25 @@
 ### In progress (rotation)
 - [x] Continue to `evolution-realm` next (slot 8) availability/init check, then `evolution-shard` and `evolution-protocol`.
 - [ ] Roll parent `arken` submodule pointer/log continuity commit after nested-slot checks.
+
+## 2026-02-17T23:36:41-08:00 — Rotation continuation: node web3 provider hardening
+- Rotation/path checks completed before coding:
+  - `evolution/packages/{realm,shard,protocol}`: present but empty/uninitialized.
+  - `cerebro/packages/hub`: missing.
+  - `cli`: missing.
+  - resumed at actionable `packages/node` per strict order.
+- Source/test work (packages/node):
+  - Hardened `web3/httpProvider.ts` to honor constructor URL input and preserve caller-provided JSON-RPC IDs.
+  - Kept fallback request ID behavior (`56`) only when ID is absent.
+  - Fixed hash call path by switching to `SHA256(...).toString()`.
+  - Added Jest TS coverage in `test/httpProvider.spec.ts` for constructor URL usage + ID preservation/fallback behavior.
+  - Updated concise docs in touched folders (`web3`, `test`) via `README.md` + `ANALYSIS.md`.
+- Tests:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (3/3)
+- Commit/PR:
+  - `packages/node` commit `81268aa` pushed to `sable/maintenance-trpc-ws-cycle`.
+  - PR updated: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - Nested evolution direct repos still uninitialized in this checkout; `cerebro-hub` and `cli` absent.
+- Next direct target in rotation:
+  - `packages/seer/packages/node`.

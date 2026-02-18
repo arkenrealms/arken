@@ -310,3 +310,33 @@ Continue strict rotation from the current pointer after latest completed slot.
 
 ## Run ledger append — 2026-02-17T23:24:32-08:00 — correction note
 - Correction: previous run-ledger block timestamp (`2026-02-17T23:25:52-08:00`) was written with a clock typo during append; this block is the authoritative timestamp for the same evolution chunk.
+
+## Run ledger append — 2026-02-17T23:36:41-08:00 — node web3 provider url/id hardening + Jest coverage
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to next actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist but are uninitialized/empty dirs in this checkout.
+  - `packages/cerebro/packages/hub` missing in checkout.
+  - `packages/cli` missing in checkout.
+  - `packages/node` exists and is mapped in `arken/.gitmodules`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts` (new)
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (3/3)
+- Commits + PR links:
+  - `node` `81268aa` (pushed) — updates <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` still uninitialized/empty in this checkout.
+  - `cerebro-hub` and `cli` unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
