@@ -23,7 +23,7 @@
     },
     {
       "packageName": "@arken/cli",
-      "projectFolder": "cli"
+      "projectFolder": "packages/cli"
     },
     {
       "packageName": "@arken/seer-protocol",
@@ -35,7 +35,7 @@
     },
     {
       "packageName": "@arken/forge-protocol",
-      "projectFolder": "forge/protocol"
+      "projectFolder": "packages/forge/packages/protocol"
     },
     {
       "packageName": "@arken/forge-web",
@@ -71,7 +71,7 @@
     },
     {
       "packageName": "@arken/sigil-protocol",
-      "projectFolder": "sigil/protocol"
+      "projectFolder": "packages/sigil-protocol"
     }
   ]
 }
