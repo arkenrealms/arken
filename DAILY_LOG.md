@@ -2511,3 +2511,19 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-node` next per strict order.
+
+### Newly completed (seer-node inventory write verification chunk)
+- [x] Rotated to `seer-node` (`packages/seer/packages/node`) per strict order after latest `node` slot completion.
+- [x] Loaded all local `.md` docs in target before source edits (`.rush`, package root, `src`, `src/data`, `test`).
+- [x] Hardened `src/tests.ts` `assignInventoryItemCount` with post-write readback verification so silent accessor setter no-ops fail fast.
+- [x] Added regression test coverage in `test/tests.helpers.test.ts` for accessor-backed `inventoryItemCount` setters that ignore writes.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined test command: `npm test` (pass: 19/19).
+- [x] Committed/pushed updates:
+  - `seer-node` `433b290` (updates <https://github.com/arkenrealms/seer-node/pull/3>)
+  - `seer` `431e4dd` (submodule pointer, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
