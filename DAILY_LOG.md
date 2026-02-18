@@ -3675,3 +3675,19 @@
   - direct slots unavailable: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
 - Next direct rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8), then `shard`, `protocol`, `cerebro-hub`, `cli`, and cycle back to `node`.
+
+### Newly completed (2026-02-18 13:03 PT — node malformed transport-response hardening)
+- [x] Rotation slots checked before actionable work:
+  - `evolution/packages/{realm,shard,protocol}` present but uninitialized/empty.
+  - `cerebro-hub` and `cli` unavailable in current checkout.
+- [x] Ran mandatory branch hygiene in direct repo before edits:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- [x] Hardened `packages/node/web3/httpProvider.ts` to fail closed when fetch/cache returns a non-Response-like payload.
+- [x] Added regression coverage in `packages/node/test/httpProvider.spec.ts` for malformed transport responses.
+- [x] Updated concise docs in touched folders:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Tests run: `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (28/28).
+- [x] Commit/push: `node` `b8dcd22` (updates <https://github.com/arkenrealms/node/pull/15>).
+- [ ] Next rotation target: `arken/packages/seer/packages/node` (slot 2).
