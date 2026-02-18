@@ -2675,3 +2675,43 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - User-directed revert: restored forge-web  to origin/main due to no test-backed validation.
 - Rolled updated forge-web and forge pointers.
 - Commits: forge-web <latest>, forge <latest>.
+
+### Run block — 2026-02-17T17:12:00-08:00 — seer+forge+evolution+node chunk
+- files changed:
+  - `packages/seer/packages/protocol/.rush/ANALYSIS.md`
+  - `packages/seer/packages/protocol/.rush/temp/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+  - `packages/seer/packages/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+  - `packages/forge/packages/web/src/state/multicall/ANALYSIS.md`
+  - `packages/forge/packages/web/src/state/ANALYSIS.md`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/trpc/README.md`
+  - `packages/node/trpc/ANALYSIS.md`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 53/53)
+- commits:
+  - `arkenrealms/seer-protocol`: `15e5a35` (pushed)
+  - `arkenrealms/seer`: `e84ce0a` (pushed)
+  - `arkenrealms/forge-web`: `047e8b7` (pushed)
+  - `arkenrealms/forge`: `86a9888` (pushed)
+  - `arkenrealms/evolution`: `d254b6d` (pushed)
+  - `arkenrealms/node`: `3f5019c` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+  - https://github.com/arkenrealms/forge/pull/1
+  - https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - none in this run (evolution temporary skip policy still active and honored; no recursive submodule sync/update executed)
+- next rotation target:
+  - `seer`
