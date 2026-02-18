@@ -2630,3 +2630,23 @@
 
 ### In progress (rotation)
 - [x] Continue to `evolution/packages/realm` next (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and wrap back to `node`.
+
+### Newly completed (nested-slot checks + node send/sendAsync id-normalization chunk)
+- [x] Verified strict rotation slots before code work:
+  - `packages/evolution/packages/{realm,shard,protocol}` remain present but uninitialized/empty.
+  - `packages/cerebro/packages/hub` and `packages/cli` remain unavailable-in-checkout.
+- [x] Applied branch hygiene in `packages/node` before edits:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main`
+- [x] Hardened `packages/node/web3/httpProvider.ts` so `send`/`sendAsync` normalize missing request IDs to fallback `56`, keeping callback response IDs aligned with request normalization.
+- [x] Added regression tests in `packages/node/test/httpProvider.spec.ts`:
+  - `send uses fallback id when request id is missing`
+  - `sendAsync uses fallback id when request id is missing`
+- [x] Updated touched-folder docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran: `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (9/9).
+- [x] Committed/pushed node update: `a81e29a` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next (`packages/seer/packages/node`) per strict direct-repo order.
