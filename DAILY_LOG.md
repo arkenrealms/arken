@@ -2966,3 +2966,27 @@
   - none in this slot.
 - Next rotation target:
   - `arken/packages/sigil-protocol` (slot 4) availability check, then `arken/packages/forge/packages/web`.
+
+### 2026-02-18T05:51:40-08:00 — evolution blank-path mapping guard
+- Rotation/path checks:
+  - `packages/sigil-protocol` unavailable-in-checkout.
+  - `packages/forge/packages/protocol` unavailable-in-checkout.
+  - `packages/forge/packages/web` present but still blocked for source edits by missing runnable repo-defined test command in this runtime.
+  - Continued on actionable slot `packages/evolution` (non-client scope).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` before edits.
+- Source + test updates:
+  - Hardened `.gitmodules` path parsing so explicit blank assignments (`path =`) are now treated as invalid mappings.
+  - Added regression coverage for explicit blank-path assignments in `test/validateSubmoduleMap.test.mjs`.
+  - Updated concise docs in touched folders:
+    - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+    - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command:
+  - `npm test` (in `packages/evolution`) ✅ pass (14/14)
+- Commit/PR:
+  - `packages/evolution` commit `887b488` pushed to `sable/repo-analysis-notes-20260217` — updates <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - Nested `packages/evolution/packages/{realm,shard,protocol}` remain present-but-uninitialized/empty.
+- Next target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict order.
