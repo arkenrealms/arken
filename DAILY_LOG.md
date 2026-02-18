@@ -1519,3 +1519,42 @@
 ### In progress (rotation)
 - [x] Continue to `seer` next for next deepest-first pass.
 - [ ] Commit/push parent `arken` rollup updates for this run.
+
+### Newly completed (seer infinite-router fallback hardening + forge multicall guard + evolution blocker + node prototype-segment regression)
+- [x] Rotated to `seer` and loaded required `.md` docs first in:
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/{README.md,ANALYSIS.md}`
+- [x] Hardened Infinite protocol router/service wiring in `packages/seer/packages/protocol/src/modules/infinite/infinite.router.ts`:
+  - added shared resolver that prefers `ctx.app.service.Infinite` handlers,
+  - retained guarded fallback to `ctx.app.service.Evolution.saveRound` for compatibility,
+  - added explicit unavailable-handler error path.
+- [x] Updated touched docs:
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `b69fa85`
+  - `seer` `2c1e77f` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+- [x] Rotated to `forge`, loaded required wallet/state `.md` docs first, and hardened `packages/forge/packages/web/src/state/wallet/hooks.ts`.
+- [x] Added guard to skip ERC20 `balanceOf` multicall fanout when wallet `address` is absent.
+- [x] Updated touched analysis doc:
+  - `packages/forge/packages/web/src/state/wallet/ANALYSIS.md`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `df9a3f9`
+  - `forge` `abc7f0d` (updates <https://github.com/arkenrealms/forge/pull/1>)
+
+- [x] Rotated to `evolution`, loaded required `.md` docs first, and re-ran recursive submodule checks.
+- [x] Reconfirmed unchanged blocker: `No url found for submodule path 'packages/client' in .gitmodules`.
+- [x] Updated blocker continuity note in `packages/evolution/NOTES.md` and captured local commit `18518b1` (push still blocked by 403 permission).
+
+- [x] Advanced to `node` per rotation policy and loaded required `.md` docs first in `trpc/` + `test/`.
+- [x] Added socket-server regression in `packages/node/test/socketServer.spec.ts` for prototype-segment traversal (`core.prototype.ping`).
+- [x] Updated node test docs:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran websocket protocol suites: `test/socketServer.spec.ts` + `test/socketLink.spec.ts` (pass: 51/51).
+- [x] Committed/pushed node update: `887eaf1` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer` next for next deepest-first pass.
+- [ ] Commit/push parent `arken` rollup updates for this run.

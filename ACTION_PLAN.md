@@ -2510,3 +2510,61 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `2c6b0aa` — Add nested prototype-path socket server traversal regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 16:29–16:38 PST
+- Rotation moved to `seer` chunk (next after prior `node` run).
+- Loaded required `.md` docs first in touched scope:
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/{README.md,ANALYSIS.md}`
+- Implemented small safe protocol wiring hardening in `packages/seer/packages/protocol/src/modules/infinite/infinite.router.ts`:
+  - added shared `resolveInfiniteMethod` resolver,
+  - router now prefers `ctx.app.service.Infinite` handlers (`saveRound`, `interact`, `getScene`),
+  - preserves compatibility via guarded fallback to `ctx.app.service.Evolution.saveRound`,
+  - emits explicit error if no callable handler exists.
+- Minor service-log clarity update in `infinite.service.ts` (`Infinite.Service.*` labels).
+- Updated concise docs/analysis in touched folders:
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+- Tests run:
+  - none (no package scripts/harness in `@arken/seer-protocol`).
+- Commit/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `b69fa85` — Harden Infinite router service resolution with safe fallback (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `2c1e77f` — Roll infinite module router fallback hardening from seer-protocol (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Rotation moved to `forge` chunk.
+- Loaded required `.md` docs first in touched scope:
+  - `packages/forge/packages/web/src/state/wallet/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+- Implemented small runtime-efficiency guard in `packages/forge/packages/web/src/state/wallet/hooks.ts`:
+  - skip ERC20 `balanceOf` multicall fanout when `address` is absent.
+- Updated concise docs:
+  - `packages/forge/packages/web/src/state/wallet/ANALYSIS.md`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `df9a3f9` — Skip ERC20 balance multicalls when account is absent (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `abc7f0d` — Roll wallet multicall guard hardening from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Re-ran blocker verification:
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule sync --recursive`
+  - `git -C /Users/web/.openclaw/workspace-nel/arken/packages/evolution submodule update --init --recursive`
+- Blocker persists unchanged:
+  - `fatal: No url found for submodule path 'packages/client' in .gitmodules`
+- Updated blocker continuity note:
+  - `packages/evolution/NOTES.md`
+- Commit status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `18518b1` — Log latest evolution submodule mapping blocker check (local commit; push blocked by 403 permission)
+- Rotation advanced to `node` chunk after blocker.
+- Loaded `.md` docs first in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Added regression coverage in `packages/node/test/socketServer.spec.ts`:
+  - rejects prototype-segment traversal (`method: 'core.prototype.ping'`).
+- Updated concise docs in touched folder:
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 51/51)
+- Commit/push:
+  - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `887eaf1` — Add prototype-segment socket server traversal regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
+- Next chunk (rotation): move to `seer`.
