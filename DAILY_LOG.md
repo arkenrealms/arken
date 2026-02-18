@@ -3116,3 +3116,27 @@
   - PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
 - Blockers: none.
 - Next target: `arken/packages/sigil-protocol` availability check (slot 4).
+
+## 2026-02-18T08:14:23-08:00 — evolution owner-path conflict guard
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4) → unavailable-in-checkout.
+  - `arken/packages/forge/packages/web` (slot 5) verified; source edits still blocked by missing runnable repo-defined test command.
+  - `arken/packages/forge/packages/protocol` (slot 6) → unavailable-in-checkout.
+  - `arken/packages/evolution` (slot 7; non-client scope) completed.
+- Branch hygiene:
+  - `git fetch origin && git merge --no-edit origin/main` (in `packages/evolution`) ✅ already up to date.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` (in `packages/evolution`) ✅ pass (16/16)
+- Commit/PR:
+  - `packages/evolution` commit `7d2a458` pushed to `sable/repo-analysis-notes-20260217`.
+  - PR: <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli` unavailable-in-checkout.
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` present but uninitialized/empty.
+- Next target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
