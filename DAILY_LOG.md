@@ -1768,3 +1768,24 @@
 
 ### In progress (rotation)
 - [x] Next direct target queued: `seer-protocol` (`arken/packages/seer/packages/protocol`).
+
+### Run block — 2026-02-17T18:12:00-08:00 — seer-protocol test-harness + Infinite fallback hardening
+- files changed:
+  - `packages/seer/packages/protocol/package.json`
+  - `packages/seer/packages/protocol/src/modules/infinite/infinite.methodResolver.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/infinite.router.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md,infinite.router.test.ts}`
+  - `packages/seer/packages/protocol/{README.md,ANALYSIS.md}`
+- tests:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (3/3)
+- commits:
+  - `arkenrealms/seer-protocol`: `87a7dc5` (pushed)
+  - `arkenrealms/seer`: `a547a81` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `sigil-protocol` direct target path still missing in workspace (`arken/packages/sigil-protocol`) based on prior verification; re-verify at next slot.
+- next rotation target:
+  - `sigil-protocol`
