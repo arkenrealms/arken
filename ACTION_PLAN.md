@@ -2592,3 +2592,55 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `evolution` remains push-blocked (403) and submodule-mapping-blocked on `packages/client` (unchanged; not retried in this seer chunk).
 - Next rotation target:
   - `forge`
+
+### 2026-02-17 16:52–16:59 PST
+- Rotation moved to `forge` chunk (next after prior `seer` pass).
+- Loaded target-folder `.md` files first in touched scope:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - (no pre-existing `.md` in `packages/forge/packages/web/src/state/multicall`)
+- Completed source read in `packages/forge/packages/web/src/state/multicall`:
+  - `actions.ts`, `hooks.ts`, `reducer.ts`, `updater.tsx`.
+- Added concise leaf docs + parent rollup updates:
+  - `packages/forge/packages/web/src/state/multicall/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `a79a53d` — Document multicall state substrate and updater ownership (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `f002db9` — Roll multicall state analysis updates from forge-web (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Rotation moved to `evolution` chunk.
+- Loaded required `.md` docs first in touched scope:
+  - `packages/evolution/{README.md,ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/{README.md,ANALYSIS.md}`
+- Applied temporary-skip-policy documentation updates (no recursive submodule commands run):
+  - explicitly skip `packages/evolution/packages/client`,
+  - skip `evolution-unity` integration work,
+  - avoid `git submodule sync/update --recursive` while skip policy is active.
+- Updated evolution docs:
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+- Commit/push status:
+  - `arkenrealms/evolution` `sable/repo-analysis-notes-20260217`: `a5cd438` — Document temporary evolution client skip policy and non-client scope (pushed)
+
+### Run block — 2026-02-17T16:59:00-08:00 — forge+evolution chunk
+- files changed:
+  - `packages/forge/packages/web/src/state/multicall/README.md`
+  - `packages/forge/packages/web/src/state/multicall/ANALYSIS.md`
+  - `packages/forge/packages/web/src/state/README.md`
+  - `packages/forge/packages/web/src/state/ANALYSIS.md`
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+- tests:
+  - none (docs/analysis-only chunk; no runtime behavior changes)
+- commits:
+  - `arkenrealms/forge-web`: `a79a53d` (pushed)
+  - `arkenrealms/forge`: `f002db9` (pushed)
+  - `arkenrealms/evolution`: `a5cd438` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/forge/pull/1
+  - https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - none in this run (temporary skip policy for `packages/client` remains intentionally active)
+- next rotation target:
+  - `node`

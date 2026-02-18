@@ -1576,3 +1576,48 @@
   - `evolution` submodule graph issue remains (`packages/client` missing `.gitmodules` mapping)
 - next rotation target:
   - `forge`
+
+### Newly completed (forge multicall docs + evolution temporary-skip docs chunk)
+- [x] Rotated to `forge` and loaded target `.md` files first in `packages/forge/packages/web/src/state`.
+- [x] Read multicall source files (`actions.ts`, `hooks.ts`, `reducer.ts`, `updater.tsx`) and added concise leaf docs:
+  - `packages/forge/packages/web/src/state/multicall/{README.md,ANALYSIS.md}`
+- [x] Updated parent rollups:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `a79a53d`
+  - `forge` `f002db9` (updates <https://github.com/arkenrealms/forge/pull/1>)
+
+- [x] Rotated to `evolution` and loaded required `.md` docs first.
+- [x] Applied temporary skip-policy documentation updates without recursive submodule commands:
+  - skip `packages/evolution/packages/client`,
+  - skip `evolution-unity` integration work,
+  - avoid `git submodule sync/update --recursive` while skip is active.
+- [x] Updated docs:
+  - `packages/evolution/{ANALYSIS.md,NOTES.md}`
+  - `packages/evolution/packages/ANALYSIS.md`
+- [x] Committed/pushed Evolution update:
+  - `evolution` `a5cd438`
+
+### Run block — 2026-02-17T16:59:00-08:00 — forge+evolution chunk
+- files changed:
+  - `packages/forge/packages/web/src/state/multicall/README.md`
+  - `packages/forge/packages/web/src/state/multicall/ANALYSIS.md`
+  - `packages/forge/packages/web/src/state/README.md`
+  - `packages/forge/packages/web/src/state/ANALYSIS.md`
+  - `packages/evolution/ANALYSIS.md`
+  - `packages/evolution/NOTES.md`
+  - `packages/evolution/packages/ANALYSIS.md`
+- tests:
+  - none (docs/analysis-only chunk; no runtime behavior changes)
+- commits:
+  - `forge-web`: `a79a53d` (pushed)
+  - `forge`: `f002db9` (pushed)
+  - `evolution`: `a5cd438` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/forge/pull/1
+  - https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - none in this run (temporary `packages/client` skip remains active by policy)
+- next rotation target:
+  - `node`
