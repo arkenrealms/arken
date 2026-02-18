@@ -3015,3 +3015,71 @@
   - `cerebro-hub` and `cli` remain unavailable-in-checkout.
 - Next rotation target:
   - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+### Run — 2026-02-18T07:34:00-08:00 — seer-node helper root-cause error suffix hardening
+- Target: `arken/packages/seer/packages/node`.
+- Branch hygiene: ran `git fetch origin` and merged `origin/main` (already up to date) before edits.
+- Source/test updates:
+  - Improved helper call-failure wrapping in `src/tests.ts` to preserve deterministic `tests.<helper>` prefixes while appending root-cause message suffixes.
+  - Tightened regression assertions in `test/tests.helpers.test.ts` to verify detailed wrapped error messages.
+  - Refreshed touched-folder docs in `src/ANALYSIS.md`, `test/ANALYSIS.md`, and `test/README.md`.
+- Tests:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (25/25).
+- Commit/push:
+  - `seer-node` `bc590f9` pushed to `sable/repo-analysis-notes-20260217-node-src` (PR update: <https://github.com/arkenrealms/seer-node/pull/3>).
+- Blockers: none.
+- Next direct rotation target: `arken/packages/seer/packages/protocol`.
+
+### Correction — 2026-02-18T07:19:35-08:00
+- Corrected prior appended run timestamp typo (`2026-02-18T07:34:00-08:00`); accurate window for that same seer-node chunk is around 07:19 local.
+
+### 2026-02-18T07:24:20-08:00 — seer-protocol auth guard reliability chunk
+- Target: `packages/seer/packages/protocol`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Code change: hardened root `auth` in `router.ts` to guard `applicationId` access when permissive `data: z.any()` receives non-object payloads.
+- Added test coverage: `test/router-auth.test.ts` to enforce guarded access pattern and prevent regressions.
+- Updated touched-folder docs:
+  - `packages/seer/packages/protocol/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (4/4).
+- Commit/PR:
+  - `seer-protocol` `f7e797a` pushed to `sable/repo-analysis-notes-20260217` (PR: <https://github.com/arkenrealms/seer-protocol/pull/1>).
+- Blockers: none.
+- Next rotation target: `packages/sigil-protocol` availability check, then continue direct-repo order.
+
+### Newly completed (evolution quoted-empty mapping guard chunk)
+- [x] Continued strict rotation through slot checks (`sigil-protocol`/`forge-protocol` unavailable, `forge-web` present-but-test-blocked) and advanced to `evolution` (slot 7).
+- [x] Loaded all local `.md` files in `packages/evolution` before source analysis/edits.
+- [x] Ran branch hygiene in `packages/evolution`: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- [x] Hardened `scripts/validateSubmoduleMap.mjs` to treat quoted-empty `path = ""` / `path = ''` (including whitespace-only quoted values) as invalid mappings.
+- [x] Expanded tests in `test/validateSubmoduleMap.test.mjs` to cover quoted-empty normalization and parser invalid-mapping reporting.
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined test command: `npm test` in `packages/evolution` (pass: 14/14).
+- [x] Committed/pushed evolution update: `4435d5e` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Continue to `evolution/packages/realm` slot verification next, then `shard`, `protocol`, `cerebro-hub`, `cli`, and roll to `node` if unavailable/uninitialized persists.
+
+## 2026-02-18T07:43:49-08:00 — node 403 cache-poisoning fix (rotation continuation)
+- Rotation/path checks:
+  - `packages/evolution/packages/{realm,shard,protocol}`: present but uninitialized/empty.
+  - `packages/cerebro/packages/hub`, `packages/cli`: unavailable-in-checkout.
+  - Proceeded to actionable slot `packages/node`.
+- Branch hygiene:
+  - `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` (`Already up to date`).
+- Code/test updates:
+  - Prevented caching of synthetic empty 403 response payloads in `web3/httpProvider.ts`.
+  - Added regression test to confirm repeated 403 calls still fail closed and trigger network fetch each time.
+  - Updated concise docs in touched folders (`web3` + `test` README/ANALYSIS).
+- Tests:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ (15/15 passing).
+- Commit/PR:
+  - `packages/node` commit `061201e` pushed to `sable/maintenance-trpc-ws-cycle`.
+  - PR: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` uninitialized/empty; `cerebro-hub` + `cli` missing in this checkout.
+- Next target:
+  - `packages/seer/packages/node`.

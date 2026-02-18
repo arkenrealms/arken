@@ -1266,3 +1266,112 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `cerebro-hub` and `cli` remain unavailable-in-checkout.
 - Next rotation target:
   - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T07:34:00-08:00 — seer-node helper root-cause error suffix hardening
+- Target attempted: `arken/packages/seer/packages/node`.
+- Path verification:
+  - target exists (`find packages/seer/packages -maxdepth 2 -type d -name node`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (25/25)
+- Commits + PR links:
+  - `seer-node` `bc590f9` (pushed) — updates <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## Run ledger append — 2026-02-18T07:19:35-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T07:34:00-08:00`) was a clock typo during append; this note records the accurate append window for the same seer-node maintenance chunk.
+
+## Run ledger append — 2026-02-18T07:24:20-08:00 — seer-protocol root auth null-guard hardening
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Path verification:
+  - target exists (`find packages/seer/packages -maxdepth 2 -type d -name protocol`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/router.ts`
+  - `packages/seer/packages/protocol/test/router-auth.test.ts` (new)
+  - `packages/seer/packages/protocol/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (4/4)
+- Commits + PR links:
+  - `seer-protocol` `f7e797a` (pushed) — updates <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T07:32:32-08:00 — evolution quoted-empty path mapping guard
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules`) → unavailable-in-checkout.
+  - `packages/forge/packages/web` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` missing in checkout (`packages/forge/.gitmodules` maps only `packages/web`) → unavailable-in-checkout.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`; nested slots `packages/evolution/packages/{realm,shard,protocol}` remain present but uninitialized/empty.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and repo markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (14/14)
+- Commits + PR links:
+  - `evolution` `4435d5e` (pushed) — updates <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - `forge-web` remains blocked for source edits under source-change gate until a runnable repo-defined test command is available in this runtime.
+  - Nested evolution direct repos remain present-but-uninitialized/empty in this checkout: `realm`, `shard`, `protocol`.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T07:43:49-08:00 — nested-slot verification + node 403 cache-poisoning fix
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to next actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist but remain uninitialized/empty in this checkout.
+  - `packages/cerebro/packages/hub` and `packages/cli` remain unavailable-in-checkout.
+  - Verified `.gitmodules` mappings in `arken/.gitmodules` and `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (15/15)
+- Commits + PR links:
+  - `node` `061201e` (pushed) — updates <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` remain uninitialized/empty in this checkout.
+  - `cerebro-hub` and `cli` remain unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
