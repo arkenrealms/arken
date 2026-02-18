@@ -188,3 +188,30 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`) then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-17T22:43:53-08:00 — forge-web test-harness blocker + node task-queue tail-handoff fix
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4) — unavailable-in-checkout.
+  - `arken/packages/forge/packages/web` (slot 5) — present; loaded all local `.md` docs first.
+  - Advanced through unavailable/uninitialized direct-repo slots (6–12) and resumed at `arken/packages/node` (slot 1) for substantive, test-backed code work.
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules` has no entry).
+  - `packages/forge/packages/protocol` missing in checkout (`packages/forge/.gitmodules` maps only `packages/web`).
+  - `packages/evolution/packages/{realm,shard,protocol}` present but currently uninitialized/empty.
+  - `packages/cerebro/packages/hub` and `packages/cli` missing in checkout.
+- Conflict notes:
+  - No guidance conflict with `MEMORY.md` or explicit run instructions.
+- Files changed:
+  - `packages/node/time/index.ts`
+  - `packages/node/test/createTaskQueue.spec.ts` (new)
+  - `packages/node/time/README.md`
+- Test command + result:
+  - `npm test -- test/createTaskQueue.spec.ts test/socketLink.spec.ts --runInBand` (in `packages/node`) ✅ pass (38/38)
+- Commits + PR links:
+  - `node` `8c21dc8` (pushed) — updates <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `forge-web` currently lacks a runnable repo-defined unit-test script/harness in this checkout state for safe source edits under the source-change gate.
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - Evolution nested direct repos present but uninitialized/empty: `realm`, `shard`, `protocol`.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.

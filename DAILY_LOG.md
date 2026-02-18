@@ -2215,3 +2215,23 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next; if unavailable-in-checkout, continue strict direct-repo order.
+
+### Newly completed (2026-02-17T22:43:53-08:00 run: forge-web blocker + node queue fix)
+- [x] Followed strict rotation path verification for direct repos before edits.
+- [x] Marked unavailable/uninitialized slots and advanced per policy:
+  - unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`
+  - present but uninitialized: `evolution/packages/{realm,shard,protocol}`
+- [x] Loaded all local markdown docs in `packages/forge/packages/web` before code decisions.
+- [x] Recorded forge-web blocker under source-change test gate (no repo-defined runnable unit-test harness in current checkout state).
+- [x] Rotated to `packages/node` and delivered substantive test-backed source improvement:
+  - fixed `createTaskQueue` tail-handoff enqueue gap in `time/index.ts`
+  - added new Jest TS coverage in `test/createTaskQueue.spec.ts`
+  - updated `time/README.md`
+- [x] Test run (pass):
+  - `npm test -- test/createTaskQueue.spec.ts test/socketLink.spec.ts --runInBand` (38/38)
+- [x] Committed/pushed node update:
+  - `8c21dc8` (updates <https://github.com/arkenrealms/node/pull/15>)
+- [x] Updated run ledger in `ACTION_PLAN.md` with files/tests/commit/blockers/next target.
+
+### In progress (rotation)
+- [ ] Continue at `packages/seer/packages/node` (next strict slot), then `seer-protocol`.
