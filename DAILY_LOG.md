@@ -2667,3 +2667,48 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then perform `sigil-protocol` availability check before continuing strict direct-repo order.
+
+## 2026-02-18T02:55:15-08:00 — seer-protocol Isles/Infinite method dispatch correction
+- Repo: `packages/seer/packages/protocol`
+- Summary:
+  - Corrected cross-method routing bug so `interact` and `getScene` now call method-matched Evolution handlers instead of always calling `Evolution.saveRound` in both Isles and Infinite routers.
+  - Added package-local regression test (`test/router-routing.test.ts`) to assert method-matched dispatch remains intact.
+  - Added repo-defined `npm test` script for protocol package and refreshed touched folder docs/analysis.
+- Files changed:
+  - `isles/isles.router.ts`
+  - `infinite/infinite.router.ts`
+  - `test/router-routing.test.ts`
+  - `package.json`
+  - `package-lock.json`
+  - `ANALYSIS.md`
+  - `isles/README.md`
+  - `infinite/README.md`
+  - `test/README.md`
+  - `test/ANALYSIS.md`
+- Test:
+  - `npm test` ✅ (2 passing)
+- Commit/PR:
+  - Commit: `087370d`
+  - PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers:
+  - none
+- Next target:
+  - `packages/sigil-protocol` availability check (rotation slot 4)
+
+### Newly completed (evolution empty-path mapping guard chunk)
+- [x] Rotated through slots 4–6 with verification and recorded availability state:
+  - `sigil-protocol` unavailable-in-checkout
+  - `forge-web` present (test harness still unavailable in runtime)
+  - `forge-protocol` unavailable-in-checkout
+- [x] Continued on `packages/evolution` (slot 7), loaded all local `.md` docs first, and ran branch hygiene (`git fetch origin` + merge `origin/main`) before edits.
+- [x] Hardened wrapper validator to reject invalid empty/comment-only `.gitmodules` `path = ...` mappings:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Ran wrapper test gate: `npm test` in `packages/evolution` (pass: 14/14).
+- [x] Committed/pushed evolution update: `d94c3e0` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+
+### In progress (rotation)
+- [x] Continue to `evolution/packages/realm` next (slot 8 availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and resume at `node`.

@@ -824,3 +824,60 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## Run ledger append — 2026-02-18T02:55:15-08:00 — seer-protocol Isles/Infinite method dispatch correction
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Path verification: target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name protocol`) and remains mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits.
+- Conflict notes:
+  - Detected repo-doc drift: several existing notes referenced legacy `src/modules/...` layout, while current checkout routes live at package root (`isles/`, `infinite/`). Followed `MEMORY.md` + explicit user instruction and current source layout as authoritative for this run.
+- Files changed:
+  - `packages/seer/packages/protocol/isles/isles.router.ts`
+  - `packages/seer/packages/protocol/infinite/infinite.router.ts`
+  - `packages/seer/packages/protocol/test/router-routing.test.ts` (new)
+  - `packages/seer/packages/protocol/package.json`
+  - `packages/seer/packages/protocol/package-lock.json`
+  - `packages/seer/packages/protocol/{ANALYSIS.md}`
+  - `packages/seer/packages/protocol/isles/README.md`
+  - `packages/seer/packages/protocol/infinite/README.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (2/2)
+- Commits + PR links:
+  - `seer-protocol` `087370d` (pushed) — updates <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T03:04:11-08:00 — evolution empty-path submodule mapping guard
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules`) → unavailable-in-checkout.
+  - `packages/forge/packages/web` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` missing in checkout (`packages/forge/.gitmodules` maps only `packages/web`) → unavailable-in-checkout.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`; nested slots `packages/evolution/packages/{realm,shard,protocol}` remain present but uninitialized/empty.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` before edits.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and repo markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (14/14)
+- Commits + PR links:
+  - `evolution` `d94c3e0` (pushed) — updates <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - `forge-web` remains blocked for source edits under source-change gate until a runnable repo-defined test command is available in this runtime.
+  - Nested evolution direct repos remain present-but-uninitialized/empty in this checkout: `realm`, `shard`, `protocol`.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
