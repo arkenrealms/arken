@@ -912,3 +912,6 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `cerebro-hub`, `cli`, `sigil-protocol`, and `forge-protocol` remain unavailable-in-checkout.
 - Next rotation target:
   - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T03:14:32-08:00 — correction note
+- Correction: previous run-ledger block timestamp (`2026-02-18T03:16:54-08:00`) was appended with a clock typo; this note records the accurate append window for the same maintenance chunk.
