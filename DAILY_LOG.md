@@ -2882,3 +2882,27 @@
   - none.
 - Next target:
   - `arken/packages/sigil-protocol` availability check (slot 4).
+
+### Run append — 2026-02-18T04:34:27-08:00 (evolution escaped-inline-comment path handling)
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4) — unavailable-in-checkout.
+  - `arken/packages/forge/packages/web` (slot 5) — present; no source edit attempted this slot.
+  - `arken/packages/forge/packages/protocol` (slot 6) — unavailable-in-checkout.
+  - `arken/packages/evolution` (slot 7) — completed source + test-backed improvement.
+- Branch hygiene:
+  - `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` before edits.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (14/14)
+- Commit/PR:
+  - `evolution` `5c676be` pushed — <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, and `cli` unavailable in this checkout.
+  - `evolution/packages/{realm,shard,protocol}` present but uninitialized/empty.
+  - `forge-web` still blocked for source edits until repo-defined test runtime is available in this environment.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard`, `protocol`, `cerebro-hub`, `cli`, and wrap to `node`.
