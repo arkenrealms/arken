@@ -2756,3 +2756,20 @@
 - Commit/push:
   - `seer-node` `72bccd4` pushed to `sable/repo-analysis-notes-20260217-node-src` (PR: <https://github.com/arkenrealms/seer-node/pull/3>).
 - Next direct-rotation target: `arken/packages/seer/packages/protocol`.
+
+### 2026-02-18T03:43:06-08:00 — seer-protocol Evolution context-preserving fallback calls
+- Target attempted: `packages/seer/packages/protocol`.
+- Branch hygiene: ran `git fetch origin` and `git merge --no-edit origin/main` before edits.
+- Files changed:
+  - `packages/seer/packages/protocol/isles/isles.router.ts`
+  - `packages/seer/packages/protocol/infinite/infinite.router.ts`
+  - `packages/seer/packages/protocol/test/router-routing.test.ts`
+  - `packages/seer/packages/protocol/isles/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/infinite/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (2/2)
+- Commit/PR:
+  - `seer-protocol` `81115e5` (pushed) — <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers: none.
+- Next rotation target: `packages/sigil-protocol` availability check (slot 4), then continue strict order.
