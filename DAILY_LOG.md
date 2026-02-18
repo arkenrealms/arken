@@ -3169,3 +3169,19 @@
   - `cerebro-hub` and `cli` unavailable-in-checkout.
 - Next rotation target:
   - `arken/packages/seer/packages/node`.
+
+### 2026-02-18T08:33:38-08:00 — seer-node helper error-context coverage for symbol/object throws
+- Target attempted: `arken/packages/seer/packages/node`.
+- Path verification: target present and mapped in `packages/seer/.gitmodules`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` in `packages/seer/packages/node` (`Already up to date`).
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (29/29)
+- Commit/PR:
+  - `seer-node` `22ce306` pushed to branch `sable/repo-analysis-notes-20260217-node-src` (PR: <https://github.com/arkenrealms/seer-node/pull/3>)
+- Blockers: none.
+- Next rotation target: `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
