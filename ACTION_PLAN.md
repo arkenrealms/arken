@@ -2815,3 +2815,23 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `cerebro-hub` and `cli` target paths missing in workspace
 - next rotation target:
   - `seer-node` (`arken/packages/seer/packages/node`)
+
+### Run block — 2026-02-17T18:03:58-08:00 — seer-node source hardening chunk
+- files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.cjs`
+  - `packages/seer/packages/node/test/README.md`
+  - `packages/seer/packages/node/test/ANALYSIS.md`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/node`) — pass (5/5)
+- commits:
+  - `arkenrealms/seer-node`: `c2b75df` (pushed)
+  - `arkenrealms/seer`: `35991e8` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- blockers:
+  - none in this run
+- next rotation target:
+  - `seer-protocol` (`arken/packages/seer/packages/protocol`)

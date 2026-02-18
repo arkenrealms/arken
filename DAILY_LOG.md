@@ -1751,3 +1751,20 @@
 - Commit/push:
   - `arkenrealms/node` `2e7c939` pushed to `sable/maintenance-trpc-ws-cycle` (updates PR <https://github.com/arkenrealms/node/pull/15>).
 - Next rotation target: `seer-node` (`arken/packages/seer/packages/node`).
+
+### Newly completed (seer-node helper receiver-binding hardening)
+- [x] Rotated to direct target `packages/seer/packages/node` and loaded target `.md` docs before source edits.
+- [x] Hardened `src/tests.ts` helper invocation paths to preserve method receiver context (`this`) for own-property `db.*` and `modules.*` methods.
+- [x] Expanded package-local unit coverage in `test/tests.helpers.test.cjs` for:
+  - `migrateTrades` receiver-binding invariants,
+  - `monitorMarketEvents` receiver-binding + timeout-handle behavior.
+- [x] Updated concise docs/analysis in touched folders:
+  - `src/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Ran package test gate: `npm test` in `packages/seer/packages/node` (pass: 5/5).
+- [x] Committed/pushed updates:
+  - `seer-node` `c2b75df`
+  - `seer` `35991e8` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Next direct target queued: `seer-protocol` (`arken/packages/seer/packages/protocol`).
