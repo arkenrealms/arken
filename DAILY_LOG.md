@@ -3610,3 +3610,19 @@
 ### In progress (rotation)
 - [x] Continue to `evolution/packages/realm` next (slot 8 availability/init check), then `shard` and `protocol`.
 - [ ] Continue strict direct-repo rotation after slot 10 checks (`cerebro-hub` slot 11, `cli` slot 12, then `node`).
+
+### Newly completed (node outbound method validation chunk)
+- [x] Rotated through slots 8–12 checks and recorded current availability state:
+  - `evolution/packages/{realm,shard,protocol}` present but uninitialized/empty.
+  - `cerebro-hub` and `cli` unavailable in this checkout.
+- [x] Ran branch hygiene in `packages/node`: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- [x] Hardened `packages/node/web3/httpProvider.ts` to fail fast on missing/blank outbound JSON-RPC `method` (`-32600`) and trim method strings before dispatch.
+- [x] Added Jest regression coverage in `packages/node/test/httpProvider.spec.ts` for missing-method rejection and method-trim normalization.
+- [x] Updated concise touched-folder docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Test gate passed: `npm test -- test/httpProvider.spec.ts --runInBand` (27/27).
+- [x] Committed/pushed node update: `677db97` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer-node` next (`arken/packages/seer/packages/node`, slot 2), then continue strict direct-repo order.
