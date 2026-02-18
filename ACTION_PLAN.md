@@ -307,3 +307,6 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Jest+TS migration direction remains pending in this repo until runtime deps are introduced; retained existing repo-defined `npm test` harness for gate compliance.
 - Next rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8) availability/init check, then `shard` and `protocol`.
+
+## Run ledger append — 2026-02-17T23:24:32-08:00 — correction note
+- Correction: previous run-ledger block timestamp (`2026-02-17T23:25:52-08:00`) was written with a clock typo during append; this block is the authoritative timestamp for the same evolution chunk.
