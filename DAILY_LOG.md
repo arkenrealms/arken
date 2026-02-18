@@ -2235,3 +2235,20 @@
 
 ### In progress (rotation)
 - [ ] Continue at `packages/seer/packages/node` (next strict slot), then `seer-protocol`.
+
+### Newly completed (seer-node getter-safe resolver chunk)
+- [x] Rotated to `seer-node` (slot 2) and verified target presence using `find` + `packages/seer/.gitmodules`.
+- [x] Loaded all local `.md` files in `packages/seer/packages/node` before source edits.
+- [x] Hardened helper method/path lookup in `packages/seer/packages/node/src/tests.ts` to tolerate throwing own-property getters during method resolution (`getOwnValue` guard).
+- [x] Added regression test in `packages/seer/packages/node/test/tests.helpers.test.ts` to ensure `saveToken` falls back to `db.save` when `db.saveToken` own getter throws.
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran package test gate:
+  - `npm test` in `packages/seer/packages/node` (pass: 13/13).
+- [x] Committed/pushed updates:
+  - `seer-node` `cfb7847` (branch `sable/repo-analysis-notes-20260217-node-src`, updates <https://github.com/arkenrealms/seer-node/pull/3>)
+  - `seer` `36e3e85` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
