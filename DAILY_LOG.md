@@ -3343,3 +3343,10 @@
   - none in this slot.
 - Next target:
   - `arken/packages/seer/packages/protocol`.
+
+## 2026-02-18T10:07:41-08:00 — seer-protocol Oasis getter-trap hardening
+- Target: `packages/seer/packages/protocol`.
+- Change: Hardened `oasis.getPatrons` handler resolution to use own-property descriptor value (`Object.getOwnPropertyDescriptor(...).value`) so getter trap properties cannot crash handler lookup; missing/non-callable handler still raises deterministic `TRPCError(INTERNAL_SERVER_ERROR)`.
+- Tests: `npm test` in `packages/seer/packages/protocol` ✅ (6/6).
+- Commit/PR: `seer-protocol` `71fc251` pushed to existing PR <https://github.com/arkenrealms/seer-protocol/pull/1>.
+- Next target: `packages/sigil-protocol` availability check (rotation slot 4).
