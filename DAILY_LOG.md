@@ -3185,3 +3185,19 @@
   - `seer-node` `22ce306` pushed to branch `sable/repo-analysis-notes-20260217-node-src` (PR: <https://github.com/arkenrealms/seer-node/pull/3>)
 - Blockers: none.
 - Next rotation target: `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+### 2026-02-18T08:42:18-08:00 — seer-protocol Oasis getScene data-shape guard
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Path verification: target present and mapped in `packages/seer/.gitmodules`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` in `packages/seer/packages/protocol` (`Already up to date`).
+- Files changed:
+  - `packages/seer/packages/protocol/oasis/oasis.router.ts`
+  - `packages/seer/packages/protocol/oasis/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/oasis.router.test.ts`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (5/5)
+- Commit/PR:
+  - `seer-protocol` `31b2af1` pushed to `sable/repo-analysis-notes-20260217` (PR: <https://github.com/arkenrealms/seer-protocol/pull/1>)
+- Blockers: none.
+- Next rotation target: `arken/packages/sigil-protocol` (slot 4) availability check, then strict direct rotation continuation.
