@@ -2134,3 +2134,23 @@
   - local Jest runner/tooling is unavailable in this checkout runtime (`npm test` with Jest script would fail: `jest: command not found`), so this run retained the executable Node TS test harness.
 - [x] Next rotation target:
   - `seer-protocol` (`arken/packages/seer/packages/protocol`)
+
+### Run block — 2026-02-17T22:08:27-08:00 — seer-protocol Isles resolver hardening
+- files changed:
+  - `packages/seer/packages/protocol/src/modules/isles/isles.router.ts`
+  - `packages/seer/packages/protocol/src/modules/isles/isles.methodResolver.ts`
+  - `packages/seer/packages/protocol/src/modules/isles/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/isles.router.test.ts`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- tests:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (12/12)
+- commits:
+  - `arkenrealms/seer-protocol`: `b7c2f9c` (pushed)
+  - `arkenrealms/seer`: `f81340b` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - none in this slot.
+- next rotation target:
+  - `sigil-protocol` (`arken/packages/sigil-protocol`)

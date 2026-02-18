@@ -105,3 +105,22 @@ Before starting a slot, verify target path in current checkout (`find` + `.gitmo
 
 ## Next actionable target
 Continue strict rotation from the current pointer after latest completed slot.
+
+## Run ledger append — 2026-02-17T22:08:27-08:00 — seer-protocol Isles resolver hardening
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Path verification: target exists in checkout (`find` + `packages/seer/.gitmodules`); continued strict direct-repo order.
+- Files changed:
+  - `packages/seer/packages/protocol/src/modules/isles/isles.router.ts`
+  - `packages/seer/packages/protocol/src/modules/isles/isles.methodResolver.ts` (new)
+  - `packages/seer/packages/protocol/src/modules/isles/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/isles.router.test.ts` (new)
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (12/12)
+- Commits + PR links:
+  - `seer-protocol` `b7c2f9c` (pushed) — <https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217>
+  - `seer` `f81340b` (pushed submodule pointer) — <https://github.com/arkenrealms/seer/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `sigil-protocol` (`arken/packages/sigil-protocol`) then continue strict direct-repo order.
