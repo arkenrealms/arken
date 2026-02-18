@@ -3019,3 +3019,57 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `cerebro-hub` and `cli` direct paths remain missing in workspace snapshot.
 - next rotation target:
   - `evolution-realm` (`arken/packages/evolution/packages/realm`)
+
+### Run block — 2026-02-17T20:33:49-0800 — evolution-slot blockers + node request-id sanitization hardening
+- rotation/path verification:
+  - active scheduled target     -                  exists at  but is empty/uninitialized in this workspace snapshot.
+  - also verified current-slot direct targets:
+    -  exists but empty ()
+    -  exists but empty ()
+    -  missing ()
+    -  missing ()
+  - advanced in strict order to next actionable direct target:  ().
+- files changed:
+  - 
+  - 
+  - 
+  - 
+- tests:
+  -  (pass: 59/59)
+- commits:
+  - :  (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - , , and  folders are present but empty/uninitialized in current checkout.
+  -  and  direct target paths are missing in current workspace.
+- next rotation target:
+  -  ()
+
+### Run block — 2026-02-17T20:34:41-0800 — correction: evolution-slot blockers + node request-id sanitization hardening
+- note:
+  - supersedes malformed prior block emitted at `2026-02-17T20:33:49-0800` (shell interpolation artifact); this corrected block is authoritative for this run.
+- rotation/path verification:
+  - active scheduled target `evolution-realm` exists at `arken/packages/evolution/packages/realm` but is empty/uninitialized in this workspace snapshot.
+  - also verified current-slot direct targets:
+    - `evolution-shard` exists but empty (`arken/packages/evolution/packages/shard`)
+    - `evolution-protocol` exists but empty (`arken/packages/evolution/packages/protocol`)
+    - `cerebro-hub` missing (`arken/packages/cerebro/packages/hub`)
+    - `cli` missing (`arken/packages/cli`)
+  - advanced in strict order to next actionable direct target: `node` (`arken/packages/node`).
+- files changed:
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/trpc/ANALYSIS.md`
+  - `packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 59/59)
+- commits:
+  - `arkenrealms/node`: `8f4cedf` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - `evolution-realm`, `evolution-shard`, and `evolution-protocol` folders are present but empty/uninitialized in current checkout.
+  - `cerebro-hub` and `cli` direct target paths are missing in current workspace.
+- next rotation target:
+  - `seer-node` (`arken/packages/seer/packages/node`)

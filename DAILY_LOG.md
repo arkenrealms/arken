@@ -1924,3 +1924,43 @@
   - `forge-web` local runtime missing `react-app-rewired` for test execution
 - [x] Next rotation target set:
   - `evolution-realm` (`arken/packages/evolution/packages/realm`)
+
+### Run block — 2026-02-17T20:33:49-0800 — evolution-slot blockers + node request-id sanitization hardening
+- files changed:
+  - 
+  - 
+  - 
+  - 
+- tests:
+  -  (pass: 59/59)
+- commits:
+  - :  (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - , , and  present but empty/uninitialized in current checkout.
+  -  and  direct target paths missing in workspace.
+- next rotation target:
+  -  ()
+
+### Run block — 2026-02-17T20:34:41-0800 — correction: evolution-slot blockers + node request-id sanitization hardening
+- [x] Supersedes malformed prior block at `2026-02-17T20:33:49-0800` (shell interpolation artifact).
+- [x] Rotation/path verification:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` present but currently empty/uninitialized.
+  - `cerebro-hub` and `cli` direct target paths missing in workspace snapshot.
+  - advanced in strict order to actionable direct target: `node`.
+- [x] Source hardening in `node`:
+  - `trpc/socketServer.ts` now drops reserved prototype-path request IDs (`__proto__`, `prototype`, `constructor`) during response-id normalization.
+- [x] Added regression coverage:
+  - `test/socketServer.spec.ts` now verifies reserved prototype-path IDs are omitted from emitted error envelopes.
+- [x] Updated concise touched docs:
+  - `packages/node/trpc/ANALYSIS.md`
+  - `packages/node/test/ANALYSIS.md`
+- [x] Test gate satisfied:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` ✅ pass (59/59)
+- [x] Commit/push:
+  - `arkenrealms/node` `8f4cedf` (pushed)
+- [x] PR reference:
+  - https://github.com/arkenrealms/node/pull/15
+- [x] Next rotation target:
+  - `seer-node` (`arken/packages/seer/packages/node`)
