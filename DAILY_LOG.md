@@ -3263,3 +3263,39 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then run `sigil-protocol` availability check per strict order.
+
+### 2026-02-18T09:24:03-08:00 — seer-protocol Oasis handler guard chunk
+- [x] Rotated into `packages/seer/packages/protocol` (slot 3) and ran branch hygiene (`git fetch origin` + merge `origin/main`, up to date).
+- [x] Added runtime guard in `oasis/oasis.router.ts` for `getPatrons` to require own-property `ctx.app.service.Oasis.getPatrons` handler availability.
+- [x] Added deterministic failure branch with `TRPCError(INTERNAL_SERVER_ERROR)` when Oasis service wiring is unavailable.
+- [x] Preserved service context invocation via `method.call(oasisService, input, ctx)`.
+- [x] Expanded package tests/docs:
+  - `test/oasis.router.test.ts`
+  - `oasis/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Test gate: `npm test` (in `packages/seer/packages/protocol`) ✅ pass (6/6).
+- [x] Commit/push: `seer-protocol` `d8ba22e` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>).
+- [ ] Next: `packages/sigil-protocol` availability check (slot 4), then continue strict direct-repo order.
+
+### Newly completed (rotation slot 4-7 pass: evolution parser hardening)
+- [x] Verified direct-repo rotation paths before changes:
+  - `sigil-protocol` missing in checkout.
+  - `forge-web` present; repo-defined `npm test` remains unavailable (`Missing script: "test"`) so source edits stayed blocked per source-change gate.
+  - `forge-protocol` missing in checkout.
+  - `evolution` present and actionable (non-client scope only).
+- [x] Ran mandatory branch hygiene in `packages/evolution` before edits:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- [x] Implemented practical reliability fix in evolution wrapper validator:
+  - made `.gitmodules` parser accept case-insensitive path keys (`path`/`Path`/`PATH`) for git-config compatibility.
+  - added regression test coverage for mixed-case path-key parsing.
+- [x] Updated concise touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Test gate satisfied:
+  - `npm test` in `packages/evolution` ✅ pass (18/18)
+- [x] Committed/pushed direct subrepo update:
+  - `evolution` `8a576ad` (updates <https://github.com/arkenrealms/evolution/pull/10>)
+
+### In progress (rotation)
+- [x] Continue to `evolution/packages/realm` next (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and loop to `node`.
