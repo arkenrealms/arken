@@ -2442,3 +2442,20 @@
 
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next for availability-in-checkout verification, then continue strict direct-repo order.
+
+### Newly completed (rotation availability checks + node provider-timeout chunk)
+- [x] Read authoritative guardrails (`/Users/web/.openclaw/workspace-nel/MEMORY.md`) before continuing action-plan rotation.
+- [x] Verified strict slot order and checkout presence for current cycle:
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli` are unavailable-in-checkout.
+  - `evolution` nested direct repos (`realm`, `shard`, `protocol`) remain present but uninitialized/empty.
+- [x] Advanced to next actionable direct repo (`node`) and implemented source-backed reliability improvement in `web3/httpProvider.ts`.
+- [x] Added Jest regression for hung-fetch timeout enforcement in `test/httpProvider.spec.ts`.
+- [x] Updated concise touched-folder docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined test command with pass result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ (5/5)
+- [x] Committed/pushed node update: `144aed5` (updates <https://github.com/arkenrealms/node/pull/15>).
+
+### In progress (rotation)
+- [x] Continue to `seer-node` next (slot 2), then continue strict direct-repo order.
