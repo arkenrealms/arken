@@ -3353,3 +3353,44 @@
 
 ## 2026-02-18T10:04:36-08:00 — correction note
 - Correction: previous daily-log block timestamp (`2026-02-18T10:07:41-08:00`) was ahead of wall-clock time; this note records the accurate append window for the same seer-protocol chunk.
+
+### 2026-02-18T10:13:53-08:00 — evolution owner-conflict aggregation hardening
+- Rotation/path checks:
+  - `sigil-protocol` unavailable-in-checkout.
+  - `forge-protocol` unavailable-in-checkout.
+  - `forge-web` present but still blocked for source edits by missing runnable repo-defined test script (`npm test` no `test` script).
+  - Continued on actionable direct repo: `packages/evolution`.
+- Branch hygiene:
+  - `git fetch origin && git merge --no-edit origin/main` in `packages/evolution` (`Already up to date`).
+- Source + doc updates:
+  - Aggregated repeated per-owner `.gitmodules` path conflicts into a single deterministic conflict record in validator output.
+  - Added regression test for repeated owner remap conflicts (`protocol -> protocol-v2 -> protocol-v3`).
+  - Updated touched-folder docs: `scripts/{README.md,ANALYSIS.md}`.
+- Tests:
+  - `npm test` (in `packages/evolution`) ✅ pass (19/19).
+- Commits/PR:
+  - `packages/evolution` commit `f728e5d` pushed to branch `sable/repo-analysis-notes-20260217` (updates <https://github.com/arkenrealms/evolution/pull/10>).
+- Next target:
+  - `packages/evolution/packages/realm` (slot 8), then `shard`, `protocol`, `cerebro-hub`, `cli`, and resume at `node`.
+
+## 2026-02-18T10:24:41-08:00 — rotation slots 8-12 verification + node timeout-abort normalization
+- Verified rotation slots before coding:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist but are empty/uninitialized.
+  - `packages/cerebro/packages/hub` and `packages/cli` are missing in this checkout.
+- Per branch hygiene policy in `packages/node`:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (already up to date)
+- Implemented reliability fix in `packages/node/web3/httpProvider.ts`:
+  - timeout-triggered `AbortController` cancellation now sets a timeout flag,
+  - abort-side fetch rejections after cancellation are normalized to deterministic timeout `RequestError` (`Request timeout after 5000ms`, `code -32000`) instead of surfacing transport-specific abort messages.
+- Added regression in `packages/node/test/httpProvider.spec.ts`:
+  - verifies abort-event fetch rejection still resolves to timeout-shaped failure after deadline.
+- Updated concise docs:
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ (21 passing)
+- Commit/push:
+  - `e36b1a2` pushed to `node` branch `sable/maintenance-trpc-ws-cycle`
+  - PR: <https://github.com/arkenrealms/node/pull/15>
+- Next direct target: `packages/seer/packages/node`.
