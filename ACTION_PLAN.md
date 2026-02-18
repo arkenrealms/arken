@@ -66,6 +66,8 @@ Before starting a slot, verify target path in current checkout (`find` + `.gitmo
 - Only touch that file when:
   - explicitly requested by user, or
   - a clearly novel bug class requires it.
+- Avoid unnecessary abstraction/wrapper layers in tRPC routers when existing code is clear and already working.
+- Prefer practical impact: bug fixes, reliability/performance improvements, and user-visible feature work.
 
 ## Evolution temporary skip rule
 - Ignore `packages/evolution/packages/client`.
