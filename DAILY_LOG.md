@@ -3140,3 +3140,32 @@
   - `evolution-realm`, `evolution-shard`, `evolution-protocol` present but uninitialized/empty.
 - Next target:
   - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
+
+## 2026-02-18T08:23:53-08:00 — nested-slot verification + node JSON-RPC envelope validation hardening
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to next actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` present but uninitialized/empty.
+  - `packages/cerebro/packages/hub` and `packages/cli` missing in this checkout.
+- Branch hygiene:
+  - `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` (`Already up to date`).
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (17/17)
+- Commit / PR:
+  - `packages/node` commit `babd90c` pushed to `sable/maintenance-trpc-ws-cycle`
+  - PR: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - Nested evolution direct repos remain uninitialized in this checkout.
+  - `cerebro-hub` and `cli` unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/seer/packages/node`.
