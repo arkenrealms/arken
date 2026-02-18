@@ -1637,3 +1637,5 @@
   - none in this run
 - next rotation target:
   - `seer`
+
+- [x] 2026-02-17 17:05 PST — Applied new policy requiring test-backed source changes; reverted forge-web source edits and rolled updated submodule pointers.

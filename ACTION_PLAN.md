@@ -2660,3 +2660,9 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - none in this run
 - next rotation target:
   - `seer`
+
+### 2026-02-17 17:05 PST
+- User policy update: do not make source-code changes unless accompanied by runnable unit tests validating no regressions or the intended fix.
+- Reverted prior forge-web source edits in PR branch; retained docs updates.
+- Rolled forge-web revert into forge parent repo.
+- Commits: forge-web d06ac0f, forge 4ccc949.
