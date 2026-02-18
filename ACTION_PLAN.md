@@ -148,3 +148,23 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Evolution nested repos present but uninitialized/empty in current checkout: `realm`, `shard`, `protocol`.
 - Next rotation target:
   - `arken/packages/seer/packages/node` (slot 2 on next cycle restart), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-17T22:28:54-0800 — seer-node monitor delay guard + test expansion
+- Target attempted: `arken/packages/seer/packages/node`.
+- Path verification: target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name node` + `packages/seer/.gitmodules` mapping).
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/packages/node` submodule pointer in `packages/seer`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (12/12)
+- Commits + PR links:
+  - `seer-node` `fb55d62` (pushed) — <https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src>
+  - `seer` `90833a3` (pushed submodule pointer) — updates <https://github.com/arkenrealms/seer/pull/1>
+- Blockers:
+  - Jest migration attempted but `jest` binary is unavailable in current runtime (`npm test` failed with `sh: jest: command not found`), so harness remained on existing Node test runner this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.

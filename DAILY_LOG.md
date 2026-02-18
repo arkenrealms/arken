@@ -2177,3 +2177,21 @@
 - [ ] Commit/push parent `arken` rollup updates for this run.
 - [x] Committed/pushed parent `arken` rollup updates for this run:
   - `42057eb` (branch `sable/arken-maintenance-trpc-ws-cycle`, updates <https://github.com/arkenrealms/arken/pull/2>)
+
+### Newly completed (seer-node monitor delay guard chunk)
+- [x] Rotated to `seer-node` (slot 2) after path verification via `find` + `packages/seer/.gitmodules`.
+- [x] Loaded all target `.md` docs first in `packages/seer/packages/node` before source edits.
+- [x] Hardened `packages/seer/packages/node/src/tests.ts` `monitorMarketEvents` with optional delay override + finite non-negative delay validation.
+- [x] Expanded `packages/seer/packages/node/test/tests.helpers.test.ts` with monitor delay default/override/invalid-path coverage.
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+- [x] Re-ran package tests: `npm test` in `packages/seer/packages/node` (pass: 12/12).
+- [x] Committed/pushed updates:
+  - `seer-node` `fb55d62` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `90833a3` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+- [x] Recorded tooling blocker: Jest standardization attempt deferred this run because runtime lacked `jest` executable (`sh: jest: command not found`).
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3) for next direct-repo chunk.
