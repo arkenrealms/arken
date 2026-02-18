@@ -2356,3 +2356,19 @@
 
 ### Run append — 2026-02-17T23:43:55-08:00 (correction note)
 - Correction: prior append block timestamp `2026-02-17T23:46:58-08:00` was a typo; this timestamp is the accurate append window for that same run.
+
+### Newly completed (seer-protocol resolver fallback toggle chunk)
+- [x] Rotated to `seer-protocol` after latest `seer-node` chunk and loaded all in-scope `.md` docs first.
+- [x] Fixed shared resolver toggle semantics in `packages/seer/packages/protocol/src/modules/methodResolver.ts` so `allowSaveRoundFallback: false` actually disables fallback for `saveRound`.
+- [x] Added shared resolver regression tests:
+  - `packages/seer/packages/protocol/test/methodResolver.test.ts` (new)
+- [x] Updated touched-folder docs:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined tests: `npm test` in `packages/seer/packages/protocol` (pass: 18/18).
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `a1e31d0` (branch `sable/repo-analysis-notes-20260217`)
+  - `seer` `3663533` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next for availability check, then continue strict direct-repo order.
