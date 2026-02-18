@@ -2328,3 +2328,24 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `d97192d` — Reject empty method path segments in socket server (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 16:03–16:10 PST
+- Rotation moved to `seer` chunk (next after prior `node` run).
+- Loaded `.md` docs first in touched scope:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Implemented small safe maintenance hardening/refactor in `packages/seer/packages/node/src/tests.ts`:
+  - introduced shared `requireMethod(scope, path)` helper for precondition checks,
+  - rewired helper entrypoints (`updateUserAchievements`, `migrateTrades`, `saveToken`, `monitorMarketEvents`, `userLoadAndSave`) to use centralized dependency resolution,
+  - preserved existing fail-fast behavior while reducing guard-message drift.
+- Updated concise docs/analysis in touched folders:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Tests run:
+  - none (no automated harness for `src/tests.ts` helpers in current package scripts).
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `4da4ad0` — Harden seer-node test helper precondition reuse (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `31f81fa` — Roll seer-node helper guard refactor (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.

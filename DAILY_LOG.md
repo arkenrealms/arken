@@ -1384,3 +1384,23 @@
 
 ### In progress (rotation)
 - [ ] Continue to `seer` next (deepest-first leaf pass in checked-out scope).
+
+### Newly completed (seer helper-guard reuse chunk)
+- [x] Rotated to `seer` after the latest `node` chunk and loaded required `.md` docs first in `packages/seer/packages/node/src` and parent analysis files.
+- [x] Refactored `packages/seer/packages/node/src/tests.ts` to use a shared `requireMethod` dependency guard helper.
+- [x] Preserved fail-fast helper semantics while reducing duplicated guard logic across:
+  - `updateUserAchievements`
+  - `migrateTrades`
+  - `saveToken`
+  - `monitorMarketEvents`
+  - `userLoadAndSave`
+- [x] Updated concise docs/analysis:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `4da4ad0` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `31f81fa` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
