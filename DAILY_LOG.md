@@ -3581,3 +3581,17 @@
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## 2026-02-18T12:03:42-0800 — seer-protocol monitorParties descriptor guard hardening
+- Target: `arken/packages/seer/packages/protocol` (slot 3).
+- Branch hygiene: fetched + merged `origin/main` in direct repo before edits (`Already up to date`).
+- Change summary:
+  - Hardened `monitorParties` dispatch to resolve own-property descriptor only, with deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when handler is missing/non-callable.
+  - Added test coverage asserting guard + deterministic error path in `test/evolution.router.test.ts`.
+  - Refreshed concise maintainer notes in touched `README.md` + `ANALYSIS.md` files.
+- Tests:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (9/9).
+- Commit/PR:
+  - `seer-protocol` `5db1154` pushed to branch `sable/repo-analysis-notes-20260217`; PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
+- Blockers: none.
+- Next target: `arken/packages/sigil-protocol` (slot 4) availability check.
