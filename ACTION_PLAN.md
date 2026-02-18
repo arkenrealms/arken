@@ -28,6 +28,11 @@ Then repeat.
 
 Parent repos (`arken/packages/seer`, `arken/packages/forge`, `arken`) are rollup/posterity only.
 
+## PR ownership policy (mandatory)
+- Primary execution + PR maintenance focus is direct subrepos (e.g., `seer-protocol`, `seer-node`, `forge-web`, `evolution-realm/shard/protocol`, etc.).
+- Ensure each active direct subrepo branch has a dedicated PR and keep those PRs updated as commits land.
+- Parent repo PRs (`seer`, `forge`, `arken`, `evolution-wrapper`) are secondary rollup pointers only; they must not replace missing direct subrepo PRs.
+
 ## Path verification rule
 Before starting a slot, verify target path in current checkout (`find` + `.gitmodules` where relevant).
 - If missing: mark **unavailable-in-checkout** and continue.
