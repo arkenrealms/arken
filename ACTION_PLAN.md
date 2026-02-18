@@ -1878,3 +1878,56 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Nested evolution direct repos remain present-but-uninitialized/empty: `realm`, `shard`, `protocol`.
 - Next rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T11:03:54-08:00 — node JSON-RPC response-id validation hardening
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to next actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist but remain uninitialized/empty in this checkout.
+  - `packages/cerebro/packages/hub` and `packages/cli` remain missing in this checkout.
+  - Verified root/evolution `.gitmodules` mappings before advancing.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (23/23)
+- Commits + PR links:
+  - `node` `3388558` (pushed) — updates <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` remain uninitialized/empty in this checkout.
+  - `cerebro-hub` and `cli` remain unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T11:17:44-08:00 — seer-node timer-callback failure containment
+- Target attempted: `arken/packages/seer/packages/node`.
+- Path verification:
+  - target exists (`find packages/seer/packages -maxdepth 2 -type d -name node`) and remains mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (36/36)
+- Commits + PR links:
+  - `seer-node` `1c99f81` (pushed) — updates <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.

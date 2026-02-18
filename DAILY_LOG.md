@@ -3449,3 +3449,46 @@
   - Nested evolution repos (`realm`,`shard`,`protocol`) still uninitialized/empty.
   - `forge-web` remains source-change blocked due missing repo-defined test script in runtime.
 - Next direct rotation target: `arken/packages/evolution/packages/realm` (slot 8).
+
+## 2026-02-18T11:03:54-08:00 — node JSON-RPC response-id validation hardening
+- Repo slot flow: checked slots 8–12 (nested evolution repos still empty; `cerebro-hub`/`cli` missing), advanced to slot 1 (`packages/node`).
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` in `packages/node` (already up to date).
+- Code/tests:
+  - Hardened `web3/httpProvider` to reject JSON-RPC responses with missing/mismatched `id` versus originating request.
+  - Added regressions for missing response id and mismatched response id envelopes.
+  - Updated concise docs for touched `web3/` and `test/` folders.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (23/23)
+- Commit/PR:
+  - `packages/node` commit `3388558` pushed to `sable/maintenance-trpc-ws-cycle`
+  - PR: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - Nested evolution direct repos (`realm`,`shard`,`protocol`) still uninitialized/empty.
+  - Missing repos in checkout: `cerebro-hub`, `cli`.
+- Next direct rotation target: `arken/packages/seer/packages/node` (slot 2).
+
+### Newly completed (seer-node monitor callback containment chunk)
+- [x] Rotated to `seer-node` per direct-repo order and loaded all local `.md` docs first in `packages/seer/packages/node`.
+- [x] Ran required branch hygiene before edits in direct repo:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- [x] Hardened timer-callback reliability in `packages/seer/packages/node/src/tests.ts`:
+  - `monitorMarketEvents` now contains sync callback throws and async promise rejections from `modules.getAllMarketEvents` to prevent unhandled timer-path failures.
+- [x] Added regression tests in `packages/seer/packages/node/test/tests.helpers.test.ts` for:
+  - sync throw containment in timer callback
+  - async rejection containment without unhandled-rejection noise
+- [x] Updated touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran tests:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (36/36)
+- [x] Committed/pushed Seer-node update:
+  - `seer-node` `1c99f81` (branch `sable/repo-analysis-notes-20260217-node-src`, updates <https://github.com/arkenrealms/seer-node/pull/3>)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
