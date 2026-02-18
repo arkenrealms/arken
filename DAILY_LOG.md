@@ -2993,3 +2993,25 @@
 
 ### 2026-02-18T05:44:20-08:00 — correction note
 - Correction: prior log timestamp (`2026-02-18T05:51:40-08:00`) was entered ahead of wall-clock time; this note captures the actual append window for the same evolution run.
+
+### Run append — 2026-02-18T06:52:24-08:00 (nested-slot verification + node malformed-response hardening)
+- Target attempted:
+  - `arken/packages/evolution/packages/{realm,shard,protocol}` (slots 8-10) — present but uninitialized/empty.
+  - `arken/packages/cerebro/packages/hub` (slot 11) and `arken/packages/cli` (slot 12) — unavailable-in-checkout.
+  - advanced to `arken/packages/node` (slot 1) for substantive test-backed source changes.
+- Branch hygiene:
+  - Ran `git fetch origin` and `git merge --no-edit origin/main` in `packages/node` before edits.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (14/14)
+- Commit/PR:
+  - `node` `aeb5169` pushed to `sable/maintenance-trpc-ws-cycle` — updates <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, and `evolution-protocol` remain uninitialized/empty in this checkout.
+  - `cerebro-hub` and `cli` remain unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
