@@ -2568,3 +2568,27 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `887eaf1` — Add prototype-segment socket server traversal regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 16:42–16:48 PST
+- Rotation moved to `seer` chunk (next after prior `node` pass).
+- Loaded `.md` docs first in target folder:
+  - `packages/seer/packages/protocol/src/modules/evolution/{README.md,ANALYSIS.md}`
+- Read active source files in target module:
+  - `packages/seer/packages/protocol/src/modules/evolution/evolution.router.ts`
+  - `packages/seer/packages/protocol/src/modules/evolution/evolution.service.ts`
+- Implemented small safety fix in `evolution.service.ts`:
+  - corrected `leaveParty` precondition guard from `if (profile.partyId) throw 'Not in a party'` to `if (!profile.partyId) throw 'Not in a party'`.
+- Updated concise folder analysis doc:
+  - `packages/seer/packages/protocol/src/modules/evolution/ANALYSIS.md`
+- Tests run:
+  - none (no `@arken/seer-protocol` package test harness/scripts available for this module path).
+- Commits/push:
+  - `arkenrealms/seer-protocol` `sable/repo-analysis-notes-20260217`: `02dabfc` — Fix evolution leaveParty guard inversion (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `251d463` — Roll seer-protocol leaveParty guard fix (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- PR links:
+  - Seer PR: https://github.com/arkenrealms/seer/pull/1
+  - Seer-protocol branch PR link: https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- Blockers:
+  - `evolution` remains push-blocked (403) and submodule-mapping-blocked on `packages/client` (unchanged; not retried in this seer chunk).
+- Next rotation target:
+  - `forge`
