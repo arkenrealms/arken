@@ -2336,3 +2336,20 @@
 
 ## 2026-02-17T23:34:33-08:00 — correction note
 - Corrected timestamp context: previous block used `23:36:41-08:00` ahead of wall clock; actual completion window is around `23:34` local.
+
+### Run append — 2026-02-17T23:46:58-08:00 (seer-node thenable-getter hardening)
+- Target attempted: `packages/seer/packages/node` (slot 2).
+- Path verification: confirmed via `find` and `packages/seer/.gitmodules` mapping.
+- Loaded all local `.md` files in target package before source edits.
+- Source/test/docs updated:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command/result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (14/14).
+- Commits/PRs:
+  - `seer-node` `e1fa6f9` pushed (updates <https://github.com/arkenrealms/seer-node/pull/3>)
+  - `seer` `97556bb` pushed (updates <https://github.com/arkenrealms/seer/pull/1>)
+- Blockers: none.
+- Next rotation target: `packages/seer/packages/protocol`.
