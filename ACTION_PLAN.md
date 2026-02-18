@@ -3245,3 +3245,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
 - Next rotation target:
   - `evolution-realm` (`arken/packages/evolution/packages/realm`).
+
+### Run block — 2026-02-17T21:52:29-08:00 — evolution-slot verification + node typed-array prototype coverage expansion
+- rotation/path verification:
+  - active scheduled target `evolution-realm` exists (`arken/packages/evolution/packages/realm`) but is empty/uninitialized in this checkout snapshot.
+  - verified in-slot direct targets:
+    - `evolution-shard` exists but empty (`arken/packages/evolution/packages/shard`)
+    - `evolution-protocol` exists but empty (`arken/packages/evolution/packages/protocol`)
+    - `cerebro-hub` missing (`arken/packages/cerebro/packages/hub`)
+    - `cli` missing (`arken/packages/cli`)
+  - advanced in strict order to next actionable direct target: `node` (`arken/packages/node`).
+- `.md` preload (before source edits in target):
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- files changed:
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (in `packages/node`) — pass (61/61)
+- commits:
+  - `arkenrealms/node`: `57b83f9` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - `evolution-realm`, `evolution-shard`, and `evolution-protocol` are present but empty/uninitialized in current checkout.
+  - `cerebro-hub` and `cli` direct target paths are unavailable in this checkout.
+- next rotation target:
+  - `seer-node` (`arken/packages/seer/packages/node`)

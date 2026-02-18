@@ -2099,3 +2099,17 @@
   - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
 - [x] Next rotation target:
   - `evolution-realm` (`arken/packages/evolution/packages/realm`)
+
+### Run block — 2026-02-17T21:52:29-08:00 — evolution-slot verification + node typed-array prototype coverage expansion
+- [x] Verified direct-rotation targets in order from `evolution-realm` through `cli`; marked unavailable-in-checkout paths without repeating repo-wide absence claims.
+- [x] Advanced to actionable direct target `node` and preloaded target docs before source edits.
+- [x] Hardened socket server prototype-path filtering by expanding blocked typed-array prototype families in `packages/node/trpc/socketServer.ts`.
+- [x] Added regression coverage for inherited `Float32Array` prototype method traversal rejection in `packages/node/test/socketServer.spec.ts`.
+- [x] Updated concise docs/analysis in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran websocket protocol suites in `packages/node`:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 61/61)
+- [x] Pushed node branch update:
+  - `arkenrealms/node` `57b83f9` (updates <https://github.com/arkenrealms/node/pull/15>)
+- [ ] Next direct-rotation target: `seer-node` (`arken/packages/seer/packages/node`).
