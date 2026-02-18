@@ -2252,3 +2252,20 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
+
+### Newly completed (seer-protocol shared resolver consolidation chunk)
+- [x] Rotated to `seer-protocol` per direct-repo order and verified path mapping in `packages/seer/.gitmodules`.
+- [x] Loaded all local `.md` docs in `packages/seer/packages/protocol` before edits.
+- [x] Consolidated Isles/Infinite resolver selection logic into shared `src/modules/methodResolver.ts` (`resolveModuleMethod`) to reduce module drift.
+- [x] Kept saveRound-only compatibility fallback behavior explicit and shared across Isles/Infinite.
+- [x] Expanded regression coverage to prevent `interact` misrouting into `Evolution.saveRound` in both resolver suites.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran package-local suite: `npm test` in `packages/seer/packages/protocol` (pass: 16/16).
+- [x] Committed/pushed updates:
+  - `seer-protocol` `e2f38c1` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>)
+  - `seer` `b24836d` (updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next (availability check), then continue strict direct-repo order.

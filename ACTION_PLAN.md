@@ -235,3 +235,24 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## Run ledger append — 2026-02-17T23:04:25-08:00 — seer-protocol shared resolver consolidation + misroute guard expansion
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Path verification: target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name protocol`) and is mapped in `packages/seer/.gitmodules`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/src/modules/methodResolver.ts`
+  - `packages/seer/packages/protocol/src/modules/isles/isles.methodResolver.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/infinite.methodResolver.ts`
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{infinite.router.test.ts,isles.router.test.ts,README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (16/16)
+- Commits + PR links:
+  - `seer-protocol` `e2f38c1` (pushed) — updates <https://github.com/arkenrealms/seer-protocol/pull/1>
+  - `seer` `b24836d` (pushed submodule pointer) — updates <https://github.com/arkenrealms/seer/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `sigil-protocol` (`arken/packages/sigil-protocol`) availability check, then continue strict direct-repo order.
