@@ -2928,3 +2928,6 @@
   - `cerebro-hub` and `cli` remain unavailable-in-checkout.
 - Next rotation target:
   - `arken/packages/seer/packages/node`.
+
+### Run append — 2026-02-18T04:44:20-08:00 (correction note)
+- Correction: previous run-append timestamp (`2026-02-18T04:49:58-08:00`) was appended with a clock typo; this line records the accurate append window for the same maintenance chunk.
