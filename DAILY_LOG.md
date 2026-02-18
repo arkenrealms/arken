@@ -3904,3 +3904,18 @@
 - Blockers: none.
 - Next strict rotation target:
   - `packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
+
+## 2026-02-18T14:53:00-08:00 — evolution dot-segment normalization for submodule path validator
+- Rotation slot path checks completed (slots 4–7); actionable target was `packages/evolution`.
+- Added embedded dot-segment normalization (`packages/./foo` -> `packages/foo`) in wrapper validator to reduce false mismatch cases for hand-edited `.gitmodules`/injected gitlink variants.
+- Expanded tests to cover dot-segment mapping + gitlink normalization variants.
+- Updated touched-folder docs:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `npm test` in `packages/evolution` ✅ (28/28)
+- Commit/PR:
+  - `packages/evolution` commit `fbc9526` pushed to branch `sable/repo-analysis-notes-20260217`
+  - PR: <https://github.com/arkenrealms/evolution/pull/10>
+- Next target in strict rotation:
+  - `packages/evolution/packages/realm` (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and onward.
