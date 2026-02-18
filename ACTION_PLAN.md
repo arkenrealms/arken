@@ -2453,3 +2453,21 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
 - Commit/push:
   - `arkenrealms/node` `sable/maintenance-trpc-ws-cycle`: `272a28b` — Add constructor-path socket server traversal regression (pushed; updates PR https://github.com/arkenrealms/node/pull/15)
 - Next chunk (rotation): move to `seer`.
+
+### 2026-02-17 16:33–16:39 PST
+- Rotation moved to `seer` chunk.
+- Loaded required `.md` docs first in touched scope:
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/ANALYSIS.md`
+  - `packages/seer/ANALYSIS.md`
+- Implemented small helper precondition hardening in `packages/seer/packages/node/src/tests.ts`:
+  - added `requireOneOfMethods(scope, paths)` to centralize fallback method resolution,
+  - rewired `saveToken` fallback (`db.saveToken` / `db.save`) through shared guard logic.
+- Updated concise docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+- Tests run:
+  - none (no automated harness for `src/tests.ts` helpers in current package scripts).
+- Commit/push:
+  - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `d95423f` — Harden test helper fallback method resolution (pushed)
+  - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `ba7f3cb` — Roll seer-node helper fallback-guard hardening (pushed; updates https://github.com/arkenrealms/seer/pull/1)
+- Next chunk (rotation): move to `forge`.
