@@ -1992,3 +1992,30 @@
   - `arkenrealms/seer-protocol` `0ba5ecc`
   - `arkenrealms/seer` `0e2a468`
 - [ ] Next rotation target: `sigil-protocol` (`arken/packages/sigil-protocol`).
+
+### Run block — 2026-02-17T21:03:00-08:00 — sigil/forge slot verification + evolution submodule-map drift hardening
+- [x] Rotation/path verification completed in strict order:
+  - `sigil-protocol` unavailable (`arken/packages/sigil-protocol` missing; not mapped in root `.gitmodules`).
+  - `forge-web` present (`arken/packages/forge/packages/web`) but source-change gate blocked (`npm test` => missing `test` script).
+  - `forge-protocol` unavailable (`arken/packages/forge/packages/protocol` missing; not mapped in `packages/forge/.gitmodules`).
+  - advanced to next actionable direct target: `evolution`.
+- [x] Loaded target-folder `.md` files before code edits (`packages/evolution/{README.md,ANALYSIS.md}`, `scripts/{README.md,ANALYSIS.md}`, `test/README.md`).
+- [x] Source hardening completed:
+  - `scripts/validateSubmoduleMap.mjs` now reports `.gitmodules` paths that no longer resolve to `HEAD` gitlinks (`mappedWithoutGitlink`).
+  - added fixture override inputs (`gitmodulesContent`, `gitlinks`) for deterministic unit regression coverage.
+- [x] Tests expanded:
+  - `test/validateSubmoduleMap.test.mjs` now covers stale mapped-without-gitlink detection + live-repo assertion.
+- [x] Updated concise docs/analysis in touched folders:
+  - `scripts/{README.md,ANALYSIS.md}`
+  - `test/README.md`
+- [x] Test gate satisfied:
+  - `npm test` (in `packages/evolution`) ✅ pass (8/8)
+- [x] Commit/push:
+  - `arkenrealms/evolution` `b2c8da2` pushed to `sable/repo-analysis-notes-20260217`
+- [x] PR reference:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- [ ] Blockers tracked:
+  - unavailable direct targets: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`
+  - `forge-web` lacks a repo-defined test script in this checkout (prevents retained source edits under test gate)
+- [x] Next rotation target set:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`)

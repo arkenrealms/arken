@@ -3118,3 +3118,26 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `forge-protocol`, `cerebro-hub`, and `cli` direct targets remain unavailable in this checkout.
 - next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`)
+
+### Run block — 2026-02-17T21:03:00-08:00 — sigil/forge slot verification + evolution submodule-map drift hardening
+- rotation/path verification:
+  - `sigil-protocol` unavailable in checkout (`arken/packages/sigil-protocol`; not present in root `.gitmodules`).
+  - `forge-web` exists (`arken/packages/forge/packages/web`; mapped by `packages/forge/.gitmodules`) but source-change test gate blocked: no `test` script in `package.json` (`npm test` => `Missing script: "test"`).
+  - `forge-protocol` unavailable in checkout (`arken/packages/forge/packages/protocol`; not present in `packages/forge/.gitmodules`).
+  - advanced in strict order to next actionable direct target: `evolution` (`arken/packages/evolution`).
+- files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/README.md`
+- tests:
+  - `npm test` (in `packages/evolution`) — pass (8/8)
+- commits:
+  - `arkenrealms/evolution`: `b2c8da2` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, and `cli` direct target paths unavailable in current checkout.
+  - `forge-web` currently lacks repo-defined test script/runtime path in this checkout; test gate blocks retained source edits there until harness/script is added.
+- next rotation target:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`)
