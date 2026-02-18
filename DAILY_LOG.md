@@ -2527,3 +2527,19 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
+
+### Newly completed (seer-protocol resolver own-property trap hardening)
+- [x] Rotated to `seer-protocol` and verified checkout path + `.gitmodules` mapping before edits.
+- [x] Loaded all local protocol package `.md` files first, then analyzed resolver/test source.
+- [x] Hardened `packages/seer/packages/protocol/src/modules/methodResolver.ts` to safely treat own-property inspection failures (e.g., proxy `getOwnPropertyDescriptor` throws) as unavailable handlers instead of bubbling resolver crashes.
+- [x] Added regression tests in `packages/seer/packages/protocol/test/methodResolver.test.ts` for throwing own-property inspection on primary/fallback services.
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/protocol/src/modules/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined test gate: `npm test` in `packages/seer/packages/protocol` (pass: 23/23).
+- [x] Committed/pushed updates:
+  - `seer-protocol` `731416d` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>)
+  - `seer` `6263fd9` (submodule pointer update on <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` availability check next, then follow strict direct-repo order.
