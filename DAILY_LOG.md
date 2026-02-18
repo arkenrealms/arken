@@ -2071,3 +2071,31 @@
   - `cerebro-hub` and `cli` direct target paths missing in this checkout.
 - next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`), then continue strict direct-repo order.
+
+### Run block — 2026-02-17T21:45:22-0800 — strict-slot verification + evolution submodule-path normalization hardening
+- [x] Verified strict direct-repo slots before edits:
+  - `sigil-protocol` unavailable-in-checkout (`packages/sigil-protocol` missing; not mapped in root `.gitmodules`).
+  - `forge-web` present but source-change test gate blocked in this checkout (`npm test` => `react-app-rewired: command not found`).
+  - `forge-protocol` unavailable-in-checkout (`packages/forge/packages/protocol` missing; not mapped in `packages/forge/.gitmodules`).
+  - advanced to next actionable direct target: `evolution`.
+- [x] Loaded all `.md` docs in target scope before source changes:
+  - `packages/evolution/{README.md,ANALYSIS.md}`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Source hardening completed in `packages/evolution/scripts/validateSubmoduleMap.mjs`:
+  - added `normalizeSubmodulePath` to canonicalize quoted, `./`-prefixed, trailing-slash, and backslash-separated `.gitmodules` paths,
+  - applied normalization in parser duplicate/mapping resolution.
+- [x] Expanded regression tests in `packages/evolution/test/validateSubmoduleMap.test.mjs`:
+  - new normalization assertions,
+  - duplicate-mapping fixture now exercises path-variant normalization behavior.
+- [x] Updated concise docs/analysis in touched folders:
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Test gate satisfied:
+  - `npm test` (in `packages/evolution`) ✅ pass (9/9)
+- [x] Commit/push:
+  - `arkenrealms/evolution` `ed7da85` (pushed)
+- [x] PR link:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- [x] Next rotation target:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`)

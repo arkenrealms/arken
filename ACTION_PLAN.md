@@ -3220,3 +3220,28 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - https://github.com/arkenrealms/seer/pull/1
   - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
 - Next direct-rotation target: `sigil-protocol` (`arken/packages/sigil-protocol`; currently unavailable-in-checkout, verify then continue).
+
+### 2026-02-17 21:35–21:45 PST
+- Rotation/path verification in strict order:
+  - `sigil-protocol` unavailable-in-checkout (`packages/sigil-protocol` missing; no mapping in root `.gitmodules`).
+  - `forge-web` present but source-change test gate blocked in this checkout (`npm test` fails: `react-app-rewired: command not found`).
+  - `forge-protocol` unavailable-in-checkout (`packages/forge/packages/protocol` missing; not mapped in `packages/forge/.gitmodules`).
+  - advanced to next actionable direct target: `evolution` (`packages/evolution`).
+- Loaded all `.md` files in `packages/evolution` target scope before edits (`README.md`, `ANALYSIS.md`, `scripts/*`, `test/*`).
+- Hardened wrapper validator path parsing in `scripts/validateSubmoduleMap.mjs`:
+  - added `normalizeSubmodulePath` for quoted/`./`/trailing-slash/backslash variants,
+  - routed `.gitmodules` path parsing through normalization for deterministic duplicate detection and required-path matching.
+- Expanded unit coverage in `test/validateSubmoduleMap.test.mjs`:
+  - added direct normalization assertions,
+  - upgraded duplicate-mapping fixture to variant-path forms proving normalization behavior.
+- Updated concise touched docs/analysis:
+  - `scripts/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- Tests run:
+  - `npm test` in `packages/evolution` (pass: 9/9).
+- Commit/push:
+  - `arkenrealms/evolution` `ed7da85` — Harden submodule path normalization and duplicate detection tests (pushed).
+- PR link:
+  - https://github.com/arkenrealms/evolution/pull/new/sable/repo-analysis-notes-20260217
+- Next rotation target:
+  - `evolution-realm` (`arken/packages/evolution/packages/realm`).
