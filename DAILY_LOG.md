@@ -3651,3 +3651,27 @@
   - PR: <https://github.com/arkenrealms/seer-protocol/pull/1>
 - Blockers: none
 - Next target: `packages/sigil-protocol` availability check (rotation slot 4)
+
+## 2026-02-18T12:57:36-08:00 — evolution validator config empty-path rejection hardening
+- Rotation/path checks:
+  - `packages/sigil-protocol` missing → unavailable-in-checkout.
+  - `packages/forge/packages/protocol` missing → unavailable-in-checkout.
+  - `packages/evolution/packages/{realm,shard,protocol}` present but empty/uninitialized.
+- Branch hygiene:
+  - `git -C arken/packages/evolution fetch origin`
+  - `git -C arken/packages/evolution merge --no-edit origin/main` (`Already up to date`)
+- Source/docs changes:
+  - `arken/packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `arken/packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `arken/packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `arken/packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test` (in `arken/packages/evolution`) ✅ pass (26/26)
+- Commit/PR:
+  - `arken/packages/evolution` commit `dadce10` pushed to `sable/repo-analysis-notes-20260217`
+  - PR update: <https://github.com/arkenrealms/evolution/pull/10>
+- Blockers:
+  - `forge-web` still lacks runnable repo-defined test command in this runtime (`react-app-rewired` unavailable), so source edits remain blocked there.
+  - direct slots unavailable: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+- Next direct rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard`, `protocol`, `cerebro-hub`, `cli`, and cycle back to `node`.
