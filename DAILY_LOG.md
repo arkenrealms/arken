@@ -1404,3 +1404,22 @@
 
 ### In progress (rotation)
 - [x] Continue to `forge` next for next deepest-first pass in checked-out scope.
+
+### Newly completed (forge wallet state hook chunk)
+- [x] Rotated to `forge` after `seer` and loaded required `.md` docs first in `src/state`, `src`, and Forge rollups.
+- [x] Completed deepest-first source read for `packages/forge/packages/web/src/state/wallet/hooks.ts`.
+- [x] Added concise leaf docs:
+  - `packages/forge/packages/web/src/state/wallet/{README.md,ANALYSIS.md}`
+- [x] Updated upward rollups:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- [x] Captured key risk: `useETHBalances` validates/sorts addresses but does not deduplicate duplicates before multicall fanout.
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `fd201f0` (branch `sable/repo-analysis-notes-20260217-2`)
+  - `forge` `25fba9f` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/forge/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `evolution` next (blocker-aware local pass), then continue to `node` if blocker persists.
+- [ ] Commit/push parent `arken` rollup updates for this run.

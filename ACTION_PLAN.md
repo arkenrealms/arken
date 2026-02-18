@@ -2349,3 +2349,29 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `arkenrealms/seer-node` `sable/repo-analysis-notes-20260217-node-src`: `4da4ad0` — Harden seer-node test helper precondition reuse (pushed)
   - `arkenrealms/seer` `sable/repo-analysis-notes-20260217`: `31f81fa` — Roll seer-node helper guard refactor (pushed; updates https://github.com/arkenrealms/seer/pull/1)
 - Next chunk (rotation): move to `forge`.
+
+### 2026-02-17 16:10–16:18 PST
+- Rotation moved to `forge` chunk (next after latest `seer` pass).
+- Loaded required `.md` docs first in active Forge folders:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/{ANALYSIS.md}`
+  - `packages/forge/ANALYSIS.md`
+- Completed deepest-first source read for:
+  - `packages/forge/packages/web/src/state/wallet/hooks.ts`
+- Added concise leaf docs:
+  - `packages/forge/packages/web/src/state/wallet/{README.md,ANALYSIS.md}`
+- Updated upward rollups:
+  - `packages/forge/packages/web/src/state/{README.md,ANALYSIS.md}`
+  - `packages/forge/packages/web/src/ANALYSIS.md`
+  - `packages/forge/packages/ANALYSIS.md`
+  - `packages/forge/ANALYSIS.md`
+- Key findings:
+  - wallet balance hooks are the shared multicall boundary for ETH/ERC20 balance reads and SDK amount conversion.
+  - `useETHBalances` currently sorts but does not deduplicate validated addresses, which can drive redundant multicall requests for duplicate input lists.
+- Tests run:
+  - none (docs/analysis-only chunk; no runtime behavior changes).
+- Commit/push:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `fd201f0` — Add wallet state hook analysis docs and rollups (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `25fba9f` — Document wallet state analysis rollup (pushed; updates https://github.com/arkenrealms/forge/pull/1)
+- Next chunk (rotation): move to `evolution`; if blocker persists, record blocker and continue to `node`.
