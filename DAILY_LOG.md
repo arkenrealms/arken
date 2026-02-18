@@ -2931,3 +2931,15 @@
 
 ### Run append — 2026-02-18T04:44:20-08:00 (correction note)
 - Correction: previous run-append timestamp (`2026-02-18T04:49:58-08:00`) was appended with a clock typo; this line records the accurate append window for the same maintenance chunk.
+
+### 2026-02-18T04:54:09-08:00 — seer-node helper call-failure context hardening
+- [x] Rotated to `packages/seer/packages/node` (slot 2) after prior node slot and loaded all local `.md` files in the target folder before edits.
+- [x] Applied branch hygiene in direct repo: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- [x] Hardened helper invocation error handling in `src/tests.ts` with deterministic context errors for failing `db.*`/`modules.*` calls.
+- [x] Added regression tests in `test/tests.helpers.test.ts` for wrapped `db.loadToken` and `db.loadUser` call failures.
+- [x] Updated touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran tests: `npm test` (in `packages/seer/packages/node`) — pass (25/25).
+- [x] Pushed `seer-node` commit `83041cb` (updates <https://github.com/arkenrealms/seer-node/pull/3>).
+- [ ] Next rotation target: `packages/seer/packages/protocol` (slot 3), then `packages/sigil-protocol` availability check.
