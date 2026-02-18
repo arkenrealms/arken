@@ -1720,3 +1720,22 @@
 ### In progress (rotation)
 - [x] Continue to `sigil-protocol` next (verify nested submodule path via `.gitmodules`/filesystem before work).
 - [ ] Commit/push seer-protocol + seer + arken rollup updates for this run.
+
+### Run block — 2026-02-17T17:42:00-08:00 — sigil-protocol path verification + forge-web multicall test-gate docs
+- files changed:
+  - `packages/forge/packages/web/src/state/multicall/README.md`
+  - `packages/forge/packages/web/src/state/multicall/ANALYSIS.md`
+- tests:
+  - attempted: `npm test -- src/state/multicall/actions.test.ts` (in `packages/forge/packages/web`) — **fail** (`react-app-rewired: command not found`)
+  - action taken: reverted all attempted source/harness edits; docs/analysis-only changes retained.
+- commits:
+  - `arkenrealms/forge-web`: `f4157bb` (pushed)
+  - `arkenrealms/forge`: `c70e6f7` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/forge/pull/1
+  - https://github.com/arkenrealms/forge-web/pull/new/sable/repo-analysis-notes-20260217-2
+- blockers:
+  - direct rotation target `arken/packages/sigil-protocol` missing from workspace and not declared in scanned `.gitmodules` files.
+  - `forge-web` source-change gate blocked until package-local test runner dependencies are provisioned (`react-app-rewired` unavailable in current checkout).
+- next rotation target:
+  - `forge-protocol`

@@ -2767,3 +2767,23 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - unchanged: seer-protocol needs package-local test harness before next source edit.
 - next rotation target:
   - `sigil-protocol`
+
+### Run block — 2026-02-17T17:42:00-08:00 — sigil-protocol path verification + forge-web multicall test-gate docs
+- Rotation attempted for direct target `sigil-protocol` (`arken/packages/sigil-protocol`) per order.
+- Path verification performed via filesystem and `.gitmodules` scan:
+  - `arken/packages/sigil-protocol` does not exist in this workspace,
+  - no `sigil` entry found in checked `.gitmodules` files under `arken/packages/*`.
+- Per blocker policy, advanced to next direct target `forge-web` (`arken/packages/forge/packages/web`).
+- Loaded all `.md` files in touched target folder `src/state/multicall` before edits.
+- Applied docs/analysis-only updates (no source changes) to record active source-change gate blocker:
+  - `packages/forge/packages/web/src/state/multicall/README.md`
+  - `packages/forge/packages/web/src/state/multicall/ANALYSIS.md`
+- Test-gate attempt/result:
+  - attempted to establish and run package test harness with repo script path (`npm test -- src/state/multicall/actions.test.ts`),
+  - failed: `react-app-rewired: command not found` (missing local test runner dependency in checkout),
+  - reverted all attempted source/harness changes to remain compliant with mandatory source-change test gate.
+- Commit/push status:
+  - `arkenrealms/forge-web` `sable/repo-analysis-notes-20260217-2`: `f4157bb` — Document multicall test-gate blocker and coverage gap (pushed)
+  - `arkenrealms/forge` `sable/repo-analysis-notes-20260217`: `c70e6f7` — Roll forge-web submodule after multicall blocker docs (pushed)
+- Next rotation target:
+  - `forge-protocol` (`arken/packages/forge/packages/protocol`)
