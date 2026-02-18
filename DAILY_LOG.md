@@ -2459,3 +2459,23 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-node` next (slot 2), then continue strict direct-repo order.
+
+### Newly completed (seer-node helper-guard hardening chunk)
+- [x] Rotated to `seer` and verified `packages/seer/packages/node` path/mapping via `find` + `packages/seer/.gitmodules`.
+- [x] Loaded all local `.md` files in `packages/seer/packages/node` before source edits.
+- [x] Hardened helper entity + write safety in `packages/seer/packages/node/src/tests.ts`:
+  - reject array payloads for user-object helper boundaries
+  - route `inventoryItemCount` writes through guarded assignment with deterministic helper error surface
+- [x] Expanded regression coverage in `packages/seer/packages/node/test/tests.helpers.test.ts`:
+  - rejects array users in `updateUserAchievements`
+  - rejects non-writable `inventoryItemCount` updates in `userLoadAndSave`
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran package test suite: `npm test` (pass: 18/18).
+- [x] Committed/pushed Seer updates:
+  - `seer-node` `7b904b4` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `25bc79b` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `seer` slot 3 next (`packages/seer/packages/protocol`).
