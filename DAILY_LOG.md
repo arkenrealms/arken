@@ -3626,3 +3626,14 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-node` next (`arken/packages/seer/packages/node`, slot 2), then continue strict direct-repo order.
+
+### Newly completed (seer-node empty-message error-name fallback chunk)
+- [x] Rotated to `seer-node` and loaded all local `.md` docs first across package, `src`, `test`, and `.rush` folders.
+- [x] Ran branch hygiene in direct repo before edits: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- [x] Hardened helper error wrapping in `src/tests.ts` so empty-message `Error` throws preserve type context via `[Error]` suffixes.
+- [x] Added regression coverage in `test/tests.helpers.test.ts` for empty-message `Error` throw handling in `userLoadAndSave` call-failure wrapping.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran package tests: `npm test` (pass: 38/38).
+- [x] Committed/pushed Seer-node update: `fd3b899` (updates <https://github.com/arkenrealms/seer-node/pull/3>).
