@@ -2154,3 +2154,24 @@
   - none in this slot.
 - next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`)
+
+### Newly completed (sigil availability check + node method-path guard)
+- [x] Rotation path verification in current checkout:
+  - `packages/sigil-protocol` missing (`.gitmodules` has no mapping) → unavailable-in-checkout.
+  - `packages/forge/packages/protocol` missing (`packages/forge/.gitmodules` only maps `packages/web`) → unavailable-in-checkout.
+  - `packages/evolution/packages/{realm,shard,protocol}` present but empty/uninitialized.
+  - `packages/cerebro/packages/hub` and `packages/cli` missing in checkout.
+- [x] Advanced to next actionable direct repo with runnable tests: `packages/node`.
+- [x] Hardened `packages/node/trpc/socketLink.ts` with pre-emit method-path validation to reject backend-only paths (e.g. `seer`) before socket emit.
+- [x] Added regression coverage in `packages/node/test/socketLink.spec.ts` for missing method-segment path rejection.
+- [x] Updated concise docs:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran websocket protocol suites:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (pass: 62/62).
+- [x] Committed/pushed node update:
+  - `af5630e` (updates <https://github.com/arkenrealms/node/pull/15>)
+
+### In progress (rotation)
+- [x] Continue to `seer-node` next (`packages/seer/packages/node`) per strict direct-repo order.
+- [ ] Commit/push parent `arken` rollup updates for this run.

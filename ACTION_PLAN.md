@@ -124,3 +124,27 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `sigil-protocol` (`arken/packages/sigil-protocol`) then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-17T22:14:05-0800 — sigil availability check + node method-path guard
+- Target attempted:
+  - `arken/packages/sigil-protocol` (rotation slot 4)
+  - advanced through unavailable slots to next actionable direct repo with testable code changes: `arken/packages/node`.
+- Path verification:
+  - `packages/sigil-protocol` missing in checkout (`find` + top-level `.gitmodules` has no mapping) → marked unavailable-in-checkout.
+  - `packages/forge/packages/protocol` missing in checkout (`packages/forge/.gitmodules` only maps `packages/web`) → unavailable-in-checkout.
+  - `packages/evolution/packages/{realm,shard,protocol}` exist but are empty/uninitialized dirs → recorded and skipped.
+  - `packages/cerebro/packages/hub` and `packages/cli` missing in checkout.
+- Files changed:
+  - `packages/node/trpc/socketLink.ts`
+  - `packages/node/test/socketLink.spec.ts`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- test/socketLink.spec.ts test/socketServer.spec.ts --runInBand` (in `packages/node`) ✅ pass (62/62)
+- Commits + PR links:
+  - `node` `af5630e` (pushed) — updates <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - Direct rotation repos unavailable-in-checkout: `sigil-protocol`, `forge-protocol`, `cerebro-hub`, `cli`.
+  - Evolution nested repos present but uninitialized/empty in current checkout: `realm`, `shard`, `protocol`.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2 on next cycle restart), then continue strict direct-repo order.
