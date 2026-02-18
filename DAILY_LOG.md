@@ -3350,3 +3350,6 @@
 - Tests: `npm test` in `packages/seer/packages/protocol` ✅ (6/6).
 - Commit/PR: `seer-protocol` `71fc251` pushed to existing PR <https://github.com/arkenrealms/seer-protocol/pull/1>.
 - Next target: `packages/sigil-protocol` availability check (rotation slot 4).
+
+## 2026-02-18T10:04:36-08:00 — correction note
+- Correction: previous daily-log block timestamp (`2026-02-18T10:07:41-08:00`) was ahead of wall-clock time; this note records the accurate append window for the same seer-protocol chunk.
