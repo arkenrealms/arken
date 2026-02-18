@@ -168,3 +168,23 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Jest migration attempted but `jest` binary is unavailable in current runtime (`npm test` failed with `sh: jest: command not found`), so harness remained on existing Node test runner this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## Run ledger append — 2026-02-17T22:39:41-08:00 — seer-protocol shared resolver dedupe + Isles fallback tests
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Path verification: target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name protocol` + `packages/seer/.gitmodules` mapping).
+- Files changed:
+  - `packages/seer/packages/protocol/src/modules/methodResolver.ts` (new shared resolver utility)
+  - `packages/seer/packages/protocol/src/modules/{isles,infinite}/*.methodResolver.ts`
+  - `packages/seer/packages/protocol/test/isles.router.test.ts`
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/{isles,infinite}/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (14/14)
+- Commits + PR links:
+  - `seer-protocol` `80a9f89` (pushed) — updates <https://github.com/arkenrealms/seer-protocol/pull/1>
+  - `seer` `4144abd` (pushed submodule pointer) — updates <https://github.com/arkenrealms/seer/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `sigil-protocol` (`arken/packages/sigil-protocol`) then continue strict direct-repo order.

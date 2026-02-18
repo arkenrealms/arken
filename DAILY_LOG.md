@@ -2195,3 +2195,23 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3) for next direct-repo chunk.
+
+### Newly completed (seer-protocol shared resolver + Isles tests chunk)
+- [x] Rotated to `seer-protocol` and loaded all target `.md` files first before source edits.
+- [x] Added shared callable-resolution utility:
+  - `packages/seer/packages/protocol/src/modules/methodResolver.ts`
+- [x] Refactored Isles + Infinite method resolvers to consume shared own-property-safe handler logic.
+- [x] Expanded Isles regression tests in `packages/seer/packages/protocol/test/isles.router.test.ts`:
+  - getter-throwing handler fallback safety
+  - non-function own-property handler rejection
+- [x] Updated touched-folder concise docs:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/src/modules/{isles,infinite}/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Test gate: `npm test` in `packages/seer/packages/protocol` (pass: 14/14).
+- [x] Committed/pushed updates:
+  - `seer-protocol` `80a9f89` (updates <https://github.com/arkenrealms/seer-protocol/pull/1>)
+  - `seer` `4144abd` (submodule pointer, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next; if unavailable-in-checkout, continue strict direct-repo order.
