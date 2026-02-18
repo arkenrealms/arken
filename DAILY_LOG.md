@@ -2019,3 +2019,19 @@
   - `forge-web` lacks a repo-defined test script in this checkout (prevents retained source edits under test gate)
 - [x] Next rotation target set:
   - `evolution-realm` (`arken/packages/evolution/packages/realm`)
+
+### Run block — 2026-02-17T21:12:18-08:00 — evolution-slot verification + node typed-array prototype-path hardening
+- [x] Verified active rotation slot targets before edits:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` exist but are empty/uninitialized in current checkout.
+  - `cerebro-hub` and `cli` direct target paths are unavailable in current checkout.
+- [x] Advanced in strict order to next actionable direct target: `node`.
+- [x] Loaded all target-folder `.md` files first in `packages/node/trpc` and `packages/node/test`.
+- [x] Hardened server method-path resolution to block inherited typed-array prototype callable traversal (`core.bytes.map`) in `packages/node/trpc/socketServer.ts`.
+- [x] Added Jest TS regression coverage in `packages/node/test/socketServer.spec.ts` for inherited typed-array prototype method rejection.
+- [x] Updated concise docs/analysis in touched folders:
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Tests: `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 60/60).
+- [x] Commit/push:
+  - `arkenrealms/node` `6c58bc3` (pushed; updates <https://github.com/arkenrealms/node/pull/15>)
+- [ ] Next rotation target: `seer-node` (`arken/packages/seer/packages/node`).
