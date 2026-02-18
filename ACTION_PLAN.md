@@ -2909,3 +2909,26 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `cli` direct path missing in workspace
 - next rotation target:
   - `evolution-realm` (`arken/packages/evolution/packages/realm`)
+
+### Run block — 2026-02-17T19:52:25-08:00 — evolution-{realm,shard,protocol} blockers + node response-id normalization hardening
+- rotation/path verification:
+  - active scheduled target `evolution-realm` exists but is empty (`arken/packages/evolution/packages/realm` has no source/docs files).
+  - verified `evolution-shard` and `evolution-protocol` direct target folders also currently empty in workspace.
+  - continued cycle checks: `cerebro-hub` and `cli` direct target paths remain missing.
+  - advanced to next actionable direct target in strict order (`node`).
+- files changed:
+  - `packages/node/trpc/socketServer.ts`
+  - `packages/node/test/socketServer.spec.ts`
+  - `packages/node/trpc/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- tests:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` (pass: 58/58)
+- commits:
+  - `arkenrealms/node`: `3dc337b` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/node/pull/15
+- blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` folders are present but empty/uninitialized in current checkout.
+  - `sigil-protocol`, `forge-protocol`, `cerebro-hub`, and `cli` direct target paths missing in workspace.
+- next rotation target:
+  - `seer-node` (`arken/packages/seer/packages/node`)

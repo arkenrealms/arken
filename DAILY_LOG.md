@@ -1836,3 +1836,19 @@
   - `arkenrealms/evolution` `ca6b651` pushed to `sable/repo-analysis-notes-20260217`.
 - [ ] Open/update PR link for pushed evolution branch (manual PR URL available).
 - [x] Next rotation target set to `evolution-realm` (`arken/packages/evolution/packages/realm`).
+
+### 2026-02-17T19:52:25-08:00 — evolution realm/shard/protocol blocker checks + node hardening
+- Rotation checks:
+  - `packages/evolution/packages/{realm,shard,protocol}` verified present-but-empty.
+  - `packages/{sigil-protocol,forge/packages/protocol,cerebro/packages/hub,cli}` still missing.
+  - Advanced to next actionable direct target (`packages/node`) per rotation order.
+- Node chunk completed:
+  - Hardened `trpc/socketServer.ts` response-id handling: trim valid string ids, drop non-string/blank ids before emit.
+  - Added regressions in `test/socketServer.spec.ts` for id normalization/drop behavior on success and error paths.
+  - Updated concise docs in `trpc/` and `test/` README/ANALYSIS files.
+- Test gate:
+  - `npm test -- test/socketServer.spec.ts test/socketLink.spec.ts --runInBand` ✅ (58/58)
+- Commit/push:
+  - `arkenrealms/node` `3dc337b` (pushed; updates PR #15)
+- Next target:
+  - `seer-node` (`arken/packages/seer/packages/node`)
