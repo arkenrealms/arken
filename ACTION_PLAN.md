@@ -36,11 +36,13 @@ Before starting a slot, verify target path in current checkout (`find` + `.gitmo
 ## Mandatory working method per slot
 1. Preload all local `.md` files in the target folder before code edits.
 2. Analyze deepest leaf first, then summarize upward.
-3. Prefer substantive code improvement + tests (not docs-only unless blocked).
-4. Keep touched folder docs concise and current:
+3. Before new edits in a direct repo branch, `git fetch origin` and integrate latest `origin/main` (merge preferred for continuity).
+4. If merge/reconcile is messy or blocked, start a fresh working branch from `origin/main`, continue work there, and push/update PR accordingly (do not stall on conflicts).
+5. Prefer substantive code improvement + tests (not docs-only unless blocked).
+6. Keep touched folder docs concise and current:
    - `README.md`
    - `ANALYSIS.md`
-5. Keep path headers `arken/...` in touched source files.
+7. Keep path headers `arken/...` in touched source files.
 
 ## Test policy (hard gate)
 - No source edits without runnable tests in the same run.
