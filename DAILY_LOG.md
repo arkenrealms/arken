@@ -3827,3 +3827,36 @@
   - `cerebro-hub` and `cli` unavailable-in-checkout.
 - Next target:
   - `arken/packages/evolution/packages/realm` (slot 8), then continue strict rotation.
+
+## 2026-02-18T14:22:18-08:00 — nested-slot verification + node JSON-RPC id-type hardening
+- Target attempted:
+  - `packages/evolution/packages/realm` (slot 8)
+  - `packages/evolution/packages/shard` (slot 9)
+  - `packages/evolution/packages/protocol` (slot 10)
+  - `packages/cerebro/packages/hub` (slot 11)
+  - `packages/cli` (slot 12)
+  - advanced to `packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` remain present but uninitialized/empty in this checkout.
+  - `packages/cerebro/packages/hub` and `packages/cli` remain unavailable-in-checkout.
+- Branch hygiene:
+  - `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` (`Already up to date`).
+- Source/test/docs updates:
+  - `packages/node/web3/httpProvider.ts`
+    - added strict JSON-RPC request id preflight validation (allow only string/number/null; reject booleans/objects with `-32600`).
+    - tightened response id validation to reject non-spec id types before string-match comparison.
+  - `packages/node/test/httpProvider.spec.ts`
+    - added regression for invalid outbound request id rejection before network dispatch.
+    - added regression for boolean response id rejection even when stringified value can appear equivalent.
+  - refreshed touched docs:
+    - `packages/node/web3/{README.md,ANALYSIS.md}`
+    - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test gate:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (31/31)
+- Commit/PR:
+  - `node` `72e1261` pushed to `sable/maintenance-trpc-ws-cycle` — PR: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` uninitialized/empty in this checkout.
+  - `cerebro-hub` and `cli` unavailable-in-checkout.
+- Next target:
+  - `packages/seer/packages/node` (slot 2), then continue strict direct-repo rotation.
