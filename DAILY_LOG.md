@@ -3299,3 +3299,26 @@
 
 ### In progress (rotation)
 - [x] Continue to `evolution/packages/realm` next (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and loop to `node`.
+
+## 2026-02-18T09:47:58-0800 — node JSON-RPC error-cache bypass hardening
+- Rotation/path checks:
+  - Verified `packages/evolution/packages/{realm,shard,protocol}` exist but are uninitialized/empty.
+  - Verified `packages/cerebro/packages/hub` and `packages/cli` are unavailable-in-checkout.
+  - Continued to next actionable direct target `packages/node`.
+- Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+- Code/test/docs changes in `packages/node`:
+  - Updated `web3/httpProvider.ts` to cache only successful JSON-RPC `result` envelopes.
+  - Added regression in `test/httpProvider.spec.ts` ensuring JSON-RPC `error` envelopes are not cached.
+  - Refreshed concise folder docs: `web3/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ (20 passed)
+- Git:
+  - Commit: `14f8b9f` (`fix(web3): avoid caching json-rpc error envelopes`)
+  - Push: `sable/maintenance-trpc-ws-cycle` -> `origin`
+  - PR: <https://github.com/arkenrealms/node/pull/15>
+- Blockers:
+  - No new blockers; existing checkout gaps unchanged (nested evolution repos uninitialized, cerebro/cli unavailable).
+- Next target:
+  - `arken/packages/seer/packages/node`.
