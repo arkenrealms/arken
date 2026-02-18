@@ -2427,3 +2427,18 @@
 
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check.
+
+### Newly completed (seer-protocol method-name normalization chunk)
+- [x] Rotated to `seer-protocol` after prior `seer-node` slot and loaded all local `.md` docs in target scope before source edits.
+- [x] Hardened shared module resolver in `packages/seer/packages/protocol/src/modules/methodResolver.ts` to trim method names and reject empty/whitespace method inputs before lookup.
+- [x] Added regression coverage in `packages/seer/packages/protocol/test/methodResolver.test.ts` for empty-method rejection and trimmed-method success resolution.
+- [x] Updated concise folder docs in touched areas:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran package test gate: `npm test` (pass: 20/20).
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `cbef130` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer-protocol/pull/1>)
+  - `seer` `7e8b480` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next for availability-in-checkout verification, then continue strict direct-repo order.
