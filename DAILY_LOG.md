@@ -1978,3 +1978,17 @@
   - `seer-node` `58e42bb`
   - `seer` `27fdaec`
 - [ ] Next rotation target queued: `seer-protocol` (`packages/seer/packages/protocol`).
+
+### Run block — 2026-02-17T20:52:18-08:00 — seer-protocol resolver accessor-safety hardening
+- [x] Rotation target `seer-protocol` verified present via `find` + `packages/seer/.gitmodules`.
+- [x] Loaded all `.md` files under `packages/seer/packages/protocol` before source edits.
+- [x] Hardened `resolveInfiniteMethod` property-access behavior to safely ignore getter-throwing/non-function own properties.
+- [x] Expanded TS tests in `test/infinite.router.test.ts` for getter-throw and non-function handler permutations.
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/protocol/src/modules/infinite/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Validated with repo-defined command: `npm test` (in `packages/seer/packages/protocol`) — pass (6/6).
+- [x] Pushed commits:
+  - `arkenrealms/seer-protocol` `0ba5ecc`
+  - `arkenrealms/seer` `0e2a468`
+- [ ] Next rotation target: `sigil-protocol` (`arken/packages/sigil-protocol`).

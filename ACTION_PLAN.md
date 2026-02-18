@@ -3095,3 +3095,26 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - no new blocker in active `seer-node` slot.
 - next rotation target:
   - `seer-protocol` (`arken/packages/seer/packages/protocol`)
+
+### Run block — 2026-02-17T20:52:18-08:00 — seer-protocol resolver accessor-safety hardening
+- rotation/path verification:
+  - active scheduled target `seer-protocol` exists: `arken/packages/seer/packages/protocol` (verified via `find` + `packages/seer/.gitmodules`).
+  - next direct target `sigil-protocol` remains unavailable in this checkout (`arken/packages/sigil-protocol`) and will be re-verified at next slot.
+- files changed:
+  - `packages/seer/packages/protocol/src/modules/infinite/infinite.methodResolver.ts`
+  - `packages/seer/packages/protocol/test/infinite.router.test.ts`
+  - `packages/seer/packages/protocol/src/modules/infinite/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- tests:
+  - `npm test` (in `packages/seer/packages/protocol`) — pass (6/6)
+- commits:
+  - `arkenrealms/seer-protocol`: `0ba5ecc` (pushed)
+  - `arkenrealms/seer`: `0e2a468` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `sigil-protocol` direct path is unavailable in this workspace snapshot (`arken/packages/sigil-protocol`).
+  - `forge-protocol`, `cerebro-hub`, and `cli` direct targets remain unavailable in this checkout.
+- next rotation target:
+  - `sigil-protocol` (`arken/packages/sigil-protocol`)
