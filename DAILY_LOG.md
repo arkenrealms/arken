@@ -2596,3 +2596,18 @@
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+### Newly completed (seer-protocol descriptor-only resolver hardening chunk)
+- [x] Rotated to `seer-protocol` after latest `seer-node` slot and loaded all in-scope `.md` docs in `packages/seer/packages/protocol` before source edits.
+- [x] Hardened shared resolver lookup in `packages/seer/packages/protocol/src/modules/methodResolver.ts` to use own-property descriptors directly (no property-read/getter execution during method resolution).
+- [x] Added regression coverage in `packages/seer/packages/protocol/test/methodResolver.test.ts` for accessor/getter trap safety (descriptor lookup does not execute getter; clean fallback remains deterministic).
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/protocol/src/modules/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Re-ran protocol package tests: `npm test` in `packages/seer/packages/protocol` (pass: 24/24).
+- [x] Committed/pushed Seer updates:
+  - `seer-protocol` `764c942` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer-protocol/pull/1>)
+  - `seer` `d120ecb` (branch `sable/repo-analysis-notes-20260217`, updates <https://github.com/arkenrealms/seer/pull/1>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next for availability check, then proceed through strict direct-repo order.
