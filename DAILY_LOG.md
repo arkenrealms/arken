@@ -2035,3 +2035,17 @@
 - [x] Commit/push:
   - `arkenrealms/node` `6c58bc3` (pushed; updates <https://github.com/arkenrealms/node/pull/15>)
 - [ ] Next rotation target: `seer-node` (`arken/packages/seer/packages/node`).
+
+### Run block — 2026-02-17T21:22:00-08:00 — seer-node saveToken function-thenable guard hardening
+- [x] Verified rotation target path before edits: `seer-node` exists at `arken/packages/seer/packages/node` (`find` + `packages/seer/.gitmodules`).
+- [x] Loaded all target-folder `.md` files before source changes (`.rush`, package root, `src`, `src/data`, `test`).
+- [x] Hardened `src/tests.ts` sync contract guard: `assertNotThenable` now rejects function-thenables as well as object thenables.
+- [x] Added regression test in `test/tests.helpers.test.ts` for function-thenable `db.loadToken` rejection path.
+- [x] Updated concise touched-folder docs:
+  - `src/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Ran tests in target repo: `npm test` (pass: 9/9).
+- [x] Pushed commits:
+  - `seer-node` `20b3062` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `52b95e9` (branch `sable/repo-analysis-notes-20260217`, submodule pointer roll)
+- Next rotation target: `seer-protocol` (`arken/packages/seer/packages/protocol`).
