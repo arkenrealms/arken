@@ -1707,3 +1707,16 @@
   - none in this run
 - next rotation target:
   - `seer-protocol`
+
+### Newly completed (seer-protocol test-gate alignment chunk)
+- [x] Rotated to direct repo target `seer-protocol` after prior `seer-node` run.
+- [x] Loaded all in-scope `.md` files first in `packages/seer/packages/protocol` and module descendants.
+- [x] Re-read active protocol root source files (`src/router.ts`, `src/types.ts`, `src/index.ts`) and refreshed package-level maintainer docs.
+- [x] Updated docs:
+  - `packages/seer/packages/protocol/README.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- [x] Recorded source-change test-gate blocker explicitly (no package-local runnable scripts/harness yet), and deferred runtime edits this chunk.
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next (verify nested submodule path via `.gitmodules`/filesystem before work).
+- [ ] Commit/push seer-protocol + seer + arken rollup updates for this run.

@@ -2737,3 +2737,21 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - none in this run
 - next rotation target:
   - `seer-protocol`
+
+### Run block — 2026-02-17T17:32:00-08:00 — seer-protocol docs/test-gate chunk
+- files changed:
+  - `packages/seer/packages/protocol/README.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- tests:
+  - none (source-change gate active; package currently has no local runnable test harness/scripts)
+- commits:
+  - `arkenrealms/seer-protocol`: `<pending>`
+  - `arkenrealms/seer`: `<pending>`
+  - `arkenrealms/arken`: `<pending>`
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-protocol/pull/new/sable/repo-analysis-notes-20260217
+- blockers:
+  - `@arken/seer-protocol` lacks package-local test/typecheck/lint scripts, so source edits were deferred per mandatory source-change test gate.
+- next rotation target:
+  - `sigil-protocol` (nested submodule path under seer parent)
