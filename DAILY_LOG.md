@@ -2113,3 +2113,24 @@
 - [x] Pushed node branch update:
   - `arkenrealms/node` `57b83f9` (updates <https://github.com/arkenrealms/node/pull/15>)
 - [ ] Next direct-rotation target: `seer-node` (`arken/packages/seer/packages/node`).
+
+### Run block — 2026-02-17T22:02:19-08:00 — seer-node function-owner helper resolution hardening
+- [x] Verified active direct-rotation target path (`seer-node`) and queued next slot (`seer-protocol`) via `find` + `.gitmodules`.
+- [x] Loaded all `.md` files in `packages/seer/packages/node` before source edits.
+- [x] Hardened helper method resolution in `src/tests.ts` to support callable/function owners while preserving own-property-only lookup constraints.
+- [x] Added regression coverage in `test/tests.helpers.test.ts` for function-owned `db` helper invocation and context binding.
+- [x] Updated concise analysis docs in touched folders:
+  - `src/ANALYSIS.md`
+  - `test/ANALYSIS.md`
+- [x] Test gate satisfied:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (10/10)
+- [x] Commit/push:
+  - `seer-node` `d5cb21b` (branch `sable/repo-analysis-notes-20260217-node-src`)
+  - `seer` `35492ff` (branch `sable/repo-analysis-notes-20260217`, submodule pointer roll)
+- [x] PR references:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- [ ] Blocker noted:
+  - local Jest runner/tooling is unavailable in this checkout runtime (`npm test` with Jest script would fail: `jest: command not found`), so this run retained the executable Node TS test harness.
+- [x] Next rotation target:
+  - `seer-protocol` (`arken/packages/seer/packages/protocol`)

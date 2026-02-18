@@ -3274,3 +3274,32 @@ Per rotation, update cross-repo notes in parent `ANALYSIS.md` files when new arc
   - `cerebro-hub` and `cli` direct target paths are unavailable in this checkout.
 - next rotation target:
   - `seer-node` (`arken/packages/seer/packages/node`)
+
+### Run block — 2026-02-17T22:02:19-08:00 — seer-node function-owner helper resolution hardening
+- rotation/path verification:
+  - active scheduled target `seer-node` exists at `arken/packages/seer/packages/node` (verified via `find` + `packages/seer/.gitmodules`).
+  - next direct target `seer-protocol` exists at `arken/packages/seer/packages/protocol`.
+- `.md` preload (before source edits in target):
+  - `packages/seer/packages/node/.rush/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/.rush/temp/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/src/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/src/data/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/ANALYSIS.md`
+- tests:
+  - `npm test` (in `packages/seer/packages/node`) — pass (10/10)
+- commits:
+  - `arkenrealms/seer-node`: `d5cb21b` (pushed)
+  - `arkenrealms/seer`: `35492ff` (pushed)
+- PR links:
+  - https://github.com/arkenrealms/seer/pull/1
+  - https://github.com/arkenrealms/seer-node/pull/new/sable/repo-analysis-notes-20260217-node-src
+- blockers:
+  - Jest migration in `seer-node` remains blocked in this checkout runtime (`jest` binary unavailable without workspace dependency install); retained existing executable TS node-test harness for this run.
+- next rotation target:
+  - `seer-protocol` (`arken/packages/seer/packages/protocol`)
