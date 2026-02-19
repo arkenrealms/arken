@@ -4334,3 +4334,40 @@
   - `forge-protocol` has no repo-defined test script; source edits deferred under gate.
 - Next target:
   - `packages/evolution/packages/realm` (slot 8)
+
+## 2026-02-18T18:34:18-08:00 — nested evolution slot checks + node request immutability fix
+- Rotation targets attempted:
+  - `packages/evolution/packages/realm` (slot 8)
+  - `packages/evolution/packages/shard` (slot 9)
+  - `packages/evolution/packages/protocol` (slot 10)
+  - `packages/cerebro/packages/hub` (slot 11)
+  - `packages/cli` (slot 12)
+  - resumed at `packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/.gitmodules` confirms `realm/shard/protocol` are mapped and now present.
+  - `packages/cerebro/packages/hub` unavailable-in-checkout.
+  - `packages/cli` available and mapped.
+- Branch hygiene:
+  - `packages/evolution/packages/realm`: fetched + merged `origin/main` (up to date)
+  - `packages/evolution/packages/shard`: fetched + merged `origin/main` (up to date)
+  - `packages/node`: fetched + merged `origin/main` (up to date)
+- Source/test work completed (`packages/node`):
+  - `web3/httpProvider.ts`: stop mutating caller request objects when injecting JSON-RPC defaults; keep deterministic fallback ID behavior in transport callbacks.
+  - `test/httpProvider.spec.ts`: added regression asserting caller request immutability after request processing.
+  - Updated concise docs: `web3/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- Tests:
+  - `rushx test` in `packages/evolution/packages/realm` ❌ workspace error (`/arken/cerebro/package.json` missing)
+  - `npm test` in `packages/evolution/packages/realm` ❌ `jest: command not found`
+  - `npm test` in `packages/evolution/packages/shard` ❌ missing `test` script
+  - `npm test -- test/httpProvider.spec.ts --runInBand` in `packages/node` ✅ pass (10/10)
+- Commit/push:
+  - `packages/node`: `06af94a` on `sable/node-invalid-request-guard-20260218` (pushed)
+- PR links:
+  - head check: <https://api.github.com/repos/arkenrealms/node/pulls?state=open&head=arkenrealms:sable/node-invalid-request-guard-20260218>
+  - create/update: <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
+- Blockers:
+  - `evolution-realm` lacks runnable local Jest binary in this checkout runtime.
+  - `evolution-shard` has no repo-defined `test` script yet.
+  - `cerebro-hub` unavailable-in-checkout.
+- Next target:
+  - `packages/seer/packages/node` (slot 2)

@@ -3168,3 +3168,53 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `forge-protocol` currently has no repo-defined `test` script in package metadata, so source edits were deferred under test gate.
 - Next rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9), `protocol` (slot 10), `cerebro-hub` (slot 11), `cli` (slot 12).
+
+## Run ledger append — 2026-02-18T09:09:00-08:00 — user-priority test-harness directives (forge)
+- Trigger: explicit instruction from `highruned` in `#nel`.
+- Added mandatory near-term tasks:
+  1) `forge-web`: add missing Jest setup so tests can be run reliably.
+  2) `forge-protocol`: add missing `test` script so test execution is available.
+- Execution command policy update for Arken repos:
+  - Prefer `rushx <script>` (especially `rushx test`) over `npm <script>` for local/CI parity.
+  - Use npm only if a repo lacks the relevant `rushx` script mapping.
+- Purpose:
+  - unblock test-gated source changes in forge repos under the existing SOURCE-CHANGE TEST GATE policy.
+
+## Run ledger append — 2026-02-18T18:34:18-08:00 — evolution nested-slot checks + node request immutability hardening
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to next actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/.gitmodules` maps `packages/{realm,shard,protocol}` and all three paths now exist in checkout.
+  - `packages/cerebro/packages/hub` is still unavailable-in-checkout.
+  - `packages/cli` exists and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - `packages/evolution/packages/realm`: `git fetch origin && git merge --no-edit origin/main` (`Already up to date`).
+  - `packages/evolution/packages/shard`: `git fetch origin && git merge --no-edit origin/main` (`Already up to date`).
+  - `packages/node`: `git fetch origin && git merge --no-edit origin/main` (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/evolution/packages/realm`) ❌ fail (`rush` workspace error: missing `/arken/cerebro/package.json` in this checkout)
+  - `npm test` (in `packages/evolution/packages/realm`) ❌ fail (`jest: command not found`)
+  - `npm test` (in `packages/evolution/packages/shard`) ❌ fail (`Missing script: test`)
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (10/10)
+- Commits + PR links:
+  - `node` `06af94a` (pushed) — branch update: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - open PR head-check reference: <https://api.github.com/repos/arkenrealms/node/pulls?state=open&head=arkenrealms:sable/node-invalid-request-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
+- Blockers:
+  - `evolution-realm` test runtime missing local `jest` binary.
+  - `evolution-shard` lacks a repo-defined `test` script.
+  - `cerebro-hub` unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
