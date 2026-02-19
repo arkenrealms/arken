@@ -4190,3 +4190,61 @@
   - Open PR check returned empty set for branch head; create via <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>.
 - Next rotation target:
   - `arken/packages/sigil-protocol`.
+
+### Run append — 2026-02-18T17:26:54-08:00 (sigil-protocol slot 4)
+- [x] Verified `packages/sigil-protocol` exists and is mapped in `.gitmodules`; ran branch hygiene (`git fetch origin && git merge --no-edit origin/main`).
+- [x] Hardened pagination validation in `util/schema.ts` to require non-negative integers for `skip` / `take` / `limit`.
+- [x] Expanded `test/queryInput.test.ts` with invalid pagination regression coverage (negative + non-integer rejection).
+- [x] Updated concise docs: `util/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- [x] Test gate: `npm test` (in `packages/sigil-protocol`) ✅ pass (5/5).
+- [x] Pushed `sigil-protocol` commit `5c5d863` to branch `sable/sigil-protocol-query-take-guard-20260218`.
+- [ ] Open direct PR (still pending manual open): <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blocker: open-PR head check still empty (`[]`) and GitHub CLI unavailable in runtime.
+- Next rotation target: `arken/packages/forge/packages/web` (slot 5).
+
+### Run append — 2026-02-18T17:24:31-08:00 (correction)
+- Correction: prior sigil-protocol run block used a future timestamp typo (`17:26:54-08:00`); authoritative append window for that same work is `17:24:31-08:00`.
+
+### Newly completed (forge test-gate checks + evolution validator dedupe chunk)
+- [x] Rotated through `forge-web` (slot 5) and `forge-protocol` (slot 6) with branch hygiene (`git fetch origin` + merge `origin/main`) before attempting source work.
+- [x] Reconfirmed source-change blockers under mandatory test gate:
+  - `packages/forge/packages/web`: `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts` fails (`jest: command not found`).
+  - `packages/forge/packages/protocol`: `npm test` fails (`Missing script: test`).
+- [x] Continued to actionable slot `packages/evolution` (slot 7) and hardened wrapper validator output determinism.
+- [x] Updated evolution validator/runtime docs and tests:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- [x] Added regression coverage that duplicate raw gitlink variants normalize to a single `unexpectedGitlinks` entry.
+- [x] Ran `npm test` in `packages/evolution` (pass: 30/30).
+- [x] Committed/pushed evolution update: `a8ee00d` (branch `sable/evolution-duplicate-config-guard-20260218`).
+
+### In progress (rotation)
+- [x] Continue to `packages/evolution/packages/realm` next (slot 8), then `shard`, `protocol`, `cerebro-hub`, and `cli` per strict order.
+
+## 2026-02-18T17:50:56-08:00 — Rotation slots 8-12 check + node invalid-request guard
+- Attempted slots: evolution realm/shard/protocol (8-10), cerebro-hub (11), cli (12), then actionable node (1).
+- Verification:
+  - `packages/evolution/packages/{realm,shard,protocol}`: present + mapped, still empty/uninitialized.
+  - `packages/cerebro/packages/hub`: missing.
+  - `packages/cli`: present.
+- Branch hygiene:
+  - `packages/cli`: `git fetch origin && git merge --no-edit origin/main` (up to date).
+  - `packages/node`: `git fetch origin && git merge --no-edit origin/main` (up to date), fresh branch `sable/node-invalid-request-guard-20260218`.
+- Source/test work (`packages/node`):
+  - Added JSON-RPC envelope validation in `web3/httpProvider.ts` to reject non-object/array payloads with deterministic `-32600` invalid-request errors.
+  - Added regression coverage in `test/httpProvider.spec.ts` for invalid payload shapes.
+  - Updated concise docs: `web3/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`.
+- Tests:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ pass (9/9)
+- Commit:
+  - `packages/node`: `efe4573` pushed to `sable/node-invalid-request-guard-20260218`.
+- PR:
+  - Open check: <https://api.github.com/repos/arkenrealms/node/pulls?state=open&head=arkenrealms:sable/node-invalid-request-guard-20260218> returned `[]`.
+  - Create PR: <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
+- Blockers:
+  - evolution nested repos still uninitialized.
+  - cerebro-hub missing.
+  - cli test runtime unavailable in this environment (`vitest` missing), so no cli source edits under test gate.
+- Next target: `arken/packages/seer/packages/node`.

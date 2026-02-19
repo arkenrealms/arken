@@ -2923,3 +2923,100 @@ Continue strict rotation from the current pointer after latest completed slot.
   - GitHub CLI unavailable in runtime for direct PR creation (`gh: command not found` in prior runs); branch pushed with manual PR creation link.
 - Next rotation target:
   - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).
+
+## Run ledger append — 2026-02-18T17:26:54-08:00 — sigil-protocol pagination integer/non-negative validation hardening
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - target exists in checkout (`find packages -maxdepth 3 -type d -name sigil-protocol`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (5/5)
+- Commits + PR links:
+  - `sigil-protocol` `5c5d863` (pushed) — branch update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/sigil-protocol/pulls?state=open&head=arkenrealms:sable/sigil-protocol-query-take-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - GitHub CLI unavailable in runtime for direct PR creation (`gh: command not found` in prior runs); branch pushed with manual PR creation link.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
+
+## Run ledger append — 2026-02-18T17:24:31-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T17:26:54-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same sigil-protocol chunk.
+
+## Run ledger append — 2026-02-18T17:39:42-08:00 — forge test-gate checks + evolution unexpected-gitlink dedupe hardening
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - actionable direct repo: `arken/packages/evolution` (slot 7; non-client scope)
+- Path verification:
+  - `packages/forge/packages/web` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - `forge-web`: ran `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+  - `forge-protocol`: ran `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+  - `evolution`: ran `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts` (in `packages/forge/packages/web`) ❌ fail (`sh: jest: command not found`)
+  - `npm test` (in `packages/forge/packages/protocol`) ❌ fail (`Missing script: test`)
+  - `npm test` (in `packages/evolution`) ✅ pass (30/30)
+- Commits + PR links:
+  - `evolution` `a8ee00d` (pushed) — branch update: <https://github.com/arkenrealms/evolution/tree/sable/evolution-duplicate-config-guard-20260218>
+  - open PR head-check reference: <https://api.github.com/repos/arkenrealms/evolution/pulls?state=open&head=arkenrealms:sable/evolution-duplicate-config-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution/pull/new/sable/evolution-duplicate-config-guard-20260218>
+- Blockers:
+  - `forge-web` remains source-change blocked in this runtime until repo test toolchain is available (`jest` missing from executable environment).
+  - `forge-protocol` remains source-change blocked until a repo-defined runnable test script exists.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9), `protocol` (slot 10), `cerebro-hub` (slot 11), `cli` (slot 12).
+
+## Run ledger append — 2026-02-18T17:50:56-08:00 — nested-slot verification + node invalid-request envelope guard
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to next actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist and are mapped in `packages/evolution/.gitmodules`, but remain uninitialized/empty in this checkout.
+  - `packages/cerebro/packages/hub` is unavailable-in-checkout.
+  - `packages/cli` exists and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - `packages/cli`: ran `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+  - `packages/node`: ran `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`), then continued on fresh branch `sable/node-invalid-request-guard-20260218` from synced base.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/web3/httpProvider.ts`
+  - `packages/node/test/httpProvider.spec.ts`
+  - `packages/node/web3/{README.md,ANALYSIS.md}`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (9/9)
+- Commits + PR links:
+  - `node` `efe4573` (pushed) — branch: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/node/pulls?state=open&head=arkenrealms:sable/node-invalid-request-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
+- Blockers:
+  - `evolution-realm`, `evolution-shard`, `evolution-protocol` remain uninitialized/empty in this checkout.
+  - `cerebro-hub` unavailable-in-checkout.
+  - `cli` source-edit path is currently blocked by missing local test runtime (`npm test` fails with `vitest: command not found` under source-change gate).
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
