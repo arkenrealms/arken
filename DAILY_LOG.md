@@ -4570,3 +4570,50 @@
   - PR context: <https://github.com/arkenrealms/seer-node/pull/3>
 - Blockers: none
 - Next rotation target: `packages/seer/packages/protocol` (slot 3)
+
+## 2026-02-18T20:24:48-08:00 — seer-protocol Isles/Infinite dispatch hardening
+- Target: `packages/seer/packages/protocol` (slot 3).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Source changes:
+  - Hardened `isles` and `infinite` routers to resolve method-matched handlers (`saveRound`, `interact`, `getScene`) via own-property lookup on domain service first, with method-matched Evolution fallback.
+  - Added deterministic `TRPCError` when no callable handler exists for the requested method.
+  - Added regression coverage in `test/router-routing.test.js` and refreshed touched-folder docs (`README.md`/`ANALYSIS.md`).
+- Tests:
+  - `rushx test` ❌ (workspace blocker: missing `@arken/cerebro-hub` package mapping)
+  - `npm test` ✅ (3 suites passed)
+- Commit/push:
+  - `seer-protocol` `9b06d46` pushed to `sable/seer-protocol-update-settings-guard-20260218`.
+- PR status:
+  - No open PR for branch head yet; creation link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Next target:
+  - `packages/sigil-protocol` slot-4 availability check.
+
+### Newly completed (sigil-protocol mode-validation chunk)
+- [x] Rotated to `sigil-protocol` (slot 4), loaded local `.md` docs first, and completed targeted schema + test pass.
+- [x] Hardened `getQueryInput`/`createPrismaWhereSchema` by constraining string filter `mode` to Prisma-compatible enum values (`default` | `insensitive`) in `packages/sigil-protocol/util/schema.ts`.
+- [x] Added regression tests in `packages/sigil-protocol/test/queryInput.test.ts` for accepted/rejected `mode` values.
+- [x] Updated concise docs in touched folders:
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran repo-defined test gate: `npm test` in `packages/sigil-protocol` (pass: 10/10).
+- [x] Committed/pushed sigil-protocol update: `e1975a7` (branch `sable/sigil-protocol-query-take-guard-20260218`).
+- [ ] Open/update direct PR for this branch (head-check currently returns no open PR): <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+
+### In progress (rotation)
+- [x] Continue to `forge-web` next (slot 5), then `forge-protocol` (slot 6).
+
+### 2026-02-18T20:45:12-08:00 — forge-web/forge-protocol blockers + evolution fix
+- Rotation slots attempted: forge-web (5) → forge-protocol (6) → evolution (7).
+- Branch hygiene done in each attempted repo (`git fetch origin` + merge `origin/main`, all up to date).
+- Forge-web blocker: `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts --runInBand` failed (`jest: command not found`).
+- Forge-protocol blocker: `npm run tsc:1` failed (`tsc: command not found`); kept this slot docs/analysis only.
+- Evolution substantive change landed:
+  - `scripts/validateSubmoduleMap.mjs`: ignore repeated identical owner/path declarations while still flagging cross-owner duplicate path mappings.
+  - Added regression test in `test/validateSubmoduleMap.test.mjs` for repeated identical owner/path mappings.
+  - Updated `scripts/{README.md,ANALYSIS.md}` and `test/README.md` for behavior clarity.
+- Test result:
+  - `npm test` (evolution) ✅ pass (34/34).
+- Commits/push:
+  - forge-protocol `123afd7` pushed (branch `sable/forge-protocol-sync-input-guard-20260218`; PR not open yet).
+  - evolution `8345eba` pushed to existing PR <https://github.com/arkenrealms/evolution/pull/11>.
+- Next rotation target: `arken/packages/evolution/packages/realm`.

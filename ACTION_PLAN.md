@@ -3513,3 +3513,92 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
+
+## Run ledger append — 2026-02-18T20:24:48-08:00 — seer-protocol Isles/Infinite method-matched dispatch hardening
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - `packages/seer/packages/protocol` exists in checkout and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/isles/isles.router.ts`
+  - `packages/seer/packages/protocol/infinite/infinite.router.ts`
+  - `packages/seer/packages/protocol/test/router-routing.test.js` (new)
+  - `packages/seer/packages/protocol/isles/ANALYSIS.md`
+  - `packages/seer/packages/protocol/infinite/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/protocol`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in Rush workspace)
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (3/3)
+- Commits + PR links:
+  - `seer-protocol` `9b06d46` (pushed) — branch update: <https://github.com/arkenrealms/seer-protocol/tree/sable/seer-protocol-update-settings-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blockers:
+  - Rush workspace-level `rushx test` remains blocked in this checkout by missing `@arken/cerebro-hub` package mapping.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T20:40:49-08:00 — sigil-protocol Prisma mode validation hardening
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - `packages/sigil-protocol` exists in checkout and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (10/10)
+- Commits + PR links:
+  - `sigil-protocol` `e1975a7` (pushed) — branch update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/sigil-protocol/pulls?state=open&head=arkenrealms:sable/sigil-protocol-query-take-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - No open PR currently exists for this pushed branch head; direct PR creation is still required for review intake.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
+
+## Run ledger append — 2026-02-18T20:33:52-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T20:40:49-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same sigil-protocol slot-4 maintenance chunk.
+
+## Run ledger append — 2026-02-18T20:45:12-08:00 — forge-web/forge-protocol test-gate block then evolution duplicate-owner mapping fix
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - advanced to actionable direct repo with runnable tests: `arken/packages/evolution` (slot 7; non-client scope)
+- Path verification:
+  - `packages/forge/packages/web` and `packages/forge/packages/protocol` exist and are mapped in `packages/forge/.gitmodules`.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/web`, `packages/forge/packages/protocol`, and `packages/evolution` before edits (all `Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/forge/packages/protocol/{README.md,ANALYSIS.md}`
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/README.md`
+- Test command + result:
+  - `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts --runInBand` (in `packages/forge/packages/web`) ❌ fail (`sh: jest: command not found`)
+  - `npm run tsc:1` (in `packages/forge/packages/protocol`) ❌ fail (`sh: tsc: command not found`)
+  - `npm test` (in `packages/evolution`) ✅ pass (34/34)
+- Commits + PR links:
+  - `forge-protocol` `123afd7` (pushed) — branch: <https://github.com/arkenrealms/forge-protocol/tree/sable/forge-protocol-sync-input-guard-20260218>
+  - `forge-protocol` open PR head-check returned empty set `[]`: <https://api.github.com/repos/arkenrealms/forge-protocol/pulls?state=open&head=arkenrealms:sable/forge-protocol-sync-input-guard-20260218>
+  - `forge-protocol` PR creation link: <https://github.com/arkenrealms/forge-protocol/pull/new/sable/forge-protocol-sync-input-guard-20260218>
+  - `evolution` `8345eba` (pushed) — updates existing direct PR <https://github.com/arkenrealms/evolution/pull/11>
+- Blockers:
+  - `forge-web` source edits blocked by missing local Jest runtime in this checkout (`jest: command not found`).
+  - `forge-protocol` source edits blocked by missing local TypeScript/Jest toolchain (`tsc: command not found`) under source-change gate.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9) and `protocol` (slot 10).
