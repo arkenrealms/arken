@@ -2898,3 +2898,28 @@ Continue strict rotation from the current pointer after latest completed slot.
   - GitHub CLI unavailable in runtime for direct PR creation (`gh: command not found` from prior runs); branch pushed with manual PR creation link.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `arken/packages/sigil-protocol` (slot 4).
+
+## Run ledger append — 2026-02-18T17:13:59-08:00 — seer-protocol updateConfig dispatch guard hardening
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - target exists (`find packages/seer/packages -maxdepth 2 -type d -name protocol`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/evolution/evolution.router.ts`
+  - `packages/seer/packages/protocol/test/evolution.router.test.ts`
+  - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (1/1)
+- Commits + PR links:
+  - `seer-protocol` `fc671b2` (pushed) — branch: <https://github.com/arkenrealms/seer-protocol/tree/sable/seer-protocol-update-settings-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blockers:
+  - GitHub CLI unavailable in runtime for direct PR creation (`gh: command not found` in prior runs); branch pushed with manual PR creation link.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).

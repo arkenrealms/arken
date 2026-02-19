@@ -4173,3 +4173,20 @@
 - [x] Committed/pushed `seer-node` update: `5e9dbb4` on `sable/seer-node-token-shape-guard-20260218`.
 - [ ] Open/update direct PR for this branch (open-head API check currently `[]`); use: <https://github.com/arkenrealms/seer-node/pull/new/sable/seer-node-token-shape-guard-20260218>.
 - [ ] Continue strict rotation to `packages/seer/packages/protocol` next.
+
+## 2026-02-18T17:13:59-08:00 — seer-protocol updateConfig dispatch guard hardening
+- Target: `arken/packages/seer/packages/protocol` (rotation slot 3).
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (`Already up to date`) before edits.
+- Source change:
+  - Hardened `evolution/updateConfig` route to use own-property descriptor callable resolution with deterministic `TRPCError(INTERNAL_SERVER_ERROR)` fallback and context-preserving invocation.
+- Tests:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (1/1).
+- Docs refreshed:
+  - `evolution/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- Commit:
+  - `fc671b2` pushed to `sable/seer-protocol-update-settings-guard-20260218`.
+- PR status:
+  - Open PR check returned empty set for branch head; create via <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>.
+- Next rotation target:
+  - `arken/packages/sigil-protocol`.
