@@ -4470,3 +4470,87 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T02:44:45-08:00 — seer-protocol query-envelope pagination compatibility
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - `packages/seer/packages/protocol` exists in checkout (`find`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (fast-forward to latest main).
+- Markdown preload + deepest-first review:
+  - Loaded all local `.md` files in scope excluding `node_modules` docs, then reviewed leaf module docs (`isles/infinite/oasis/evolution`) before package-level docs.
+- Conflict notes:
+  - Detected markdown drift: `test/README.md` and `test/ANALYSIS.md` previously described older guard-style assertions no longer matching current direct-dispatch test intent. Followed MEMORY.md + latest explicit instructions; updated docs to reflect current coverage.
+- Files changed:
+  - `packages/seer/packages/protocol/util/schema.ts`
+  - `packages/seer/packages/protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/schema.query-input.test.ts` (new)
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (6/6)
+- Commits + PR links:
+  - `seer-protocol` `d8662da` (pushed) on `sable/seer-protocol-update-settings-guard-20260218`
+  - Opened direct repo PR: <https://github.com/arkenrealms/seer-protocol/pull/3>
+  - Open-PR head verification: `GET /repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218` → PR #3.
+- Blockers:
+  - None in this slot.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4) path-availability check, then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T02:52:20-08:00 — sigil-protocol optional-string operator compatibility fix
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - `packages/sigil-protocol` exists in checkout and is mapped in top-level `.gitmodules`.
+  - Noted markdown drift vs older blocker notes: previous plan sections listed `sigil-protocol`/`forge-protocol` and evolution nested repos as unavailable or empty, but current checkout now has these repos populated. Per `MEMORY.md` + latest instructions, used live checkout state as authoritative.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (fast-forward to merged `main`).
+- Markdown preload + deepest-first review:
+  - Loaded all local `.md` files in package before source edits (`README.md`, `agents.md`, `util/*`, `test/*`).
+  - Reviewed `util/schema.ts` and `test/queryInput.test.ts` leaf behavior before parent docs updates.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (15/15)
+- Commits + PR links:
+  - `sigil-protocol` `e0de93a` (pushed) on `sable/sigil-protocol-optional-string-filter-20260219`
+  - Opened dedicated direct repo PR: <https://github.com/arkenrealms/sigil-protocol/pull/2>
+  - Open-PR head verification: `GET /repos/arkenrealms/sigil-protocol/pulls?state=open&head=arkenrealms:sable/sigil-protocol-optional-string-filter-20260219` → PR #2.
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T03:05:59-0800 — forge-web/forge-protocol test-gate blocker continuity
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+- Path verification:
+  - Both paths exist in current checkout and are mapped in `packages/forge/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `forge-web` and `forge-protocol` before edits.
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown docs in `forge-web` (85 files) and `forge-protocol` (3 files) before source analysis.
+  - Reviewed leaf utility/protocol files first, then package-level docs.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and local markdown guidance.
+- Files changed:
+  - `packages/forge/packages/web/src/utils/ANALYSIS.md`
+  - `packages/forge/packages/protocol/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test -- --runTestsByPath src/components/interface/utils.test.ts --runInBand` (in `forge-web`) ❌ fail (`jest: command not found`)
+  - `npm test` (in `forge-protocol`) ❌ fail (`Missing script: "test"`)
+  - Temporary local harness probe in `forge-protocol` (uncommitted/reverted): `jest --runInBand --coverage=false` ❌ fail (`jest: command not found`)
+  - Source edits were reverted/skipped to satisfy source-change gate.
+- Commits + PR links:
+  - `forge-web` `acaa7dd` (pushed) — <https://github.com/arkenrealms/forge-web/pull/10>
+  - `forge-protocol` `ea5c320` (pushed) — <https://github.com/arkenrealms/forge-protocol/pull/1>
+  - Open-PR head verification completed for both branches via GitHub API.
+- Blockers:
+  - Runtime lacks runnable Jest binary in these package contexts, preventing source changes under source-change gate.
+- Next rotation target:
+  - `arken/packages/evolution` (slot 7; non-client scope), then `evolution-realm`/`shard`/`protocol`.

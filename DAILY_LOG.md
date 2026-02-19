@@ -5207,3 +5207,65 @@
   - Verified no open PR existed for branch head.
   - Opened direct repo PR: <https://github.com/arkenrealms/seer-node/pull/5>
 - [ ] Next: rotate to `packages/seer/packages/protocol` (slot 3).
+
+### Run block — 2026-02-19T02:44:45-08:00 — seer-protocol (slot 3)
+- Target attempted: `arken/packages/seer/packages/protocol`.
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` completed before edits (fast-forward).
+- Files changed:
+  - `packages/seer/packages/protocol/util/schema.ts`
+  - `packages/seer/packages/protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/schema.query-input.test.ts`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Substantive code change:
+  - Added `take` pagination support to `getQueryInput` while keeping `limit` as a legacy alias (compatibility hardening).
+  - Corrected source path header in `util/schema.ts` to `arken/...` package path.
+- Tests:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (4 suites, 6 tests).
+- Commit:
+  - `seer-protocol` `d8662da` (pushed).
+- PR:
+  - Opened dedicated direct-repo PR: <https://github.com/arkenrealms/seer-protocol/pull/3>
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4), then continue strict direct-repo order.
+
+### Run block — 2026-02-19T02:52 PT — sigil-protocol (slot 4)
+- [x] Ran branch hygiene in `packages/sigil-protocol` (`git fetch origin && git merge --no-edit origin/main`) before edits.
+- [x] Loaded all local markdown docs first and reviewed deepest-first (`README.md`, `agents.md`, `util/*`, `test/*`).
+- [x] Implemented test-backed source hardening:
+  - `util/schema.ts`: unwrap optional/nullable/default/effects wrappers before classifying field type, so wrapped string schemas (e.g., `z.string().optional()`) keep `contains`/`mode` filter support.
+  - `test/queryInput.test.ts`: added regression test for optional string field operators while retaining non-string rejection checks.
+- [x] Updated touched-folder docs:
+  - `util/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Ran package test gate:
+  - `npm test` ✅ pass (15/15)
+- [x] Commit/push:
+  - `sigil-protocol` `e0de93a` on `sable/sigil-protocol-optional-string-filter-20260219`
+- [x] PR hygiene:
+  - Verified no existing open PR for branch head.
+  - Opened dedicated direct-repo PR: <https://github.com/arkenrealms/sigil-protocol/pull/2>
+- [x] Conflict/drift note:
+  - Prior markdown blocker notes said `sigil-protocol` was missing/unavailable; current checkout now includes initialized repo. Continued using live checkout state as authoritative per MEMORY + explicit instructions.
+- [ ] Next: rotate to `packages/forge/packages/web` (slot 5).
+
+## 2026-02-19T03:05:59-0800 — slots 5-6 forge-web + forge-protocol blocker continuity
+- [x] Ran branch hygiene in both repos before edits:
+  - `packages/forge/packages/web`: `git fetch origin && git merge --no-edit origin/main`
+  - `packages/forge/packages/protocol`: `git fetch origin && git merge --no-edit origin/main`
+- [x] Loaded all local markdown first and reviewed deepest-first in each target.
+- [x] Kept source unchanged due test-gate failures; documented blockers in concise folder docs:
+  - `packages/forge/packages/web/src/utils/ANALYSIS.md`
+  - `packages/forge/packages/protocol/{README.md,ANALYSIS.md}`
+- [x] Test gate evidence:
+  - `rushx test -- --runTestsByPath src/components/interface/utils.test.ts --runInBand` ❌ `jest: command not found`
+  - `npm test` in forge-protocol ❌ missing script
+  - temporary uncommitted harness probe with `jest --runInBand --coverage=false` ❌ `jest: command not found`
+- [x] Commit/push:
+  - `forge-web` `acaa7dd`
+  - `forge-protocol` `ea5c320`
+- [x] PRs verified/opened:
+  - <https://github.com/arkenrealms/forge-web/pull/10>
+  - <https://github.com/arkenrealms/forge-protocol/pull/1>
+- [ ] Next: rotate to `packages/evolution` (slot 7, non-client scope only).
