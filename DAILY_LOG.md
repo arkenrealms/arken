@@ -4823,3 +4823,87 @@
   - Branch: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
   - PR: <https://github.com/arkenrealms/node/pull/16>
   - Next target: `arken/packages/seer/packages/node`
+
+### Newly completed (seer-node saveToken fallback hardening chunk)
+- [x] Rotated to `seer-node` (slot 2), verified path presence/mapping, and completed branch hygiene (`git fetch origin` + merge from `origin/main`).
+- [x] Hardened `packages/seer/packages/node/src/tests.ts` `saveToken` helper to fall back to own `db.save` when own `db.saveToken` invocation throws; preserves original error when no fallback exists.
+- [x] Added regression coverage in `packages/seer/packages/node/test/tests.helpers.test.ts` for saveToken call-throw fallback and no-fallback error surface.
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Test results:
+  - `rushx test` ❌ (Rush package-map drift: missing expected `arken/cerebro/hub/package.json`)
+  - `npm test` ✅ pass (29/29)
+- [x] Committed/pushed seer-node update: `acf0249` (updates <https://github.com/arkenrealms/seer-node/pull/4>).
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` availability check (slot 4).
+
+## 2026-02-18T23:13:58-08:00 — seer-protocol monitorParties guarded-dispatch maintenance
+- Rotation target: `arken/packages/seer/packages/protocol` (slot 3).
+- Preload/deepest-first: reloaded package `.md` docs in `evolution/`, `test/`, and package root before source edits.
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` (`Already up to date`).
+- Source changes (test-gated):
+  - Hardened `evolution/evolution.router.ts` `monitorParties` route to use own-property descriptor callable lookup + deterministic `TRPCError(INTERNAL_SERVER_ERROR)` when handler wiring is unavailable.
+  - Expanded `test/evolution.router.test.ts` to enforce guarded own-property dispatch for `monitorParties` alongside `info`, `updateConfig`, and `updateSettings`.
+- Docs refreshed (concise):
+  - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `rushx test` ❌ (`Could not find package.json for @arken/cerebro-hub` in workspace)
+  - `npm test` ✅ pass (3/3)
+- Git/PR:
+  - Commit `dd81e62` pushed to `sable/seer-protocol-update-settings-guard-20260218`.
+  - Open direct PR verified: <https://github.com/arkenrealms/seer-protocol/pull/2>.
+- Blockers:
+  - Rush package-map drift still blocks `rushx test` for this package in current checkout.
+- Next target:
+  - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).
+
+## 2026-02-18T23:25:40-08:00 — sigil-protocol Date shorthand filter coercion fix
+- Target: `arken/packages/sigil-protocol`.
+- Change summary:
+  - Fixed `createPrismaWhereSchema` shorthand coercion to treat only plain objects as operator envelopes.
+  - Preserved Date shorthand values (`where: { createdAt: new Date(...) }`) as `{ equals: Date }`.
+  - Added regression test coverage and updated concise README/ANALYSIS docs in touched folders.
+- Tests:
+  - `npm test` (packages/sigil-protocol) ✅ pass (13/13).
+- Git:
+  - Commit: `0b7e802`.
+  - PR: <https://github.com/arkenrealms/sigil-protocol/pull/1>.
+- Next target in rotation:
+  - `arken/packages/forge/packages/web`.
+
+## 2026-02-18T23:33:54-08:00 — forge-web blocker check + evolution diagnostics wording hardening
+- Rotation targets:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7)
+- Branch hygiene:
+  - `git fetch origin && git merge --no-edit origin/main` in `packages/forge/packages/web` and `packages/evolution` (both already up to date).
+- Source changes (test-gated):
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`: clarified CLI failure heading from `Invalid empty .gitmodules path mappings` to `Invalid .gitmodules path mappings` so empty + unsafe mapping failures are labeled accurately.
+  - Updated concise docs in `packages/evolution/scripts/{README.md,ANALYSIS.md}`.
+- Tests:
+  - `rushx test -- --runTestsByPath src/components/interface/utils.test.ts` (forge-web) ❌ workspace package-map drift (`@arken/cerebro-hub` path mismatch).
+  - `npm test -- --runTestsByPath src/components/interface/utils.test.ts` (forge-web) ❌ `jest: command not found`.
+  - `rushx test` (evolution) ❌ workspace package-map drift (`@arken/cerebro-hub` path mismatch).
+  - `npm test` (evolution) ✅ pass (35/35).
+- Git/PR:
+  - Commit `b2ad3aa` pushed to `sable/evolution-duplicate-config-guard-20260218`.
+  - Open direct PR verified: <https://github.com/arkenrealms/evolution/pull/11>.
+- Blockers:
+  - Forge-web still blocked for source edits until package-local Jest runtime is available in this checkout.
+  - Rush workspace package-map drift remains unresolved.
+- Next target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard` and `protocol`.
+
+## 2026-02-18T23:43:50-08:00 — evolution-realm slot-8
+- Target: `arken/packages/evolution/packages/realm`.
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Files changed: `packages/evolution/packages/realm/{README.md,ANALYSIS.md}`.
+- Tests: `npm test -- --runInBand` ❌ `jest: command not found`.
+- Commit: `e780b63`.
+- PR: <https://github.com/arkenrealms/evolution-realm/pull/21>
+- Blocker: package-local test runtime unavailable; source edits deferred per source-change gate.
+- Next target: `arken/packages/evolution/packages/shard`.

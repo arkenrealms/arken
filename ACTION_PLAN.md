@@ -3906,3 +3906,126 @@ Continue strict rotation from the current pointer after latest completed slot.
   - PR: <https://github.com/arkenrealms/node/pull/16>
   - Blockers: none
   - Next rotation target: `arken/packages/seer/packages/node` (slot 2)
+
+## Run ledger append — 2026-02-18T23:06:12-08:00 — seer-node saveToken invocation-fallback hardening
+- Target attempted:
+  - `arken/packages/seer/packages/node` (slot 2)
+- Path verification:
+  - `packages/seer/packages/node` exists in checkout (`find`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/node`) ❌ fail (`Could not find package.json for @arken/cerebro-hub at .../arken/cerebro/hub/package.json`)
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (29/29)
+- Commits + PR links:
+  - `seer-node` `acf0249` (pushed) — updates open direct PR <https://github.com/arkenrealms/seer-node/pull/4>
+- Blockers:
+  - Rush workspace package-map drift currently blocks `rushx test` in this checkout from package scope.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` (slot 4).
+
+## Run ledger append — 2026-02-18T23:13:58-08:00 — seer-protocol monitorParties guarded dispatch hardening
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - `packages/seer/packages/protocol` exists in checkout and remains mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/evolution/evolution.router.ts`
+  - `packages/seer/packages/protocol/test/evolution.router.test.ts`
+  - `packages/seer/packages/protocol/evolution/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/protocol`) ❌ fail (`Could not find package.json for @arken/cerebro-hub at .../arken/cerebro/hub/package.json`)
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (3/3)
+- Commits + PR links:
+  - `seer-protocol` `dd81e62` (pushed) — updates open direct PR <https://github.com/arkenrealms/seer-protocol/pull/2>
+  - Open-PR head verification: `GET /repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218` returned PR #2 (open).
+- Blockers:
+  - Rush workspace package-map drift still blocks `rushx test` in this checkout from package scope.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).
+
+## Run ledger append — 2026-02-18T23:25:40-08:00 — sigil-protocol Date shorthand filter coercion fix
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - `packages/sigil-protocol` exists in checkout (`find`) and has active git remote.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (13/13)
+- Commits + PR links:
+  - `sigil-protocol` `0b7e802` (pushed) — open direct PR: <https://github.com/arkenrealms/sigil-protocol/pull/1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
+
+## Run ledger append — 2026-02-18T23:33:54-08:00 — forge-web test-gate blocker + evolution CLI diagnostics clarification
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/forge/packages/web` exists in checkout.
+  - `packages/forge/packages/protocol` exists in checkout.
+  - `packages/evolution` exists in checkout and nested direct repos now exist (`packages/{realm,shard,protocol}`).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/web` and `packages/evolution` before edits.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test -- --runTestsByPath src/components/interface/utils.test.ts` (in `packages/forge/packages/web`) ❌ fail (`Could not find package.json for @arken/cerebro-hub .../arken/cerebro/hub/package.json`)
+  - `npm test -- --runTestsByPath src/components/interface/utils.test.ts` (in `packages/forge/packages/web`) ❌ fail (`jest: command not found`)
+  - `rushx test` (in `packages/evolution`) ❌ fail (`Could not find package.json for @arken/cerebro-hub .../arken/cerebro/hub/package.json`)
+  - `npm test` (in `packages/evolution`) ✅ pass (35/35)
+- Commits + PR links:
+  - `evolution` `b2ad3aa` (pushed) — updates open direct PR <https://github.com/arkenrealms/evolution/pull/11>
+- Blockers:
+  - `forge-web` source edits remain blocked by missing local Jest runtime (`jest` binary unavailable) and Rush workspace package-map drift.
+  - Rush workspace package-map drift still blocks `rushx test` in package scopes.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T23:43:50-08:00 — evolution-realm slot-8 test-gate revalidation
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+- Path verification:
+  - `packages/evolution/packages/realm` exists in checkout and has active git remote.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/realm` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`sh: jest: command not found`)
+- Commits + PR links:
+  - `evolution-realm` `e780b63` (pushed)
+  - Open direct PR: <https://github.com/arkenrealms/evolution-realm/pull/21>
+- Blockers:
+  - Source changes remain blocked by missing local Jest runtime in this package (`jest` not found), so this slot stayed docs/analysis-only to satisfy source-change gate.
+- Next rotation target:
+  - `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).
