@@ -3335,3 +3335,51 @@ Continue strict rotation from the current pointer after latest completed slot.
   - No open PR currently exists for updated `evolution` branch head; direct PR creation still required for review intake.
 - Next rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9), `protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T19:23:50-0800: — evolution-realm test-gate validation + docs continuity
+- Target attempted:
+  -  (slot 8)
+- Path verification:
+  -  exists in checkout and is mapped in .
+- Branch hygiene:
+  - Ran  +  in  before edits ().
+  - Created dedicated working branch: .
+- Conflict notes:
+  - No conflicts found between , explicit instructions, and markdown guidance.
+- Files changed:
+  - 
+  -  (new)
+- Test command + result:
+  - [1mRush Multi-Project Build Tool 5.168.0[33m (unmanaged)[39m[22m - Node.js 22.19.0 (LTS) (in ) ❌ fail ( in workspace)
+  -  (in ) ❌ fail ()
+- Commits + PR links:
+  -   (pushed) — branch: <https://github.com/arkenrealms/evolution-realm/tree/sable/evolution-realm-test-harness-blocker-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution-realm/pull/new/sable/evolution-realm-test-harness-blocker-20260218>
+- Blockers:
+  - Source changes blocked by test gate until local Jest/runtime path is restored for this repo.
+- Next rotation target:
+  -  (slot 9), then  (slot 10).
+
+## Run ledger append — 2026-02-18T19:23:59-0800: — evolution-realm test-gate validation + docs continuity
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+- Path verification:
+  - `packages/evolution/packages/realm` exists in checkout and is mapped in `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/realm` before edits (`Already up to date`).
+  - Created dedicated working branch: `sable/evolution-realm-test-harness-blocker-20260218`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md` (new)
+- Test command + result:
+  - `rushx test` (in `packages/evolution/packages/realm`) ❌ fail (`Could not find package.json for @arken/cerebro` in workspace)
+  - `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`sh: jest: command not found`)
+- Commits + PR links:
+  - `evolution-realm` `d06cba8` (pushed) — branch: <https://github.com/arkenrealms/evolution-realm/tree/sable/evolution-realm-test-harness-blocker-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution-realm/pull/new/sable/evolution-realm-test-harness-blocker-20260218>
+- Blockers:
+  - Source changes blocked by test gate until local Jest/runtime path is restored for this repo.
+- Next rotation target:
+  - `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).

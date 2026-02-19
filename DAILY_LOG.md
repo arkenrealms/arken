@@ -4459,3 +4459,24 @@
   - `evolution` `5c5d7d5` (branch `sable/evolution-duplicate-config-guard-20260218`)
 - [ ] Open/create direct `evolution` PR for this branch (head check currently returns `[]`).
 - [ ] Continue strict rotation to `packages/evolution/packages/realm` next.
+
+### Run append (2026-02-18T19:24:07-0800:) — evolution-realm test-gate validation + docs continuity
+- [x] Rotation target attempted: `packages/evolution/packages/realm` (slot 8).
+- [x] Path verification: target exists and is mapped in `packages/evolution/.gitmodules`.
+- [x] Branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (`Already up to date`)
+  - created branch `sable/evolution-realm-test-harness-blocker-20260218`
+- [x] Loaded local markdown first (`README.md`), then analyzed source files.
+- [x] Updated touched-folder docs:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md` (new)
+- [x] Test-gate execution (required before source edits):
+  - `rushx test` ❌ fail (`Could not find package.json for @arken/cerebro`)
+  - `npm test -- --runInBand` ❌ fail (`sh: jest: command not found`)
+- [x] Source edits skipped due to mandatory source-change test gate.
+- [x] Commit/push:
+  - `evolution-realm` `d06cba8` (branch `sable/evolution-realm-test-harness-blocker-20260218`)
+- [ ] Open dedicated direct-repo PR:
+  - <https://github.com/arkenrealms/evolution-realm/pull/new/sable/evolution-realm-test-harness-blocker-20260218>
+- [ ] Next strict rotation target: `packages/evolution/packages/shard` (slot 9).
