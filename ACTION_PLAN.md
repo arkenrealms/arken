@@ -4118,3 +4118,74 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `cli`: <https://github.com/arkenrealms/cli/compare/main...sable/cli-test-gate-audit-20260218?expand=1>
 - Next rotation target remains unchanged:
   - `arken/packages/node` (slot 1).
+
+## Run ledger append — 2026-02-19T00:24:05-08:00 — node getFilter non-plain object equality hardening
+- Target attempted:
+  - `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/node` exists in checkout (`find`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/api.ts`
+  - `packages/node/test/api.spec.ts`
+  - `packages/node/ANALYSIS.md`
+  - `packages/node/test/README.md`
+- Test command + result:
+  - `rushx test -- test/api.spec.ts --runInBand` (in `packages/node`) ❌ fail (Rush warning: project not registered in rush workspace for current checkout invocation; jest run failed one assertion before test update)
+  - `npm test -- test/api.spec.ts --runInBand` (in `packages/node`) ✅ pass (6/6)
+- Commits + PR links:
+  - `node` `7d72f8b` (pushed) — updates open direct PR <https://github.com/arkenrealms/node/pull/16>
+- Blockers:
+  - Rush workspace invocation remains inconsistent for this package in current checkout context (`rushx` warning about unregistered project), so repo-defined npm test script was used for gate compliance.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T00:33:54-08:00 — seer-node accessor-safe helper method resolution
+- Target attempted:
+  - `arken/packages/seer/packages/node` (slot 2)
+- Path verification:
+  - `packages/seer/packages/node` exists in checkout (`find`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (30/30)
+- Commits + PR links:
+  - `seer-node` `4f2bffc` (pushed) — updates <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T00:42:17-08:00 — seer-protocol oasis getScene payload-shape guard
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - `packages/seer/packages/protocol` exists in checkout (`find`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/oasis/oasis.router.ts`
+  - `packages/seer/packages/protocol/test/oasis.router.test.ts`
+  - `packages/seer/packages/protocol/oasis/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/protocol`) ✅ pass (5/5)
+- Commits + PR links:
+  - `seer-protocol` `b6b4ae2` (pushed) — updates open direct PR <https://github.com/arkenrealms/seer-protocol/pull/2>
+  - Open-PR head verification: `GET /repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218` → PR #2.
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4), then continue strict direct-repo order.

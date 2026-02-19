@@ -4964,3 +4964,49 @@
 
 ### In progress (rotation)
 - [x] Next direct target queued: `packages/node` (slot 1), then continue strict order.
+
+## 2026-02-19T00:24:05-08:00 — Node getFilter non-plain object equality hardening
+- Target: `arken/packages/node` (rotation slot 1).
+- Completed:
+  - Added non-plain object equality preservation in `getFilter` (`Date`/`ObjectId` now kept as direct equality filters instead of being dropped as unsupported operator objects).
+  - Added regression coverage in `packages/node/test/api.spec.ts` for `Date` and `Mongoose.Types.ObjectId` field conditions.
+  - Updated concise docs in touched folders (`packages/node/ANALYSIS.md`, `packages/node/test/README.md`).
+- Tests:
+  - `rushx test -- test/api.spec.ts --runInBand` ❌ (workspace warning/project-registration mismatch in current checkout; early red run during test update cycle)
+  - `npm test -- test/api.spec.ts --runInBand` ✅ pass (6/6)
+- Commit/PR:
+  - `packages/node` commit `7d72f8b` pushed to branch `sable/node-invalid-request-guard-20260218`.
+  - Direct PR updated: <https://github.com/arkenrealms/node/pull/16>
+- Blockers:
+  - `rushx` execution remains unreliable in this checkout for this package; used repo-defined npm test script to satisfy source-change gate.
+- Next target:
+  - `arken/packages/seer/packages/node` (slot 2).
+
+## 2026-02-19T00:33:54-08:00 — seer-node accessor-safe helper method resolution
+- Target: `arken/packages/seer/packages/node` (slot 2).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Preload/deepest-first: loaded package `.md` docs first (`README.md`, `ANALYSIS.md`, `src/*`, `src/data/*`, `test/*`) before source edits.
+- Source changes (test-gated):
+  - Updated `src/tests.ts` own-property reads to descriptor-based access (`Object.getOwnPropertyDescriptor`) so helper probing no longer executes accessor getters.
+  - Added regression test `saveToken does not execute accessor getters while resolving db.saveToken`.
+- Docs refreshed:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` ✅ pass (30/30)
+- Commit/PR:
+  - `packages/seer/packages/node` commit `4f2bffc` pushed to `sable/seer-node-token-shape-guard-20260218`.
+  - Direct PR updated: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none.
+- Next target:
+  - `arken/packages/seer/packages/protocol` (slot 3).
+
+### 2026-02-19T00:42:17-08:00 — seer-protocol oasis getScene payload guard
+- [x] Rotated to `packages/seer/packages/protocol` (slot 3), verified path + `.gitmodules` mapping, and completed branch hygiene (`git fetch origin` + merge `origin/main`).
+- [x] Hardened `oasis/oasis.router.ts` `getScene` to guard non-object `input.data` before reading `applicationId` to prevent runtime TypeError under permissive `z.any` input.
+- [x] Extended `test/oasis.router.test.ts` to lock the new `getScene` payload-shape guard.
+- [x] Updated concise docs: `oasis/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- [x] Test gate: `rushx test` (in `packages/seer/packages/protocol`) passed (5/5).
+- [x] Pushed commit `b6b4ae2` to `seer-protocol` branch `sable/seer-protocol-update-settings-guard-20260218`; verified open direct PR: <https://github.com/arkenrealms/seer-protocol/pull/2>.
+- [ ] Next target: `packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
