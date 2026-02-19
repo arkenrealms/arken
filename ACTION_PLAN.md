@@ -3652,3 +3652,27 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Remote push permission denied (403), so direct PR could not be updated/created from this environment.
 - Next rotation target:
   - `arken/packages/evolution/packages/protocol` (slot 10), then `arken/packages/cerebro/packages/hub` (slot 11).
+
+## Run ledger append — 2026-02-18T21:13:48-08:00 — evolution-protocol test-gate reconfirmation + docs refresh
+- Target attempted:
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+- Path verification:
+  - `packages/evolution/packages/protocol` exists in checkout and is mapped in `packages/evolution/.gitmodules` (`submodule "packages/protocol"`).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/protocol/README.md`
+  - `packages/evolution/packages/protocol/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `packages/evolution/packages/protocol`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in Rush workspace)
+  - `npm test` (in `packages/evolution/packages/protocol`) ❌ fail (`Missing script: "test"`)
+- Commits + PR links:
+  - `evolution-protocol` `08b4663` (pushed) — branch update: <https://github.com/arkenrealms/evolution-protocol/tree/sable/evolution-protocol-test-gate-audit-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/evolution-protocol/pulls?state=open&head=arkenrealms:sable/evolution-protocol-test-gate-audit-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution-protocol/pull/new/sable/evolution-protocol-test-gate-audit-20260218>
+- Blockers:
+  - Source-change gate still blocks source edits because no runnable package-local test command exists (`npm test` missing script), and workspace `rushx test` is blocked by missing `@arken/cerebro-hub` path.
+- Next rotation target:
+  - `arken/packages/cerebro/packages/hub` (slot 11), then `arken/packages/cli` (slot 12).
