@@ -4907,3 +4907,60 @@
 - PR: <https://github.com/arkenrealms/evolution-realm/pull/21>
 - Blocker: package-local test runtime unavailable; source edits deferred per source-change gate.
 - Next target: `arken/packages/evolution/packages/shard`.
+
+## 2026-02-18T23:52:19-08:00 — evolution-shard slot-9
+- Target: `arken/packages/evolution/packages/shard`.
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Files changed: `packages/evolution/packages/shard/{README.md,ANALYSIS.md}`.
+- Tests:
+  - `npm test -- --runInBand` ❌ `Missing script: "test"`
+  - `rushx test` ❌ Rush workspace package-map drift (`@arken/cerebro-hub` expected at `arken/cerebro/hub/package.json`).
+- Commit: `420ccea` (local only, branch `sable/evolution-shard-test-harness-blocker-20260218`).
+- PR: <https://github.com/arkenrealms/evolution-shard/pull/1>
+- Blocker: push failed with GitHub permission error (`403 Permission to arkenrealms/evolution-shard.git denied to highruned`), so PR could not be updated this run.
+- Next target: `arken/packages/evolution/packages/protocol`.
+
+## 2026-02-19T00:05:05-08:00 — evolution-protocol slot-10 Jest harness + take/limit compatibility
+- Target: `arken/packages/evolution/packages/protocol` (slot 10).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Preload/deepest-first: loaded package markdown (`README.md`, `ANALYSIS.md`) before source review; reviewed `util/schema.ts` and then package-level docs.
+- Source changes (test-gated):
+  - Added package-local `npm test` script and `jest.config.js` (`ts-jest`, node environment).
+  - Added query pagination compatibility in `util/schema.ts`: accept `take` and normalize `take -> limit` only when `limit` is absent.
+  - Added regression tests in `test/schema.test.ts` for alias behavior + explicit `limit` precedence.
+- Docs refreshed:
+  - `packages/evolution/packages/protocol/{README.md,ANALYSIS.md}`
+  - `packages/evolution/packages/protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/evolution/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` ✅ pass (2/2)
+- Git/PR:
+  - Commit `7bb3f16` pushed to `sable/evolution-protocol-test-gate-audit-20260218`.
+  - Opened direct PR: <https://github.com/arkenrealms/evolution-protocol/pull/1>.
+- Blockers:
+  - `rushx test` remains blocked at workspace level by external package-map drift (`@arken/cerebro-hub` path mismatch), but package-local `npm test` now passes for gate compliance.
+- Next target:
+  - `arken/packages/cerebro/packages/hub` (slot 11), then `arken/packages/cli` (slot 12).
+
+### Newly completed (cerebro-hub + cli test-gate follow-up)
+- [x] Rotated through direct slots 11 and 12:
+  - `packages/cerebro/packages/hub`
+  - `packages/cli`
+- [x] Ran branch hygiene in both repos (`git fetch origin` + merge `origin/main`) before edits.
+- [x] Revalidated source-change test gate blockers:
+  - `cerebro-hub`: `npm test -- --runInBand` fails (`jest: command not found`)
+  - `cli`: `npm test -- --runInBand` fails (`vitest: command not found`)
+  - `cli`: `npm run test:jest -- --runInBand` fails (`jest: command not found`)
+- [x] Kept both slots docs-only to stay compliant with no-source-edits-without-tests policy.
+- [x] Updated concise touched-folder analysis docs:
+  - `packages/cerebro/packages/hub/ANALYSIS.md`
+  - `packages/cli/ANALYSIS.md`
+- [x] Committed/pushed updates:
+  - `cerebro-hub` `3c31d4c` (`sable/cerebro-hub-test-gate-audit-20260218`)
+  - `cli` `3cd6e62` (`sable/cli-test-gate-audit-20260218`)
+- [x] Recorded branch compare links for PR update/creation:
+  - <https://github.com/arkenrealms/cerebro-hub/compare/main...sable/cerebro-hub-test-gate-audit-20260218?expand=1>
+  - <https://github.com/arkenrealms/cli/compare/main...sable/cli-test-gate-audit-20260218?expand=1>
+
+### In progress (rotation)
+- [x] Next direct target queued: `packages/node` (slot 1), then continue strict order.

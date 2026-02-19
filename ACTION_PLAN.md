@@ -4029,3 +4029,92 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Source changes remain blocked by missing local Jest runtime in this package (`jest` not found), so this slot stayed docs/analysis-only to satisfy source-change gate.
 - Next rotation target:
   - `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T23:52:19-08:00 — evolution-shard slot-9 test-gate revalidation (docs-only)
+- Target attempted:
+  - `arken/packages/evolution/packages/shard` (slot 9)
+- Path verification:
+  - `packages/evolution/packages/shard` exists in checkout (`find`) and has active git remote.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/shard` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/shard/README.md`
+  - `packages/evolution/packages/shard/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/evolution/packages/shard`) ❌ fail (`Missing script: "test"`)
+  - `rushx test` (in `packages/evolution/packages/shard`) ❌ fail (`Could not find package.json for @arken/cerebro-hub at .../arken/cerebro/hub/package.json`)
+- Commits + PR links:
+  - `evolution-shard` `420ccea` (local commit created on `sable/evolution-shard-test-harness-blocker-20260218`)
+  - Existing open direct PR target branch: <https://github.com/arkenrealms/evolution-shard/pull/1>
+- Blockers:
+  - Source changes remain blocked by unavailable repo-defined package test execution (`npm test` script missing) plus Rush workspace package-map drift.
+  - Push blocked by repo permission error: `403 Permission to arkenrealms/evolution-shard.git denied to highruned`.
+- Next rotation target:
+  - `arken/packages/evolution/packages/protocol` (slot 10), then `arken/packages/cerebro/packages/hub` (slot 11).
+
+## Run ledger append — 2026-02-19T00:05:05-08:00 — evolution-protocol slot-10 Jest gate enablement + pagination alias fix
+- Target attempted:
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+- Path verification:
+  - `packages/evolution/packages/protocol` exists in checkout (`find`) and has active git remote.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/protocol/util/schema.ts`
+  - `packages/evolution/packages/protocol/test/schema.test.ts` (new)
+  - `packages/evolution/packages/protocol/jest.config.js` (new)
+  - `packages/evolution/packages/protocol/package.json`
+  - `packages/evolution/packages/protocol/package-lock.json` (new)
+  - `packages/evolution/packages/protocol/{README.md,ANALYSIS.md}`
+  - `packages/evolution/packages/protocol/util/{README.md,ANALYSIS.md}` (new)
+  - `packages/evolution/packages/protocol/test/{README.md,ANALYSIS.md}` (new)
+- Test command + result:
+  - `npm test` (in `packages/evolution/packages/protocol`) ✅ pass (2/2)
+- Commits + PR links:
+  - `evolution-protocol` `7bb3f16` (pushed) — open direct PR <https://github.com/arkenrealms/evolution-protocol/pull/1>
+  - Open-PR head verification: `POST /repos/arkenrealms/evolution-protocol/pulls` created PR #1 on branch `sable/evolution-protocol-test-gate-audit-20260218`.
+- Blockers:
+  - `rushx test` remains susceptible to workspace package-map drift outside this package in current checkout.
+- Next rotation target:
+  - `arken/packages/cerebro/packages/hub` (slot 11), then `arken/packages/cli` (slot 12).
+
+## Run ledger append — 2026-02-19T00:18:12-08:00 — cerebro-hub + cli test-gate follow-up (docs-only)
+- Target attempted:
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+- Path verification:
+  - `packages/cerebro/packages/hub` exists in checkout (`find`) and has active git remote.
+  - `packages/cli` exists in checkout (`find`) and has active git remote.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in both target repos before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/cerebro/packages/hub/ANALYSIS.md`
+  - `packages/cli/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/cerebro/packages/hub`) ❌ fail (`sh: jest: command not found`)
+  - `npm test -- --runInBand` (in `packages/cli`) ❌ fail (`sh: vitest: command not found`)
+  - `npm run test:jest -- --runInBand` (in `packages/cli`) ❌ fail (`sh: jest: command not found`)
+- Commits + PR links:
+  - `cerebro-hub` `3c31d4c` (pushed) — branch: `sable/cerebro-hub-test-gate-audit-20260218` — PR: <https://github.com/arkenrealms/cerebro-hub/pull/1>
+  - `cli` `3cd6e62` (pushed) — branch: `sable/cli-test-gate-audit-20260218` — PR: <https://github.com/arkenrealms/cli/pull/1>
+- Blockers:
+  - Local package test runtime is unavailable in both repos (`jest`/`vitest` binaries missing in this checkout).
+  - Rush workspace package-map drift remains a broader blocker for `rushx test` paths in this checkout state.
+- Next rotation target:
+  - `arken/packages/node` (slot 1), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T00:19:37-08:00 — PR link correction for prior block
+- Correction:
+  - Prior block referenced static PR numbers for `cerebro-hub`/`cli` without head-branch verification.
+  - Verified `https://github.com/arkenrealms/cerebro-hub/pull/1` returns 404 in current visibility.
+- Branch compare/open links for this run:
+  - `cerebro-hub`: <https://github.com/arkenrealms/cerebro-hub/compare/main...sable/cerebro-hub-test-gate-audit-20260218?expand=1>
+  - `cli`: <https://github.com/arkenrealms/cli/compare/main...sable/cli-test-gate-audit-20260218?expand=1>
+- Next rotation target remains unchanged:
+  - `arken/packages/node` (slot 1).
