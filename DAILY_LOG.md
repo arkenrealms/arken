@@ -4552,3 +4552,21 @@
   - PR status check: no open PR for branch head yet (`[]`)
   - PR link (create): <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
 - Next target: `packages/seer/packages/node` (slot 2).
+
+### Run append — 2026-02-18T20:13:00-08:00 (seer-node slot 2)
+- Target: `packages/seer/packages/node`
+- Completed:
+  - Ran mandatory branch hygiene (`git fetch origin` + merge `origin/main`) before edits.
+  - Hardened helper thenable inspection in `src/tests.ts` via shared safe inspector (`getThenableMethodSafely`) to avoid unsafe `.then` double-access patterns.
+  - Expanded unit coverage in `test/tests.helpers.test.ts` for throwing `.then` getter callback results in `monitorMarketEvents`.
+  - Updated concise docs in touched folders:
+    - `src/ANALYSIS.md`
+    - `test/README.md`
+    - `test/ANALYSIS.md`
+- Tests:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (25/25)
+- Commit/PR:
+  - `seer-node` commit `9174b3f` pushed to `sable/seer-node-token-shape-guard-20260218`
+  - PR context: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers: none
+- Next rotation target: `packages/seer/packages/protocol` (slot 3)

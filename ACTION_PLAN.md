@@ -3489,3 +3489,27 @@ Continue strict rotation from the current pointer after latest completed slot.
   - No open PR currently exists for this pushed branch head; direct PR creation is still required for review intake.
 - Next rotation target:
   - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T20:13:00-08:00 — seer-node safe thenable inspection hardening
+- Target attempted:
+  - `arken/packages/seer/packages/node` (slot 2)
+- Path verification:
+  - `packages/seer/packages/node` exists in checkout and is mapped in `packages/seer/.gitmodules` (`submodule "packages/node"`).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (25/25)
+- Commits + PR links:
+  - `seer-node` `9174b3f` (pushed) — updates branch: <https://github.com/arkenrealms/seer-node/tree/sable/seer-node-token-shape-guard-20260218>
+  - Existing direct PR: <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `sigil-protocol` availability check.
