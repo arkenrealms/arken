@@ -3919,3 +3919,257 @@
   - PR: <https://github.com/arkenrealms/evolution/pull/10>
 - Next target in strict rotation:
   - `packages/evolution/packages/realm` (availability/init check), then `shard`, `protocol`, `cerebro-hub`, `cli`, and onward.
+
+### Run append — 2026-02-18T15:06:42-08:00
+- Rotation checks:
+  - `packages/evolution/packages/{realm,shard,protocol}`: present but uninitialized/empty.
+  - `packages/cerebro/packages/hub`: unavailable-in-checkout.
+  - `packages/cli`: now present in checkout; attempted harness validation.
+- CLI blocker validation:
+  - `npm test` (in `packages/cli`) ❌ `sh: vitest: command not found`
+  - `npm run test:jest` (in `packages/cli`) ❌ `sh: jest: command not found`
+- Completed (node):
+  - Hardened JSON-RPC response/request id matching to require strict type + value parity (no coercion matches such as `77` vs `'77'`).
+  - Added regression test for cross-type id mismatch rejection.
+  - Updated concise docs in touched folders:
+    - `packages/node/web3/{README.md,ANALYSIS.md}`
+    - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command/result:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (32/32)
+- Commits/PRs:
+  - `packages/node` commit `e97bdd7` pushed to branch `sable/maintenance-trpc-ws-cycle` (updates <https://github.com/arkenrealms/node/pull/15>).
+- Next target:
+  - `packages/seer/packages/node`.
+
+### Run append — 2026-02-18T15:05:57-08:00 (correction)
+- Correction: prior appended heading timestamp (`2026-02-18T15:06:42-08:00`) was ahead of wall-clock; this entry records the accurate append window for the same run.
+
+## 2026-02-18T15:13:29-08:00 — seer-node nullish throw context hardening
+- Target: `packages/seer/packages/node`
+- Summary:
+  - Hardened helper error wrapping in `src/tests.ts` to surface explicit suffixes for `throw undefined` and `throw null`.
+  - Added regression tests validating both nullish throw payloads are preserved in deterministic helper-context error messages.
+  - Updated `src/test` README+ANALYSIS notes for the new coverage.
+- Tests:
+  - `npm test` ✅ (43/43)
+- Commit/PR:
+  - `d8df81b` → <https://github.com/arkenrealms/seer-node/pull/3>
+- Blockers: none.
+- Next target: `packages/seer/packages/protocol`.
+
+## 2026-02-18T15:13:29-08:00 — seer-node monitor delay bound enforcement
+- Target: `packages/seer/packages/node`
+- Summary:
+  - Tightened `monitorMarketEvents` delay validation to finite non-negative integers only and enforced Node timer max bound (`<= 2147483647`).
+  - Added regression coverage for fractional and overflow delay inputs.
+  - Updated `src/test` docs for new guard coverage.
+  - Verified prior PR #3 is closed; moved work onto fresh branch from `origin/main`.
+- Tests:
+  - `npm test` ✅ (19/19)
+- Commit/PR:
+  - `b499fb6`
+  - Open PR: <https://github.com/arkenrealms/seer-node/pull/new/sable/seer-node-nullish-throw-context-20260218>
+- Blockers:
+  - Need fresh PR creation because prior `seer-node` PR #3 is closed.
+- Next target: `packages/seer/packages/protocol`.
+
+### Newly completed (seer-protocol updateSettings guard + Jest harness)
+- [x] Rotated to `packages/seer/packages/protocol` and loaded in-scope `.md` docs before source edits.
+- [x] Per branch-hygiene + PR guardrails, fetched/merged `origin/main` and verified direct PR state; prior `seer-protocol` PR #1 is closed.
+- [x] Created fresh direct-repo branch from `origin/main`: `sable/seer-protocol-update-settings-guard-20260218`.
+- [x] Hardened `evolution/evolution.router.ts` `updateSettings` path:
+  - switched to `.mutation(...)` semantics,
+  - added own-property descriptor handler resolution,
+  - added deterministic missing-handler `TRPCError(INTERNAL_SERVER_ERROR)`,
+  - preserved method context with `method.call(evolutionService, input, ctx)`.
+- [x] Added package-local Jest gate in `package.json` (`npm test` -> `jest --runInBand`).
+- [x] Added regression test `test/evolution.router.test.ts` and refreshed concise docs:
+  - `README.md`, `ANALYSIS.md`
+  - `evolution/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Test gate pass: `npm test` (in `packages/seer/packages/protocol`) ✅ (1/1).
+- [x] Committed/pushed seer-protocol update: `34a8312`.
+- [x] New PR branch link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+
+### In progress (rotation)
+- [ ] Continue to `sigil-protocol` availability check (slot 4), then `forge-web` (slot 5) with source-change gate enforcement.
+
+## 2026-02-18T15:35:58-08:00 — sigil-protocol query take/limit guard + Jest test gate
+- Target: `packages/sigil-protocol`
+- Summary:
+  - Rotated to direct slot 4 and loaded target markdown docs before source edits.
+  - Applied branch hygiene (`git fetch origin` + merge `origin/main`) and cut fresh branch `sable/sigil-protocol-query-take-guard-20260218`.
+  - Hardened `util/schema.ts` `getQueryInput` envelope to preserve Prisma-style `take` while retaining legacy `limit` compatibility.
+  - Added repo-defined Jest test gate in `package.json` and build inclusion for `test/**/*` in `tsconfig.build.json`.
+  - Added regression coverage in `test/queryInput.test.ts` and concise docs in `util/` and `test/`.
+- Tests:
+  - `npm test` ✅ (2/2)
+- Commit/PR:
+  - `fbd3a6c`
+  - PR: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - `packages/cerebro/packages/hub` remains unavailable in this checkout.
+- Next target: `packages/forge/packages/web`.
+
+## 2026-02-18T15:34:49-08:00 — correction note
+- Correction: previous daily-log timestamp (`2026-02-18T15:35:58-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same sigil-protocol maintenance chunk.
+
+## 2026-02-18T15:57:42-08:00 — forge slots blocked, evolved validator config duplicate-path guards
+- Target sequence:
+  - Attempted `packages/forge/packages/web` (slot 5) and `packages/forge/packages/protocol` (slot 6).
+  - Continued to `packages/evolution` (slot 7) for substantive test-backed changes.
+- What happened:
+  - `forge-web`: markdown preloaded, branch hygiene done, but repo-defined test command failed (`jest` binary unavailable) so source-change gate blocked code edits.
+  - `forge-protocol`: markdown preloaded + branch hygiene done; attempted to bootstrap test command but runtime missing `tsc`; reverted exploratory edits and left repo clean.
+  - `evolution`: added validator hardening to reject duplicate normalized `requiredPaths`/`ignoredGitlinks` config entries (instead of silently de-duplicating).
+  - Added regression test for duplicate-config detection and updated concise scripts/test docs.
+- Tests:
+  - `npm test` (forge-web) ❌ `sh: jest: command not found`
+  - `npm test` (forge-protocol) ❌ `sh: tsc: command not found`
+  - `npm test` (evolution) ✅ pass (29/29)
+- Commit / PR:
+  - `packages/evolution`: `34128a3`
+  - PR: <https://github.com/arkenrealms/evolution/pull/new/sable/evolution-duplicate-config-guard-20260218>
+- Notes:
+  - Verified `evolution` PR #10 is closed; opened a fresh branch/PR per MEMORY guardrail.
+- Blockers:
+  - forge-web/forge-protocol test-runtime dependencies missing in this checkout runtime.
+- Next target:
+  - `packages/evolution/packages/realm`.
+
+## 2026-02-18T16:17:12-08:00 — Rotation: slots 8-12 checks, node cache fallback fix
+- Verified rotation slots 8-11 status:
+  - `evolution/packages/{realm,shard,protocol}` present but empty/uninitialized.
+  - `cerebro/packages/hub` missing.
+- Checked slot 12 (`packages/cli`) for source-change gate readiness:
+  - `npm test` failed (`vitest` missing), `npm run test:jest` failed (`jest` missing), `npm install` failed (`workspace:*` unsupported in standalone npm install).
+  - Left CLI source untouched.
+- Continued to next actionable repo (`packages/node`) and landed reliability fix:
+  - `web3/httpProvider.ts`: ignore malformed cache hits and refetch from network instead of hard-failing.
+  - `test/httpProvider.spec.ts`: added regression test for malformed cache-hit fallback behavior.
+  - Updated concise docs: `web3/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` ✅ (7/7 passing).
+- Git/PR:
+  - Node prior PR #15 is closed; created fresh branch `sable/node-cache-fallback-guard-20260218`.
+  - Pushed commit `9b14f29`.
+  - PR link: <https://github.com/arkenrealms/node/pull/new/sable/node-cache-fallback-guard-20260218>
+- Next target in strict rotation: `packages/seer/packages/node`.
+
+## 2026-02-18T16:05:33-08:00 — correction note
+- Correction: prior DAILY_LOG block timestamp (`2026-02-18T16:17:12-08:00`) was ahead of wall-clock time; this line records the accurate append window.
+
+## 2026-02-18T16:13:00-08:00 — seer-node saveToken token-shape guard
+- Completed slot 2 (`packages/seer/packages/node`) with branch hygiene + fresh branch because prior PR #3 is closed.
+- Hardened `saveToken` helper to require non-array object token payloads from `db.loadToken` before persistence fallback paths.
+- Added regression tests for primitive/array token rejection and kept test docs/analysis current.
+- Validation:
+  - `npm test` ✅ (21 passing)
+- Commit:
+  - `d94cdc7` on `sable/seer-node-token-shape-guard-20260218`
+- PR:
+  - <https://github.com/arkenrealms/seer-node/pull/new/sable/seer-node-token-shape-guard-20260218>
+- Next:
+  - Continue rotation at slot 3 (`packages/seer/packages/protocol`).
+
+## 2026-02-18T16:23:16-08:00 — seer-protocol TRPCError import guard for updateSettings
+- Target:
+  - `packages/seer/packages/protocol` (slot 3).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` before edits (`Already up to date`).
+- Changes:
+  - Fixed missing `TRPCError` import in `evolution/evolution.router.ts` for guarded `updateSettings` internal-error path.
+  - Expanded `test/evolution.router.test.ts` to assert explicit `TRPCError` import presence.
+  - Updated concise docs: `evolution/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `npm test` ✅ (1 passing suite/test).
+- Commit/PR:
+  - `6a63b91` on `sable/seer-protocol-update-settings-guard-20260218`
+  - PR link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blockers:
+  - none.
+- Next:
+  - Continue strict rotation at slot 4 (`packages/sigil-protocol`), then slot 5 (`packages/forge/packages/web`).
+
+## 2026-02-18T16:33:48-08:00 — Sigil protocol maintenance
+- Rotation slot: 4 (`packages/sigil-protocol`)
+- Completed:
+  - Hardened query parsing so legacy `limit` auto-populates `take` when `take` is omitted.
+  - Expanded Prisma logical filter support to allow single-object `AND`/`OR`/`NOT` forms (not only arrays).
+  - Added/updated Jest tests and concise util/test README+ANALYSIS notes.
+- Validation:
+  - `npm test` ✅ (3/3)
+- Commit:
+  - `da123f1` on `sable/sigil-protocol-query-take-guard-20260218` (pushed)
+- PR status:
+  - No open PR found for this branch head via GitHub API (`[]`); open via:
+    - <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blocker:
+  - `gh` CLI unavailable in runtime, so direct PR creation was not possible in-run.
+- Next target:
+  - `packages/forge/packages/web` (slot 5)
+
+## 2026-02-18T16:45:01-08:00 — forge blockers + evolution URL-like submodule path guard
+- Rotation slots:
+  - 5: `packages/forge/packages/web`
+  - 6: `packages/forge/packages/protocol`
+  - 7: `packages/evolution` (non-client scope)
+- Branch hygiene:
+  - `forge-web`: fetched + merged `origin/main`, then created fresh branch `sable/forge-web-contenthash-guard-20260218` from `origin/main`.
+  - `forge-protocol`: fetched + merged `origin/main` (`Already up to date`).
+  - `evolution`: fetched + merged `origin/main` (`Already up to date`) on branch `sable/evolution-duplicate-config-guard-20260218`.
+- Changes (evolution):
+  - Hardened `scripts/validateSubmoduleMap.mjs` to reject URL-like `path` schemes (e.g. `https://...`, `ssh://...`) as invalid mappings.
+  - Added regression coverage in `test/validateSubmoduleMap.test.mjs` for URL-like mapping rejection.
+  - Updated concise docs: `scripts/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `npm test -- --runTestsByPath src/components/interface/utils.test.ts` (forge-web) ❌ `sh: jest: command not found`
+  - `npm install` (forge-web) ❌ `EUNSUPPORTEDPROTOCOL workspace:*`
+  - `npm test` (forge-protocol) ❌ `Missing script: test`
+  - `npm test` (evolution) ✅ (29/29)
+- Commit/PR:
+  - Evolution commit `536a005` pushed to `sable/evolution-duplicate-config-guard-20260218`.
+  - Branch: <https://github.com/arkenrealms/evolution/tree/sable/evolution-duplicate-config-guard-20260218>
+  - Open-PR check for branch head returned `[]`; open PR via:
+    - <https://github.com/arkenrealms/evolution/pull/new/sable/evolution-duplicate-config-guard-20260218>
+- Blockers:
+  - Forge-web remains blocked under source-change gate until Jest/runtime deps can run in this environment.
+  - Forge-protocol currently lacks a runnable test script in-repo, so source changes remain blocked.
+  - GitHub CLI unavailable (`gh: command not found`) for direct PR creation.
+- Next strict-rotation target:
+  - slot 8: `packages/evolution/packages/realm`.
+
+## 2026-02-18T16:53:50-08:00 — rotation slots 8-12 check + node timeout-abort hardening
+- Target attempted:
+  - `packages/evolution/packages/realm`, `packages/evolution/packages/shard`, `packages/evolution/packages/protocol`, `packages/cerebro/packages/hub`, `packages/cli`, then actionable `packages/node`.
+- Path/availability:
+  - `evolution/{realm,shard,protocol}` dirs exist but uninitialized/empty.
+  - `cerebro/packages/hub` unavailable-in-checkout.
+  - `packages/cli` present.
+- Branch hygiene:
+  - `packages/node`: `git fetch origin && git merge --no-edit origin/main` (Already up to date).
+- Source changes:
+  - Added AbortController-backed timeout cancellation in `packages/node/web3/httpProvider.ts` to abort in-flight fetch requests when timeout expires.
+  - Added regression test in `packages/node/test/httpProvider.spec.ts` to assert timeout path emits abort signal.
+  - Updated concise docs: `packages/node/web3/{README.md,ANALYSIS.md}`, `packages/node/test/{README.md,ANALYSIS.md}`.
+- Tests:
+  - `npm test -- test/httpProvider.spec.ts --runInBand` (in `packages/node`) ✅ pass (8/8).
+- Commit/push/PR:
+  - Commit: `d881fce` (pushed) on `sable/node-cache-fallback-guard-20260218`.
+  - Open PR check for branch head returned `[]` (no open PR): <https://api.github.com/repos/arkenrealms/node/pulls?state=open&head=arkenrealms:sable/node-cache-fallback-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/node/pull/new/sable/node-cache-fallback-guard-20260218>
+- Blockers:
+  - `cerebro-hub` missing in checkout.
+  - `evolution` nested direct repos still uninitialized/empty.
+- Next rotation target:
+  - `packages/seer/packages/node`.
+
+### Run append — 2026-02-18T17:03:27-08:00 (seer-node monitor delay timer-range hardening)
+- [x] Rotated to `packages/seer/packages/node` (slot 2) and verified path + submodule mapping.
+- [x] Ran branch hygiene in direct repo before edits: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- [x] Added reliability guard in `src/tests.ts` to reject `monitorMarketEvents` delays above Node timer max (`2_147_483_647`) to avoid overflow-driven scheduling behavior.
+- [x] Added/updated unit coverage in `test/tests.helpers.test.ts` for out-of-range delay rejection and updated `src/test` README/ANALYSIS notes.
+- [x] Ran `npm test` in `packages/seer/packages/node` (pass: 22/22).
+- [x] Committed/pushed `seer-node` update: `5e9dbb4` on `sable/seer-node-token-shape-guard-20260218`.
+- [ ] Open/update direct PR for this branch (open-head API check currently `[]`); use: <https://github.com/arkenrealms/seer-node/pull/new/sable/seer-node-token-shape-guard-20260218>.
+- [ ] Continue strict rotation to `packages/seer/packages/protocol` next.
