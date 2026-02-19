@@ -3626,3 +3626,29 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Realm source edits remain blocked by missing local Jest runtime and Rush workspace package-map drift.
 - Next rotation target:
   - `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T21:04:55-08:00 — evolution-shard test-gate blocker reconfirmation + docs continuity
+- Target attempted:
+  - `arken/packages/evolution/packages/shard` (slot 9)
+- Path verification:
+  - `packages/evolution/packages/shard` exists and is mapped in `packages/evolution/.gitmodules` (`submodule "packages/shard"`).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/shard` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/shard/README.md`
+  - `packages/evolution/packages/shard/ANALYSIS.md`
+- Test command + result:
+  - `npm test` (in `packages/evolution/packages/shard`) ❌ fail (`Missing script: "test"`)
+  - `rushx test` (in `packages/evolution/packages/shard`) ❌ fail (`Could not find package.json for @arken/cerebro-hub`)
+- Commits + PR links:
+  - `evolution-shard` `22f2b11` (local commit created)
+  - Push blocked: `git push --set-upstream origin sable/evolution-shard-test-harness-blocker-20260218` ❌ 403 (`Permission denied to highruned`)
+  - Existing branch URL (if/when pushed): <https://github.com/arkenrealms/evolution-shard/tree/sable/evolution-shard-test-harness-blocker-20260218>
+  - PR creation link (if/when pushed): <https://github.com/arkenrealms/evolution-shard/pull/new/sable/evolution-shard-test-harness-blocker-20260218>
+- Blockers:
+  - Local runtime lacks a runnable shard test command (`npm test` script absent) and workspace-level `rushx test` is blocked by missing `@arken/cerebro-hub` package map.
+  - Remote push permission denied (403), so direct PR could not be updated/created from this environment.
+- Next rotation target:
+  - `arken/packages/evolution/packages/protocol` (slot 10), then `arken/packages/cerebro/packages/hub` (slot 11).
