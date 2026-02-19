@@ -5045,3 +5045,59 @@
   - Missing local Jest runtime in `forge-web` blocks source edits under mandatory test gate.
 - Next target:
   - `packages/forge/packages/protocol` (slot 6).
+
+### 2026-02-19T01:15:38-08:00 — forge-protocol slot-6 maintenance
+- [x] Rotated to `packages/forge/packages/protocol` and loaded all local `.md` docs before code analysis.
+- [x] Completed branch hygiene in direct repo (`git fetch origin` + `git merge --no-edit origin/main`; up to date).
+- [x] Revalidated source-change test gate:
+  - `npm test` ❌ (`Missing script: "test"`)
+  - `rushx test` ❌ (`test` command undefined for package)
+- [x] Kept slot safe/docs-only due blocked test gate; updated:
+  - `packages/forge/packages/protocol/README.md`
+  - `packages/forge/packages/protocol/ANALYSIS.md`
+- [x] Committed+pushed forge-protocol docs update: `b4fa137` on `sable/forge-protocol-sync-input-guard-20260218`.
+- [ ] Open dedicated forge-protocol PR from compare link (runtime blocker: no `gh` CLI):
+  - <https://github.com/arkenrealms/forge-protocol/compare/main...sable/forge-protocol-sync-input-guard-20260218?expand=1>
+- [ ] Next rotation target: `packages/evolution` (non-client scope only).
+
+### 2026-02-19T01:14:08-08:00 — correction note
+- Correction: previous forge-protocol slot timestamp (`2026-02-19T01:15:38-08:00`) was appended with a clock typo; this is the accurate append window for that same run.
+
+## 2026-02-19T01:31:42-08:00 — evolution unsafe-gitlink input guard
+- Target: `packages/evolution` (slot 7).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Implemented source hardening in `scripts/validateSubmoduleMap.mjs`:
+  - added explicit `unsafeGitlinks` detection for traversal/absolute/scheme gitlink inputs,
+  - excludes unsafe gitlinks from the normalized comparison set,
+  - fails validation when unsafe gitlinks are present,
+  - emits dedicated CLI error line for unsafe gitlink values.
+- Added/updated coverage in `test/validateSubmoduleMap.test.mjs`:
+  - new failing fixture for unsafe gitlink inputs,
+  - new live-repo assertion that no unsafe gitlinks are present.
+- Updated concise docs:
+  - `scripts/{README.md,ANALYSIS.md}`
+  - `test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` (in `packages/evolution`) ✅ pass (37/37).
+- Commit:
+  - `cc9d89b` pushed to `sable/evolution-duplicate-config-guard-20260218`.
+- PR:
+  - open direct PR confirmed: <https://github.com/arkenrealms/evolution/pull/11>.
+- Blockers:
+  - pre-existing nested submodule working-tree drift (`packages/protocol`, `packages/realm`, `packages/shard`) and untracked `packages/client/` remain local and were intentionally not included.
+- Next target:
+  - `packages/evolution/packages/realm` (slot 8).
+
+### Newly completed (2026-02-19T01:32:23-08:00 — evolution-realm slot-8 rerun)
+- [x] Rotated to `packages/evolution/packages/realm` (slot 8) and loaded local markdown first (`README.md`, `ANALYSIS.md`).
+- [x] Ran mandatory branch hygiene in direct repo branch: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- [x] Revalidated source-change test gate:
+  - `npm test -- --runInBand` ❌ `sh: jest: command not found`
+- [x] Kept source unchanged per gate and appended docs-only continuity notes in:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+- [x] Committed/pushed direct-repo update:
+  - `evolution-realm` `aba91ca` (branch `sable/evolution-realm-test-harness-blocker-20260218`, updates <https://github.com/arkenrealms/evolution-realm/pull/21>)
+
+### In progress (rotation)
+- [x] Continue to `evolution-shard` next (slot 9), then `evolution-protocol` (slot 10).

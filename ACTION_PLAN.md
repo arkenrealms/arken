@@ -4237,3 +4237,79 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Local Jest runtime remains unavailable in this checkout for `forge-web` (`jest` binary not found), blocking safe source edits under the mandatory source-change gate.
 - Next rotation target:
   - `arken/packages/forge/packages/protocol` (slot 6), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T01:15:38-08:00 — forge-protocol slot-6 test-command gap audit
+- Target attempted:
+  - `arken/packages/forge/packages/protocol` (slot 6)
+- Path verification:
+  - `packages/forge/packages/protocol` exists in checkout (`find`) and is mapped in `packages/forge/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/forge/packages/protocol/README.md`
+  - `packages/forge/packages/protocol/ANALYSIS.md`
+- Test command + result:
+  - `npm test` (in `packages/forge/packages/protocol`) ❌ fail (`Missing script: "test"`)
+  - `rushx test` (in `packages/forge/packages/protocol`) ❌ fail (`The command "test" is not defined in the package.json file for this project`)
+  - Source edits skipped per source-change gate; docs/analysis updated with harness plan.
+- Commits + PR links:
+  - `forge-protocol` `b4fa137` (pushed) — branch `sable/forge-protocol-sync-input-guard-20260218`
+  - Open PR head check: `GET /repos/arkenrealms/forge-protocol/pulls?state=open&head=arkenrealms:sable/forge-protocol-sync-input-guard-20260218` → none open.
+  - Compare link for PR creation: <https://github.com/arkenrealms/forge-protocol/compare/main...sable/forge-protocol-sync-input-guard-20260218?expand=1>
+- Blockers:
+  - Dedicated direct-repo PR not yet open for active forge-protocol branch; `gh` CLI unavailable in runtime.
+  - No repo-defined test command currently available in forge-protocol, so source changes remain blocked until a minimal Jest+TS harness is added.
+- Next rotation target:
+  - `arken/packages/evolution` (slot 7; non-client scope only), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T01:14:08-08:00 — correction note
+- Correction: previous run-ledger block timestamp (`2026-02-19T01:15:38-08:00`) was appended with a clock typo; this note records the accurate append window for the same forge-protocol slot-6 maintenance chunk.
+
+## Run ledger append — 2026-02-19T01:31:42-08:00 — evolution unsafe-gitlink input guard
+- Target attempted:
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/evolution` exists in checkout (`find`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (37/37)
+- Commits + PR links:
+  - `evolution` `cc9d89b` (pushed) — updates open direct PR <https://github.com/arkenrealms/evolution/pull/11>
+  - Open-PR head verification: `GET /repos/arkenrealms/evolution/pulls?state=open&head=arkenrealms:sable/evolution-duplicate-config-guard-20260218` → PR #11.
+- Blockers:
+  - Local checkout still has pre-existing nested submodule dirtiness (`packages/protocol`, `packages/realm`, `packages/shard`) and untracked `packages/client/`; excluded from commit.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T01:32:23-08:00 — evolution-realm slot-8 test-gate rerun + docs sync
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+- Path verification:
+  - `packages/evolution/packages/realm` exists in checkout (`find`) and is mapped in `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/realm` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`sh: jest: command not found`)
+  - Source edits skipped per source-change gate; docs-only continuity update applied.
+- Commits + PR links:
+  - `evolution-realm` `aba91ca` (pushed) — updates open direct PR <https://github.com/arkenrealms/evolution-realm/pull/21>
+  - Open-PR head verification: `GET /repos/arkenrealms/evolution-realm/pulls?state=open&head=arkenrealms:sable/evolution-realm-test-harness-blocker-20260218` → PR #21.
+- Blockers:
+  - Local Jest runtime is unavailable in this checkout for `evolution-realm` (`jest` binary not found), blocking safe source edits under the source-change gate.
+- Next rotation target:
+  - `arken/packages/evolution/packages/shard` (slot 9), then continue strict direct-repo order.
