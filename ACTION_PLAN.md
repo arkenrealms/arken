@@ -4554,3 +4554,57 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Runtime lacks runnable Jest binary in these package contexts, preventing source changes under source-change gate.
 - Next rotation target:
   - `arken/packages/evolution` (slot 7; non-client scope), then `evolution-realm`/`shard`/`protocol`.
+
+## Run ledger append — 2026-02-19T03:24:32-08:00 — evolution control-character path validation hardening
+- Target attempted:
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/evolution` exists in checkout and `.gitmodules` maps nested non-client repos (`packages/protocol`, `packages/realm`, `packages/shard`).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` before edits (fast-forward).
+- Markdown preload + deepest-first review:
+  - Loaded all local markdown files under `packages/evolution` before edits.
+  - Reviewed leaf validator and test files first (`scripts/validateSubmoduleMap.mjs`, `test/validateSubmoduleMap.test.mjs`) then updated parent docs (`scripts/*`, `test/*`).
+- Conflict notes:
+  - Found markdown drift vs older blocker notes that described nested evolution repos as uninitialized; live checkout now has populated nested repo paths. Per `MEMORY.md` + explicit instructions, used live checkout state as authoritative.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/evolution`) ✅ pass (37/37)
+- Commits + PR links:
+  - `evolution` `a5d3fc1` (pushed) on `sable/evolution-duplicate-config-guard-20260218`
+  - Existing direct repo PR updated and verified open: <https://github.com/arkenrealms/evolution/pull/12>
+  - Open-PR head verification: `GET /repos/arkenrealms/evolution/pulls?state=all&head=arkenrealms:sable/evolution-duplicate-config-guard-20260218` → PR #12 open (PR #11 closed historical).
+- Blockers:
+  - none for this slot.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard`, `protocol`, `cerebro-hub`, `cli`, and continue strict order.
+
+## Run ledger append — 2026-02-19T03:32:24-08:00 — evolution-realm test-gate blocker continuity rerun
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+- Path verification:
+  - `packages/evolution/packages/realm` exists in checkout (`find`) and is mapped in `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/realm` before any edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Loaded all local markdown files first (`README.md`, `ANALYSIS.md`).
+  - Reviewed leaf runtime files first (`shard-bridge.test.ts`, `shard-bridge.ts`, `trpc-websocket.ts`) before updating package-level docs.
+- Conflict notes:
+  - Detected markdown drift against older blocker notes that implied nested evolution repos were uninitialized; live checkout has populated nested repos. Per `MEMORY.md` + explicit instruction, treated live checkout state as authoritative.
+- Files changed:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`sh: jest: command not found`)
+  - Source changes were skipped to preserve source-change gate compliance.
+- Commits + PR links:
+  - `evolution-realm` `6bea408` (pushed) on `sable/evolution-realm-test-harness-blocker-20260218`
+  - Open direct repo PR verified: <https://github.com/arkenrealms/evolution-realm/pull/21>
+- Blockers:
+  - Local Jest runtime unavailable in this checkout for `evolution-realm` (`npm test` cannot execute package test suite).
+- Next rotation target:
+  - `arken/packages/evolution/packages/shard` (slot 9), then `evolution-protocol` (slot 10).

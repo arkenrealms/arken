@@ -5269,3 +5269,46 @@
   - <https://github.com/arkenrealms/forge-web/pull/10>
   - <https://github.com/arkenrealms/forge-protocol/pull/1>
 - [ ] Next: rotate to `packages/evolution` (slot 7, non-client scope only).
+
+## 2026-02-19T03:24:32-08:00 — evolution slot-7 control-char validator hardening
+- Repo: `arken/packages/evolution`
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (fast-forward) before edits.
+- Work summary:
+  - Hardened wrapper validator to reject control-character-containing paths in `.gitmodules`, gitlink input, and validator config values.
+  - Added/updated regression tests for control-character unsafe path scenarios.
+  - Refreshed concise docs in touched folders (`scripts`, `test`) to reflect the new guardrail.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` ✅ pass (37/37)
+- Commit:
+  - `a5d3fc1` — Harden submodule path validation against control chars
+- PR:
+  - <https://github.com/arkenrealms/evolution/pull/12> (open, verified)
+- Blockers:
+  - none
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+
+## 2026-02-19T03:32:24-08:00 — evolution-realm slot-8 rerun
+### Completed
+- [x] Continued strict direct-repo rotation at `packages/evolution/packages/realm` (slot 8).
+- [x] Applied branch hygiene in direct repo branch (`git fetch origin` + `git merge --no-edit origin/main` => already up to date).
+- [x] Loaded all local markdown files first, then performed deepest-first runtime review (`shard-bridge.test.ts`, `shard-bridge.ts`, `trpc-websocket.ts`).
+- [x] Updated concise package docs for continuity:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+- [x] Verified dedicated direct PR remains open for active realm branch: <https://github.com/arkenrealms/evolution-realm/pull/21>
+- [x] Committed/pushed docs-only blocker update: `evolution-realm` `6bea408`.
+
+### Tests
+- `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`sh: jest: command not found`)
+
+### Blockers
+- Local Jest binary/runtime not available in `evolution-realm` checkout, so source edits remain blocked by source-change gate.
+
+### Next target
+- `packages/evolution/packages/shard` (slot 9), then `packages/evolution/packages/protocol` (slot 10).
