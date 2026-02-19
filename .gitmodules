@@ -1,14 +1,14 @@
-[submodule "packages/evolution"]
-	path = packages/evolution
+[submodule "evolution"]
+	path = evolution
 	url = https://github.com/arkenrealms/evolution.git
 	branch = main
-[submodule "packages/node"]
-	path = packages/node
+[submodule "node"]
+	path = node
 	url = https://github.com/arkenrealms/node.git
-[submodule "packages/seer"]
-	path = packages/seer
+[submodule "seer"]
+	path = seer
 	url = https://github.com/arkenrealms/seer.git
-[submodule "packages/forge"]
-	path = packages/forge
+[submodule "forge"]
+	path = forge
 	url = https://github.com/arkenrealms/forge.git
 	branch = main

@@ -1,7 +1,7 @@
-packages/data
-packages/protocol
-packages/infinite
-packages/portal-ui
+data
+protocol
+infinite
+portal-ui
 
 utils
 mongo_backups
@@ -10,6 +10,7 @@ sites
 old
 repos
 storage
+notes
 
 # packages/*
 test-results
