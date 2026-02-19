@@ -4413,3 +4413,60 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Local `vitest` binary is unavailable in this runtime, so no repo-defined test command currently runs for `cli`.
 - Next rotation target:
   - `arken/packages/node` (slot 1), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T02:24:20-08:00 — node plain-object filter preservation + fresh PR recovery
+- Target attempted:
+  - `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/node` exists in checkout (`find`) and is tracked in top-level tree.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` before edits (fast-forward to latest main).
+- Markdown preload + deepest-first review:
+  - Loaded `packages/node/{README.md,ANALYSIS.md}` and `packages/node/{web3,test}/*.md` before edits.
+  - Analyzed leaf behavior in `api.ts` + `test/api.spec.ts`, then rolled summary updates into parent `ANALYSIS.md`.
+- Conflict notes:
+  - Detected direct PR drift conflict with prior plan references: existing node PR #15 is closed. Per MEMORY.md + explicit instructions, moved work to fresh branch from `origin/main` and opened a new direct-repo PR.
+- Files changed:
+  - `packages/node/api.ts`
+  - `packages/node/test/api.spec.ts`
+  - `packages/node/ANALYSIS.md`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test -- test/api.spec.ts --runInBand` (in `packages/node`) ✅ pass (7/7)
+- Commits + PR links:
+  - stale-branch commit (superseded): `ab96cad` on `sable/node-invalid-request-guard-20260218`
+  - active branch commit: `ffb9172` on `sable/node-api-plain-object-filter-20260219` (pushed)
+  - Opened direct repo PR: <https://github.com/arkenrealms/node/pull/17>
+  - PR state verification: `GET /repos/arkenrealms/node/pulls/17` → `state: open`.
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T02:34:41-08:00 — seer-node async saveToken rejection fallback hardening
+- Target attempted:
+  - `arken/packages/seer/packages/node` (slot 2)
+- Path verification:
+  - `packages/seer/packages/node` exists in checkout (`find`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (fast-forward to latest main).
+- Markdown preload + deepest-first review:
+  - Loaded all local markdown files in target package before edits (`find . -name '*.md' -maxdepth 4`).
+  - Reviewed leaf docs first (`.rush/temp`, `src/data`, `test`) then parent docs (`src`, package root).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (32/32)
+- Commits + PR links:
+  - `seer-node` `525ead8` (pushed) on branch `sable/seer-node-token-shape-guard-20260218`
+  - Opened direct repo PR: <https://github.com/arkenrealms/seer-node/pull/5>
+  - Open-PR head verification: `GET /repos/arkenrealms/seer-node/pulls?state=open&head=arkenrealms:sable/seer-node-token-shape-guard-20260218` → PR #5.
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then continue strict direct-repo order.

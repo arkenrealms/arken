@@ -5167,3 +5167,43 @@
 - [x] Kept source code unchanged per source-change test gate.
 - [x] Updated docs continuity note in `packages/cli/ANALYSIS.md`.
 - [ ] Next: rotate to `packages/node` (slot 1) and continue strict order.
+
+## 2026-02-19
+
+### Run append — 02:24 PT — node slot-1 plain-object filter preservation
+- [x] Ran branch hygiene in `packages/node` (`git fetch origin && git merge --no-edit origin/main`) before edits.
+- [x] Loaded local markdown context first (`packages/node/{README.md,ANALYSIS.md}` and `packages/node/{web3,test}/*.md`).
+- [x] Implemented test-backed source fix:
+  - `packages/node/api.ts`: preserve plain-object field filters when no `equals`/`contains`/`in` operator keys exist.
+  - `packages/node/test/api.spec.ts`: added regression for plain-object equality filters.
+- [x] Updated touched-folder docs:
+  - `packages/node/ANALYSIS.md`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran package test gate:
+  - `rushx test -- test/api.spec.ts --runInBand` ✅ pass (7/7)
+- [x] PR hygiene recovery:
+  - Verified prior node PR #15 is closed.
+  - Created fresh branch from `origin/main`: `sable/node-api-plain-object-filter-20260219`.
+  - Cherry-picked active change and pushed commit `ffb9172`.
+  - Opened direct repo PR: <https://github.com/arkenrealms/node/pull/17>.
+- [ ] Next: rotate to `packages/seer/packages/node` (slot 2).
+
+## 2026-02-19
+
+### Run append — 02:34 PT — seer-node async saveToken fallback hardening
+- [x] Ran branch hygiene in `packages/seer/packages/node` (`git fetch origin && git merge --no-edit origin/main`) before edits.
+- [x] Loaded all local markdown context first (`find . -name '*.md' -maxdepth 4`), reviewed deepest-first, then parent docs.
+- [x] Implemented test-backed source hardening:
+  - `src/tests.ts`: if own `db.saveToken` returns a rejecting Promise, helper now falls back to own `db.save` when available; preserves original rejection when fallback is absent.
+  - `test/tests.helpers.test.ts`: added async rejection regression coverage for fallback and no-fallback paths.
+- [x] Updated touched-folder docs:
+  - `src/ANALYSIS.md`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Ran package test gate:
+  - `npm test` ✅ pass (32/32)
+- [x] Commit/push:
+  - `seer-node` `525ead8` on `sable/seer-node-token-shape-guard-20260218`
+- [x] PR hygiene:
+  - Verified no open PR existed for branch head.
+  - Opened direct repo PR: <https://github.com/arkenrealms/seer-node/pull/5>
+- [ ] Next: rotate to `packages/seer/packages/protocol` (slot 3).
