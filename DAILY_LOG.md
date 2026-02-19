@@ -4284,3 +4284,53 @@
   - create PR: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
 - Blocker: in-run PR creation still blocked by missing `gh` CLI runtime path.
 - Next rotation target: `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).
+
+## 2026-02-18T18:13:43-0800 — sigil-protocol nested field-not filter compatibility
+- target: \ (slot 4)
+- files changed: \, \, \, \
+- tests: \ ✅ (6/6)
+- commit: \
+- PR/update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+- blocker: none
+- next: \ (slot 5)
+
+## 2026-02-18T18:15:40-08:00 — correction + canonical sigil-protocol run details
+- correction: previous `2026-02-18T18:13:43-0800` entry had malformed escaped fields from shell interpolation; this block is canonical.
+- target: `arken/packages/sigil-protocol` (slot 4)
+- files changed: `util/schema.ts`, `test/queryInput.test.ts`, `util/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`
+- tests: `npm test` ✅ (6/6)
+- commit: `906a873`
+- PR/update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+- blocker: none
+- next: `arken/packages/forge/packages/web` (slot 5)
+
+## 2026-02-18T18:25:19-08:00 — forge-web gate check + evolution unsafe-config guard
+- Rotation targets attempted:
+  - `packages/forge/packages/web` (slot 5)
+  - `packages/forge/packages/protocol` (slot 6)
+  - `packages/evolution` (slot 7)
+- Branch hygiene:
+  - `forge-web`: `git fetch origin && git merge --no-edit origin/main` (up to date)
+  - `evolution`: `git fetch origin && git merge --no-edit origin/main` (up to date)
+- forge-web source-change gate result:
+  - attempted repo-defined test command `npm test`
+  - failed with `jest: command not found`
+  - reverted tentative utility source/test edits to comply with no-source-without-tests rule
+- evolution source/test/docs work:
+  - Hardened validator config checks in `scripts/validateSubmoduleMap.mjs` to reject unsafe `requiredPaths`/`ignoredGitlinks` (traversal, absolute, URL-scheme paths).
+  - Added regression test: `test/validateSubmoduleMap.test.mjs` (`validator config rejects unsafe required and ignored path entries`).
+  - Updated concise docs:
+    - `scripts/{README.md,ANALYSIS.md}`
+    - `test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test` in `packages/evolution` ✅ pass (31/31)
+- Commit/push:
+  - `packages/evolution`: `c4f549e` on `sable/evolution-duplicate-config-guard-20260218`
+- PR:
+  - open head check: <https://api.github.com/repos/arkenrealms/evolution/pulls?state=open&head=arkenrealms:sable/evolution-duplicate-config-guard-20260218> (`[]`)
+  - create: <https://github.com/arkenrealms/evolution/pull/new/sable/evolution-duplicate-config-guard-20260218>
+- Blockers:
+  - `forge-web` test runtime missing `jest` binary in this checkout.
+  - `forge-protocol` has no repo-defined test script; source edits deferred under gate.
+- Next target:
+  - `packages/evolution/packages/realm` (slot 8)

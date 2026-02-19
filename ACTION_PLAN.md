@@ -3084,3 +3084,87 @@ Continue strict rotation from the current pointer after latest completed slot.
   - GitHub CLI is unavailable in this runtime for in-run PR creation (`gh: command not found` in prior runs); branch pushed and PR creation URL prepared.
 - Next rotation target:
   - `arken/packages/sigil-protocol` (slot 4) availability check, then `arken/packages/forge/packages/web` (slot 5).
+
+## Run ledger append — 2026-02-18T18:13:43-0800 — sigil-protocol nested field-not filter compatibility
+- Target attempted:
+  - \ (slot 4)
+- Path verification:
+  - target exists in checkout (\packages/sigil-protocol) and is mapped in top-level \.
+- Branch hygiene:
+  - Ran \ + \Already up to date. in \ before edits (Already up to date).
+- Conflict notes:
+  - No conflicts found between \, explicit instructions, and markdown guidance.
+- Files changed:
+  - \
+  - \
+  - \
+  - \
+- Test command + result:
+  - \ (in \) ✅ pass (6/6)
+- Commits + PR links:
+  - \ \ (pushed) — branch update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+  - open PR head-check reference: <https://api.github.com/repos/arkenrealms/sigil-protocol/pulls?state=open&head=arkenrealms:sable/sigil-protocol-query-take-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - \ (slot 5), then \ (slot 6).
+
+## Run ledger append — 2026-02-18T18:15:40-08:00 — correction + canonical sigil-protocol run details
+- Correction note:
+  - The prior `2026-02-18T18:13:43-0800` run block contains malformed escaped fields due to shell backtick interpolation during append. This block is the canonical record for that same run.
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - target exists in checkout (`find packages -maxdepth 2 -type d -name sigil-protocol`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (6/6)
+- Commits + PR links:
+  - `sigil-protocol` `906a873` (pushed) — branch update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+  - open PR head-check reference: <https://api.github.com/repos/arkenrealms/sigil-protocol/pulls?state=open&head=arkenrealms:sable/sigil-protocol-query-take-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
+
+## Run ledger append — 2026-02-18T18:25:19-08:00 — forge-web test-gate blocker then evolution config-safety hardening
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/forge/packages/web` exists and is mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` exists and is mapped in `packages/forge/.gitmodules`.
+  - `packages/evolution` exists and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/web` (already up to date).
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution` (already up to date).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/forge/packages/web`) ❌ fail (`jest: command not found`) while attempting slot-5 source/test work; reverted all tentative forge-web source edits to satisfy source-change gate.
+  - `npm test` (in `packages/evolution`) ✅ pass (31/31)
+- Commits + PR links:
+  - `evolution` `c4f549e` (pushed) — branch update: <https://github.com/arkenrealms/evolution/tree/sable/evolution-duplicate-config-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/evolution/pulls?state=open&head=arkenrealms:sable/evolution-duplicate-config-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution/pull/new/sable/evolution-duplicate-config-guard-20260218>
+- Blockers:
+  - `forge-web` source edits remain blocked under source-change gate until repo-defined test runtime is available (`jest` binary currently missing in this checkout runtime).
+  - `forge-protocol` currently has no repo-defined `test` script in package metadata, so source edits were deferred under test gate.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9), `protocol` (slot 10), `cerebro-hub` (slot 11), `cli` (slot 12).
