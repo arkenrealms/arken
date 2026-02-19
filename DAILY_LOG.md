@@ -5010,3 +5010,38 @@
 - [x] Test gate: `rushx test` (in `packages/seer/packages/protocol`) passed (5/5).
 - [x] Pushed commit `b6b4ae2` to `seer-protocol` branch `sable/seer-protocol-update-settings-guard-20260218`; verified open direct PR: <https://github.com/arkenrealms/seer-protocol/pull/2>.
 - [ ] Next target: `packages/sigil-protocol` (slot 4) availability check, then continue strict direct-repo order.
+
+## 2026-02-19T00:53:58-08:00 — sigil-protocol slot 4
+- Completed direct-repo rotation slot: `packages/sigil-protocol`.
+- Implemented query-schema hardening so string-only operators (`contains`/`startsWith`/`endsWith`/`mode`) are accepted only on string fields and rejected for numeric/date fields.
+- Added regression coverage for non-string operator misuse in `test/queryInput.test.ts`.
+- Updated concise docs in touched folders (`util/*`, `test/*`).
+- Validation:
+  - `npm test` ✅ (14/14) in `packages/sigil-protocol`.
+- Commit pushed:
+  - `019019c` on `sable/sigil-protocol-query-take-guard-20260218`.
+- PR/compare link:
+  - <https://github.com/arkenrealms/sigil-protocol/compare/main...sable/sigil-protocol-query-take-guard-20260218?expand=1>
+- Next target:
+  - `packages/forge/packages/web` (slot 5).
+
+## 2026-02-19T01:02:19-08:00 — forge-web slot 5 (docs-only under test gate)
+- Target attempted: `packages/forge/packages/web` (rotation slot 5).
+- Verified path + mapping (`find` + `packages/forge/.gitmodules`), then ran branch hygiene:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (already up to date)
+- Loaded all local `*.md` files in this package before edits, then analyzed deepest-first in `src/components/interface`.
+- Prepared source/test changes for `src/components/interface/utils.ts` + `utils.test.ts` to improve `{{#if ...}}` expression handling, but reverted both due to test gate failure.
+- Files changed (final):
+  - `packages/forge/packages/web/src/components/interface/README.md` (new)
+  - `packages/forge/packages/web/src/components/interface/ANALYSIS.md` (new)
+- Tests:
+  - `npm test -- --runTestsByPath src/components/interface/utils.test.ts` ❌ (`sh: jest: command not found`)
+  - `rushx test -- --runTestsByPath src/components/interface/utils.test.ts` ❌ (`sh: jest: command not found`)
+- Commit/PR:
+  - `forge-web` commit `388fa97` pushed to `sable/forge-web-contenthash-guard-20260218`
+  - Compare/PR link: <https://github.com/arkenrealms/forge-web/compare/main...sable/forge-web-contenthash-guard-20260218?expand=1>
+- Blockers:
+  - Missing local Jest runtime in `forge-web` blocks source edits under mandatory test gate.
+- Next target:
+  - `packages/forge/packages/protocol` (slot 6).

@@ -4189,3 +4189,51 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/packages/sigil-protocol` (slot 4), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T00:53:58-08:00 — sigil-protocol string-operator field-type guard
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - `packages/sigil-protocol` exists in checkout (`find`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (14/14)
+- Commits + PR links:
+  - `sigil-protocol` `019019c` (pushed) — branch `sable/sigil-protocol-query-take-guard-20260218`
+  - PR/compare: <https://github.com/arkenrealms/sigil-protocol/compare/main...sable/sigil-protocol-query-take-guard-20260218?expand=1>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T01:02:19-08:00 — forge-web slot-5 interface docs + test-gate revalidation
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+- Path verification:
+  - `packages/forge/packages/web` exists in checkout (`find`) and is mapped in `packages/forge/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/web` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/forge/packages/web/src/components/interface/README.md` (new)
+  - `packages/forge/packages/web/src/components/interface/ANALYSIS.md` (new)
+- Test command + result:
+  - `npm test -- --runTestsByPath src/components/interface/utils.test.ts` (in `packages/forge/packages/web`) ❌ fail (`sh: jest: command not found`)
+  - `rushx test -- --runTestsByPath src/components/interface/utils.test.ts` (in `packages/forge/packages/web`) ❌ fail (`sh: jest: command not found`)
+  - Source/test code edits prepared for `src/components/interface/utils.ts` and `utils.test.ts` were reverted to satisfy the source-change test gate.
+- Commits + PR links:
+  - `forge-web` `388fa97` (pushed) — updates branch `sable/forge-web-contenthash-guard-20260218`
+  - PR/compare: <https://github.com/arkenrealms/forge-web/compare/main...sable/forge-web-contenthash-guard-20260218?expand=1>
+- Blockers:
+  - Local Jest runtime remains unavailable in this checkout for `forge-web` (`jest` binary not found), blocking safe source edits under the mandatory source-change gate.
+- Next rotation target:
+  - `arken/packages/forge/packages/protocol` (slot 6), then continue strict direct-repo order.
