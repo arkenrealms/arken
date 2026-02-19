@@ -3463,3 +3463,29 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `cerebro-hub` direct repo remains unavailable-in-checkout.
 - Next rotation target:
   - `arken/packages/node` (slot 1), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T20:03:54-08:00 — node getFilter id-operator normalization + Jest coverage
+- Target attempted:
+  - `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/node` exists in checkout (`find arken/packages -maxdepth 2 -type d -name node`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/api.ts`
+  - `packages/node/test/api.spec.ts` (new)
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- test/api.spec.ts --runInBand` (in `packages/node`) ✅ pass (2/2)
+- Commits + PR links:
+  - `node` `9a375c1` (pushed) — branch update: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/node/pulls?state=open&head=arkenrealms:sable/node-invalid-request-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
+- Blockers:
+  - No open PR currently exists for this pushed branch head; direct PR creation is still required for review intake.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.

@@ -4534,3 +4534,21 @@
 - Commit: `d9306a6` on `sable/cli-test-gate-audit-20260218`.
 - PR link (create): <https://github.com/arkenrealms/cli/pull/new/sable/cli-test-gate-audit-20260218>
 - Next: `packages/node`.
+
+## 2026-02-18T20:03:54-08:00 — rotation slot 1 (node)
+- Targeted `packages/node`.
+- Branch hygiene complete: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Implemented source fix in `api.ts`: normalized `id`/`_id` mapping for `contains` and `in` operators (was previously only normalized for `equals`).
+- Added Jest regression tests:
+  - `packages/node/test/api.spec.ts` (new)
+- Updated docs:
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Tests:
+  - `npm test -- test/api.spec.ts --runInBand` ✅ pass (2/2)
+- Commit/push:
+  - `9a375c1` on branch `sable/node-invalid-request-guard-20260218`
+  - PR status check: no open PR for branch head yet (`[]`)
+  - PR link (create): <https://github.com/arkenrealms/node/pull/new/sable/node-invalid-request-guard-20260218>
+- Next target: `packages/seer/packages/node` (slot 2).
