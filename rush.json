@@ -70,8 +70,12 @@
       "projectFolder": "evolution/shard"
     },
     {
+      "packageName": "@arken/sigil",
+      "projectFolder": "sigil"
+    },
+    {
       "packageName": "@arken/sigil-protocol",
-      "projectFolder": "sigil-protocol"
+      "projectFolder": "sigil/protocol"
     }
   ]
 }
