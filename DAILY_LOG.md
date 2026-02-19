@@ -4267,3 +4267,20 @@
   - `gh` unavailable for direct PR creation in runtime.
 - Next target:
   - `arken/packages/seer/packages/protocol` (slot 3).
+
+### Run append — 2026-02-18T18:04:05-08:00 (seer-protocol Oasis dispatch hardening)
+- [x] Rotation target: `arken/packages/seer/packages/protocol` (slot 3).
+- [x] Branch hygiene done before edits: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- [x] Hardened `oasis.getPatrons` router dispatch with own-property descriptor guard + deterministic `TRPCError` fallback.
+- [x] Added Jest regression: `test/oasis.router.test.ts`.
+- [x] Updated touched-folder docs:
+  - `packages/seer/packages/protocol/oasis/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Tests: `npm test` in `packages/seer/packages/protocol` ✅ pass (2/2).
+- [x] Commit/push:
+  - `seer-protocol` `2f2015e` on `sable/seer-protocol-update-settings-guard-20260218`
+- [ ] PR open/update required:
+  - open PR head-check returned `[]` for branch
+  - create PR: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blocker: in-run PR creation still blocked by missing `gh` CLI runtime path.
+- Next rotation target: `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).

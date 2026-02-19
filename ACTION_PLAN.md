@@ -3045,3 +3045,42 @@ Continue strict rotation from the current pointer after latest completed slot.
   - GitHub CLI unavailable for in-run PR creation (`gh: command not found`); branch pushed and PR link prepared.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `arken/packages/sigil-protocol` (slot 4).
+
+## Run ledger append — 2026-02-18T09:01:00-08:00 — user-priority task intake (CLI Jest + cerebro-link tRPC)
+- Trigger: explicit instruction from `highruned` in `#nel`.
+- Added high-priority action items:
+  1) **CLI test harness migration**: in `arken/packages/cli`, replace missing/broken `vitest` usage with Jest-based tests and get the suite passing before further CLI source edits.
+  2) **Cerebro-link onboarding + protocol migration**:
+     - pulled repo `https://github.com/arkenrealms/cerebro-link`
+     - local path: `arken/packages/cerebro-link`
+     - objective: migrate extension/backend protocol surface to tRPC patterns consistent with `seer-node` / `evolution-realm`.
+- Bootstrap done now:
+  - `git clone https://github.com/arkenrealms/cerebro-link.git arken/packages/cerebro-link`
+  - repo on `main` and up-to-date with `origin/main`.
+- Planning note:
+  - Execute this as a first-class direct-repo stream with dedicated branch + PR once protocol audit + test plan are prepared.
+
+## Run ledger append — 2026-02-18T18:04:05-08:00 — seer-protocol Oasis getPatrons dispatch hardening
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name protocol`) and remains mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/oasis/oasis.router.ts`
+  - `packages/seer/packages/protocol/test/oasis.router.test.ts` (new)
+  - `packages/seer/packages/protocol/oasis/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (2/2)
+- Commits + PR links:
+  - `seer-protocol` `2f2015e` (pushed) — branch update: <https://github.com/arkenrealms/seer-protocol/tree/sable/seer-protocol-update-settings-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blockers:
+  - GitHub CLI is unavailable in this runtime for in-run PR creation (`gh: command not found` in prior runs); branch pushed and PR creation URL prepared.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4) availability check, then `arken/packages/forge/packages/web` (slot 5).
