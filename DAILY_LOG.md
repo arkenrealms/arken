@@ -5115,3 +5115,55 @@
 - [ ] Open dedicated evolution-shard PR from compare link (runtime lacks automated PR creation):
   - <https://github.com/arkenrealms/evolution-shard/compare/main...sable/evolution-shard-test-harness-blocker-20260219?expand=1>
 - [ ] Next rotation target: `packages/evolution/packages/protocol` (slot 10).
+
+### Newly completed (evolution-protocol pagination coercion chunk)
+- [x] Rotated to `evolution-protocol` (slot 10), loaded local `.md` docs first (`README.md`, `ANALYSIS.md`, `test/*`, `util/*`), and then analyzed leaf source files.
+- [x] Ran direct-repo branch hygiene before edits:
+  - `git fetch origin`
+  - `git merge --no-edit origin/main` (already up to date)
+- [x] Implemented practical query-envelope hardening in `util/schema.ts`:
+  - `skip`/`limit`/`take` now coerce numeric strings to numbers.
+  - existing alias behavior (`take -> limit` when `limit` missing) remains intact.
+- [x] Expanded Jest+TS regression coverage in `test/schema.test.ts`:
+  - numeric-string coercion pass case.
+  - non-numeric string rejection case.
+- [x] Updated touched-folder docs:
+  - `packages/evolution/packages/protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/evolution/packages/protocol/test/{README.md,ANALYSIS.md}`
+- [x] Ran package test gate:
+  - `npm test` (in `packages/evolution/packages/protocol`) ✅ pass (4/4)
+- [x] Committed/pushed direct repo update:
+  - `evolution-protocol` `0157c64` (branch `sable/evolution-protocol-test-gate-audit-20260218`, updates <https://github.com/arkenrealms/evolution-protocol/pull/1>)
+
+### In progress (rotation)
+- [ ] Continue to `cerebro-hub` (slot 11) path verification/availability check, then `cli` (slot 12).
+
+## 2026-02-19T02:04:20-0800 — slot-11 cerebro-hub maintenance
+- Completed branch hygiene in `packages/cerebro/packages/hub` (`git fetch origin` + merge `origin/main`, up to date).
+- Loaded all local markdown first and ran deepest-first review (`src/agents/*/index.test.ts` leaves, then `src/router.ts`, `src/agent.ts`, `src/index.ts`).
+- Updated concise folder docs:
+  - `packages/cerebro/packages/hub/README.md`
+  - `packages/cerebro/packages/hub/ANALYSIS.md`
+- Revalidated test gate blockers:
+  - `npm test -- --runInBand` ❌ `jest: command not found`
+  - `npm install` ❌ `EUNSUPPORTEDPROTOCOL workspace:*`
+  - `rush install` ❌ lockfile/workspace drift requires `rush update`
+  - `rushx test -- --runInBand` ❌ package-map warning + `jest: command not found`
+- Kept slot docs-only to comply with source-change test gate.
+- Commit/push:
+  - `cerebro-hub` `575c83c` (branch `sable/cerebro-hub-test-gate-audit-20260218`)
+- PR:
+  - Opened direct repo PR <https://github.com/arkenrealms/cerebro-hub/pull/17>
+- Next rotation target: `packages/cli` (slot 12).
+
+## 2026-02-19
+
+### Run append — 02:14 PT — cli slot-12 test-gate recheck
+- [x] Ran branch hygiene in `packages/cli` (`git fetch origin && git merge --no-edit origin/main`) before any edits.
+- [x] Loaded local markdown context first (`packages/cli/README.md`, `packages/cli/ANALYSIS.md`).
+- [x] Re-ran repo-defined tests and captured blockers:
+  - `rushx test` ❌ `vitest: command not found`
+  - `npm test -- --runInBand` ❌ `vitest: command not found`
+- [x] Kept source code unchanged per source-change test gate.
+- [x] Updated docs continuity note in `packages/cli/ANALYSIS.md`.
+- [ ] Next: rotate to `packages/node` (slot 1) and continue strict order.
