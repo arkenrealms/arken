@@ -4371,3 +4371,21 @@
   - `cerebro-hub` unavailable-in-checkout.
 - Next target:
   - `packages/seer/packages/node` (slot 2)
+
+### Newly completed (seer-node monitor callback containment chunk)
+- [x] Rotated to `seer-node` slot and loaded all local `.md` files in `packages/seer/packages/node` before source edits.
+- [x] Performed branch hygiene in direct repo (`git fetch origin` + merge `origin/main`) before changes.
+- [x] Hardened `monitorMarketEvents` in `packages/seer/packages/node/src/tests.ts` to contain sync callback throws and safely absorb rejected async callback results.
+- [x] Added regression tests in `packages/seer/packages/node/test/tests.helpers.test.ts` for:
+  - synchronous callback throw containment
+  - rejected async callback containment
+- [x] Updated concise docs in touched folders:
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- [x] Ran `npm test` in `packages/seer/packages/node` (pass: 24/24).
+- [x] Committed/pushed Seer update:
+  - `seer-node` `7db6a0a` (branch `sable/seer-node-token-shape-guard-20260218`)
+
+### In progress (rotation)
+- [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` (slot 4).
+- [ ] Open/refresh direct `seer-node` PR for pushed branch (head check currently returns no open PR).
