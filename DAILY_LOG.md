@@ -4668,3 +4668,80 @@
 ### In progress (rotation)
 - [x] Continue to `cerebro-hub` next (slot 11) for path verification/actionability check.
 - [ ] Continue to `cli` after slot 11 and keep dedicated direct-repo PR coverage current.
+
+## 2026-02-18T21:31:58-08:00 — node (slot 1 after slot 11/12 checks)
+- Rotation/path checks:
+  - `packages/cerebro/packages/hub` unavailable-in-checkout.
+  - `packages/cli` present.
+- Branch hygiene:
+  - `packages/node`: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Files changed:
+  - `packages/node/api.ts`
+  - `packages/node/test/api.spec.ts`
+  - `packages/node/test/README.md`
+  - `packages/node/test/ANALYSIS.md`
+  - `packages/node/ANALYSIS.md`
+- Test:
+  - `npm test -- test/api.spec.ts --runInBand` ✅ pass (3/3)
+- Commit/push:
+  - `node` `9e7a808` on branch `sable/node-invalid-request-guard-20260218`
+- PR:
+  - Open direct PR confirmed: <https://github.com/arkenrealms/node/pull/16>
+- Blockers:
+  - `cerebro-hub` still unavailable in this checkout.
+- Next target:
+  - `packages/seer/packages/node` (slot 2).
+
+## 2026-02-18T21:31:12-08:00 — correction note
+- Correction: previous log block timestamp (`2026-02-18T21:31:58-08:00`) was ahead of wall-clock time; this note preserves append-only integrity for the same run window.
+
+### 2026-02-18T22:10:17-08:00 — seer-node updateUserAchievements replacement-user hardening
+- Rotated into `packages/seer/packages/node` per direct-repo order after node slot completion.
+- Per branch hygiene, ran `git fetch origin` + `git merge --no-edit origin/main` before edits (`Already up to date`).
+- Hardened `src/tests.ts` `updateUserAchievements` so updater-returned replacement objects are persisted when provided, and non-object replacement payloads now fail fast.
+- Added test coverage in `test/tests.helpers.test.ts` for replacement-user persistence + malformed updater return rejection.
+- Updated concise docs: `src/ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md`.
+- Tests:
+  - `rushx test` ❌ (`Could not find package.json for @arken/cerebro-hub`)
+  - `npm test` ✅ pass (27/27)
+- Commit/push:
+  - `seer-node` `92786ca` pushed to `sable/seer-node-token-shape-guard-20260218`
+  - open direct PR confirmed: <https://github.com/arkenrealms/seer-node/pull/4>
+- Next target: `packages/seer/packages/protocol` (slot 3), then `packages/sigil-protocol` (slot 4).
+
+### Newly completed (seer-protocol TS test migration chunk)
+- [x] Rotated to `seer-protocol` (slot 3), loaded all local `.md` docs in-package first (excluding `node_modules`), then performed source/test pass.
+- [x] Ran branch hygiene in direct repo before edits: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- [x] Migrated router-routing regression test to TypeScript to align with Jest+TS standardization direction:
+  - `packages/seer/packages/protocol/test/router-routing.test.ts` (renamed from `.js`)
+- [x] Updated concise touched-folder docs:
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- [x] Test gate evidence:
+  - `rushx test` ❌ (`Could not find package.json for @arken/cerebro-hub` in workspace)
+  - `npm test` ✅ (3/3)
+- [x] Committed/pushed seer-protocol update:
+  - `129b94c` (branch `sable/seer-protocol-update-settings-guard-20260218`, PR <https://github.com/arkenrealms/seer-protocol/pull/2>)
+
+### In progress (rotation)
+- [x] Continue to `sigil-protocol` next (slot 4), then `forge-web` (slot 5).
+
+### 2026-02-18T22:24:00-08:00 — sigil-protocol orderBy-array compatibility chunk
+- Rotated into `packages/sigil-protocol` (slot 4) and loaded all local `.md` docs first (`README.md`, `agents.md`, `util/*`, `test/*`).
+- Ran mandatory branch hygiene before edits: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Landed a test-backed query envelope reliability improvement:
+  - Added support for Prisma-style `orderBy` arrays in `util/schema.ts` while keeping single-object `orderBy` compatibility.
+  - Added regression tests in `test/queryInput.test.ts` for array acceptance and invalid direction rejection.
+- Updated concise touched-folder docs:
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `rushx test` ❌ (`Could not find package.json for @arken/cerebro-hub`)
+  - `npm test` ✅ pass (12/12)
+- Commit/push:
+  - `sigil-protocol` `44aca26` pushed to `sable/sigil-protocol-query-take-guard-20260218`
+- PR status:
+  - No open direct PR detected for branch head.
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Next target:
+  - `packages/forge/packages/web` (slot 5), then `packages/forge/packages/protocol` (slot 6).

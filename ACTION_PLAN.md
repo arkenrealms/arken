@@ -3676,3 +3676,113 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Source-change gate still blocks source edits because no runnable package-local test command exists (`npm test` missing script), and workspace `rushx test` is blocked by missing `@arken/cerebro-hub` path.
 - Next rotation target:
   - `arken/packages/cerebro/packages/hub` (slot 11), then `arken/packages/cli` (slot 12).
+
+## Run ledger append — 2026-02-18T21:31:58-08:00 — node nested logical filter preservation
+- Target attempted:
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+  - advanced to actionable direct repo: `arken/packages/node` (slot 1)
+- Path verification:
+  - `packages/cerebro/packages/hub` missing in checkout (`find` under `packages/cerebro/packages`) → unavailable-in-checkout.
+  - `packages/cli` exists in checkout.
+  - `packages/node` exists and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/node/api.ts`
+  - `packages/node/test/api.spec.ts`
+  - `packages/node/test/{README.md,ANALYSIS.md}`
+  - `packages/node/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- test/api.spec.ts --runInBand` (in `packages/node`) ✅ pass (3/3)
+- Commits + PR links:
+  - `node` `9e7a808` (pushed) — branch update: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - verified open direct PR for branch head: <https://github.com/arkenrealms/node/pull/16>
+- Blockers:
+  - `cerebro-hub` remains unavailable-in-checkout in this workspace.
+- Next rotation target:
+  - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T21:31:12-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T21:31:58-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same node maintenance chunk.
+
+## Run ledger append — 2026-02-18T22:10:17-08:00 — seer-node updater replacement-object persistence hardening
+- Target attempted:
+  - `arken/packages/seer/packages/node` (slot 2)
+- Path verification:
+  - `packages/seer/packages/node` exists in checkout and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/node`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in Rush workspace)
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (27/27)
+- Commits + PR links:
+  - `seer-node` `92786ca` (pushed) — branch update: <https://github.com/arkenrealms/seer-node/tree/sable/seer-node-token-shape-guard-20260218>
+  - verified open direct PR for branch head: <https://github.com/arkenrealms/seer-node/pull/4>
+- Blockers:
+  - Rush workspace-level test execution remains blocked in this checkout by missing `@arken/cerebro-hub` package mapping.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `arken/packages/sigil-protocol` (slot 4).
+
+## Run ledger append — 2026-02-18T22:18:40-08:00 — seer-protocol TS test-standardization (router-routing)
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - `packages/seer/packages/protocol` exists in checkout and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/test/router-routing.test.ts` (renamed from `.js`)
+  - `packages/seer/packages/protocol/test/README.md`
+  - `packages/seer/packages/protocol/test/ANALYSIS.md`
+  - `packages/seer/packages/protocol/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/protocol`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in Rush workspace)
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (3/3)
+- Commits + PR links:
+  - `seer-protocol` `129b94c` (pushed) — branch update: <https://github.com/arkenrealms/seer-protocol/tree/sable/seer-protocol-update-settings-guard-20260218>
+  - verified open direct PR for branch head: <https://github.com/arkenrealms/seer-protocol/pull/2>
+- Blockers:
+  - Rush workspace-level test execution remains blocked in this checkout by missing `@arken/cerebro-hub` package mapping.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).
+
+## Run ledger append — 2026-02-18T22:14:06-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T22:18:40-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same seer-protocol slot-3 maintenance chunk.
+
+## Run ledger append — 2026-02-18T22:24:00-08:00 — sigil-protocol orderBy array envelope compatibility
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - `packages/sigil-protocol` exists in checkout and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/sigil-protocol`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in Rush workspace)
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (12/12)
+- Commits + PR links:
+  - `sigil-protocol` `44aca26` (pushed) — branch update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set for branch head.
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - Rush workspace-level test execution remains blocked in this checkout by missing `@arken/cerebro-hub` package mapping.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
