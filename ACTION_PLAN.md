@@ -3602,3 +3602,27 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `forge-protocol` source edits blocked by missing local TypeScript/Jest toolchain (`tsc: command not found`) under source-change gate.
 - Next rotation target:
   - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9) and `protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T20:53:14-08:00 — evolution-realm test-gate verification + docs refresh
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+- Path verification:
+  - `packages/evolution/packages/realm` exists in checkout and is mapped in `packages/evolution/.gitmodules` (`submodule "packages/realm"`).
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/realm` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/realm/README.md`
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`sh: jest: command not found`)
+  - `rushx test` (in `packages/evolution/packages/realm`) ❌ fail (Rush workspace load blocker: missing `@arken/cerebro-hub` package path)
+- Commits + PR links:
+  - `evolution-realm` `661c33b` (pushed) — branch update: <https://github.com/arkenrealms/evolution-realm/tree/sable/evolution-realm-test-harness-blocker-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/evolution-realm/pulls?state=open&head=arkenrealms:sable/evolution-realm-test-harness-blocker-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution-realm/pull/new/sable/evolution-realm-test-harness-blocker-20260218>
+- Blockers:
+  - Realm source edits remain blocked by missing local Jest runtime and Rush workspace package-map drift.
+- Next rotation target:
+  - `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).
