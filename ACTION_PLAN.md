@@ -3275,3 +3275,63 @@ Continue strict rotation from the current pointer after latest completed slot.
   - No open PR currently exists for this pushed head branch, so `hashwarp` review-comment intake is pending until PR creation.
 - Next rotation target:
   - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).
+
+## Run ledger append — 2026-02-18T19:03:33-08:00 — sigil-protocol pagination alias normalization
+- Target attempted:
+  - `arken/packages/sigil-protocol` (slot 4)
+- Path verification:
+  - `packages/sigil-protocol` exists in checkout (`find packages -maxdepth 3 -type d -name sigil-protocol`) and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/sigil-protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/sigil-protocol/util/schema.ts`
+  - `packages/sigil-protocol/test/queryInput.test.ts`
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/sigil-protocol`) ❌ fail (`rush` workspace error: missing `/arken/cerebro/package.json` in this checkout)
+  - `npm test` (in `packages/sigil-protocol`) ✅ pass (8/8)
+- Commits + PR links:
+  - `sigil-protocol` `7346c98` (pushed) — branch update: <https://github.com/arkenrealms/sigil-protocol/tree/sable/sigil-protocol-query-take-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/sigil-protocol/pulls?state=open&head=arkenrealms:sable/sigil-protocol-query-take-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+- Blockers:
+  - No open PR currently exists for this pushed head branch, so `hashwarp` review-comment intake is pending until PR creation.
+- Next rotation target:
+  - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
+
+## Run ledger append — 2026-02-18T19:16:42-08:00 — forge-web/forge-protocol test-gate blocks + evolution owner-valid-path guard
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - advanced to next actionable direct repo: `arken/packages/evolution` (slot 7, non-client scope)
+- Path verification:
+  - `packages/forge/packages/web` exists and remains mapped in `packages/forge/.gitmodules`.
+  - `packages/forge/packages/protocol` exists and is now mapped in `packages/forge/.gitmodules`.
+  - `packages/evolution` exists in checkout and non-client wrapper scope remains actionable.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/web`, `packages/forge/packages/protocol`, and `packages/evolution` before edits (all `Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/README.md`
+  - `packages/evolution/test/README.md`
+  - `packages/evolution/test/ANALYSIS.md`
+- Test command + result:
+  - `rushx test -- --runTestsByPath src/components/Menu/config.test.ts` (in `packages/forge/packages/web`) ❌ fail (`rush` workspace error: missing `/arken/cerebro/package.json`)
+  - `npm test -- --runTestsByPath src/components/Menu/config.test.ts` (in `packages/forge/packages/web`) ❌ fail (`jest: command not found`)
+  - `npm test` (in `packages/evolution`) ✅ pass (33/33)
+- Commits + PR links:
+  - `evolution` `5c5d7d5` (pushed) — branch update: <https://github.com/arkenrealms/evolution/tree/sable/evolution-duplicate-config-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/evolution/pulls?state=open&head=arkenrealms:sable/evolution-duplicate-config-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution/pull/new/sable/evolution-duplicate-config-guard-20260218>
+- Blockers:
+  - `forge-web` source edits blocked by missing local Jest runtime in this checkout (`jest: command not found`) under source-change test gate.
+  - `forge-protocol` currently lacks runnable repo-defined test harness in this checkout (`rushx` blocked by missing monorepo package) for safe source changes.
+  - No open PR currently exists for updated `evolution` branch head; direct PR creation still required for review intake.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9), `protocol` (slot 10).

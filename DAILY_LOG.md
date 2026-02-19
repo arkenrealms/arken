@@ -4414,3 +4414,48 @@
   - Branch has no open PR yet; review intake (including `hashwarp`) blocked until PR exists.
 - Next target:
   - `packages/sigil-protocol` (slot 4)
+
+### Newly completed (sigil-protocol pagination alias hardening chunk)
+- [x] Rotated to `sigil-protocol` (slot 4), loaded local target `.md` docs first (`README.md`, `agents.md`, `util/*`, `test/*`), then analyzed source.
+- [x] Ran branch hygiene in direct repo before edits: `git fetch origin && git merge --no-edit origin/main` (`Already up to date`).
+- [x] Hardened query-envelope compatibility in `packages/sigil-protocol/util/schema.ts` by normalizing pagination aliases bidirectionally (`take`↔`limit`) and resolving conflicting values with `take` as canonical.
+- [x] Added regression tests in `packages/sigil-protocol/test/queryInput.test.ts` for:
+  - take-only -> mirrored `limit`
+  - conflicting `take` + `limit` -> normalized to `take`
+- [x] Updated concise touched-folder docs:
+  - `packages/sigil-protocol/util/{README.md,ANALYSIS.md}`
+  - `packages/sigil-protocol/test/{README.md,ANALYSIS.md}`
+- [x] Test gate:
+  - `rushx test` ❌ fail (Rush workspace missing `/arken/cerebro/package.json`)
+  - `npm test` ✅ pass (8/8)
+- [x] Committed/pushed Sigil update:
+  - `sigil-protocol` `7346c98` (branch `sable/sigil-protocol-query-take-guard-20260218`)
+- [ ] Open dedicated direct-repo PR for Sigil branch:
+  - <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
+
+### In progress (rotation)
+- [x] Continue to `forge-web` next (slot 5), then `forge-protocol` (slot 6).
+
+### Run append (2026-02-18T19:16:42-08:00) — forge-web/forge-protocol blockers + evolution validator hardening
+- [x] Ran branch hygiene (`git fetch origin` + merge `origin/main`) in:
+  - `packages/forge/packages/web`
+  - `packages/forge/packages/protocol`
+  - `packages/evolution`
+- [x] Verified direct-rotation paths now present for both forge subrepos (`web`, `protocol`).
+- [x] Attempted forge-web test gate commands and captured blockers:
+  - `rushx test -- --runTestsByPath src/components/Menu/config.test.ts` ❌ (`/arken/cerebro/package.json` missing in rush workspace)
+  - `npm test -- --runTestsByPath src/components/Menu/config.test.ts` ❌ (`jest: command not found`)
+- [x] Advanced to `evolution` slot (non-client scope) and shipped wrapper reliability improvement:
+  - Added owner-level failure reporting for submodule sections that only provide invalid `path = ...` values (`ownersWithoutValidPath`).
+  - Added/updated regression coverage and docs:
+    - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+    - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+    - `packages/evolution/scripts/README.md`
+    - `packages/evolution/test/README.md`
+    - `packages/evolution/test/ANALYSIS.md`
+- [x] Test result:
+  - `npm test` (in `packages/evolution`) ✅ pass (33/33)
+- [x] Commit/push:
+  - `evolution` `5c5d7d5` (branch `sable/evolution-duplicate-config-guard-20260218`)
+- [ ] Open/create direct `evolution` PR for this branch (head check currently returns `[]`).
+- [ ] Continue strict rotation to `packages/evolution/packages/realm` next.
