@@ -3786,3 +3786,123 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Rush workspace-level test execution remains blocked in this checkout by missing `@arken/cerebro-hub` package mapping.
 - Next rotation target:
   - `arken/packages/forge/packages/web` (slot 5), then `arken/packages/forge/packages/protocol` (slot 6).
+
+## Run ledger append — 2026-02-18T22:33:51-08:00 — forge test-gate check then evolution duplicate-owner de-dup hardening
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - advanced to actionable direct repo: `arken/packages/evolution` (slot 7; non-client scope only)
+- Path verification:
+  - `packages/forge/packages/web`, `packages/forge/packages/protocol`, and `packages/evolution` all exist in checkout and are mapped in `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/forge/packages/web`, `packages/forge/packages/protocol`, and `packages/evolution` before edits (all `Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts --runInBand` (in `packages/forge/packages/web`) ❌ fail (`sh: jest: command not found`)
+  - `npm run tsc:1` (in `packages/forge/packages/protocol`) ❌ fail (`sh: tsc: command not found`)
+  - `npm test` (in `packages/evolution`) ✅ pass (35/35)
+- Commits + PR links:
+  - `evolution` `d2d149b` (pushed) — branch update: <https://github.com/arkenrealms/evolution/tree/sable/evolution-duplicate-config-guard-20260218>
+  - verified open direct PR for branch head: <https://github.com/arkenrealms/evolution/pull/11>
+- Blockers:
+  - `forge-web` source edits remain blocked by missing local Jest runtime (`jest: command not found`).
+  - `forge-protocol` source edits remain blocked by missing local TypeScript toolchain (`tsc: command not found`).
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm` (slot 8), then `shard` (slot 9) and `protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T22:42:17-08:00 — evolution slots 8-12 test-gate sweep + hub activation check
+- Target attempted:
+  - `arken/packages/evolution/packages/realm` (slot 8)
+  - `arken/packages/evolution/packages/shard` (slot 9)
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+- Path verification:
+  - `packages/evolution/packages/{realm,shard,protocol}` exist and are mapped in `packages/evolution/.gitmodules`.
+  - `packages/cerebro/packages/hub` exists in checkout (not missing now).
+  - `packages/cli` exists in checkout.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` before edits in each touched direct repo.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/realm/ANALYSIS.md`
+  - `packages/evolution/packages/shard/ANALYSIS.md`
+  - `packages/evolution/packages/protocol/ANALYSIS.md`
+  - `packages/cerebro/packages/hub/{README.md,ANALYSIS.md}`
+  - `packages/cli/ANALYSIS.md`
+- Test command + result:
+  - `npm test -- --runInBand` (in `packages/evolution/packages/realm`) ❌ fail (`jest: command not found`)
+  - `rushx test` (in `packages/evolution/packages/realm`) ❌ fail (`Could not find package.json for @arken/cerebro-hub at .../arken/cerebro/hub/package.json`)
+  - `npm test` (in `packages/evolution/packages/shard`) ❌ fail (`Missing script: "test"`)
+  - `rushx test` (in `packages/evolution/packages/shard`) ❌ fail (same Rush package-map drift)
+  - `rushx test` (in `packages/evolution/packages/protocol`) ❌ fail (same Rush package-map drift)
+  - `npm test` (in `packages/evolution/packages/protocol`) ❌ fail (`Missing script: "test"`)
+  - `npm test -- --runInBand` (in `packages/cerebro/packages/hub`) ❌ fail (`jest: command not found`)
+  - `npm test -- --runInBand` (in `packages/cli`) ❌ fail (`vitest: command not found`)
+  - `rushx test` (in `packages/cli`) ❌ fail (same Rush package-map drift)
+- Commits + PR links:
+  - `evolution-realm` `1e583b6` (pushed) — branch: <https://github.com/arkenrealms/evolution-realm/tree/sable/evolution-realm-test-harness-blocker-20260218>
+  - `evolution-shard` `dfc7e54` (local only; push blocked 403) — branch (if permissions restored): <https://github.com/arkenrealms/evolution-shard/tree/sable/evolution-shard-test-harness-blocker-20260218>
+  - `evolution-protocol` `9691010` (pushed) — branch: <https://github.com/arkenrealms/evolution-protocol/tree/sable/evolution-protocol-test-gate-audit-20260218>
+  - `cerebro-hub` `40dfc78` (pushed new branch) — branch: <https://github.com/arkenrealms/cerebro-hub/tree/sable/cerebro-hub-test-gate-audit-20260218>
+  - `cli` `790f8ed` (pushed) — branch: <https://github.com/arkenrealms/cli/tree/sable/cli-test-gate-audit-20260218>
+  - open-PR head checks (GitHub API):
+    - evolution-realm branch head: `[]` (no open PR)
+    - evolution-protocol branch head: `[]` (no open PR)
+    - cli branch head: `[]` (no open PR)
+    - evolution-shard branch head: `[]` (no open PR; also not pushable from this environment)
+    - cerebro-hub API head-check returned 404 unauthenticated; PR creation link provided.
+  - PR creation links:
+    - evolution-realm: <https://github.com/arkenrealms/evolution-realm/pull/new/sable/evolution-realm-test-harness-blocker-20260218>
+    - evolution-shard: <https://github.com/arkenrealms/evolution-shard/pull/new/sable/evolution-shard-test-harness-blocker-20260218>
+    - evolution-protocol: <https://github.com/arkenrealms/evolution-protocol/pull/new/sable/evolution-protocol-test-gate-audit-20260218>
+    - cerebro-hub: <https://github.com/arkenrealms/cerebro-hub/pull/new/sable/cerebro-hub-test-gate-audit-20260218>
+    - cli: <https://github.com/arkenrealms/cli/pull/new/sable/cli-test-gate-audit-20260218>
+- Blockers:
+  - Local test binaries missing (`jest`, `vitest`) in multiple direct repos.
+  - Rush workspace path drift still expects `@arken/cerebro-hub` at `arken/cerebro/hub/package.json` (does not match current checkout path).
+  - Push permission denied (403) on `evolution-shard`.
+- Next rotation target:
+  - `arken/packages/node` (slot 1), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T22:53:51-0800 — node getFilter scalar-shorthand equality hardening
+- Target attempted:
+  - 0arken/packages/node0 (slot 1)
+- Path verification:
+  - 0packages/node0 exists in checkout and is mapped in top-level 0.gitmodules0.
+- Branch hygiene:
+  - Ran 0git fetch origin0 + 0git merge --no-edit origin/main0 in 0packages/node0 before edits (0Already up to date0).
+- Conflict notes:
+  - No conflicts found between 0MEMORY.md0, explicit instructions, and markdown guidance.
+- Files changed:
+  - 0packages/node/api.ts0
+  - 0packages/node/test/api.spec.ts0
+  - 0packages/node/test/{README.md,ANALYSIS.md}0
+  - 0packages/node/ANALYSIS.md0
+- Test command + result:
+  - 0npm test -- test/api.spec.ts --runInBand0 (in 0packages/node0) ✅ pass (5/5)
+- Commits + PR links:
+  - 0node0 0a42e6900 (pushed) — branch update: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - verified open direct PR for branch head: <https://github.com/arkenrealms/node/pull/16>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - 0arken/packages/seer/packages/node0 (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T22:56:59-0800 — correction note (node scalar-shorthand run block)
+- Correction: prior run-ledger append for the node scalar-shorthand slot was written with shell-escape control characters in inline code formatting.
+- Authoritative details for that same run:
+  - Target attempted: `arken/packages/node` (slot 1)
+  - Files changed: `packages/node/api.ts`, `packages/node/test/api.spec.ts`, `packages/node/test/{README.md,ANALYSIS.md}`, `packages/node/ANALYSIS.md`
+  - Test command + result: `npm test -- test/api.spec.ts --runInBand` ✅ pass (5/5)
+  - Commit: `a42e690` (pushed)
+  - PR: <https://github.com/arkenrealms/node/pull/16>
+  - Blockers: none
+  - Next rotation target: `arken/packages/seer/packages/node` (slot 2)

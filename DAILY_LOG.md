@@ -4745,3 +4745,81 @@
   - PR creation link: <https://github.com/arkenrealms/sigil-protocol/pull/new/sable/sigil-protocol-query-take-guard-20260218>
 - Next target:
   - `packages/forge/packages/web` (slot 5), then `packages/forge/packages/protocol` (slot 6).
+
+## 2026-02-18T22:33:51-08:00 — forge test-gate check then evolution duplicate-owner de-dup hardening
+- Target attempted:
+  - `arken/packages/forge/packages/web` (slot 5)
+  - `arken/packages/forge/packages/protocol` (slot 6)
+  - advanced to actionable direct repo: `arken/packages/evolution` (slot 7; non-client scope only)
+- Files changed:
+  - `packages/evolution/scripts/validateSubmoduleMap.mjs`
+  - `packages/evolution/test/validateSubmoduleMap.test.mjs`
+  - `packages/evolution/scripts/{README.md,ANALYSIS.md}`
+  - `packages/evolution/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `npm test -- --runTestsByPath src/utils/contenthashToUri.test.ts --runInBand` (forge-web) ❌ `jest: command not found`
+  - `npm run tsc:1` (forge-protocol) ❌ `tsc: command not found`
+  - `npm test` (evolution) ✅ pass (35/35)
+- Commit:
+  - `packages/evolution`: `d2d149b` pushed to `sable/evolution-duplicate-config-guard-20260218`
+- PR:
+  - <https://github.com/arkenrealms/evolution/pull/11>
+- Blockers:
+  - forge-web and forge-protocol still blocked by missing local test/build runtime prerequisites under source-change gate.
+- Next rotation target:
+  - `arken/packages/evolution/packages/realm`.
+
+### Newly completed (late-night evolution/cerebro/cli test-gate sweep)
+- [x] Continued strict rotation through slots 8-12:
+  - `packages/evolution/packages/{realm,shard,protocol}`
+  - `packages/cerebro/packages/hub`
+  - `packages/cli`
+- [x] Re-ran branch hygiene (`git fetch origin` + merge `origin/main`) in each touched direct repo before edits.
+- [x] Loaded all target-folder markdown files before source checks in each slot.
+- [x] Reconfirmed source-change test gate blockers with command output:
+  - realm: `npm test` -> `jest: command not found`; `rushx test` -> missing `@arken/cerebro-hub` workspace path
+  - shard/protocol: missing `npm test` script + Rush workspace path drift
+  - hub: `npm test` -> `jest: command not found`
+  - cli: `npm test` -> `vitest: command not found`; `rushx test` -> workspace path drift
+- [x] Added/updated concise slot docs:
+  - `packages/evolution/packages/{realm,shard,protocol}/ANALYSIS.md`
+  - `packages/cerebro/packages/hub/{README.md,ANALYSIS.md}`
+  - `packages/cli/ANALYSIS.md`
+- [x] Committed/pushed direct-repo updates where permitted:
+  - `evolution-realm` `1e583b6` (pushed)
+  - `evolution-protocol` `9691010` (pushed)
+  - `cerebro-hub` `40dfc78` (pushed new branch)
+  - `cli` `790f8ed` (pushed)
+- [x] Captured push blocker:
+  - `evolution-shard` `dfc7e54` local commit, push denied 403.
+- [x] Verified open-PR head checks for branch heads where API access allowed (`evolution-realm`, `evolution-protocol`, `cli`, `evolution-shard` => no open PRs currently).
+- [x] Added direct PR creation links for all touched branches in `ACTION_PLAN.md` run ledger.
+
+### In progress (rotation)
+- [ ] Continue to `node` next (slot 1) and attempt substantive source+test work once test runtime is available.
+
+## 2026-02-18T22:53:51-0800 — node slot (getFilter scalar shorthand guard)
+- Target: 0arken/packages/node0
+- Branch hygiene: 0git fetch origin0 + 0git merge --no-edit origin/main0 (already up to date)
+- Change summary:
+  - Hardened 0getFilter0 to treat scalar where values as equality filters (including nested logical clauses) instead of silently dropping them.
+  - Added regression tests for root and nested scalar shorthand (uid=502(web) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),702(com.apple.sharepoint.group.2),100(_lpoperator),701(com.apple.sharepoint.group.1), , ).
+  - Updated concise analysis/readme notes in touched folders.
+- Tests:
+  - 0npm test -- test/api.spec.ts --runInBand0 ✅ pass (5/5)
+- Git:
+  - Commit: 0a42e6900
+  - Branch: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - PR: <https://github.com/arkenrealms/node/pull/16>
+- Blockers: none
+- Next target: 0arken/packages/seer/packages/node0
+
+## 2026-02-18T22:56:59-0800 — correction note (node slot formatting)
+- Correction: the immediately prior node-slot log block rendered malformed inline-code markers and shell-substituted text due to escaping error.
+- Authoritative node-slot summary for commit `a42e690`:
+  - Target: `arken/packages/node`
+  - Change: `getFilter` now treats scalar where values as equality filters (root + nested logical clauses).
+  - Tests: `npm test -- test/api.spec.ts --runInBand` ✅ pass (5/5)
+  - Branch: <https://github.com/arkenrealms/node/tree/sable/node-invalid-request-guard-20260218>
+  - PR: <https://github.com/arkenrealms/node/pull/16>
+  - Next target: `arken/packages/seer/packages/node`
