@@ -12,3 +12,11 @@
 	path = forge
 	url = https://github.com/arkenrealms/forge.git
 	branch = main
+[submodule "packages/sigil-protocol"]
+	path = packages/sigil-protocol
+	url = https://github.com/arkenrealms/sigil-protocol.git
+	branch = main
+[submodule "packages/cli"]
+	path = packages/cli
+	url = https://github.com/arkenrealms/cli.git
+	branch = main
