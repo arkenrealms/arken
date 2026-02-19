@@ -3249,3 +3249,29 @@ Continue strict rotation from the current pointer after latest completed slot.
   - No open PR currently exists for this pushed head branch, so `hashwarp` review-comment intake is pending until PR creation.
 - Next rotation target:
   - `arken/packages/seer/packages/protocol` (slot 3), then `arken/packages/sigil-protocol` (slot 4).
+
+## Run ledger append — 2026-02-18T18:53:38-08:00 — seer-protocol Evolution info guarded dispatch hardening
+- Target attempted:
+  - `arken/packages/seer/packages/protocol` (slot 3)
+- Path verification:
+  - target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name protocol`) and is mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/protocol` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/protocol/evolution/evolution.router.ts`
+  - `packages/seer/packages/protocol/test/evolution.router.test.ts`
+  - `packages/seer/packages/protocol/evolution/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `packages/seer/packages/protocol`) ❌ fail (`rush` workspace error: missing `/arken/cerebro/package.json` in this checkout)
+  - `npm test` (in `packages/seer/packages/protocol`) ✅ pass (2/2)
+- Commits + PR links:
+  - `seer-protocol` `5d0fd12` (pushed) — branch update: <https://github.com/arkenrealms/seer-protocol/tree/sable/seer-protocol-update-settings-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blockers:
+  - No open PR currently exists for this pushed head branch, so `hashwarp` review-comment intake is pending until PR creation.
+- Next rotation target:
+  - `arken/packages/sigil-protocol` (slot 4), then `arken/packages/forge/packages/web` (slot 5).

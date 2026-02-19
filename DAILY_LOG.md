@@ -4389,3 +4389,28 @@
 ### In progress (rotation)
 - [x] Continue to `seer-protocol` next (slot 3), then `sigil-protocol` (slot 4).
 - [ ] Open/refresh direct `seer-node` PR for pushed branch (head check currently returns no open PR).
+
+## 2026-02-18T18:53:38-08:00 — seer-protocol Evolution info guarded dispatch hardening
+- Target: `packages/seer/packages/protocol`
+- Summary:
+  - Hardened `evolution.info` router dispatch with own-property descriptor lookup and deterministic TRPC internal error when handler wiring is missing/non-callable.
+  - Expanded regression coverage in `test/evolution.router.test.ts` to enforce guarded dispatch semantics and error messaging for `info`.
+  - Updated concise maintainer notes in `evolution/ANALYSIS.md` and `test/{README.md,ANALYSIS.md}`.
+- Files changed:
+  - `packages/seer/packages/protocol/evolution/evolution.router.ts`
+  - `packages/seer/packages/protocol/test/evolution.router.test.ts`
+  - `packages/seer/packages/protocol/evolution/ANALYSIS.md`
+  - `packages/seer/packages/protocol/test/README.md`
+  - `packages/seer/packages/protocol/test/ANALYSIS.md`
+- Tests:
+  - `rushx test` ❌ (missing `/arken/cerebro/package.json` in workspace)
+  - `npm test` ✅ (2/2 passing)
+- Commit:
+  - `seer-protocol` `5d0fd12` (pushed)
+- PR:
+  - Open-head check: <https://api.github.com/repos/arkenrealms/seer-protocol/pulls?state=open&head=arkenrealms:sable/seer-protocol-update-settings-guard-20260218> (none open)
+  - Create PR: <https://github.com/arkenrealms/seer-protocol/pull/new/sable/seer-protocol-update-settings-guard-20260218>
+- Blockers:
+  - Branch has no open PR yet; review intake (including `hashwarp`) blocked until PR exists.
+- Next target:
+  - `packages/sigil-protocol` (slot 4)
