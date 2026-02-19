@@ -4248,3 +4248,22 @@
   - cerebro-hub missing.
   - cli test runtime unavailable in this environment (`vitest` missing), so no cli source edits under test gate.
 - Next target: `arken/packages/seer/packages/node`.
+
+## 2026-02-18T17:53:08-08:00 — seer-node monitor delay integer guard
+- Target: `arken/packages/seer/packages/node` (slot 2).
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (Already up to date).
+- Source changes:
+  - `src/tests.ts`: tightened `monitorMarketEvents` delay normalization to require finite non-negative **integer** milliseconds within Node timer range.
+  - `test/tests.helpers.test.ts`: added fractional-delay regression coverage and updated expected error strings.
+  - Updated concise docs: `src/ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md`.
+- Tests:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (22/22).
+- Commit/push:
+  - `00bc98a` on `sable/seer-node-token-shape-guard-20260218`.
+- PR status:
+  - Open-head check returned `[]`: <https://api.github.com/repos/arkenrealms/seer-node/pulls?state=open&head=arkenrealms:sable/seer-node-token-shape-guard-20260218>
+  - Create PR: <https://github.com/arkenrealms/seer-node/pull/new/sable/seer-node-token-shape-guard-20260218>
+- Blocker:
+  - `gh` unavailable for direct PR creation in runtime.
+- Next target:
+  - `arken/packages/seer/packages/protocol` (slot 3).

@@ -3020,3 +3020,28 @@ Continue strict rotation from the current pointer after latest completed slot.
   - `cli` source-edit path is currently blocked by missing local test runtime (`npm test` fails with `vitest: command not found` under source-change gate).
 - Next rotation target:
   - `arken/packages/seer/packages/node` (slot 2), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-18T17:53:08-08:00 — seer-node monitor delay integer guard
+- Target attempted:
+  - `arken/packages/seer/packages/node` (slot 2)
+- Path verification:
+  - target exists in checkout (`find packages/seer/packages -maxdepth 2 -type d -name node`) and remains mapped in `packages/seer/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/seer/packages/node` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/seer/packages/node/src/tests.ts`
+  - `packages/seer/packages/node/test/tests.helpers.test.ts`
+  - `packages/seer/packages/node/src/ANALYSIS.md`
+  - `packages/seer/packages/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `npm test` (in `packages/seer/packages/node`) ✅ pass (22/22)
+- Commits + PR links:
+  - `seer-node` `00bc98a` (pushed) — branch update: <https://github.com/arkenrealms/seer-node/tree/sable/seer-node-token-shape-guard-20260218>
+  - open PR head-check (`state=open`) returned empty set `[]`: <https://api.github.com/repos/arkenrealms/seer-node/pulls?state=open&head=arkenrealms:sable/seer-node-token-shape-guard-20260218>
+  - PR creation link: <https://github.com/arkenrealms/seer-node/pull/new/sable/seer-node-token-shape-guard-20260218>
+- Blockers:
+  - GitHub CLI unavailable for in-run PR creation (`gh: command not found`); branch pushed and PR link prepared.
+- Next rotation target:
+  - `arken/packages/seer/packages/protocol` (slot 3), then `arken/packages/sigil-protocol` (slot 4).
