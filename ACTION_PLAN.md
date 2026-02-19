@@ -4313,3 +4313,29 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Local Jest runtime is unavailable in this checkout for `evolution-realm` (`jest` binary not found), blocking safe source edits under the source-change gate.
 - Next rotation target:
   - `arken/packages/evolution/packages/shard` (slot 9), then continue strict direct-repo order.
+
+## Run ledger append — 2026-02-19T01:43:55-08:00 — evolution-shard slot-9 test-command gap audit
+- Target attempted:
+  - `arken/packages/evolution/packages/shard` (slot 9)
+- Path verification:
+  - `packages/evolution/packages/shard` exists in checkout (`find`) and is mapped in `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/shard` before edits (`Already up to date`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/shard/README.md`
+  - `packages/evolution/packages/shard/ANALYSIS.md` (new)
+- Test command + result:
+  - `npm test` (in `packages/evolution/packages/shard`) ❌ fail (`Missing script: "test"`)
+  - `rushx test` (in `packages/evolution/packages/shard`) ❌ fail (`The command "test" is not defined in the package.json file for this project`)
+  - Source edits skipped per source-change gate; docs-only continuity update applied.
+- Commits + PR links:
+  - `evolution-shard` `547ffc7` (pushed) — branch `sable/evolution-shard-test-harness-blocker-20260219`
+  - Open PR head check: `GET /repos/arkenrealms/evolution-shard/pulls?state=open&head=arkenrealms:sable/evolution-shard-test-harness-blocker-20260219` → none open.
+  - Compare link for PR creation: <https://github.com/arkenrealms/evolution-shard/compare/main...sable/evolution-shard-test-harness-blocker-20260219?expand=1>
+- Blockers:
+  - Dedicated direct-repo PR not yet open for active evolution-shard branch.
+  - No repo-defined test command currently available in evolution-shard, so source changes remain blocked until minimal Jest+TS harness wiring is added.
+- Next rotation target:
+  - `arken/packages/evolution/packages/protocol` (slot 10), then continue strict direct-repo order.
