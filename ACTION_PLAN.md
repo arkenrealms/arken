@@ -3383,3 +3383,83 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Source changes blocked by test gate until local Jest/runtime path is restored for this repo.
 - Next rotation target:
   - `arken/packages/evolution/packages/shard` (slot 9), then `arken/packages/evolution/packages/protocol` (slot 10).
+
+## Run ledger append — 2026-02-18T19:34:02-08:00 — evolution-shard test-gate audit + docs continuity
+- Target attempted:
+  - `arken/packages/evolution/packages/shard` (slot 9)
+- Path verification:
+  - `packages/evolution/packages/shard` exists in checkout and is mapped in `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/shard` before edits (`Already up to date`).
+  - Created dedicated branch `sable/evolution-shard-test-harness-blocker-20260218`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/shard/README.md`
+  - `packages/evolution/packages/shard/ANALYSIS.md` (new)
+- Test command + result:
+  - `rushx test` (in `packages/evolution/packages/shard`) ❌ fail (`Could not find package.json for @arken/cerebro` in workspace)
+  - `npm test -- --runInBand` (in `packages/evolution/packages/shard`) ❌ fail (`Missing script: test`)
+- Commits + PR links:
+  - `evolution-shard` `5f85723` (local commit on `sable/evolution-shard-test-harness-blocker-20260218`)
+  - Push blocked by remote permissions: `403 Permission to arkenrealms/evolution-shard.git denied to highruned`
+  - PR creation (pending push): <https://github.com/arkenrealms/evolution-shard/pull/new/sable/evolution-shard-test-harness-blocker-20260218>
+- Blockers:
+  - Mandatory source-change gate blocked source edits because no runnable local test command exists in this package.
+  - Remote push permission denied for `evolution-shard` (`403`), so dedicated direct-repo PR cannot be opened from this runtime account yet.
+- Next rotation target:
+  - `arken/packages/evolution/packages/protocol` (slot 10), then `arken/packages/cerebro/packages/hub` (slot 11).
+
+## Run ledger append — 2026-02-18T19:49:58-08:00 — evolution-protocol test-gate audit + docs continuity
+- Target attempted:
+  - `arken/packages/evolution/packages/protocol` (slot 10)
+- Path verification:
+  - `packages/evolution/packages/protocol` exists in checkout and is mapped in `packages/evolution/.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/evolution/packages/protocol` before edits (`Already up to date`).
+  - Created dedicated branch: `sable/evolution-protocol-test-gate-audit-20260218`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/evolution/packages/protocol/README.md`
+  - `packages/evolution/packages/protocol/ANALYSIS.md` (new)
+- Test command + result:
+  - `rushx test` (in `packages/evolution/packages/protocol`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in workspace)
+  - `npm test` (in `packages/evolution/packages/protocol`) ❌ fail (`sh: jest: command not found`)
+- Commits + PR links:
+  - `evolution-protocol` `f51c5c1` (pushed) — branch: <https://github.com/arkenrealms/evolution-protocol/tree/sable/evolution-protocol-test-gate-audit-20260218>
+  - PR creation link: <https://github.com/arkenrealms/evolution-protocol/pull/new/sable/evolution-protocol-test-gate-audit-20260218>
+- Blockers:
+  - Mandatory source-change gate prevented retaining source edits because no runnable local test command exists in this package context.
+- Next rotation target:
+  - `arken/packages/cerebro/packages/hub` (slot 11), then `arken/packages/cli` (slot 12).
+
+## Run ledger append — 2026-02-18T19:44:32-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-18T19:49:58-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution-protocol slot-10 maintenance chunk.
+
+## Run ledger append — 2026-02-18T19:52:26-08:00 — cerebro-hub unavailable check + cli test-gate docs continuity
+- Target attempted:
+  - `arken/packages/cerebro/packages/hub` (slot 11)
+  - `arken/packages/cli` (slot 12)
+- Path verification:
+  - `packages/cerebro/packages/hub` missing in this checkout (`find` returned no hub path under `packages/cerebro/packages`) → unavailable-in-checkout.
+  - `packages/cli` exists in checkout and is mapped in top-level `.gitmodules`.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` in `packages/cli` before edits (`Already up to date`).
+  - Created dedicated branch: `sable/cli-test-gate-audit-20260218`.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit instructions, and markdown guidance.
+- Files changed:
+  - `packages/cli/README.md`
+  - `packages/cli/ANALYSIS.md` (new)
+- Test command + result:
+  - `rushx test` (in `packages/cli`) ❌ fail (`Could not find package.json for @arken/cerebro-hub` in Rush workspace)
+  - `npm test` (in `packages/cli`) ❌ fail (`sh: vitest: command not found`)
+- Commits + PR links:
+  - `cli` `d9306a6` (pushed) — branch: <https://github.com/arkenrealms/cli/tree/sable/cli-test-gate-audit-20260218>
+  - PR creation link: <https://github.com/arkenrealms/cli/pull/new/sable/cli-test-gate-audit-20260218>
+- Blockers:
+  - Mandatory source-change gate prevented source edits because repo-defined tests are not runnable in this runtime.
+  - `cerebro-hub` direct repo remains unavailable-in-checkout.
+- Next rotation target:
+  - `arken/packages/node` (slot 1), then continue strict direct-repo order.
