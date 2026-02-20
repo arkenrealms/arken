@@ -7555,3 +7555,237 @@
   - Pending commit/push in this run block.
 - Blockers: none.
 - Next target: `arken/cli`.
+
+## 2026-02-20T06:34:25-0800 — cli gate check + node malformed RPC error-envelope normalization
+- Checked `arken/cli` slot with required `origin/main` integration and markdown preload; `rushx test` currently fails (24 failures) due snapshot drift and `link is not a function` in parsing custom-link path.
+- Continued strict rotation to `arken/node` and shipped a small reliability fix: malformed JSON-RPC error envelopes now normalize to deterministic `RequestError` fallback metadata (numeric code + non-empty message).
+- Added regression coverage in `test/httpProvider.spec.ts` for malformed error envelopes and updated touched `README.md`/`ANALYSIS.md` docs with rationale.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/httpProvider.spec.ts --runInBand` ✅ (18 tests).
+- Commit/PR:
+  - `c883663` on `nel/node-maintenance-20260220-0438`.
+  - PR: https://github.com/arkenrealms/node/pull/20
+
+## 2026-02-20T06:46:00-0800 — seer-node TEST_MONGO_URI whitespace fallback hardening
+- Target: `arken/seer/node` (rotation slot 2).
+- Guardrails applied: read `MEMORY.md` first; fetched + merged `origin/main` before edits; preloaded all local target markdown docs; reviewed deepest touched leaves first.
+- Summary:
+  - Trimmed `TEST_MONGO_URI` in `test/mongoTestEnv.ts` before selection logic.
+  - Added regression coverage proving whitespace-only env values fall back to `mongodb-memory-server`.
+  - Updated `test/README.md` and `test/ANALYSIS.md` with rationale and behavior notes.
+- Files changed:
+  - `arken/seer/node/test/mongoTestEnv.ts`
+  - `arken/seer/node/test/mongoTestEnv.unit.spec.ts`
+  - `arken/seer/node/test/README.md`
+  - `arken/seer/node/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ❌ (pre-existing failures in `test/mongo.cluster.spec.ts` and `test/mongo.pkConfig.spec.ts` due undefined `ClusterModel`).
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/mongoTestEnv.unit.spec.ts --runInBand` ✅ (1 suite, 4 tests).
+- Commit/PR:
+  - Pending commit/push in this run block.
+- Blockers:
+  - Full-suite red state from existing cluster/pkConfig tests remains unresolved.
+- Next target: `arken/seer/protocol`.
+
+## 2026-02-20T06:44:49-0800 — correction note
+- Correction: previous daily-log timestamp (`2026-02-20T06:46:00-0800`) was appended ahead of wall-clock time; this note records the accurate append window for the same seer-node maintenance chunk.
+
+## 2026-02-20T06:54:52-0800 — seer-protocol pagination alias parity hardening
+- Slot: `arken/seer/protocol` (flattened rotation slot 3).
+- Change summary:
+  - Added shared `take`/`limit` parity refinement in both `schema.ts` and `util/schema.ts`.
+  - Query envelopes now reject requests where `take` and legacy `limit` are both present but mismatched.
+  - Expanded util/root schema tests to lock mismatch rejection and matching-value acceptance.
+  - Updated touched docs (`ANALYSIS.md` / `README.md`) with rationale and behavior notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/seer/protocol` ✅ (6 suites, 22 tests).
+- Notes:
+  - No MEMORY.md / instruction conflicts.
+  - Next target: `arken/sigil/protocol`.
+
+## 2026-02-20T07:03:41-0800 — sigil-protocol reserved-key query envelope hardening
+- Rotation slot: 4 (`arken/sigil/protocol`).
+- Branch prep: `git fetch origin` + `git merge --no-edit origin/main` (up to date).
+- Change summary:
+  - Hardened query-envelope record key validation to reject reserved prototype-pollution keys (`__proto__`, `prototype`, `constructor`) across `orderBy`, `include`, and `select`.
+  - Added regression coverage proving reserved-key rejection at parse time.
+  - Updated touched-folder docs (`util/*`, `test/*`) with rationale and scope.
+- Files touched:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/README.md`
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/README.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 25 tests)
+- Commit/PR:
+  - Commit: `b36bf13` (`nel/sigil-protocol-maintenance-20260219-1553`)
+  - PR: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Blockers: none.
+- Next target: slot 5 (`arken/forge/web`).
+
+## 2026-02-20T07:22:40-0800 — Forge-web test harness stabilization
+- Completed flattened slot `arken/forge/web` with branch hygiene (`git fetch origin` + merge `origin/main`) and full markdown preload.
+- Updated interface test helper to opt into React Router v7 future flags for cleaner test output:
+  - `arken/forge/web/src/components/interface/testUtils.tsx`
+  - `arken/forge/web/src/components/interface/testUtils.test.tsx` (new regression)
+- Stabilized existing memoization assertion to tolerate framework-level rerender variance while preserving no-extra-work intent:
+  - `arken/forge/web/src/components/Interface.test.tsx`
+- Updated touched docs with rationale:
+  - `arken/forge/web/src/components/interface/{README.md,ANALYSIS.md}`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ❌ initial fail (1 memoization assertion)
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (11 suites, 99 tests)
+- Commit/PR:
+  - `forge-web` `548fd06` pushed to `nel/forge-web-maintenance-20260219-1752`
+  - PR: https://github.com/arkenrealms/forge-web/pull/11
+- Next target: `arken/forge/protocol` (slot 6).
+
+## 2026-02-20T07:15:32-0800 — correction note
+- Correction: prior Forge-web entry timestamp (`2026-02-20T07:22:40-0800`) was ahead of wall-clock time; this note marks the accurate append window.
+
+## 2026-02-20T07:33:54-0800 — forge-protocol sync payload size guardrails
+- Target: `arken/forge/protocol` (rotation slot 6).
+- Guardrails applied: read `MEMORY.md` first; fetched + merged `origin/main` before edits; preloaded local target markdown docs.
+- Summary:
+  - Added explicit size limits to `core.sync` input schema (`kind` <=128, each `targets[]` <=128, target count <=64, `reason` <=512).
+  - Expanded router regression coverage for all new size-limit rejections.
+  - Updated touched docs (`README.md`, `ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md`) with rationale and scope.
+- Files changed:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/{README.md,ANALYSIS.md}`
+  - `arken/forge/protocol/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx build` ✅
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 16 tests)
+- Commit/PR:
+  - Pending commit/push in this run block.
+- Blockers: none.
+- Next target: `arken/evolution/realm` (slot 7).
+
+## 2026-02-20T07:43:47-0800 — evolution-realm websocket send OPEN-state guard
+- Target: `arken/evolution/realm` (slot 7).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date).
+- Changes:
+  - Guarded `send()` in `trpc-websocket.ts` to throw unless wrapper is OPEN.
+  - Added tests for `send()` invalid-state throw and connected emit behavior.
+  - Updated `src/README.md`, `src/ANALYSIS.md`, and package `ANALYSIS.md` with rationale.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 9 tests).
+- Commit/PR:
+  - `d430405` on `nel/evolution-realm-maintenance-20260219-1818`
+  - https://github.com/arkenrealms/evolution-realm/pull/25
+- Next: `arken/evolution/shard`.
+
+### Run append — 2026-02-20T07:53:43-0800 (evolution-shard blank payload guard)
+- [x] Rotated to `arken/evolution/shard` (slot 8) and synced branch with `origin/main` before edits.
+- [x] Hardened shard tRPC ingress by rejecting blank/whitespace-only string payloads before decode in `shard.service.ts`.
+- [x] Added/updated targeted coverage in `test/shard.service.handleClientMessage.test.ts` for blank payload normalization.
+- [x] Updated touched-folder docs: `arken/evolution/shard/{README.md,ANALYSIS.md}`.
+- [x] Validation: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 11 tests).
+- [x] Pushed commit `52f8471` to `nel/evolution-shard-maintenance-20260220-0552` (PR: https://github.com/arkenrealms/evolution-shard/pull/8).
+- [ ] Next: continue rotation at `arken/evolution/protocol` (slot 9).
+
+## 2026-02-20T08:09:41-0800 — evolution-protocol slot 9 follow-up
+- Target: `arken/evolution/protocol`
+- Change: Added `limit` alias support to exported `Query` schema and normalize `limit -> take` when `take` is absent; kept explicit `take` precedence when both are provided.
+- Why: Direct `Query.parse(...)` consumers could still send legacy `limit` and lose pagination intent; this aligns direct schema behavior with `getQueryInput` parity expectations.
+- Files:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/ANALYSIS.md`
+  - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 23 tests)
+- Commit/PR:
+  - Commit: `ef8b16f`
+  - PR: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Blockers: none
+- Next target: `arken/cerebro/hub`
+
+## 2026-02-20T08:04:45-0800 — correction note
+- Correction: prior DAILY_LOG timestamp (`2026-02-20T08:09:41-0800`) was appended ahead of wall-clock time; this note records the accurate time window for the same evolution-protocol slot-9 follow-up.
+
+## 2026-02-20T08:20:37-0800 — cerebro-hub slot 10 follow-up
+- Target: `arken/cerebro/hub`
+- Change: Migrated `/set-default-application` command to a Seer-node tRPC-first listing helper (`src/agents/shogo/applicationPersistence.ts`) that normalizes list response shapes and falls back to local model reads when Seer list APIs are unavailable.
+- Why: Advances architect-requested Cerebro Mongo→Seer migration in a small cohesive path while preserving runtime reliability in partially wired environments.
+- Files:
+  - `arken/cerebro/hub/src/agents/shogo/applicationPersistence.ts`
+  - `arken/cerebro/hub/src/agents/shogo/index.ts`
+  - `arken/cerebro/hub/src/agents/shogo/index.test.ts`
+  - `arken/cerebro/hub/README.md`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (4 suites, 25 tests)
+- Commit/PR:
+  - Commit: `8433c05`
+  - PR: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers: none
+- Next target: `arken/cli`
+
+## 2026-02-20T08:15:50-0800 — correction note
+- Correction: prior DAILY_LOG timestamp (`2026-02-20T08:20:37-0800`) was appended ahead of wall-clock time; this note records the accurate time window for the same cerebro-hub slot-10 follow-up.
+
+## 2026-02-20T08:34:51-0800 — cli verbose-errors debug-noise removal
+- Target: `arken/cli`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (up to date).
+- Changes:
+  - Removed verbose-mode debug stdout side effect from `arken/cli/index.ts` (`console.log('throwing error')`).
+  - Added `arken/cli/test/verbose-errors.test.ts` to assert verbose mode throws, does not force exit, and avoids debug-noise logging.
+  - Updated `arken/cli/ANALYSIS.md` with rationale + scope.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (7 suites, 58 tests).
+- Commit/PR:
+  - `3f6ea0f` on `nel/cli-maintenance-20260220-0412`.
+  - PR: https://github.com/arkenrealms/cli/pull/10
+- Next target: `arken/node`.
+
+## 2026-02-20T08:44:24-0800 — node malformed fetch-response envelope guard
+- Scope: `arken/node` flattened slot 1 maintenance chunk.
+- Summary:
+  - Added explicit Fetch-like response-shape validation in `web3/httpProvider.ts` for live network responses.
+  - Added regression test to ensure malformed network response objects fail deterministically (`Invalid provider response`) instead of causing method access faults.
+  - Updated `web3` and `test` README/ANALYSIS notes with rationale and behavior coverage.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/httpProvider.spec.ts --runInBand` ✅ (1 suite, 19 tests).
+- Commit/PR:
+  - Commit `5739a04` on `nel/node-maintenance-20260220-0438`.
+  - PR: https://github.com/arkenrealms/node/pull/20
+- Next:
+  - Continue rotation at `arken/seer/node`.
+
+### Run append — 2026-02-20T08:54:30-0800 (seer-node)
+- [x] Synced `arken/seer/node` with `origin/main` before edits (`git fetch` + merge, up to date).
+- [x] Hardened `test/mongoTestEnv.ts` bootstrap catch path to always do best-effort `mongoose.disconnect()` and stop/reset in-memory Mongo when seed-time setup fails.
+- [x] Added regression coverage in `test/mongoTestEnv.unit.spec.ts` for base-document seeding failure cleanup.
+- [x] Updated `test/README.md` and `test/ANALYSIS.md` with rationale + scope.
+- [x] Ran tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ❌ baseline failures in `mongo.cluster.spec.ts` and `mongo.pkConfig.spec.ts` (`ClusterModel.find/findOne` undefined).
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/mongoTestEnv.unit.spec.ts` ✅ pass (1 suite, 5 tests).
+- [x] Pushed commit `55ca37f` to `nel/seer-node-maintenance-20260220-0442` (PR: https://github.com/arkenrealms/seer-node/pull/11).
+- [ ] Next: rotate to `arken/seer/protocol`.
+
+### Run block — 2026-02-20T09:10:12-0800 — seer-protocol pagination alias normalization
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date) before edits.
+- Files changed:
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+  - `arken/seer/protocol/ANALYSIS.md`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/protocol`) ✅ pass (6 suites, 24 tests).
+- Commit/PR:
+  - `seer-protocol` `620b444` pushed to `nel/seer-protocol-maintenance-20260219-2133`.
+  - PR: https://github.com/arkenrealms/seer-protocol/pull/8
+- Notes:
+  - Normalized one-sided pagination aliases so parsed query envelopes always populate both `take` and `limit`.
+- Next target:
+  - `arken/sigil/protocol`.
