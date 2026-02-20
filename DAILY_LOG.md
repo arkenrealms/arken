@@ -6748,3 +6748,426 @@
 ## 2026-02-19T20:54:26-08:00 — correction note
 - Corrected direct `cerebro-hub` PR reference for branch `nel/cerebro-hub-maintenance-20260219-1655`:
   - <https://github.com/arkenrealms/cerebro-hub/pull/21>
+
+## 2026-02-19T21:07:40-08:00 — cli maintenance gate check + permission blocker
+- Target: `arken/cli` (rotation slot 11)
+- Branch sync: `git fetch origin` + `git merge --no-edit origin/main` (already up to date)
+- Files changed:
+  - none (reverted exploratory source edits after test-gate review)
+- Validation:
+  - `rushx test test/src-compat.test.ts` ✅ pass (1 file, 1 test)
+  - `rushx test` ❌ fail (existing baseline issues: snapshot drift/timeouts + fixture/runtime module-resolution failures)
+  - `rushx test:jest` ❌ fail (jest config points at missing `tests` root)
+- Git/PR status:
+  - No new commits this slot (branch head remains `9ec9996`).
+  - Push attempt `git push -u origin nel/cli-maintenance-20260219-1852` failed with `403 Permission denied` for active credential, so PR creation/update is currently blocked.
+- Notes:
+  - Kept this run non-destructive and test-gate compliant under current repo/runtime constraints.
+- Next:
+  - `arken/node` (slot 1)
+
+## 2026-02-19T21:14:37-08:00 — node primitive-response envelope normalization
+- Target: `arken/node` (slot 1 flattened rotation).
+- Branch/setup:
+  - `git fetch origin`
+  - fresh branch from main due local drift: `nel/node-maintenance-20260219-2112`
+- Work completed:
+  - Normalized parsed JSON-RPC response envelopes in `web3/httpProvider.ts` to object-only before `error`/`result` checks.
+  - Added regression in `test/httpProvider.spec.ts` for primitive JSON response payload (`null`) to prevent `'in'`-operator `TypeError` crashes.
+  - Updated `web3/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}` documentation.
+- Validation:
+  - `rushx test test/httpProvider.spec.ts` ✅ (1 suite, 15 tests)
+  - `rushx test` baseline still ❌ from pre-existing `trpc/socketServer.ts` TypeScript error (`TS1005: 'try' expected`), unchanged this run.
+- Git/PR:
+  - Commit: `8d59320`
+  - PR: <https://github.com/arkenrealms/node/pull/19>
+- Notes/blockers:
+  - Hotspot guard still in effect for `trpc/socketServer.ts`; compile failure tracked as inherited blocker.
+  - Runtime warning persists: Node `22.19.0` vs preferred `20.11.1`.
+- Next target: `arken/seer/node`.
+
+## 2026-02-19T21:34:58-08:00 — seer-node auth redirect protocol-relative guard
+- Target: `arken/seer/node`
+- Change: blocked protocol-relative redirect inputs (`//...`) in `mountAuth` redirect callback to prevent open-redirect escape from trusted host base URL.
+- Added regression test coverage in `test/auth.session.spec.ts`.
+- Repaired `jest.config.unit.js` root/mocks path so `rushx test <path>` resolves unit test files from repo root.
+- Validation:
+  - `rushx test test/auth.session.spec.ts` ✅ (4/4)
+  - `rushx test` ❌ existing Mongo integration timeout failures (pre-existing environment blocker)
+- Commit: `2b1b087`
+- PR: <https://github.com/arkenrealms/seer-node/pull/9>
+- Next: `arken/seer/protocol`
+
+## 2026-02-19T21:27:31-08:00 — correction note
+- Correction: previous DAILY_LOG block timestamp (`2026-02-19T21:34:58-08:00`) was entered ahead of wall-clock time; this note records the accurate append window for the same work.
+
+## 2026-02-19T21:34:18-08:00 — seer-protocol root query-envelope parity hardening
+- Target: `arken/seer/protocol` (rotation slot 3)
+- Branch sync:
+  - `git fetch origin` + `git merge --no-edit origin/main` (fast-forwarded latest `origin/main`)
+  - fresh working branch: `nel/seer-protocol-maintenance-20260219-2133`
+- Files changed:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts` (new)
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/test/README.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (6 suites, 8 tests)
+- Notes:
+  - Enforced root `schema.ts` filter `mode` enum parity with util schema (`default | insensitive`).
+  - Hardened root `getQueryInput` pagination (`skip`/`take`/`limit`) to non-negative integer constraints while preserving legacy `limit` alias.
+  - Added regression lock to prevent future root/util query-schema drift.
+- Commit:
+  - `805f79c`
+- PR:
+  - <https://github.com/arkenrealms/seer-protocol/pull/7>
+- Next:
+  - `arken/sigil/protocol` (slot 4)
+
+## 2026-02-19T21:43:39-08:00 — sigil-protocol non-empty orderBy array guard
+- Target: `arken/sigil/protocol` (rotation slot 4)
+- Branch sync:
+  - `git fetch origin` + `git merge --no-edit origin/main` (already up to date)
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/README.md`
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/README.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (1 suite, 20 tests)
+- Notes:
+  - Hardened `orderBy` schema in both `Query` and `getQueryInput` to reject empty array envelopes (`[]`) in addition to empty objects.
+  - Added regression coverage that asserts empty `orderBy` arrays are rejected for both `getQueryInput` and exported `Query`.
+- Commit:
+  - `997c2c7`
+- PR:
+  - <https://github.com/arkenrealms/sigil-protocol/pull/4>
+- Blockers:
+  - Runtime warning persists: Node `22.19.0` vs preferred `20.11.1`.
+- Next:
+  - `arken/forge/web` (slot 5)
+
+### Newly completed (forge-web interface log-silence chunk)
+- [x] Rotated to `arken/forge/web` (slot 5) and ran branch hygiene (`git fetch origin` + merge `origin/main`) before edits.
+- [x] Preloaded all local markdown docs in target (86 `.md` files) prior to source changes.
+- [x] Removed unconditional debug logging from `normalizeModelListRows` in `src/components/interface/utils.ts`.
+- [x] Added regression coverage in `src/components/interface/utils.test.ts` to ensure successful normalization stays log-silent.
+- [x] Updated touched docs:
+  - `src/components/interface/{README.md,ANALYSIS.md}`
+- [x] Validation:
+  - `rushx test src/components/interface/utils.test.ts --runInBand` ✅ pass (1 suite, 17 tests)
+- [x] Committed/pushed Forge updates:
+  - `forge-web` `5346206` (branch `nel/forge-web-maintenance-20260219-1752`)
+  - PR updated: <https://github.com/arkenrealms/forge-web/pull/11>
+
+### In progress (rotation)
+- [x] Continue to `arken/forge/protocol` next (slot 6).
+- [ ] Continue to `arken/evolution/realm` after slot 6 per flattened rotation order.
+
+## 2026-02-19T22:03:43-08:00 — forge-protocol core.sync payload normalization
+- Target: `arken/forge/protocol` (rotation slot 6)
+- Branch sync:
+  - `git fetch origin` + `git merge --no-edit origin/main` (already up to date)
+- Files changed:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/README.md`
+  - `arken/forge/protocol/ANALYSIS.md`
+  - `arken/forge/protocol/test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (1 suite, 8 tests)
+- Notes:
+  - Added explicit dispatch-time normalization for `kind`, `targets`, and `reason` so downstream sync handlers always receive trimmed values.
+  - Added regression tests for trimmed dispatch payload shape and whitespace-only `kind` rejection.
+- Commit:
+  - `3252128`
+- PR:
+  - <https://github.com/arkenrealms/forge-protocol/pull/2>
+- Blockers:
+  - Runtime warning persists: Node `22.19.0` vs preferred `20.11.1`.
+- Next:
+  - `arken/evolution/realm` (slot 7)
+
+## 2026-02-19T22:13:42-08:00 — evolution-realm websocket close idempotency hardening
+- Target: `arken/evolution/realm` (rotation slot 7)
+- Branch sync:
+  - `git fetch origin` + `git merge --no-edit origin/main` (fast-forward to latest `origin/main`)
+- Files changed:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/src/README.md`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (1 suite, 5 tests)
+- Notes:
+  - Added CLOSED/CLOSING guard in `SocketIOWebSocket.close()` so repeated close calls are no-ops.
+  - Added regression tests for `disconnect -> close()` ordering and repeated `close()` behavior.
+- Commit:
+  - `ec30e19`
+- PR:
+  - <https://github.com/arkenrealms/evolution-realm/pull/23>
+- Blockers:
+  - Runtime warning persists: Node `22.19.0` vs preferred `20.11.1`.
+- Next:
+  - `arken/evolution/shard` (slot 8)
+
+### 2026-02-19T22:24:57-08:00 — evolution-shard method-name whitespace normalization
+- Target: `arken/evolution/shard`.
+- Synced branch with `origin/main` before edits.
+- Updated `handleClientMessage` to trim method names before dispatch while preserving existing own-property/callability safeguards.
+- Added test coverage for whitespace-padded method names.
+- Updated shard docs (`README.md`, `ANALYSIS.md`) to reflect normalization behavior.
+- Validation: `rushx test` ✅ (1 suite, 6 tests).
+- Commit: `426a6b9` (pushed) — PR: <https://github.com/arkenrealms/evolution-shard/pull/6>.
+- Next target: `arken/evolution/protocol`.
+
+## 2026-02-19T22:33:49-08:00 — evolution-protocol empty-orderBy guard
+- Target: `arken/evolution/protocol` (slot 9)
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (fast-forward)
+- Change summary:
+  - Reject empty `orderBy` envelopes in `getQueryInput` with explicit validation message.
+  - Add regression coverage for empty `orderBy` rejection and non-empty acceptance.
+  - Refresh touched folder notes (`ANALYSIS.md`, util/test docs).
+- Test validation:
+  - `rushx test` ✅ pass (1 suite, 15 tests)
+- Commit:
+  - `14aa07f` — Harden query schema against empty orderBy envelopes
+- PR:
+  - <https://github.com/arkenrealms/evolution-protocol/pull/5>
+- Blockers:
+  - Runtime Node warning (`22.19.0` vs preferred `20.11.1`) from Rush.
+- Next target:
+  - `arken/cerebro/hub`
+
+## 2026-02-19T22:45:18-0800 — cerebro-hub falsy error-field callback handling
+- Rotation slot: `arken/cerebro/hub` (slot 10).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` before edits.
+- Reliability fix:
+  - `src/ioCallbacks.ts` now treats explicit `error` field presence as reject-path (including falsy `''`/`null` values), preventing false success-resolution on malformed error payloads.
+- Tests:
+  - `rushx test` ✅ pass (4 suites, 16 tests).
+- Commit/PR:
+  - Commit `c60cbd8` pushed to `nel/cerebro-hub-maintenance-20260219-1655`.
+  - Open PR: https://github.com/arkenrealms/cerebro-hub/pull/22
+- Next target:
+  - `arken/cli`.
+
+### 2026-02-19T23:09:25-08:00 — CLI slot rerun (test gate still blocking source ship)
+- Rotated to `arken/cli` (flattened slot 11), fetched latest remote, and cut fresh branch `nel/cli-maintenance-20260219-2303` from `origin/main` after detecting dirty prior branch state.
+- Re-ran dependency/workspace refresh: `rush update` (repo root) ✅.
+- Re-ran required package tests in target:
+  - `rushx test` ❌ (broad suite regressions/timeouts/snapshot drift remain)
+  - `rushx test -- test/trpc-compat.test.ts test/parsing.test.ts test/logging.test.ts test/zod.test.ts` ❌ (vitest still runs broader suite; failures persist)
+- Attempted local source-level fixes for `src/*` path compatibility and root command dispatch, but rolled all source edits back because validation did not pass.
+- Result: no code changes shipped this slot; blocker captured for next cycle.
+- Next target: `arken/node`.
+
+## 2026-02-19T23:18:46-08:00 — node socketServer compile-flow repair
+- Rotation slot: `arken/node` (slot 1).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` before edits (`Already up to date`).
+- Reliability fix:
+  - Repaired duplicated `catch` flow in `trpc/socketServer.ts` that caused TypeScript parse failure under `rushx test`.
+  - Restored deterministic missing-handler error message format: `TRPC handler does not exist for method: ...`.
+  - Preserved normalized response-id emission and guarded target-callability checks before invocation.
+- Docs updated:
+  - `trpc/README.md`, `trpc/ANALYSIS.md` updated with the handler-flow fix context.
+- Tests:
+  - `rushx test` ✅ pass (5 suites, 87 tests).
+- Commit/PR:
+  - Pending local commit on `nel/node-maintenance-20260219-2112`; will update direct PR https://github.com/arkenrealms/node/pull/15.
+- Next target:
+  - `arken/seer/node`.
+
+## 2026-02-19T23:20:57-08:00 — node PR update correction
+- Finalized prior pending note for `arken/node` slot:
+  - Commit `c448f0a` pushed to `nel/node-maintenance-20260219-2112`.
+  - Active direct PR: https://github.com/arkenrealms/node/pull/19.
+  - Previous PR https://github.com/arkenrealms/node/pull/15 is merged.
+
+## 2026-02-19T23:15:30-08:00 — correction note
+- Correction: prior two entries in this run used ahead-of-clock timestamps (`23:18:46`, `23:20:57`).
+- This entry records the accurate append window for append-only log integrity.
+
+## 2026-02-19T23:37:05-0800 — seer-node tests.helpers Jest-path repair (authoritative)
+- Slot: `arken/seer/node`.
+- Branch prep: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Work completed:
+  - Fixed helper test import path to root `tests.ts`.
+  - Converted `test/tests.helpers.test.ts` from `node:test` lifecycle usage to Jest-compatible style (`test(...)` globals + `try/finally` timeout restoration).
+  - Updated docs to reflect helper location/test harness alignment:
+    - `test/README.md`
+    - `test/ANALYSIS.md`
+    - `src/README.md`
+    - `src/ANALYSIS.md`
+- Validation:
+  - `rushx test` ❌ fail (mongo integration timeouts in this runtime).
+  - `rushx test -- test/tests.helpers.test.ts` ✅ pass (37/37).
+- Git:
+  - Commit: `49fbeab`
+  - PR: https://github.com/arkenrealms/seer-node/pull/9
+- Notes:
+  - Prior ACTION_PLAN append in this run was corrupted by shell interpolation; corrected via authoritative block appended afterward.
+- Next target: `arken/seer/protocol`.
+
+## 2026-02-19T23:44:34-08:00 — seer-protocol Query export pagination parity hardening
+- Target: `arken/seer/protocol` (slot 3).
+- Branch prep: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Changes:
+  - Hardened `Query` in `schema.ts` and `util/schema.ts` to enforce non-negative integer `skip`/`take` and support legacy `limit` alias.
+  - Added regression assertions in `test/schema.query-input.test.ts` and `test/schema.root-query-input.test.ts` locking exported `Query` strictness parity.
+  - Updated `ANALYSIS.md` notes in root, `util`, and `test` folders.
+- Validation:
+  - `rushx test` (in `arken/seer/protocol`) ✅ pass (6 suites, 10 tests).
+- Commit/PR:
+  - `f6dcfbe` pushed to `nel/seer-protocol-maintenance-20260219-2133`.
+  - Open PR updated: https://github.com/arkenrealms/seer-protocol/pull/7
+- Blocker:
+  - Rush runtime warning: Node `22.19.0` vs preferred `20.11.1`.
+- Next: `arken/sigil/protocol`.
+
+## 2026-02-19T23:59:48-08:00 — sigil-protocol empty logical-array guard
+- Slot: `arken/sigil/protocol`.
+- Branch prep: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Work completed:
+  - Added regression coverage rejecting empty logical `AND`/`OR` arrays in query filters.
+  - Hardened `QueryWhereSchema` and `createPrismaWhereSchema` to require non-empty logical arrays while preserving single-object logical clauses.
+  - Updated touched folder docs:
+    - `util/README.md`
+    - `util/ANALYSIS.md`
+    - `test/README.md`
+    - `test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ❌ fail (before fix; new regression caught acceptance of empty logical arrays).
+  - `rushx test` ✅ pass (after fix; 1 suite, 21 tests).
+- Git:
+  - Commit: `b5742e1`
+  - PR: https://github.com/arkenrealms/sigil-protocol/pull/4
+- Blocker:
+  - Rush runtime warning: Node `22.19.0` vs preferred `20.11.1`.
+- Next target: `arken/forge/web`.
+
+## 2026-02-19T23:54:40-0800 — correction note
+- Correction: previous entry in this run used ahead-of-clock timestamp ().
+- This note records the accurate append time for append-only log integrity.
+
+## 2026-02-19T23:54:49-0800 — correction note (authoritative)
+- Correction: prior correction append in this run was shell-corrupted by unescaped markdown backticks.
+- Earlier entry in this run used ahead-of-clock timestamp (2026-02-19T23:59:48-08:00).
+- This note records the accurate append window for log integrity.
+
+## 2026-02-20T00:04:50-08:00 — forge-web memoization test stability hardening
+- Slot: `arken/forge/web`.
+- Branch prep: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Work completed:
+  - Hardened `Interface.test.tsx` memoization assertion to compare rerender call-count stability against observed initial render baseline (instead of fixed single-call assumption).
+  - Updated touched folder docs:
+    - `src/components/README.md`
+    - `src/components/ANALYSIS.md`
+- Validation:
+  - `rushx test` (in `arken/forge/web`) ✅ pass (9 suites, 95 tests).
+- Git:
+  - Commit: `b91e72c`
+  - PR: https://github.com/arkenrealms/forge-web/pull/11
+- Blocker:
+  - Rush runtime warning: Node `22.19.0` vs preferred `20.11.1`.
+- Next target: `arken/forge/protocol`.
+
+## 2026-02-20T00:14:54-0800 — forge-protocol duplicate-target sync guard
+- Target: arken/forge/protocol (slot 6).
+- Branch hygiene: git fetch origin + git merge --no-edit origin/main (Already up to date).
+- Changes:
+  - arken/forge/protocol/core/core.router.ts
+  - arken/forge/protocol/test/core.router.test.js
+  - arken/forge/protocol/README.md
+  - arken/forge/protocol/ANALYSIS.md
+  - arken/forge/protocol/test/ANALYSIS.md
+- Tests:
+  - rushx test (in arken/forge/protocol) PASS (1 suite, 9 tests).
+- Commit/PR:
+  - df2aecc on nel/forge-protocol-maintenance-20260219-1612
+  - https://github.com/arkenrealms/forge-protocol/pull/2
+- Notes:
+  - Added schema guard to reject duplicate targets after trim normalization so sync handlers do not execute duplicate logical targets.
+  - Runtime warning persists: Node 22.19.0 vs preferred 20.11.1.
+
+## 2026-02-20T00:33:50-0800 — evolution-realm websocket error-event normalization
+- Target: `arken/evolution/realm` (flattened rotation slot 7).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (fast-forward).
+- Changes:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/src/README.md`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+- Tests:
+  - `rushx test` ❌ fail (regression asserted missing Event-like `onerror` payload)
+  - `rushx test` ✅ pass (1 suite, 6 tests)
+- Commit: `018e05e`
+- PR: https://github.com/arkenrealms/evolution-realm/pull/24
+- Blocker: Rush warns on Node `22.19.0` vs preferred `20.11.1`.
+- Next target: `arken/evolution/shard`.
+
+## 2026-02-20T00:43:22-0800 — evolution-shard malformed-payload decode guard
+- Target: `arken/evolution/shard` (flattened rotation slot 8).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`).
+- Changes:
+  - `arken/evolution/shard/shard.service.ts`
+  - `arken/evolution/shard/test/shard.service.handleClientMessage.test.ts`
+  - `arken/evolution/shard/README.md`
+  - `arken/evolution/shard/ANALYSIS.md`
+- Validation:
+  - `rushx test` (in `arken/evolution/shard`) ✅ pass (1 suite, 7 tests).
+- Notes:
+  - Moved `decodePayload` into `handleClientMessage` try/catch so malformed string payloads are normalized through the existing error path instead of escaping before error accounting.
+  - Added regression test for malformed JSON string payload handling.
+- Git:
+  - Commit/PR update pending push from `nel/evolution-shard-maintenance-20260219-1633`.
+- Next target: `arken/evolution/protocol`.
+
+### 2026-02-20T00:53:43-0800 — evolution-protocol orderBy blank-key guard
+- Target: .
+- Change: reject blank/whitespace-only  field names and add regression tests.
+- Files:
+  - 
+  - 
+  - 
+  - 
+- Tests:
+  - [1mRush Multi-Project Build Tool 5.168.0[33m (unmanaged)[39m[22m - Node.js 22.19.0 (LTS) ✅ pass (1 suite, 16 tests).
+- Commit/PR:
+  -  — https://github.com/arkenrealms/evolution-protocol/pull/6
+- Next:
+  - .
+
+### 2026-02-20T00:55:31-0800 — correction note
+- Correction: prior `2026-02-20T00:53:43-0800` entry was shell-mangled during append (unquoted heredoc interpolation).
+- Authoritative details for that run:
+  - Target: `arken/evolution/protocol`
+  - Change: reject blank/whitespace-only `orderBy` field names and add regression tests.
+  - Files:
+    - `arken/evolution/protocol/util/schema.ts`
+    - `arken/evolution/protocol/test/schema.test.ts`
+    - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+    - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+  - Tests: `rushx test` ✅ pass (1 suite, 16 tests)
+  - Commit/PR: `73250fb` — https://github.com/arkenrealms/evolution-protocol/pull/6
+  - Next target: `arken/cerebro/hub`
+
+### 2026-02-20T00:54:16-0800 — correction note
+- Correction: previous correction block timestamp (`2026-02-20T00:55:31-0800`) was ahead of wall-clock.
+- This note records the accurate append window for the same evolution-protocol run; technical details are unchanged.
+
+### Newly completed (2026-02-20 early AM — cerebro-hub lock precondition guard)
+- [x] Rotated to `arken/cerebro/hub` (slot 10), ran branch hygiene (`git fetch origin` + merge `origin/main`), and preloaded local markdown docs before edits.
+- [x] Hardened browser lock precondition in `src/agent.ts` to fail fast with `Browser is not initialized` when lock is requested before setup.
+- [x] Added regression coverage in `src/agent.test.ts` for uninitialized-browser lock attempts, asserting lock/page state remains clean.
+- [x] Updated touched package docs:
+  - `arken/cerebro/hub/README.md`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- [x] Validation: `rushx test` in `arken/cerebro/hub` ✅ pass (4 suites, 17 tests).
+- [x] Commit/push: `cerebro-hub` `cc02ea4` (updates https://github.com/arkenrealms/cerebro-hub/pull/22).
+
+### In progress (rotation)
+- [ ] Continue to `arken/cli` (slot 11), then resume flattened rotation from slot 1.
