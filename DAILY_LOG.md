@@ -6198,3 +6198,258 @@
   - `nel/seer-node-maintenance-20260219-1532`
 - Next target:
   - `arken/seer/protocol`
+
+## 2026-02-19T15:42:26-08:00 — seer-protocol where-depth normalization guard
+- Continued flattened rotation at `arken/seer/protocol` (slot 3).
+- Synced branch baseline with `origin/main` and created fresh working branch `nel/seer-protocol-maintenance-20260219-1543`.
+- Hardened recursive query schema depth handling in both entrypoints:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+- Added regression lock test:
+  - `arken/seer/protocol/test/schema.depth-normalization.test.ts`.
+- Updated touched docs:
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ (5 suites, 7 tests).
+- Commit + PR:
+  - `29bff6a` pushed to `nel/seer-protocol-maintenance-20260219-1543`.
+  - PR opened: <https://github.com/arkenrealms/seer-protocol/pull/4>
+- Next target: `arken/sigil/protocol`.
+
+## 2026-02-19T15:53:58-08:00 — sigil-protocol orderBy direction normalization
+- Target: `arken/sigil/protocol` (rotation slot 4).
+- Branch hygiene: fetched + integrated `origin/main` on `main`, then created fresh branch `nel/sigil-protocol-maintenance-20260219-1553`.
+- Change summary:
+  - Normalized `orderBy` direction parsing with trim + lowercase in both exported `Query` and `getQueryInput` query envelope schemas.
+  - Added regression test coverage for uppercase/whitespace-padded orderBy directions.
+  - Updated touched docs in `util` and `test` (`README.md`, `ANALYSIS.md`).
+- Tests:
+  - `rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 16 tests).
+- Commit + PR:
+  - `sigil-protocol` `de1386e` pushed on `nel/sigil-protocol-maintenance-20260219-1553`.
+  - PR opened: <https://github.com/arkenrealms/sigil-protocol/pull/4>
+- Next:
+  - `arken/forge/web`.
+
+## 2026-02-19T16:08:41-08:00 — Forge-web normalizer immutability maintenance
+- Target: `arken/forge/web`.
+- Change summary:
+  - Made v2→v3 normalizer default-version upgrade immutable (`return { ...node, version: 3 }` when version missing).
+  - Added regression test proving input object is not mutated during normalization.
+  - Added concise README/ANALYSIS docs for `normalizers/` and `normalizers/__tests__/` folders.
+- Files touched:
+  - `arken/forge/web/src/components/interface/normalizers/2-to-3.ts`
+  - `arken/forge/web/src/components/interface/normalizers/__tests__/normalizers.test.ts`
+  - `arken/forge/web/src/components/interface/normalizers/README.md` (new)
+  - `arken/forge/web/src/components/interface/normalizers/ANALYSIS.md` (new)
+  - `arken/forge/web/src/components/interface/normalizers/__tests__/README.md` (new)
+  - `arken/forge/web/src/components/interface/normalizers/__tests__/ANALYSIS.md` (new)
+- Validation:
+  - `rushx test` ✅ (9 suites, 91 tests) in `arken/forge/web`.
+- Commit/PR:
+  - Commit `0be27d5` pushed to `origin/nel/forge-web-maintenance-20260219-1604`.
+  - PR creation URL: <https://github.com/arkenrealms/forge-web/pull/new/nel/forge-web-maintenance-20260219-1604>
+- Blocker:
+  - `gh` CLI not available in runtime, so PR opening is URL/API-driven.
+- Next target:
+  - `arken/forge/protocol`.
+
+### Run — 2026-02-19T16:14:02-08:00 — forge-protocol slot (flattened #6)
+- [x] Ran branch hygiene in `arken/forge/protocol` (`git fetch origin`, merge `origin/main`, fresh branch `nel/forge-protocol-maintenance-20260219-1612`).
+- [x] Added runtime guard in `core/core.router.ts` for missing `ctx.app.service.sync`.
+- [x] Added package test script and new Jest coverage:
+  - `test/core.router.test.js`
+  - `test/{README.md,ANALYSIS.md}`
+- [x] Updated package docs:
+  - `README.md`
+  - `ANALYSIS.md`
+- [x] Validation:
+  - `rushx test` ✅ pass (1 suite, 2 tests)
+  - `rushx dist` ❌ fail (`npm-run-all: command not found`)
+- [ ] Next target: `arken/evolution/realm`.
+
+## 2026-02-19T16:23:46-08:00 — evolution-realm websocket close-dispatch hardening
+- [x] Target: `arken/evolution/realm` (slot 7)
+- [x] Branch hygiene: `git fetch origin` + merge `origin/main` (`Already up to date`), then fresh branch `nel/evolution-realm-maintenance-20260219-1622`
+- [x] Files changed:
+  - `trpc-websocket.ts`
+  - `src/trpc-websocket.test.ts` (new)
+  - `README.md`
+  - `ANALYSIS.md`
+- [x] Validation:
+  - `rushx test` ✅ pass (1 suite, 3 tests)
+- [x] Commit:
+  - `6583dfb` (`evolution-realm`)
+- [x] PR link:
+  - <https://github.com/arkenrealms/evolution-realm/pull/new/nel/evolution-realm-maintenance-20260219-1622>
+- [ ] Next target: `arken/evolution/shard`
+
+## 2026-02-19T16:34:01-08:00 — evolution-shard payload-shape guard + rushx test enablement
+- Target:
+  - `arken/evolution/shard` (flattened slot 8).
+- Work completed:
+  - Synced branch with `origin/main` and created fresh branch `nel/evolution-shard-maintenance-20260219-1633`.
+  - Hardened `handleClientMessage` to validate payload shape before destructuring, validate callable emit methods, preserve explicit falsy params, and safely normalize error counters.
+  - Updated `onPlayerUpdates` to return explicit `{ status: 1 }` success envelope.
+  - Added local Jest harness (`jest.config.cjs`) and package `test` script so `rushx test` works in this direct repo.
+  - Added focused regression tests in `test/shard.service.handleClientMessage.test.ts`.
+  - Updated concise docs: `README.md`, `ANALYSIS.md`.
+- Tests:
+  - `rushx test` ✅ (1 suite, 3 tests)
+- Commit / PR:
+  - `eeae49b`
+  - PR link: <https://github.com/arkenrealms/evolution-shard/pull/new/nel/evolution-shard-maintenance-20260219-1633>
+- Blockers:
+  - none.
+- Next target:
+  - `arken/evolution/protocol`.
+
+## 2026-02-19T16:44:09-08:00 — evolution-protocol maintenance slot
+- Target: `arken/evolution/protocol` (flattened slot 9)
+- Branch hygiene: fetched + merged `origin/main`, then branched `nel/evolution-protocol-maintenance-20260219-1643`
+- Changes:
+  - Hardened query schema parity in `util/schema.ts` (`AND`/`OR` accepts object|array on both recursive and exported `Query` paths)
+  - Normalized `orderBy` directions consistently (`trim().toLowerCase()`)
+  - Reused shared numeric query parser for exported and input query pagination parsing
+  - Added regression tests in `test/schema.test.ts` for logical-operator shape and orderBy parity
+  - Updated touched docs: `ANALYSIS.md`, `util/*`, `test/*`
+- Tests:
+  - `rushx test` ✅ (1 suite, 14 tests)
+- Commit:
+  - `b6732a2` (pushed)
+- PR:
+  - <https://github.com/arkenrealms/evolution-protocol/pull/3>
+- Next:
+  - `arken/cerebro/hub` then `arken/cli`
+
+## 2026-02-19T16:58:42-08:00 — cerebro-hub maintenance chunk
+- Target: `arken/cerebro/hub` (rotation slot 10).
+- Branch prep: fetched `origin`, merged `origin/main`, created fresh branch `nel/cerebro-hub-maintenance-20260219-1655`.
+- Reliability fix: in `src/agent.ts`, `lockBrowser()` now resets `isBrowserLocked` + `page` when `browser.newPage()` throws.
+- Test coverage: added/extended `src/agent.test.ts` with failure-path assertion for lock release on `newPage` throw.
+- Docs refreshed: `README.md`, `ANALYSIS.md`.
+- Validation: `rushx test` ✅ (3 suites, 5 tests).
+- Commit: `d09f2f6` (pushed).
+- PR link: <https://github.com/arkenrealms/cerebro-hub/pull/new/nel/cerebro-hub-maintenance-20260219-1655>
+- Next target: `arken/cli`.
+
+## 2026-02-19T16:54:18-08:00 — correction note
+- Correction: prior DAILY_LOG timestamp (`2026-02-19T16:58:42-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same cerebro-hub chunk.
+
+## 2026-02-19T17:05:32-08:00 — cli src-compat import-surface restoration
+- Target: `arken/cli` (rotation slot 11).
+- Branch hygiene: fetched + merged `origin/main`, then created fresh branch `nel/cli-maintenance-20260219-1703` from `origin/main`.
+- Change summary:
+  - Restored flattened-layout `src/*` compatibility re-exports for legacy import paths.
+  - Added focused regression test `test/src-compat.test.ts`.
+  - Added concise folder docs for touched `src/` and `test/` directories.
+- Files touched:
+  - `arken/cli/src/{index.ts,logging.ts,trpc-compat.ts,zod-procedure.ts,router.ts}` (new)
+  - `arken/cli/src/{README.md,ANALYSIS.md}` (new)
+  - `arken/cli/test/src-compat.test.ts` (new)
+  - `arken/cli/test/{README.md,ANALYSIS.md}` (new)
+  - `arken/cli/{README.md,ANALYSIS.md}`
+- Validation:
+  - `rushx test` ❌ baseline suite still red (existing e2e snapshot drift and router coupling).
+  - `rushx test test/src-compat.test.ts` ✅ pass (1 file, 1 test).
+- Commit:
+  - `cd38d80` (local on `nel/cli-maintenance-20260219-1703`).
+- Push/PR status:
+  - Push blocked by permissions (`403 Permission to arkenrealms/cli.git denied to highruned`).
+  - Manual compare/PR URL once auth is fixed: <https://github.com/arkenrealms/cli/compare/main...nel/cli-maintenance-20260219-1703>
+- Next target:
+  - `arken/node`.
+
+### 2026-02-19T17:14:30-08:00 — node AbortError timeout-envelope normalization
+- Target: `arken/node` (slot 1).
+- Completed:
+  - Hardened `web3/httpProvider.ts` to normalize abort-driven fetch failures (`AbortError`) into deterministic timeout `RequestError` envelopes.
+  - Added regression test in `test/httpProvider.spec.ts` for abort-triggered timeout rejection shape.
+  - Updated touched docs: `web3/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `rushx test -- test/httpProvider.spec.ts --runInBand` ✅ (1 suite, 12 tests).
+- Commit / PR:
+  - Local commit: `a18ead3` on `nel/node-maintenance-20260219-1524`.
+  - Push blocked by auth (`403 Permission to arkenrealms/node.git denied to highruned`), so PR #15 not yet updated this run.
+- Next:
+  - Continue rotation at `arken/seer/node` (slot 2).
+
+### 2026-02-19T17:14:15-08:00 — correction note
+- Correction: previous timestamp block (`2026-02-19T17:14:30-08:00`) was appended ahead of wall-clock time; this is the accurate append window for the same node chunk.
+
+## 2026-02-19T17:25:12-08:00 — seer-node
+- Rotation slot: `arken/seer/node`.
+- Change: tightened helper missing-entity checks in `src/tests.ts` from falsy to nullish checks so `0` payloads are shape errors, not missing-entity errors.
+- Tests: `rushx test` ✅ (35 tests).
+- Commit: `6d66db5`.
+- PR: <https://github.com/arkenrealms/seer-node/pull/7>.
+- Next: `arken/seer/protocol`.
+
+## 2026-02-19T17:34:35-08:00 — seer-protocol query mode hardening
+- Target: `arken/seer/protocol` (rotation slot 3).
+- Branch hygiene: fetched + merged `origin/main`, then created fresh branch `nel/seer-protocol-maintenance-20260219-1732` from `origin/main`.
+- Changes:
+  - Constrained recursive query-filter `mode` in `util/schema.ts` to `default | insensitive` (reject arbitrary mode strings).
+  - Extended `test/schema.query-input.test.ts` regression coverage for the mode enum guard.
+  - Updated touched docs: `util/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `rushx test` ✅ (4 suites, 6 tests).
+- Commit:
+  - `bffdd6e` (pushed).
+- PR:
+  - <https://github.com/arkenrealms/seer-protocol/pull/new/nel/seer-protocol-maintenance-20260219-1732>
+- Next:
+  - `arken/sigil/protocol` then `arken/forge/web`.
+
+## Run ledger append — 2026-02-19T17:43:50-08:00 — sigil-protocol Query logical-clause envelope parity
+- Target attempted:
+  - `arken/sigil/protocol` (slot 4 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/sigil/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/sigil-protocol-maintenance-20260219-1553` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown docs in target (`README.md`, `agents.md`, `util/*`, `test/*`) before source edits.
+  - Reviewed leaf files first (`util/schema.ts`, `test/queryInput.test.ts`) before doc updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/sigil/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 18 tests)
+- Commits + PR links:
+  - `sigil-protocol` `d7643f9` (pushed) on `nel/sigil-protocol-maintenance-20260219-1553`.
+  - Direct repo PR updated: <https://github.com/arkenrealms/sigil-protocol/pull/4>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/forge/web` (slot 5), then `arken/forge/protocol` (slot 6).
+
+## 2026-02-19T17:58:40-08:00 — forge-web nested JsonLogic sugar recursion hardening
+- Completed in `arken/forge/web` on branch `nel/forge-web-maintenance-20260219-1752`.
+- Hardened `src/components/interface/utils.ts` to recursively compile nested JsonLogic sugar (`$`) expressions.
+- Added regression coverage in `src/components/interface/utils.test.ts` for nested sugar compilation and end-to-end `resolveBindings` evaluation.
+- Added folder docs: `src/components/interface/{README.md,ANALYSIS.md}`.
+- Validation: `rushx test -- src/components/interface/utils.test.ts --runInBand` ✅ (1 suite, 15 tests).
+- Commit/push: `27e7622`.
+- PR create/update link: <https://github.com/arkenrealms/forge-web/pull/new/nel/forge-web-maintenance-20260219-1752>
+- Next target: `arken/forge/protocol`.
+
+## 2026-02-19T17:54:40-08:00 — correction note
+- Correction: previous DAILY_LOG timestamp (`2026-02-19T17:58:40-08:00`) was ahead of wall clock; this records the accurate append window for the same forge-web chunk.
+
+## Run ledger append — 2026-02-19T18:09:40-08:00 — forge-protocol sync input validation + build script reliability
+- Completed in `arken/forge/protocol` on branch `nel/forge-protocol-maintenance-20260219-1612`.
+- Hardened `core.sync` input schema in `core/core.router.ts` to reject empty `kind`, empty `targets`, blank target entries, and blank `reason`.
+- Expanded coverage in `test/core.router.test.js` with schema-rejection tests for empty `targets` and blank `reason`.
+- Replaced `npm-run-all` script chaining in `package.json` with native npm chaining so `rushx build` runs in this environment.
+- Updated docs: `README.md`, `ANALYSIS.md`, `test/ANALYSIS.md`.
+- Validation:
+  - `rushx build` ✅
+  - `rushx test` ✅ (1 suite, 4 tests)
+- Commit/push/PR: pending in this run block.
+- Next target: `arken/evolution/realm`.
