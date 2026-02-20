@@ -19100,3 +19100,33 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
 
 ## Run ledger append — 2026-02-20T09:05:50-0800 — correction note
 - Correction: previous run-ledger timestamp (`2026-02-20T09:10:12-0800`) was appended ahead of wall-clock time; this note records the accurate append window for the same seer-protocol maintenance chunk.
+
+## Run ledger append — 2026-02-20T09:14:52-0800 — sigil-protocol include/select empty-envelope guard
+- Target attempted:
+  - `arken/sigil/protocol` (flattened slot 4).
+- Path verification:
+  - `arken/sigil/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/sigil-protocol-maintenance-20260219-1553` with open PR updates.
+- Markdown preload + deepest-first review:
+  - Preloaded all local `.md` files in target before edits (`README.md`, `agents.md`, `util/*`, `test/*`).
+  - Reviewed leaf runtime/test files first (`util/schema.ts`, `test/queryInput.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/README.md`
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/README.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 26 tests).
+- Commits + PR links:
+  - `sigil-protocol` commit `5963b2b` pushed on `nel/sigil-protocol-maintenance-20260219-1553`.
+  - Direct repo PR updated: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/forge/web` (flattened slot 5), then continue strict flattened order.

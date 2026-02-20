@@ -7793,3 +7793,25 @@
 ### Run block — 2026-02-20T09:05:50-0800 — correction note
 - Correction: prior run-block timestamp (`2026-02-20T09:10:12-0800`) was appended ahead of wall-clock time.
 - Accurate append window for that same seer-protocol chunk is recorded here.
+
+### Run block — 2026-02-20T09:14:52-0800 — sigil-protocol include/select envelope hardening
+- Target: `arken/sigil/protocol` (flattened slot 4).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/README.md`
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/README.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- Changes:
+  - Added non-empty guard for projection envelopes so `include`/`select` reject `{}` instead of accepting no-op payloads.
+  - Added regression tests covering empty `include`/`select` rejection in both `getQueryInput` and exported `Query`.
+  - Updated util/test docs with rationale for strict projection-envelope validation.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 26 tests)
+- Commit/PR:
+  - Commit: `5963b2b`
+  - PR: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Blockers: none
+- Next target: `arken/forge/web`
