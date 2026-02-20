@@ -6456,3 +6456,148 @@
 
 ## 2026-02-19T18:05:18-08:00 — correction note
 - Correction: previous DAILY_LOG timestamp (`2026-02-19T18:09:40-08:00`) was ahead of wall clock; this records the accurate append window for the same forge-protocol chunk.
+
+## 2026-02-19T18:14:41-08:00 — evolution-realm slot 7
+- Completed `arken/evolution/realm` maintenance chunk on branch `nel/evolution-realm-maintenance-20260219-1818`.
+- Reliability fix: `trpc-websocket.ts` now triggers `onclose` on both explicit `close()` and socket disconnect, with Node-safe CloseEvent fallback.
+- Added runnable package-local tests at `src/trpc-websocket.test.ts` to satisfy `rushx test` gate in this repo.
+- Test result: `rushx test` ✅ (1 suite, 2 tests).
+- Commit pushed: `9820f35`.
+- PR link: <https://github.com/arkenrealms/evolution-realm/pull/new/nel/evolution-realm-maintenance-20260219-1818>
+- Next up: `arken/evolution/shard`.
+
+## 2026-02-19T18:23:27-08:00 — evolution-shard slot 8
+- Completed `arken/evolution/shard` maintenance chunk on branch `nel/evolution-shard-maintenance-20260219-1633`.
+- Reliability fix: `shard.service.ts` now uses a socket-safe `trpcResponse` emitter so malformed payload handling does not throw when `socket.emit` is missing.
+- Added regression test in `test/shard.service.handleClientMessage.test.ts` to verify missing `socket.emit` is tolerated and error counters still increment.
+- Updated docs: `README.md`, `ANALYSIS.md`.
+- Test result: `rushx test` ✅ (1 suite, 4 tests).
+- Commit pushed: `087fb23`.
+- PR link: <https://github.com/arkenrealms/evolution-shard/pull/new/nel/evolution-shard-maintenance-20260219-1633>
+- Next up: `arken/evolution/protocol`.
+
+## 2026-02-19T18:35:40-08:00 — evolution-protocol query mode enum validation hardening
+- Target: `arken/evolution/protocol` (slot 9)
+- Branch: `nel/evolution-protocol-maintenance-20260219-1833`
+- Changes:
+  - Restricted Prisma-style query filter `mode` to enum values (`default` | `insensitive`) in `util/schema.ts`.
+  - Added validation tests for accepted and rejected `mode` values in `test/schema.test.ts`.
+  - Updated touched folder docs in `util/` and `test/`.
+- Validation:
+  - `rushx test` ✅ (1 suite, 11 tests)
+- Commit:
+  - `c272458`
+- PR link:
+  - <https://github.com/arkenrealms/evolution-protocol/pull/new/nel/evolution-protocol-maintenance-20260219-1833>
+- Blockers: none
+- Next target: `arken/cerebro/hub`
+
+## 2026-02-19T18:33:40-08:00 — correction note
+- Correction: the previous 18:35:40 block timestamp was ahead of wall-clock time; this 18:33:40 note is the accurate append window for the same run.
+
+## 2026-02-19T18:43:49-08:00 — cerebro-hub malformed config guardrails
+- Target: `arken/cerebro/hub` (slot 10)
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date)
+- Source updates:
+  - Hardened `processAbilities()` and `processSchedule()` in `src/agent.ts` to skip malformed/null ability/schedule entries instead of throwing.
+  - Added regression tests in `src/agent.test.ts` for malformed ability and schedule payloads.
+- Docs updated:
+  - `arken/cerebro/hub/README.md`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (3 suites, 7 tests)
+- Commit:
+  - `a42f2ee` on `nel/cerebro-hub-maintenance-20260219-1655` (pushed)
+- PR link:
+  - <https://github.com/arkenrealms/cerebro-hub/pull/new/nel/cerebro-hub-maintenance-20260219-1655>
+- Blocker:
+  - Cannot verify open PR via unauthenticated GitHub API in this runtime.
+- Next target:
+  - `arken/cli` (slot 11)
+
+## 2026-02-19T18:54:35-08:00 — cli slot 11 src-compat restoration
+- Target: `arken/cli` (slot 11)
+- Branch hygiene:
+  - `git fetch origin`
+  - `git checkout main && git merge --no-edit origin/main`
+  - reset clean work branch from upstream head: `git checkout -B nel/cli-maintenance-20260219-1852 origin/main`
+- Source/docs updates:
+  - Restored `src/*` compatibility re-export files (`src/index.ts`, `src/logging.ts`, `src/router.ts`, `src/trpc-compat.ts`, `src/zod-procedure.ts`) so existing tests importing `../src*` resolve.
+  - Added regression test `test/src-compat.test.ts` validating key exported symbols resolve through compatibility entrypoints.
+  - Updated docs: `README.md`, `ANALYSIS.md`, `src/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `rushx test` ❌ fail (baseline failures outside this patch: e2e snapshots + router behavior + seer/protocol runtime dependency error)
+  - `rushx test test/src-compat.test.ts` ✅ pass (1 file, 1 test)
+- Commit:
+  - `9ec9996` on `nel/cli-maintenance-20260219-1852` (local)
+- Blocker:
+  - Push failed: `403 Permission to arkenrealms/cli.git denied to highruned`; PR could not be updated from this runtime.
+- PR link (pending push access):
+  - <https://github.com/arkenrealms/cli/pull/new/nel/cli-maintenance-20260219-1852>
+- Next target:
+  - restart rotation at `arken/node` (slot 1)
+
+## 2026-02-19T19:04:13-08:00 — node explicit-null JSON-RPC id preservation (slot 1)
+- Target: .
+- Summary:
+  - Preserved explicit  values in provider request normalization and / callback envelopes.
+  - Added regression coverage verifying explicit-null id preservation for both request path and callback response envelope path.
+  - Updated local docs for  + test coverage notes.
+- Files:
+  - 
+  - 
+  - 
+  - 
+  - 
+- Validation:
+  - [1mRush Multi-Project Build Tool 5.168.0[33m (unmanaged)[39m[22m - Node.js 22.19.0 (LTS) ✅ (14 passed)
+- Git:
+  - Commit: 
+  - PR: <https://github.com/arkenrealms/node/pull/18>
+- Next:
+  - Continue flattened rotation at .
+
+
+## 2026-02-19T19:05:11-08:00 — correction note
+- Correction: immediately preceding node slot-1 daily-log block is malformed due shell interpolation while appending.
+- This correction preserves append-only integrity and marks the malformed block as non-authoritative.
+
+## 2026-02-19T19:05:11-08:00 — node explicit-null JSON-RPC id preservation (slot 1)
+- Target: `arken/node`.
+- Summary:
+  - Preserved explicit `id: null` values in provider request normalization and `send`/`sendAsync` callback envelopes.
+  - Added regression coverage verifying explicit-null id preservation for request path and callback response envelope path.
+  - Updated local docs for `web3` and provider-test coverage notes.
+- Files:
+  - `arken/node/web3/httpProvider.ts`
+  - `arken/node/test/httpProvider.spec.ts`
+  - `arken/node/web3/README.md`
+  - `arken/node/web3/ANALYSIS.md`
+  - `arken/node/test/README.md`
+- Validation:
+  - `rushx test -- test/httpProvider.spec.ts --runInBand` ✅ (14 passed)
+- Git:
+  - Commit: `c0efeaf`
+  - PR: <https://github.com/arkenrealms/node/pull/18>
+- Next:
+  - Continue flattened rotation at `arken/seer/node`.
+
+## 2026-02-19T19:13:56-08:00 — seer-node inventory target-value false-positive guard (slot 2)
+- Target: `arken/seer/node`.
+- Summary:
+  - Hardened `userLoadAndSave` inventory write verification in `src/tests.ts` so non-writable `inventoryItemCount` fields no longer pass when they already start at the target value.
+  - Added regression test for the `inventoryItemCount === target` + non-writable case.
+  - Updated coverage docs for the new guard path.
+- Files:
+  - `arken/seer/node/src/tests.ts`
+  - `arken/seer/node/test/tests.helpers.test.ts`
+  - `arken/seer/node/src/ANALYSIS.md`
+  - `arken/seer/node/test/README.md`
+  - `arken/seer/node/test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ (36 passed)
+- Git:
+  - Commit: `ff9576a`
+  - PR: <https://github.com/arkenrealms/seer-node/pull/7>
+- Next:
+  - Continue flattened rotation at `arken/seer/protocol`.
