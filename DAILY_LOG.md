@@ -7494,3 +7494,64 @@
 
 ## 2026-02-20T05:44:39-0800 — correction note
 - Correction: previous daily-log timestamp (`2026-02-20T05:45:58-0800`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution-realm maintenance chunk.
+
+## 2026-02-20T05:54:25-0800 — evolution-shard response-emitter throw containment
+- Rotation slot: `arken/evolution/shard` (flattened slot 8).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (fast-forward), then fresh branch from main due prior branch PR closure: `nel/evolution-shard-maintenance-20260220-0552`.
+- Changes:
+  - contained throwing `socket.emit` calls in shard tRPC response emitter (`shard.service.ts`) to prevent recursive handler failures;
+  - added regression tests for throwing emitters on both success and error response paths;
+  - updated `README.md` + `ANALYSIS.md` rationale/coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 10 tests).
+- Commit/PR:
+  - commit `72f0c09`
+  - PR: https://github.com/arkenrealms/evolution-shard/pull/8
+- Blockers: none.
+- Next: `arken/evolution/protocol`.
+
+## 2026-02-20T06:06:58-0800 — evolution-protocol Query envelope parity hardening
+- Target: `arken/evolution/protocol` (rotation slot 9).
+- Guardrails applied: read `MEMORY.md` first; fetched + merged `origin/main` before edits; preloaded target markdown docs; reviewed deepest leaves first.
+- Summary:
+  - Hardened exported `Query` schema to match `getQueryInput` envelope constraints.
+  - `skip`/`take` now coerce numeric strings and enforce finite non-negative integers.
+  - `orderBy` now rejects empty maps and blank/whitespace-only field names.
+  - Added focused tests to lock `Query` pagination coercion and `orderBy` guard behavior.
+  - Updated touched protocol util/test docs with rationale and coverage notes.
+- Files changed:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/{ANALYSIS.md}`
+  - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 21 tests).
+- Commit/PR:
+  - Commit: `d6d3f29`
+  - PR: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Blockers: none.
+- Next target: `arken/cerebro/hub`.
+
+## 2026-02-20T06:05:28-0800 — correction note
+- Correction: previous daily-log timestamp (`2026-02-20T06:06:58-0800`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution-protocol maintenance chunk.
+
+## 2026-02-20T06:13:52-0800 — cerebro-hub Seer getAgent null/NOT_FOUND parity hardening
+- Target: `arken/cerebro/hub` (rotation slot 10).
+- Guardrails applied: read `MEMORY.md` first; fetched + merged `origin/main` before edits; preloaded all local target markdown docs; reviewed deepest touched leaves first.
+- Summary:
+  - Hardened `findOrCreateAgentViaSeer()` so Seer-first `/enable-agent` persistence also creates on nullable `getAgent` responses (not only message-matched throws).
+  - Added structured tRPC-style `NOT_FOUND` code handling (`error.code` / `error.data.code`) for create fallback parity.
+  - Preserved fail-fast behavior for non-not-found Seer errors.
+  - Expanded `src/agents/shogo/index.test.ts` to cover null response creation, coded `NOT_FOUND`, and non-not-found rethrow.
+  - Updated root `ANALYSIS.md` with rationale and coverage notes.
+- Files changed:
+  - `arken/cerebro/hub/src/agents/shogo/agentPersistence.ts`
+  - `arken/cerebro/hub/src/agents/shogo/index.test.ts`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- src/agents/shogo/index.test.ts` ✅ (1 suite, 6 tests).
+- Commit/PR:
+  - Pending commit/push in this run block.
+- Blockers: none.
+- Next target: `arken/cli`.
