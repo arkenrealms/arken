@@ -6644,3 +6644,6 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/evolution/realm` (slot 7), then `arken/evolution/shard` (slot 8).
+
+## Run ledger append — 2026-02-19T18:05:18-08:00 — correction note
+- Correction: prior run-ledger timestamp (`2026-02-19T18:09:40-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same forge-protocol maintenance chunk.

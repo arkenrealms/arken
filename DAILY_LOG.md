@@ -6453,3 +6453,6 @@
   - `rushx test` ✅ (1 suite, 4 tests)
 - Commit/push/PR: pending in this run block.
 - Next target: `arken/evolution/realm`.
+
+## 2026-02-19T18:05:18-08:00 — correction note
+- Correction: previous DAILY_LOG timestamp (`2026-02-19T18:09:40-08:00`) was ahead of wall clock; this records the accurate append window for the same forge-protocol chunk.
