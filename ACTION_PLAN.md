@@ -18587,3 +18587,6 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none in this slot.
 - Next rotation target:
   - `arken/evolution/shard` (slot 8), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T05:44:39-0800 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-20T05:45:58-0800`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution-realm maintenance chunk.
