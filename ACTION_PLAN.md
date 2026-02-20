@@ -19097,3 +19097,6 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none in this slot.
 - Next rotation target:
   - `arken/sigil/protocol` (flattened slot 4), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T09:05:50-0800 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-20T09:10:12-0800`) was appended ahead of wall-clock time; this note records the accurate append window for the same seer-protocol maintenance chunk.

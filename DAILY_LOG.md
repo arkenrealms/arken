@@ -7789,3 +7789,7 @@
   - Normalized one-sided pagination aliases so parsed query envelopes always populate both `take` and `limit`.
 - Next target:
   - `arken/sigil/protocol`.
+
+### Run block — 2026-02-20T09:05:50-0800 — correction note
+- Correction: prior run-block timestamp (`2026-02-20T09:10:12-0800`) was appended ahead of wall-clock time.
+- Accurate append window for that same seer-protocol chunk is recorded here.
