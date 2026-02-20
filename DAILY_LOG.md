@@ -6601,3 +6601,146 @@
   - PR: <https://github.com/arkenrealms/seer-node/pull/7>
 - Next:
   - Continue flattened rotation at `arken/seer/protocol`.
+
+## 2026-02-19T19:23:48-08:00 — seer-protocol pagination envelope integer/non-negative guard (slot 3)
+- Target: `arken/seer/protocol`.
+- Summary:
+  - Hardened `getQueryInput` pagination envelope validation in `util/schema.ts` by constraining `skip`, `take`, and legacy `limit` to non-negative integers.
+  - Preserved backward compatibility by retaining `limit` while rejecting malformed negative/decimal pagination values earlier at protocol boundary.
+  - Updated schema/docs coverage notes for the stricter pagination guard.
+- Files:
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/util/README.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/README.md`
+- Validation:
+  - `rushx test` ✅ (4 suites, 6 tests)
+- Git:
+  - Commit: `e41ebf6`
+  - PR: <https://github.com/arkenrealms/seer-protocol/pull/5>
+- Next:
+  - Continue flattened rotation at `arken/sigil/protocol`.
+
+### Newly completed (2026-02-19T19:33:27-08:00 sigil-protocol chunk)
+- [x] Rotated to `arken/sigil/protocol` (slot 4) and ran branch hygiene first (`git fetch origin` + merge `origin/main`, already up to date).
+- [x] Preloaded target markdown docs before edits and reviewed leaf code first (`util/schema.ts`, `test/queryInput.test.ts`).
+- [x] Hardened query schema to reject empty `orderBy` objects in both exported `Query` and `getQueryInput` envelopes.
+- [x] Added regression coverage for empty `orderBy` objects (`orderBy: {}` and `orderBy: [{}]`).
+- [x] Updated touched util/test docs (`README.md` + `ANALYSIS.md`) to reflect new validation behavior.
+- [x] Ran tests: `rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 19 tests).
+- [x] Pushed commit `ac92f2e` to `nel/sigil-protocol-maintenance-20260219-1553`; direct PR updated: <https://github.com/arkenrealms/sigil-protocol/pull/4>.
+
+### In progress (rotation)
+- [ ] Continue to `arken/forge/web` (slot 5), then `arken/forge/protocol` (slot 6).
+
+### Newly completed (2026-02-19T19:44:01-08:00 forge-web chunk)
+- [x] Rotated to `arken/forge/web` (slot 5) and ran branch hygiene first (`git fetch origin` + merge `origin/main`, already up to date).
+- [x] Preloaded all local markdown docs under `arken/forge/web` before edits and reviewed leaf code first (`src/components/interface/utils.ts`, `src/components/interface/utils.test.ts`).
+- [x] Removed unconditional `evalFormula` debug `console.log` calls so successful formula evaluation no longer emits scope payload logs.
+- [x] Added regression coverage to assert successful `evalFormula` runs remain log-silent.
+- [x] Updated touched interface docs (`src/components/interface/ANALYSIS.md`) with the new logging behavior note.
+- [x] Ran tests: `rushx test` (in `arken/forge/web`, Node `20.11.1`) ✅ pass (9 suites, 94 tests).
+- [x] Pushed commit `06484e7` to `nel/forge-web-maintenance-20260219-1752`; direct PR created: <https://github.com/arkenrealms/forge-web/pull/11>.
+
+### In progress (rotation)
+- [ ] Continue to `arken/forge/protocol` (slot 6), then `arken/evolution/realm` (slot 7).
+
+### 2026-02-19T19:53:50-08:00 — forge-protocol strict payload guard for core.sync
+- Target: `arken/forge/protocol` (rotation slot 6)
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` on `nel/forge-protocol-maintenance-20260219-1612` (already up to date)
+- Files changed:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/README.md`
+  - `arken/forge/protocol/ANALYSIS.md`
+  - `arken/forge/protocol/test/ANALYSIS.md`
+- Tests:
+  - `rushx test` ✅ pass (1 suite, 6 tests)
+- Commit:
+  - `45e1119` — Harden core.sync payload schema strictness
+- PR:
+  - <https://github.com/arkenrealms/forge-protocol/pull/2>
+- Notes:
+  - Added strict Zod object validation to reject unknown keys and prevent silent payload drift.
+  - Added regression tests for mixed blank target entries + unknown-key rejection.
+- Next target:
+  - `arken/evolution/realm`
+
+## 2026-02-19T20:03:55-08:00 — evolution-realm duplicate close callback guard
+- Target: `arken/evolution/realm` (rotation slot 7)
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date)
+- Files changed:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/src/README.md`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+- Tests:
+  - `rushx test` ✅ pass (1 suite, 3 tests)
+- Commit:
+  - `23a44ff` (`nel/evolution-realm-maintenance-20260219-1818`)
+- PR:
+  - <https://github.com/arkenrealms/evolution-realm/pull/22>
+- Notes:
+  - Prevented duplicate `onclose` notification when `close()` is followed by socket `disconnect`.
+- Next:
+  - `arken/evolution/shard` (slot 8)
+
+## 2026-02-19T20:33:53-08:00 — evolution-shard own-property dispatch guard + Jest mapper repair
+- Target: `arken/evolution/shard` (rotation slot 8)
+- Branch sync: `git fetch origin` + `git merge --no-edit origin/main` (already up to date)
+- Code/docs updated:
+  - `arken/evolution/shard/shard.service.ts`
+  - `arken/evolution/shard/test/shard.service.handleClientMessage.test.ts`
+  - `arken/evolution/shard/jest.config.cjs`
+  - `arken/evolution/shard/README.md`
+  - `arken/evolution/shard/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (1 suite, 5 tests)
+- Commit:
+  - `8235f98` — Harden shard emit dispatch and fix Jest path mapping
+- PR:
+  - <https://github.com/arkenrealms/evolution-shard/pull/6>
+- Notes:
+  - Hardened emit dispatch to ignore prototype-only methods.
+  - Repaired Jest alias mapping so `@arken/node/*` imports resolve under `rushx test`.
+- Next:
+  - `arken/evolution/protocol` (slot 9)
+
+## 2026-02-19T20:44:02-08:00 — evolution-protocol AND/OR single-object normalization
+- Target: `arken/evolution/protocol` (rotation slot 9)
+- Branch sync: `git fetch origin` + `git merge --no-edit origin/main` (already up to date)
+- Code/docs updated:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/util/README.md`
+  - `arken/evolution/protocol/util/ANALYSIS.md`
+  - `arken/evolution/protocol/test/README.md`
+  - `arken/evolution/protocol/test/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (1 suite, 13 tests)
+- Commit:
+  - `2901fec` — Normalize single-object AND/OR query filters
+- PR:
+  - <https://github.com/arkenrealms/evolution-protocol/pull/4>
+- Notes:
+  - Added compatibility for single-object `where.AND` and `where.OR` payloads.
+  - Normalized object-form logical groups to arrays to stabilize downstream query handling.
+- Next:
+  - `arken/cerebro/hub` (slot 10)
+
+## 2026-02-19T20:53:31-08:00 — cerebro-hub callback-map cleanup on handler throw
+- Target: `arken/cerebro/hub` (rotation slot 10)
+- Branch sync: `git fetch origin` + `git merge --no-edit origin/main` (fast-forwarded latest `origin/main`)
+- Files changed:
+  - `arken/cerebro/hub/src/ioCallbacks.ts`
+  - `arken/cerebro/hub/src/ioCallbacks.test.ts`
+  - `arken/cerebro/hub/README.md`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- Validation:
+  - `rushx test` ✅ pass (4 suites, 14 tests)
+- Notes:
+  - Ensured callback map entries are always removed in `handleIoCallbackResponse` via `finally`, even when `resolve`/`reject` handlers throw.
+  - Added regression coverage for throwing resolve/reject handlers to prevent callback leaks.
+- Next:
+  - `arken/cli` (slot 11)

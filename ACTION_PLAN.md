@@ -16968,3 +16968,224 @@ Continue strict rotation from the current pointer after latest completed slot.
   - none in this slot.
 - Next rotation target:
   - `arken/seer/protocol` (slot 3), then `arken/sigil/protocol` (slot 4).
+
+## Run ledger append — 2026-02-19T19:23:48-08:00 — seer-protocol pagination envelope integer/non-negative guard
+- Target attempted:
+  - `arken/seer/protocol` (slot 3 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/seer/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/seer-protocol-maintenance-20260219-1732` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs in target before edits.
+  - Reviewed leaf runtime/test files first (`util/schema.ts`, `test/schema.query-input.test.ts`) before doc updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/util/README.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/README.md`
+- Test command + result:
+  - `rushx test` (in `arken/seer/protocol`) ✅ pass (4 suites, 6 tests)
+- Commits + PR links:
+  - `seer-protocol` `e41ebf6` (pushed) on `nel/seer-protocol-maintenance-20260219-1732`.
+  - Direct repo PR created/updated: <https://github.com/arkenrealms/seer-protocol/pull/5>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/sigil/protocol` (slot 4), then `arken/forge/web` (slot 5).
+
+## Run ledger append — 2026-02-19T19:33:27-08:00 — sigil-protocol orderBy empty-clause guard
+- Target attempted:
+  - `arken/sigil/protocol` (slot 4 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/sigil/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/sigil-protocol-maintenance-20260219-1553` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs in target before edits (`README.md`, `agents.md`, `util/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`).
+  - Reviewed leaf runtime/test files first (`util/schema.ts`, `test/queryInput.test.ts`) before doc updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/README.md`
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/README.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 19 tests)
+- Commits + PR links:
+  - `sigil-protocol` `ac92f2e` (pushed) on `nel/sigil-protocol-maintenance-20260219-1553`.
+  - Direct repo PR updated: <https://github.com/arkenrealms/sigil-protocol/pull/4>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/forge/web` (slot 5), then `arken/forge/protocol` (slot 6).
+
+## Run ledger append — 2026-02-19T19:44:01-08:00 — forge-web evalFormula log-noise reduction
+- Target attempted:
+  - `arken/forge/web` (slot 5 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/forge/web` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/forge-web-maintenance-20260219-1752` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs in target before edits (all local `*.md` files under `arken/forge/web`).
+  - Reviewed leaf runtime/test files first (`src/components/interface/utils.ts`, `src/components/interface/utils.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/forge/web/src/components/interface/utils.ts`
+  - `arken/forge/web/src/components/interface/utils.test.ts`
+  - `arken/forge/web/src/components/interface/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/forge/web`, Node `20.11.1`) ✅ pass (9 suites, 94 tests)
+- Commits + PR links:
+  - `forge-web` `06484e7` (pushed) on `nel/forge-web-maintenance-20260219-1752`.
+  - Direct repo PR created: <https://github.com/arkenrealms/forge-web/pull/11>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/forge/protocol` (slot 6), then `arken/evolution/realm` (slot 7).
+
+## Run ledger append — 2026-02-19T19:53:50-08:00 — forge-protocol strict payload guard for core.sync
+- Target attempted:
+  - `arken/forge/protocol` (slot 6 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/forge/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/forge-protocol-maintenance-20260219-1612` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs in target before edits (`README.md`, `ANALYSIS.md`, `agents.md`, `test/README.md`, `test/ANALYSIS.md`).
+  - Reviewed leaf runtime/test files first (`core/core.router.ts`, `test/core.router.test.js`) before doc updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/README.md`
+  - `arken/forge/protocol/ANALYSIS.md`
+  - `arken/forge/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/forge/protocol`) ✅ pass (1 suite, 6 tests)
+- Commits + PR links:
+  - `forge-protocol` `45e1119` (pushed) on `nel/forge-protocol-maintenance-20260219-1612`.
+  - Direct repo PR created: <https://github.com/arkenrealms/forge-protocol/pull/2>
+- Blockers:
+  - Rush warns current runtime is Node `22.19.0`; preferred baseline is `20.11.1`.
+- Next rotation target:
+  - `arken/evolution/realm` (slot 7), then `arken/evolution/shard` (slot 8).
+
+## Run ledger append — 2026-02-19T20:03:55-08:00 — evolution-realm duplicate close callback guard
+- Target attempted:
+  - `arken/evolution/realm` (slot 7 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/evolution/realm` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/evolution-realm-maintenance-20260219-1818` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown docs in target (`README.md`, `ANALYSIS.md`, `src/README.md`, `src/ANALYSIS.md`) before edits.
+  - Reviewed leaf runtime/test files first (`trpc-websocket.ts`, `src/trpc-websocket.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/src/README.md`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/evolution/realm`) ✅ pass (1 suite, 3 tests)
+- Commits + PR links:
+  - `evolution-realm` `23a44ff` (pushed) on `nel/evolution-realm-maintenance-20260219-1818`.
+  - Direct repo PR created: <https://github.com/arkenrealms/evolution-realm/pull/22>
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/evolution/shard` (slot 8), then `arken/evolution/protocol` (slot 9).
+
+## Run ledger append — 2026-02-19T20:33:53-08:00 — evolution-shard own-property dispatch guard + Jest mapper repair
+- Target attempted:
+  - `arken/evolution/shard` (slot 8 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/evolution/shard` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/evolution-shard-maintenance-20260219-1633` before final edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded target markdown docs before code edits (`README.md`, `ANALYSIS.md`).
+  - Reviewed leaf runtime/test files first (`shard.service.ts`, `test/shard.service.handleClientMessage.test.ts`, `jest.config.cjs`).
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/evolution/shard/shard.service.ts`
+  - `arken/evolution/shard/test/shard.service.handleClientMessage.test.ts`
+  - `arken/evolution/shard/jest.config.cjs`
+  - `arken/evolution/shard/README.md`
+  - `arken/evolution/shard/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/evolution/shard`) ✅ pass (1 suite, 5 tests)
+- Commits + PR links:
+  - `evolution-shard` `8235f98` (pushed) on `nel/evolution-shard-maintenance-20260219-1633`.
+  - Direct repo PR created: <https://github.com/arkenrealms/evolution-shard/pull/6>
+- Blockers:
+  - Rush warns runtime is Node `22.19.0`; preferred baseline remains Node `20.11.1`.
+- Next rotation target:
+  - `arken/evolution/protocol` (slot 9), then `arken/cerebro/hub` (slot 10).
+
+## Run ledger append — 2026-02-19T20:44:02-08:00 — evolution-protocol AND/OR single-object normalization
+- Target attempted:
+  - `arken/evolution/protocol` (slot 9 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/evolution/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/evolution-protocol-maintenance-20260219-1833` before edits (`Already up to date`).
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown docs in target before edits (`README.md`, `ANALYSIS.md`, `util/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`).
+  - Reviewed leaf runtime/test files first (`util/schema.ts`, `test/schema.test.ts`) before doc updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/util/README.md`
+  - `arken/evolution/protocol/util/ANALYSIS.md`
+  - `arken/evolution/protocol/test/README.md`
+  - `arken/evolution/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/evolution/protocol`) ✅ pass (1 suite, 13 tests)
+- Commits + PR links:
+  - `evolution-protocol` `2901fec` (pushed) on `nel/evolution-protocol-maintenance-20260219-1833`.
+  - Direct repo PR created: <https://github.com/arkenrealms/evolution-protocol/pull/4>
+- Blockers:
+  - Rush warns runtime is Node `22.19.0`; preferred baseline remains Node `20.11.1`.
+- Next rotation target:
+  - `arken/cerebro/hub` (slot 10), then `arken/cli` (slot 11).
+
+## Run ledger append — 2026-02-19T20:53:31-08:00 — cerebro-hub callback-map cleanup on handler throw
+- Target attempted:
+  - `arken/cerebro/hub` (slot 10 in flattened rotation)
+- Path verification:
+  - Live checkout path `arken/cerebro/hub` exists and is initialized.
+- Branch hygiene:
+  - Ran `git fetch origin` + `git merge --no-edit origin/main` on active branch `nel/cerebro-hub-maintenance-20260219-1655` before edits (fast-forwarded latest main).
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs in target before edits (`README.md`, `ANALYSIS.md`, `agents.md`, `src/agents/binzy/README.md`, `src/agents/yumeko/README.md`).
+  - Reviewed leaf runtime/test files first (`src/ioCallbacks.ts`, `src/ioCallbacks.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and markdown guidance.
+- Files changed:
+  - `arken/cerebro/hub/src/ioCallbacks.ts`
+  - `arken/cerebro/hub/src/ioCallbacks.test.ts`
+  - `arken/cerebro/hub/README.md`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- Test command + result:
+  - `rushx test` (in `arken/cerebro/hub`) ✅ pass (4 suites, 14 tests)
+- Commits + PR links:
+  - pending commit/push on `nel/cerebro-hub-maintenance-20260219-1655`; expected PR update: <https://github.com/arkenrealms/cerebro-hub/pull/4>
+- Blockers:
+  - Rush warns runtime is Node `22.19.0`; preferred baseline remains Node `20.11.1`.
+- Next rotation target:
+  - `arken/cli` (slot 11), then restart at `arken/node` (slot 1).
