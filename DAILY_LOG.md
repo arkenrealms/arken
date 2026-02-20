@@ -7815,3 +7815,7 @@
   - PR: https://github.com/arkenrealms/sigil-protocol/pull/5
 - Blockers: none
 - Next target: `arken/forge/web`
+
+### Run block — 2026-02-20T09:14:44-0800 — correction note
+- Correction: prior run-block timestamp (`2026-02-20T09:14:52-0800`) was appended ahead of wall-clock time.
+- Accurate append window for that same sigil-protocol chunk is recorded here.
