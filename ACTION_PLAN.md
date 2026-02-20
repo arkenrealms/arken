@@ -20093,3 +20093,6 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - Repo-wide `rushx test` currently fails on pre-existing mongo cluster/pkConfig specs unrelated to this snapshot change path.
 - Next rotation target:
   - `arken/seer/protocol` (flattened slot 3), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T15:14:58-0800 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-20T15:17:33-0800`) was appended with a clock typo; this note records the accurate append window for the same seer-node snapshot maintenance chunk.

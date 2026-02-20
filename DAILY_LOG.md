@@ -8385,3 +8385,6 @@
   - PR: https://github.com/arkenrealms/seer-node/pull/10
 - Next:
   - Rotate to `arken/seer/protocol`.
+
+## 2026-02-20T15:14:58-0800 — correction note
+- Correction: previous DAILY_LOG block timestamp (`2026-02-20T15:17:33-0800`) was appended with a clock typo; this note records the accurate append window for the same seer-node snapshot maintenance chunk.
