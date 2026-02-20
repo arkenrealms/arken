@@ -17189,3 +17189,6 @@ Continue strict rotation from the current pointer after latest completed slot.
   - Rush warns runtime is Node `22.19.0`; preferred baseline remains Node `20.11.1`.
 - Next rotation target:
   - `arken/cli` (slot 11), then restart at `arken/node` (slot 1).
+
+## Run ledger append — 2026-02-19T20:54:26-08:00 — correction note
+- Correction: `cerebro-hub` PR reference in prior block was stale; direct repo PR for branch `nel/cerebro-hub-maintenance-20260219-1655` is now open at <https://github.com/arkenrealms/cerebro-hub/pull/21>.

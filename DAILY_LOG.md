@@ -6744,3 +6744,7 @@
   - Added regression coverage for throwing resolve/reject handlers to prevent callback leaks.
 - Next:
   - `arken/cli` (slot 11)
+
+## 2026-02-19T20:54:26-08:00 — correction note
+- Corrected direct `cerebro-hub` PR reference for branch `nel/cerebro-hub-maintenance-20260219-1655`:
+  - <https://github.com/arkenrealms/cerebro-hub/pull/21>
