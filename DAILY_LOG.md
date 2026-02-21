@@ -9041,3 +9041,100 @@
 - Authoritative commit/PR status for that same slot:
   - Commit `38bb644` pushed on `nel/seer-protocol-maintenance-20260219-2133`.
   - PR verified open + updated: https://github.com/arkenrealms/seer-protocol/pull/8
+
+## 2026-02-20T21:32:27-0800 — sigil-protocol strict top-level query envelope guard
+- Target: `arken/sigil/protocol` (flattened slot 4).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date) on `nel/sigil-protocol-maintenance-20260219-1553`.
+- Changes:
+  - Marked top-level exported `Query` schema as strict so unknown envelope keys fail parse-time validation instead of being silently stripped.
+  - Marked `getQueryInput` envelope object as strict for parity, preserving existing `take`/`limit` normalization while rejecting typo keys.
+  - Added regression in `test/queryInput.test.ts` to verify unknown top-level keys throw for both `getQueryInput(...).parse(...)` and `Query.parse(...)`.
+  - Updated rationale/docs in `arken/sigil/protocol/util/{README.md,ANALYSIS.md}` and `arken/sigil/protocol/test/{README.md,ANALYSIS.md}`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 33 tests).
+- Commit/PR:
+  - Commit `8418996` pushed.
+  - PR: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Blockers:
+  - none.
+- Next target:
+  - `arken/forge/web` (flattened slot 5).
+
+### 2026-02-20T21:49:58-08:00 — forge-web empty-hex decode fail-fast guard
+- Target: `arken/forge/web` (flattened slot 5).
+- Completed:
+  - Added fail-fast validation in `src/utils/hexToUint8Array.ts` for empty/whitespace/bare-prefix payloads.
+  - Added test coverage in `src/utils/contenthashToUri.test.ts` for empty-input rejection.
+  - Updated rationale docs in `src/utils/{README.md,ANALYSIS.md}`.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (12 suites, 110 tests).
+- Git/PR:
+  - Commit: `51e887f` on `nel/forge-web-maintenance-20260219-1752`.
+  - PR: https://github.com/arkenrealms/forge-web/pull/11 (OPEN, updated).
+- Next:
+  - `arken/forge/protocol`.
+
+## 2026-02-20T21:58:46-0800 — forge-protocol Unicode NFC payload normalization
+- Target: `arken/forge/protocol` (flattened slot 6).
+- Summary:
+  - Normalized `core.sync` string fields (`kind`, `targets`, `reason`) to Unicode NFC during schema transforms.
+  - Extended tests to verify canonical-equivalent normalization on dispatch and duplicate-target rejection across composed/decomposed Unicode forms.
+  - Updated repo docs (`README.md`, `ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md`) with rationale and coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 25 tests).
+- Commit / PR:
+  - Commit `4086db1` pushed to `nel/forge-protocol-maintenance-20260219-1612`.
+  - PR: https://github.com/arkenrealms/forge-protocol/pull/8
+- Next:
+  - `arken/evolution/realm` (flattened slot 7).
+
+## 2026-02-20T22:00:31-0800 — correction (forge-protocol PR number)
+- Correction for prior 21:58:46 entry: branch `nel/forge-protocol-maintenance-20260219-1612` maps to open PR https://github.com/arkenrealms/forge-protocol/pull/2 (not `/pull/8`).
+
+## 2026-02-20T21:55:21-0800 — correction (timestamp typo)
+- Correction: prior forge-protocol daily-log timestamps were recorded ahead of wall-clock; accurate run window was ~21:52–21:55 local.
+
+## 2026-02-20T22:03:55-0800 — evolution-realm onopen event payload parity
+- Target: `arken/evolution/realm` (flattened slot 7).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date) on `nel/evolution-realm-maintenance-20260219-1818`.
+- Changes:
+  - Updated `trpc-websocket.ts` connect lifecycle to pass an Event-like payload into `onopen`.
+  - Added regression coverage in `src/trpc-websocket.test.ts` ensuring connect-triggered `onopen` receives `{ type: 'open' }`.
+  - Updated rationale docs in `ANALYSIS.md` and `src/{README.md,ANALYSIS.md}`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/realm`) ✅ pass (1 suite, 20 tests).
+- Commit/PR:
+  - Commit `a103518` pushed.
+  - PR: https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers:
+  - none.
+- Next target:
+  - `arken/evolution/shard` (flattened slot 8).
+
+### Run append — 2026-02-20T22:18:41-0800 — evolution-shard circular log params hardening
+- [x] Rotated to `arken/evolution/shard` (slot 8) and synced branch with `origin/main` before edits.
+- [x] Hardened `handleClientMessage` loggable-event tracing to safely serialize circular/unserializable params without breaking dispatch.
+- [x] Added regression test coverage for circular params on loggable events (`test/shard.service.handleClientMessage.test.ts`).
+- [x] Updated shard docs (`README.md`, `ANALYSIS.md`) with rationale + coverage notes.
+- [x] Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/evolution/shard` (pass: 1 suite, 19 tests).
+- [x] Pushed `evolution-shard` commit `ec16a33` to branch `nel/evolution-shard-maintenance-20260220-0552` (PR: https://github.com/arkenrealms/evolution-shard/pull/8).
+- [ ] Next: continue strict rotation at `arken/evolution/protocol` (slot 9).
+
+### Run append — 2026-02-20T22:36:58-0800 — evolution-protocol empty field-filter operator guard
+- [x] Rotated to `arken/evolution/protocol` (slot 9) and synced branch with `origin/main` before edits.
+- [x] Hardened schema validation to reject empty field-level `where` operator objects (e.g., `{ where: { status: {} } }`) in both `Query` and `getQueryInput` paths.
+- [x] Added focused regression coverage in `test/schema.test.ts` for both parser entry points.
+- [x] Updated protocol docs (`ANALYSIS.md`, `util/*`, `test/*`) with rationale + coverage notes.
+- [x] Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/evolution/protocol` (pass: 1 suite, 36 tests).
+- [ ] Next: continue strict rotation at `arken/cerebro/hub` (slot 10).
+- [x] Pushed `evolution-protocol` commit `218b782` to branch `nel/evolution-protocol-maintenance-20260220-0332` (PR: https://github.com/arkenrealms/evolution-protocol/pull/7).
+- Correction: prior evolution-protocol append timestamp was recorded ahead of wall-clock; accurate run window was ~22:32–22:34 local.
+
+### Run append — 2026-02-20T22:47:31-0800 — cerebro-hub wrapped zero-id Seer response normalization
+- [x] Rotated to `arken/cerebro/hub` (slot 10) and synced branch with `origin/main` before edits.
+- [x] Hardened Seer single-item normalization so wrapped payloads with numeric `id: 0` are treated as valid (id present/non-null) instead of dropped as falsy.
+- [x] Added regression coverage in `src/agents/shogo/index.test.ts` for wrapped single-item responses using zero ids.
+- [x] Updated docs in `arken/cerebro/hub/{README.md,ANALYSIS.md}` with rationale + coverage notes.
+- [x] Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/cerebro/hub` (pass: 4 suites, 38 tests).
+- [x] Pushed `cerebro-hub` commit `96bc0f0` to branch `nel/cerebro-hub-maintenance-20260220-0402` (PR: https://github.com/arkenrealms/cerebro-hub/pull/23).
+- [ ] Next: continue strict rotation at `arken/cli` (slot 11).
