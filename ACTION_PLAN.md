@@ -21372,3 +21372,7 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none in this slot.
 - Next rotation target:
   - `arken/cli` (flattened slot 11), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T22:44:56-0800 — correction note (timestamp typo)
+- Correction: previous cerebro-hub append timestamp `2026-02-20T22:47:31-0800` was logged ahead of wall-clock.
+- Accurate append window for this maintenance chunk is `22:42`–`22:45` local.

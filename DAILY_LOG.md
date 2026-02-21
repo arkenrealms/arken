@@ -9138,3 +9138,7 @@
 - [x] Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/cerebro/hub` (pass: 4 suites, 38 tests).
 - [x] Pushed `cerebro-hub` commit `96bc0f0` to branch `nel/cerebro-hub-maintenance-20260220-0402` (PR: https://github.com/arkenrealms/cerebro-hub/pull/23).
 - [ ] Next: continue strict rotation at `arken/cli` (slot 11).
+
+### 2026-02-20T22:44:56-0800 — correction (timestamp typo)
+- Correction: prior cerebro-hub append timestamp (`22:47:31`) was recorded ahead of wall-clock.
+- Accurate run window was ~22:42–22:45 local.
