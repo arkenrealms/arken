@@ -10297,3 +10297,99 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - `WORKFLOW.md` is active (no pause); target aligns with active workflow (`seer-node`).
 - Next target:
   - `arken/seer/protocol`.
+
+## 2026-02-21T11:04:40-08:00 — seer-protocol empty order/selection map guard
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Branch hygiene: `nvm use 20.11.1` + `git fetch origin` + `git merge --no-edit origin/main` (up to date) before edits.
+- Change summary:
+  - Hardened util/root query envelopes to reject empty `orderBy`, `include`, and `select` objects.
+  - Added regression coverage in util/root schema tests for `Query` and `getQueryInput` behavior.
+  - Updated touched docs (`util/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`) with rationale.
+- Files:
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/util/README.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/README.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (7 suites, 41 tests).
+- Commit/PR:
+  - Commit `7fe9e3d` pushed to `nel/seer-protocol-maintenance-20260219-2133`.
+  - PR: https://github.com/arkenrealms/seer-protocol/pull/9
+- Conflict note:
+  - `WORKFLOW.md` active-scope differs from explicit cron rotation instruction; followed latest explicit instruction per guardrails.
+- Next: `arken/sigil/protocol`.
+
+## 2026-02-21T11:13:33-08:00 — sigil-protocol undefined-only where-clause guard
+- Target: `arken/sigil/protocol` (flattened slot 4).
+- Workflow: checked `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` first; state active, not paused.
+- Conflict: workflow scope file prioritizes `seer-node + cerebro-link + cerebro-hub`, but explicit cron instruction required flattened rotation; proceeded per explicit instruction + MEMORY guardrails.
+- Change summary:
+  - Hardened `where` parsing (`util/schema.ts`) so top-level + recursive where envelopes must contain at least one defined clause value.
+  - Added regression tests to reject undefined-only where clauses (`test/queryInput.test.ts`).
+  - Updated util/test docs (`README.md`, `ANALYSIS.md`) with rationale and coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 42 tests).
+- Git:
+  - Commit: `e80066c` (`nel/sigil-protocol-maintenance-20260219-1553`).
+  - PR: https://github.com/arkenrealms/sigil-protocol/pull/6 (open, updated).
+- Next target: `arken/forge/web`.
+
+## 2026-02-21T11:23:44-08:00 — forge-web ENS parser hyphen/case reliability fix
+- Target: `arken/forge/web` (flattened slot 5).
+- Workflow: checked `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` first; state active, not paused.
+- Conflict: workflow scope file prioritizes `seer-node + cerebro-link + cerebro-hub`, but explicit cron instruction required flattened rotation; proceeded per explicit instruction + MEMORY guardrails.
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (up to date) before edits.
+- Change summary:
+  - Expanded ENS parser acceptance in `src/utils/parseENSAddress.ts` to allow valid hyphenated labels and case-insensitive `.eth` suffix matching.
+  - Added `src/utils/parseENSAddress.test.ts` for normalized casing, hyphenated label + path parsing, and non-ENS rejection.
+  - Updated `src/utils/{README.md,ANALYSIS.md}` with rationale and coverage notes.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- --runTestsByPath src/utils/parseENSAddress.test.ts` ✅ pass (1 suite, 3 tests).
+- Commit/PR:
+  - Commit `835e833` pushed to `nel/forge-web-maintenance-20260219-1752`.
+  - PR: https://github.com/arkenrealms/forge-web/pull/11 (open, updated).
+- Next target: `arken/forge/protocol`.
+
+## 2026-02-21T11:34:09-08:00 — forge-protocol sync-handler diagnostic hardening
+- Target: `arken/forge/protocol` (flattened slot 6).
+- Conflict handled: `WORKFLOW.md` scope differs from explicit cron rotation; continued per explicit cron instruction + MEMORY guardrails.
+- Changes:
+  - Hardened `core.sync` function-type diagnostics to safely report `function:uninspectable-name` when function name inspection throws.
+  - Hardened class-constructor detection with a prototype descriptor fallback to catch proxied class handlers when source inspection is opaque.
+  - Added tests for class-name inspection failure and revoked proxy handler class-detection stability.
+  - Updated analysis notes with rationale and coverage bullets.
+- Files:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/ANALYSIS.md`
+  - `arken/forge/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 32 tests).
+- Git:
+  - Commit `36850a1` pushed to `nel/forge-protocol-maintenance-20260219-1612`.
+  - PR: https://github.com/arkenrealms/forge-protocol/pull/2
+- Next target: `arken/evolution/realm`.
+
+## 2026-02-21T11:43:55-08:00 — node best-effort cache-put resilience
+- Target: `arken/node` (slot 1).
+- Branch: `nel/node-maintenance-20260220-0438`.
+- Summary: Hardened `web3/httpProvider` cache writes to be best-effort so cache persistence failures do not fail otherwise successful provider requests.
+- Files:
+  - `arken/node/web3/httpProvider.ts`
+  - `arken/node/test/httpProvider.spec.ts`
+  - `arken/node/web3/README.md`
+  - `arken/node/web3/ANALYSIS.md`
+  - `arken/node/test/README.md`
+  - `arken/node/test/ANALYSIS.md`
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/httpProvider.spec.ts --runInBand` ✅ pass (27/27).
+- Commit:
+  - `arken/node` `345d15b`.
+- PR:
+  - https://github.com/arkenrealms/node/pull/21
+- Notes:
+  - `WORKFLOW.md` scope currently differs (seer-node + cerebro-link + cerebro-hub), but latest explicit cron instruction required continuing flattened ACTION_PLAN rotation.
