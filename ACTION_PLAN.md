@@ -23619,3 +23619,354 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none.
 - Next rotation target:
   - `arken/seer/node` (flattened slot 2), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T11:58:57-08:00 — seer-node timer-availability guard for market-event helper
+- Target attempted:
+  - `arken/seer/node` (flattened slot 2).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/seer/node` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/seer-node-maintenance-20260220-0442`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown files in repo (`find . -name '*.md' -type f | sort`) before source edits.
+  - Reviewed leaf runtime/test files first (`tests.ts`, `test/tests.helpers.test.ts`) then updated analysis docs.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/seer/node/tests.ts`
+  - `arken/seer/node/test/tests.helpers.test.ts`
+  - `arken/seer/node/src/ANALYSIS.md`
+  - `arken/seer/node/test/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/node`) ✅ pass (24 suites, 112 tests).
+- Commits + PR links:
+  - `seer-node` commit `c68d6fb` pushed on `nel/seer-node-maintenance-20260220-0442`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-node/pull/12
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/seer/protocol` (flattened slot 3), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T12:03:59-08:00 — seer-protocol non-blank string pattern-operator guard
+- Target attempted:
+  - `arken/seer/protocol` (flattened slot 3).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/seer/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/seer-protocol-maintenance-20260219-2133`.
+- Markdown preload + deepest-first review:
+  - Preloaded markdown inventory under target repo (`find . -name '*.md' -type f | sort`) before source edits.
+  - Reviewed leaf schema/test files first (`util/schema.ts`, `schema.ts`, `test/schema*.test.ts`) before analysis-doc updates.
+- Conflict notes:
+  - `WORKFLOW.md` currently narrows active workflow to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/protocol`) ✅ pass (7 suites, 43 tests).
+- Commits + PR links:
+  - `seer-protocol` commit `0997f65` pushed on `nel/seer-protocol-maintenance-20260219-2133`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-protocol/pull/9
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/sigil/protocol` (flattened slot 4), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T12:13:45-08:00 — sigil-protocol projection truthy-guard hardening
+- Target attempted:
+  - `arken/sigil/protocol` (flattened slot 4).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned); no pause flag set.
+- Path verification:
+  - `arken/sigil/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/sigil-protocol-maintenance-20260219-1553`.
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown files before edits (`README.md`, `agents.md`, `util/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`).
+  - Reviewed leaf source/test first (`util/schema.ts`, `test/queryInput.test.ts`) before docs updates.
+- Conflict notes:
+  - `WORKFLOW.md` currently narrows focus to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/README.md`
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/README.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 43 tests).
+- Commits + PR links:
+  - `sigil-protocol` commit `9f28632` pushed on `nel/sigil-protocol-maintenance-20260219-1553`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/sigil-protocol/pull/6
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/forge/web` (flattened slot 5), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T12:24:21-08:00 — forge-web ENS parser runtime-shape hardening
+- Target attempted:
+  - `arken/forge/web` (flattened slot 5).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned); no pause flag set.
+- Path verification:
+  - `arken/forge/web` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/forge-web-maintenance-20260219-1752`.
+- Markdown preload + deepest-first review:
+  - Preloaded markdown inventory under repo (`find . -path './node_modules' -prune -o -name '*.md' -type f -print | sort`, then reviewed header sections) before source edits.
+  - Reviewed leaf utility/test files first (`src/utils/parseENSAddress.ts`, `src/utils/parseENSAddress.test.ts`) before docs updates.
+- Conflict notes:
+  - `WORKFLOW.md` narrows active workflow to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/forge/web/src/utils/parseENSAddress.ts`
+  - `arken/forge/web/src/utils/parseENSAddress.test.ts`
+  - `arken/forge/web/src/utils/README.md`
+  - `arken/forge/web/src/utils/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- src/utils/parseENSAddress.test.ts --runInBand` (in `arken/forge/web`) ✅ pass (1 suite, 5 tests).
+- Commits + PR links:
+  - `forge-web` commit `4a5d3fd` pushed on `nel/forge-web-maintenance-20260219-1752`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/forge-web/pull/11
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/forge/protocol` (flattened slot 6), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T12:38:41-08:00 — forge-protocol anonymous-class sync-handler diagnostics
+- Target attempted:
+  - `arken/forge/protocol` (flattened slot 6).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/forge/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/forge-protocol-maintenance-20260219-1612`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown files under target repo before edits (`README.md`, `ANALYSIS.md`, `agents.md`, `test/{README.md,ANALYSIS.md}`).
+  - Reviewed leaf files first (`core/core.router.ts`, `test/core.router.test.js`) before doc updates.
+- Conflict notes:
+  - `WORKFLOW.md` narrows active workflow to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/ANALYSIS.md`
+  - `arken/forge/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/protocol`) ✅ pass (1 suite, 33 tests).
+- Commits + PR links:
+  - `forge-protocol` commit `8b75a0b` pushed on `nel/forge-protocol-maintenance-20260219-1612`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/forge-protocol/pull/2
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/evolution/realm` (flattened slot 7), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T12:34:30-08:00 — correction note
+- Correction: prior run-ledger timestamp (`2026-02-21T12:38:41-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same forge-protocol chunk.
+
+## Run ledger append — 2026-02-21T12:44:15-08:00 — evolution-realm inbound message OPEN-state gating
+- Target attempted:
+  - `arken/evolution/realm` (flattened slot 7).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/evolution/realm` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/evolution-realm-maintenance-20260219-1818`.
+- Markdown preload + deepest-first review:
+  - Preloaded markdown inventory before source edits (`find . -name '*.md' -type f | sort`).
+  - Reviewed leaf runtime/test files first (`trpc-websocket.ts`, `src/trpc-websocket.test.ts`) before docs updates.
+- Conflict notes:
+  - `WORKFLOW.md` narrows active workflow to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/ANALYSIS.md`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+  - `arken/evolution/realm/src/README.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/realm`) ✅ pass (1 suite, 27 tests).
+- Commits + PR links:
+  - `evolution-realm` commit `73d85bc` pushed on `nel/evolution-realm-maintenance-20260219-1818`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/evolution/shard` (flattened slot 8), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T12:53:58-08:00 — evolution-shard hostile-stack getter error serialization hardening
+- Target attempted:
+  - `arken/evolution/shard` (flattened slot 8).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/evolution/shard` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/evolution-shard-maintenance-20260220-0552`.
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs before edits (`README.md`, `ANALYSIS.md`).
+  - Reviewed leaf runtime/test files first (`shard.service.ts`, `test/shard.service.handleClientMessage.test.ts`) before doc updates.
+- Conflict notes:
+  - `WORKFLOW.md` narrows active workflow to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/evolution/shard/shard.service.ts`
+  - `arken/evolution/shard/test/shard.service.handleClientMessage.test.ts`
+  - `arken/evolution/shard/README.md`
+  - `arken/evolution/shard/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/shard`) ✅ pass (1 suite, 27 tests).
+- Commits + PR links:
+  - `evolution-shard` commit `b920a4f` pushed on `nel/evolution-shard-maintenance-20260220-0552`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/evolution-shard/pull/8
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/evolution/protocol` (flattened slot 9), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T13:08:00-08:00 — evolution-protocol in/notIn concrete-value parity guard
+- Target attempted:
+  - `arken/evolution/protocol` (flattened slot 9).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/evolution/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/evolution-protocol-maintenance-20260220-0332`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown files in target repo before source edits (`ANALYSIS.md`, `README.md`, `test/{README.md,ANALYSIS.md}`, `util/{README.md,ANALYSIS.md}`).
+  - Reviewed leaf source/test files first (`util/schema.ts`, `test/schema.test.ts`) before analysis-doc updates.
+- Conflict notes:
+  - `WORKFLOW.md` narrows active workflow to `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/ANALYSIS.md`
+  - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/protocol`) ✅ pass (1 suite, 56 tests).
+- Commits + PR links:
+  - pending commit on `nel/evolution-protocol-maintenance-20260220-0332`.
+  - Direct repo PR verified open: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/cerebro/hub` (flattened slot 10), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T13:05:30-08:00 — correction note
+- Correction: prior run-ledger timestamp (`2026-02-21T13:08:00-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution-protocol chunk.
+
+## Run ledger append — 2026-02-21T13:16:52-08:00 — cerebro-hub Seer data.cause.code transient fallback parity
+- Target attempted:
+  - `arken/cerebro/hub` (flattened slot 10).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/cerebro/hub` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/cerebro-hub-maintenance-20260220-0402`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown files in target repo before source edits (`README.md`, `ANALYSIS.md`, `agents.md`, `src/agents/binzy/README.md`, `src/agents/yumeko/README.md`).
+  - Reviewed leaf source/test files first (`src/agents/shogo/agentPersistence.ts`, `src/agents/shogo/index.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, latest explicit user instruction, workflow scope, and repo markdown guidance.
+- Files changed:
+  - `arken/cerebro/hub/src/agents/shogo/agentPersistence.ts`
+  - `arken/cerebro/hub/src/agents/shogo/index.test.ts`
+  - `arken/cerebro/hub/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/cerebro/hub`) ✅ pass (4 suites, 48 tests).
+- Commits + PR links:
+  - `cerebro-hub` commit `832cb26` pushed on `nel/cerebro-hub-maintenance-20260220-0402`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/cli` (flattened slot 11), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T13:14:28-08:00 — correction note
+- Correction: prior run-ledger timestamp (`2026-02-21T13:16:52-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same cerebro-hub chunk.
+
+## Run ledger append — 2026-02-21T13:35:24-08:00 — cli shorthand trailing-backslash param preservation
+- Target attempted:
+  - `arken/cli` (flattened slot 11).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/cli` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/cli-maintenance-20260220-0412`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local markdown files before source edits (`README.md`, `ANALYSIS.md`).
+  - Reviewed deepest leaf source/test path first (`index.ts` parser branch and `test/parsing.test.ts`) before doc updates.
+- Conflict notes:
+  - `WORKFLOW.md` active workflow text focuses on seer-node/cerebro-link/cerebro-hub, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/cli/index.ts`
+  - `arken/cli/test/parsing.test.ts`
+  - `arken/cli/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/cli`) ✅ pass (8 suites, 70 tests).
+- Commits + PR links:
+  - `cli` commit `ada82bd` pushed on `nel/cli-maintenance-20260220-0412`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/cli/pull/10
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/node` (flattened slot 1), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T13:44:11-08:00 — node util subpath de-circularization
+- Target attempted:
+  - `arken/node` (flattened slot 1).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/node` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/node-maintenance-20260220-0438`.
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs before edits (`README.md`, `ANALYSIS.md`, `web3/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`).
+  - Reviewed deepest leaf paths first (`util.ts`, `util/{api.ts,rpc.ts}`, `test/util.spec.ts`) before updating docs.
+- Conflict notes:
+  - `WORKFLOW.md` active workflow text focuses on `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/node/util.ts`
+  - `arken/node/util/api.ts`
+  - `arken/node/util/rpc.ts`
+  - `arken/node/util/{README.md,ANALYSIS.md}`
+  - `arken/node/test/util.spec.ts`
+  - `arken/node/test/{README.md,ANALYSIS.md}`
+  - `arken/node/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/util.spec.ts` (in `arken/node`) ✅ pass (1 suite, 2 tests).
+- Commits + PR links:
+  - pending commit on `nel/node-maintenance-20260220-0438`.
+  - Direct repo PR verified open: https://github.com/arkenrealms/node/pull/15
+- Blockers:
+  - none.
+- Next rotation target:
+  - `arken/seer/node` (flattened slot 2), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T13:44:11-08:00 — correction note
+- Correction: the previous block referenced legacy PR `https://github.com/arkenrealms/node/pull/15`, which is merged/closed.
+- Active direct-repo PR for branch `nel/node-maintenance-20260220-0438` is open at: https://github.com/arkenrealms/node/pull/21

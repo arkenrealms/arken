@@ -10393,3 +10393,196 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - https://github.com/arkenrealms/node/pull/21
 - Notes:
   - `WORKFLOW.md` scope currently differs (seer-node + cerebro-link + cerebro-hub), but latest explicit cron instruction required continuing flattened ACTION_PLAN rotation.
+
+## Run append — 2026-02-21T11:58:57-08:00 — seer-node timer-availability guard
+- Target: `arken/seer/node` (flattened slot 2).
+- Change summary:
+  - Added explicit `global.setTimeout` function guard in `tests.ts` `monitorMarketEvents`.
+  - Added regression test proving deterministic helper failure when timer global is unavailable.
+  - Updated `src/ANALYSIS.md` and `test/ANALYSIS.md` with rationale notes.
+- Files changed:
+  - `arken/seer/node/tests.ts`
+  - `arken/seer/node/test/tests.helpers.test.ts`
+  - `arken/seer/node/src/ANALYSIS.md`
+  - `arken/seer/node/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/node`) ✅ pass (24 suites, 112 tests).
+- Commit/PR:
+  - Commit `c68d6fb` pushed to `nel/seer-node-maintenance-20260220-0442`.
+  - PR: https://github.com/arkenrealms/seer-node/pull/12
+- Next target:
+  - `arken/seer/protocol` (flattened slot 3).
+
+## Run append — 2026-02-21T12:03:59-08:00 — seer-protocol non-blank string pattern operators
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Conflict handled: `WORKFLOW.md` scope differs from explicit cron rotation; continued per explicit cron instruction + MEMORY guardrails.
+- Changes:
+  - Hardened root/util where-operator schemas so `contains`, `startsWith`, and `endsWith` require trimmed non-empty values.
+  - Applied same operator contract in recursive `createPrismaWhereSchema` field-filter builders for nested where parity.
+  - Added root/util schema regression tests for blank pattern-operator rejection plus valid non-empty acceptance.
+  - Updated `ANALYSIS.md` notes with rationale and test-coverage intent.
+- Files:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (7 suites, 43 tests).
+- Git:
+  - Commit `0997f65` pushed to `nel/seer-protocol-maintenance-20260219-2133`.
+  - PR: https://github.com/arkenrealms/seer-protocol/pull/9
+- Next target: `arken/sigil/protocol`.
+
+### Newly completed (sigil-protocol projection truthy-guard chunk)
+- [x] Rotated to `arken/sigil/protocol` (flattened slot 4) after confirming workflow state remained active (not paused).
+- [x] Ran branch hygiene before edits: `git fetch origin` + `git merge --no-edit origin/main` on `nel/sigil-protocol-maintenance-20260219-1553`.
+- [x] Hardened query projection validation so `include`/`select` now reject all-false envelopes (require at least one `true` field).
+- [x] Added regression tests in `test/queryInput.test.ts` for all-false rejection and mixed boolean acceptance.
+- [x] Updated touched docs: `util/{README.md,ANALYSIS.md}` and `test/{README.md,ANALYSIS.md}`.
+- [x] Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/sigil/protocol` (pass: 1 suite, 43 tests).
+- [x] Committed/pushed `sigil-protocol` update `9f28632` and verified direct PR update: https://github.com/arkenrealms/sigil-protocol/pull/6
+
+## 2026-02-21T12:24:21-08:00 — forge-web ENS parser runtime-shape hardening
+- Target: `arken/forge/web` (flattened slot 5).
+- Change summary:
+  - Hardened `parseENSAddress` to trim input and fail closed on non-string/blank payloads.
+  - Added regression tests for whitespace normalization + non-string input handling.
+  - Updated `src/utils/{README.md,ANALYSIS.md}` with rationale and coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- src/utils/parseENSAddress.test.ts --runInBand` ✅ (1 suite, 5 tests).
+- Commit/PR:
+  - Commit `4a5d3fd` on `nel/forge-web-maintenance-20260219-1752`.
+  - PR: https://github.com/arkenrealms/forge-web/pull/11
+- Next target:
+  - `arken/forge/protocol` (flattened slot 6).
+
+## 2026-02-21T12:38:41-08:00 — forge-protocol anonymous-class diagnostic hardening
+- Completed in `arken/forge/protocol` (flattened slot 6):
+  - Updated `core/core.router.ts` so missing-handler diagnostics label unnamed function/class handlers as `function:anonymous` instead of ambiguous `function`.
+  - Added regression coverage in `test/core.router.test.js` for anonymous class constructor diagnostics.
+  - Updated rationale notes in `ANALYSIS.md` and `test/ANALYSIS.md`.
+- Branch/PR:
+  - Branch: `nel/forge-protocol-maintenance-20260219-1612`
+  - Commit: `8b75a0b`
+  - PR: https://github.com/arkenrealms/forge-protocol/pull/2
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 33 tests).
+- Conflict note:
+  - `WORKFLOW.md` currently narrows focus to `seer-node + cerebro-link + cerebro-hub`; latest explicit cron instruction required flattened rotation, so this run followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/evolution/realm`.
+
+## 2026-02-21T12:34:30-08:00 — correction note
+- Correction: prior DAILY_LOG run-block timestamp (`2026-02-21T12:38:41-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same forge-protocol chunk.
+
+## 2026-02-21T12:44:15-08:00 — evolution-realm inbound message OPEN-state gating
+- Target: `arken/evolution/realm` (flattened slot 7).
+- Change summary:
+  - Hardened `trpc-websocket` inbound `'message'`/`'trpc'` handling to dispatch only while wrapper state is OPEN.
+  - Added regression tests proving inbound frames are ignored before connect and after disconnect.
+  - Updated `ANALYSIS.md`, `src/ANALYSIS.md`, and `src/README.md` with rationale + behavior notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 27 tests).
+- Commit/PR:
+  - Commit `73d85bc` on `nel/evolution-realm-maintenance-20260219-1818`.
+  - PR: https://github.com/arkenrealms/evolution-realm/pull/25
+- Conflict note:
+  - `WORKFLOW.md` currently narrows focus to `seer-node + cerebro-link + cerebro-hub`; latest explicit cron instruction required flattened rotation, so this run followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/evolution/shard`.
+
+## 2026-02-21T12:53:58-08:00 — evolution-shard hostile-stack getter error serialization hardening
+- Target: `arken/evolution/shard` (flattened slot 8).
+- Change summary:
+  - Added `safeErrorString` fallback in `shard.service.ts` so catch-path error envelope formatting survives thrown values whose `stack` getter throws.
+  - Added regression test proving `handleClientMessage` still emits normalized `trpcResponse` and increments error counters when downstream throws a hostile stack-getter object.
+  - Updated `README.md` + `ANALYSIS.md` with rationale and coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 27 tests).
+- Commit/PR:
+  - Commit `b920a4f` on `nel/evolution-shard-maintenance-20260220-0552`.
+  - PR: https://github.com/arkenrealms/evolution-shard/pull/8
+- Conflict note:
+  - `WORKFLOW.md` currently narrows focus to `seer-node + cerebro-link + cerebro-hub`; latest explicit cron instruction required flattened rotation, so this run followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/evolution/protocol`.
+
+## 2026-02-21T13:08:00-08:00 — evolution-protocol in/notIn concrete-value parity guard
+- Target: `arken/evolution/protocol` (flattened slot 9).
+- Change summary:
+  - Hardened shared where-operator handling so `in`/`notIn` arrays must contain at least one concrete non-empty value.
+  - Applied guard in both parser paths (`Query` and `createPrismaWhereSchema` used by `getQueryInput`) to maintain parity.
+  - Added regression tests for Query-level nullish/blank-only rejection, getQueryInput blank-only rejection, and positive mixed-value acceptance.
+  - Updated `ANALYSIS.md`, `util/{README.md,ANALYSIS.md}`, and `test/{README.md,ANALYSIS.md}` with rationale and coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 56 tests).
+- Commit/PR:
+  - Pending commit on `nel/evolution-protocol-maintenance-20260220-0332`.
+  - PR: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Conflict note:
+  - `WORKFLOW.md` currently narrows focus to `seer-node + cerebro-link + cerebro-hub`; latest explicit cron instruction required flattened rotation, so this run followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/cerebro/hub`.
+
+## 2026-02-21T13:05:30-08:00 — correction note
+- Correction: previous DAILY_LOG timestamp (`2026-02-21T13:08:00-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same evolution-protocol chunk.
+
+## 2026-02-21T13:16:52-08:00 — cerebro-hub Seer data.cause.code transient fallback parity
+- Target: `arken/cerebro/hub` (flattened slot 10).
+- Change summary:
+  - Hardened `src/agents/shogo/agentPersistence.ts` transient fallback code extraction to include nested `error.data.cause.code` envelopes from Seer/tRPC wrappers.
+  - Added regression coverage in `src/agents/shogo/index.test.ts` ensuring `/enable-agent` falls back to local persistence for transient `data.cause.code` payloads (`EAI_AGAIN`).
+  - Updated `ANALYSIS.md` with rationale and scope notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (4 suites, 48 tests).
+- Commit/PR:
+  - Commit `832cb26` on `nel/cerebro-hub-maintenance-20260220-0402`.
+  - PR: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Conflict note:
+  - No conflicts found between `MEMORY.md`, latest explicit cron instruction, and active workflow scope.
+- Next target:
+  - `arken/cli`.
+
+## 2026-02-21T13:14:28-08:00 — correction note
+- Correction: prior DAILY_LOG timestamp (`2026-02-21T13:16:52-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same cerebro-hub chunk.
+
+## 2026-02-21T13:35:24-08:00 — cli shorthand trailing-backslash param preservation
+- Target attempted:
+  - `arken/cli` (flattened slot 11).
+- Workflow status check:
+  - `/Users/web/.openclaw/workspace-nel/WORKFLOW.md` state is `active` (controller: highruned), no pause flag set.
+- Path verification:
+  - `arken/cli` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/cli-maintenance-20260220-0412`.
+- Conflict notes:
+  - `WORKFLOW.md` active workflow text focuses on seer-node/cerebro-link/cerebro-hub, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
+- Files changed:
+  - `arken/cli/index.ts`
+  - `arken/cli/test/parsing.test.ts`
+  - `arken/cli/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/cli`) ✅ pass (8 suites, 70 tests).
+- Commit + PR:
+  - `ada82bd` — https://github.com/arkenrealms/cli/pull/10
+- Blockers:
+  - none.
+- Next target:
+  - `arken/node`.
+
+## 2026-02-21T13:44:11-08:00 — arken/node util subpath de-circularization
+- Rotation slot: flattened #1 (`arken/node`).
+- Branch hygiene: fetched + merged `origin/main` on `nel/node-maintenance-20260220-0438` (already up to date).
+- Implemented reliability fix by replacing `util.ts -> '.'` circular root re-export with explicit utility bridge exports (`util/api.ts`, `util/rpc.ts`).
+- Added test coverage in `test/util.spec.ts` to lock `@arken/node/util` API/RPC export behavior.
+- Updated touched docs: `ANALYSIS.md`, `util/{README.md,ANALYSIS.md}`, `test/{README.md,ANALYSIS.md}`.
+- Validation: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test -- test/util.spec.ts` ✅ (1 suite, 2 tests).
+- Conflict note: workflow scope file emphasizes seer-node/cerebro-link/cerebro-hub, but cron instruction explicitly requested continuing flattened ACTION_PLAN rotation; followed explicit instruction.
+- Next up: flattened slot #2 (`arken/seer/node`).
+
+## 2026-02-21T13:44:11-08:00 — correction note
+- Node direct-repo PR pointer correction: active open PR is https://github.com/arkenrealms/node/pull/21 (`nel/node-maintenance-20260220-0438`); prior legacy PR #15 is merged.
