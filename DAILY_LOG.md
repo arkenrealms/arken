@@ -8388,3 +8388,119 @@
 
 ## 2026-02-20T15:14:58-0800 — correction note
 - Correction: previous DAILY_LOG block timestamp (`2026-02-20T15:17:33-0800`) was appended with a clock typo; this note records the accurate append window for the same seer-node snapshot maintenance chunk.
+
+## 2026-02-20T15:26:20-0800 — seer-protocol reserved query-map key hardening
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/seer-protocol-maintenance-20260219-2133`.
+- Changes:
+  - Hardened root + util schema validators to reject reserved keys (`__proto__`, `constructor`, `prototype`) in dynamic query envelope maps (`orderBy`, `include`/`select`, `cursor`) via shared guard checks.
+  - Added regression coverage in `test/schema.query-input.test.ts` and `test/schema.root-query-input.test.ts` for reserved-key rejection paths.
+  - Updated rationale docs in `ANALYSIS.md`, `util/ANALYSIS.md`, `util/README.md`, and `test/ANALYSIS.md`.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (6 suites, 30 tests).
+- Commit/PR:
+  - Commit `ef8373e` pushed to `nel/seer-protocol-maintenance-20260219-2133`.
+  - PR: https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers: none.
+- Next target: `arken/sigil/protocol`.
+
+## 2026-02-20T15:34:27-0800 — sigil-protocol empty-where no-op guard
+- Target: `arken/sigil/protocol` (flattened slot 4).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (`Already up to date`) on `nel/sigil-protocol-maintenance-20260219-1553`.
+- Change summary:
+  - Hardened query schema handling so empty `where: {}` envelopes are rejected in both `Query` and `getQueryInput` recursive where schemas.
+  - Added regression tests proving empty `where` fails while valid filter envelopes continue to parse.
+  - Updated `util` + `test` README/ANALYSIS docs with rationale and behavior notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 30 tests).
+- Commit:
+  - `f4ceef5` (pushed).
+- PR:
+  - https://github.com/arkenrealms/sigil-protocol/pull/5
+- Next:
+  - `arken/forge/web` (flattened slot 5).
+
+## 2026-02-20T15:47:58-0800 — forge-web empty content-address URI guard
+- Target: `arken/forge/web`.
+- Summary:
+  - Hardened `uriToHttp` to fail closed (`[]`) for blank `ipfs:`/`ipns:` payloads.
+  - Added unit coverage for HTTP upgrade path and blank content-address inputs.
+  - Updated `src/utils` README/ANALYSIS with rationale and scope.
+- Files:
+  - `arken/forge/web/src/utils/uriToHttp.ts`
+  - `arken/forge/web/src/utils/uriToHttp.test.ts` (new)
+  - `arken/forge/web/src/utils/README.md`
+  - `arken/forge/web/src/utils/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (12 suites, 105 tests).
+- Git:
+  - Commit: `e407371`
+  - PR: https://github.com/arkenrealms/forge-web/pull/11
+- Blockers: none.
+- Next target: `arken/forge/protocol`.
+
+## 2026-02-20T15:44:52-0800 — correction note
+- Correction: previous forge-web daily log timestamp (`2026-02-20T15:47:58-0800`) was a clock typo; this note records the accurate append window for the same chunk.
+
+## 2026-02-20T15:58:42-0800 — forge-protocol sync-handler type diagnostics
+- Target: `arken/forge/protocol` (flattened slot 6).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/forge-protocol-maintenance-20260219-1612`.
+- Changes:
+  - Added runtime type diagnostics to missing/non-callable `ctx.app.service.sync` errors (for example `undefined`/`null`) to speed misconfiguration triage.
+  - Added regression coverage for null-valued sync handlers and updated missing-handler error expectation.
+  - Updated protocol + test README/ANALYSIS docs with rationale and behavior notes.
+- Files:
+  - `arken/forge/protocol/core/core.router.ts`
+  - `arken/forge/protocol/test/core.router.test.js`
+  - `arken/forge/protocol/README.md`
+  - `arken/forge/protocol/ANALYSIS.md`
+  - `arken/forge/protocol/test/README.md`
+  - `arken/forge/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 21 tests).
+- Commit/PR:
+  - Commit `5432573` pushed to `nel/forge-protocol-maintenance-20260219-1612`.
+  - PR: https://github.com/arkenrealms/forge-protocol/pull/2
+- Blockers: none.
+- Next target: `arken/evolution/realm`.
+
+## 2026-02-20T15:55:16-0800 — correction note
+- Correction: previous forge-protocol daily log timestamp (`2026-02-20T15:58:42-0800`) was a clock typo; this note records the accurate append window for the same maintenance chunk.
+
+## 2026-02-20T16:10:35-0800 — evolution-realm late-connect reopen guard
+- Target: `arken/evolution/realm` (flattened slot 7).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/evolution-realm-maintenance-20260219-1818`.
+- Changes:
+  - Added explicit client-close guard in `trpc-websocket.ts` connect handler so delayed `connect` callbacks are ignored after wrapper `close()`.
+  - Preserved reconnect behavior for non-client disconnect paths; guard only suppresses post-explicit-close reopen races.
+  - Added regression test to confirm late `connect` after `close()` does not fire `onopen` or reopen readyState.
+  - Updated realm analysis docs with rationale.
+- Files:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+  - `arken/evolution/realm/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 14 tests).
+- Commit/PR:
+  - Commit `c9888ed` pushed to `nel/evolution-realm-maintenance-20260219-1818`.
+  - PR: https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers: none.
+- Next target: `arken/evolution/shard`.
+
+## 2026-02-20T16:04:52-0800 — correction note
+- Correction: previous evolution-realm daily-log timestamp (`2026-02-20T16:10:35-0800`) was a clock typo; this note records the accurate append window for the same maintenance chunk.
+
+## 2026-02-20T16:16:33-0800 — evolution-shard optional loggableEvents guard
+- Target: `arken/evolution/shard` (flattened slot 8).
+- Summary:
+  - Hardened `Service.handleClientMessage` so missing/non-array `loggableEvents` no longer breaks method dispatch.
+  - Added regression test covering successful dispatch when `loggableEvents` is absent.
+  - Updated shard docs (`README.md`, `ANALYSIS.md`) with rationale and coverage notes.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 15 tests).
+- Git:
+  - Commit: `605afe6`
+  - PR: https://github.com/arkenrealms/evolution-shard/pull/8
+- Next target:
+  - `arken/evolution/protocol` (flattened slot 9).
