@@ -8937,3 +8937,66 @@
   - PR: https://github.com/arkenrealms/evolution-shard/pull/8
 - Next target:
   - `arken/evolution/protocol`.
+
+## 2026-02-20T20:19:52-0800 — evolution-protocol scalar where-shorthand parity
+- Completed flattened slot 9 (`arken/evolution/protocol`).
+- Added scalar where-filter shorthand normalization parity in exported `Query` (`where.<field>: value` -> `{ equals: value }`) to align direct `Query.parse(...)` with `getQueryInput` behavior.
+- Added regression in `test/schema.test.ts` and refreshed touched docs (`ANALYSIS.md`, util/test README+ANALYSIS).
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 34 tests).
+- Next target in rotation: `arken/cerebro/hub` (flattened slot 10).
+
+## 2026-02-20T20:14:58-0800 — correction note
+- Correction: prior slot-9 daily log timestamp was entered ahead of wall-clock.
+- This note records the accurate append window while preserving append-only history.
+
+## 2026-02-20T20:33:56-0800 — cerebro-hub applicationId whitespace normalization
+- Target: `arken/cerebro/hub` (flattened slot 10).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date) on `nel/cerebro-hub-maintenance-20260220-0402`.
+- Changes:
+  - Normalized `filters.applicationId` in `src/agents/shogo/applicationPersistence.ts` so Seer/local query filters trim surrounding whitespace and treat blank-string IDs as unset.
+  - Added regression coverage in `src/agents/shogo/index.test.ts` for trimmed-id query input and whitespace-only filter behavior (stay on list path, do not call single-get path).
+  - Updated rationale/docs in `arken/cerebro/hub/{README.md,ANALYSIS.md}`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/cerebro/hub`) ✅ pass (4 suites, 37 tests).
+- Commit/PR:
+  - Commit `1dcf8e9` pushed.
+  - PR: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers:
+  - none.
+- Next target:
+  - `arken/cli` (flattened slot 11).
+
+## 2026-02-20T20:47:58-0800 — cli optional-remote-router guard + fs e2e timeout stabilization
+- Target: `arken/cli` (flattened slot 11).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date) on `nel/cli-maintenance-20260220-0412`.
+- Changes:
+  - Hardened `router.ts` optional remote router registration so CLI startup does not fail when optional remote protocol modules are unavailable or throw during initialization.
+  - Increased `test/e2e.test.ts` timeout budget for `fs copy` and `fs diff` scenarios (15s) to avoid flaky failures from repeated `tsx` subprocess startup overhead in constrained runtimes.
+  - Documented rationale/scope in `arken/cli/ANALYSIS.md`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/cli`) ✅ pass (7 suites, 63 tests).
+- Commit/PR:
+  - Commit `7a2d159` pushed.
+  - PR: https://github.com/arkenrealms/cli/pull/10
+- Blockers:
+  - none.
+- Next target:
+  - `arken/node` (flattened slot 1).
+
+## 2026-02-20T20:54:24-0800 — node logical-object shorthand filter normalization
+- Target: `arken/node` (flattened slot 1).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date) on `nel/node-maintenance-20260220-0438`.
+- Changes:
+  - Hardened `api.ts` logical parsing so `OR`/`AND` singleton-object shorthand is accepted and normalized like one-element arrays instead of being dropped.
+  - Added regression coverage in `test/api.spec.ts` for object shorthand logical clauses (`OR` + `AND`) with `_id` normalization.
+  - Updated rationale docs in `arken/node/ANALYSIS.md` and `arken/node/test/{README.md,ANALYSIS.md}`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/node`) ✅ pass (5 suites, 100 tests).
+- Commit/PR:
+  - Commit `2b9bf6c` pushed.
+  - PR: https://github.com/arkenrealms/node/pull/20
+- Blockers:
+  - none.
+- Next target:
+  - `arken/seer/node` (flattened slot 2).
