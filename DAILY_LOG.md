@@ -10693,3 +10693,6 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - `WORKFLOW.md` active scope text differs from flattened rotation directive in latest explicit cron instruction; followed explicit instruction + MEMORY guardrails.
 - Next target:
   - `arken/forge/protocol`.
+
+## 2026-02-21T14:54:51-08:00 — correction note
+- Correction: prior DAILY_LOG run block timestamp (`2026-02-21T14:58:40-08:00`) was written ahead of wall-clock time; this note records the accurate append window for the same forge-web chunk.

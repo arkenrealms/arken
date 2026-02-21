@@ -24175,3 +24175,6 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none.
 - Next rotation target:
   - `arken/forge/protocol` (flattened slot 6), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T14:54:51-08:00 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-21T14:58:40-08:00`) was appended ahead of wall-clock time; this note records the accurate append window for the same forge-web maintenance chunk.
