@@ -9341,3 +9341,201 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - `evolution-protocol` `1856371`
   - https://github.com/arkenrealms/evolution-protocol/pull/7
 - Next target: `arken/cerebro/hub`
+
+## 2026-02-21T00:47:58-08:00 — cerebro-hub Seer getAgents lookup fallback
+- Target: `arken/cerebro/hub` (flattened slot 10)
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` on `nel/cerebro-hub-maintenance-20260220-0402` (already up to date)
+- Change summary:
+  - Extended `src/agents/shogo/agentPersistence.ts` to use `seer.emit.core.getAgents.query` as a Seer-first lookup path when `getAgent` is unavailable.
+  - Added Seer list-response normalization (`items`, `data.items`, `data`, raw array) to keep lookup behavior stable across envelope variants.
+  - Added regression tests in `src/agents/shogo/index.test.ts` for `getAgents` success and empty-list create behavior.
+  - Updated `README.md` and `ANALYSIS.md` with rationale tied to the architect-requested Cerebro Mongo→Seer tRPC migration.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (4 suites, 40 tests)
+- Commit / PR:
+  - `cerebro-hub` `a3bdb1e`
+  - https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers: none
+- Next target: `arken/cli`
+
+## 2026-02-21T00:45:34-08:00 — correction note
+- Correction: previous `cerebro-hub Seer getAgents lookup fallback` block used timestamp `2026-02-21T00:47:58-08:00` ahead of wall clock.
+- Authoritative execution window for that run was `2026-02-21T00:42:22-08:00` to `2026-02-21T00:45:34-08:00`.
+
+## 2026-02-21T00:56:50-08:00 — cli array-flag short-token boundary hardening
+- Target: `arken/cli` (flattened slot 11)
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` on `nel/cli-maintenance-20260220-0412` (already up to date)
+- Change summary:
+  - Hardened multi-value flag parsing in `index.ts` so short flag tokens are treated as boundaries instead of being absorbed into array values.
+  - Added regression coverage in `test/parsing.test.ts` (`array flag does not absorb unknown short flags`).
+  - Updated `ANALYSIS.md` with rationale/scope for parser reliability impact.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (7 suites, 64 tests)
+- Commit / PR:
+  - `cli` `e9c584f`
+  - https://github.com/arkenrealms/cli/pull/10
+- Blockers: none
+- Next target: `arken/node`
+
+## 2026-02-21T01:04:10-08:00 — node invalid-constructor-url normalization
+- Target: `arken/node` (flattened slot 1)
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` on `nel/node-maintenance-20260220-0438` (fast-forwarded to latest `origin/main`)
+- Change summary:
+  - Hardened `web3/httpProvider.ts` constructor URL parsing so malformed endpoint strings now fail with deterministic `RequestError` metadata (`code: -32602`, `Invalid provider URL`) instead of raw runtime `URL` parser exceptions.
+  - Added regression coverage in `test/httpProvider.spec.ts` to lock constructor-error shape for invalid URLs.
+  - Updated `web3/README.md` and `web3/ANALYSIS.md` with rationale and scope for the reliability hardening.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (5 suites, 102 tests)
+- Commit / PR:
+  - `node` `3642b09`
+  - https://github.com/arkenrealms/node/pull/15
+- Blockers: none
+- Next target: `arken/seer/node`
+
+## 2026-02-21T01:14:36-08:00 — seer-node mongo test db-name length guard
+- Target: `arken/seer/node` (flattened slot 2)
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` on `nel/seer-node-maintenance-20260220-0442` (fast-forwarded cleanly)
+- Change summary:
+  - Added deterministic db-name suffix length capping in `test/mongoTestEnv.ts` so oversized dynamic suite labels cannot exceed Mongo-safe name bounds.
+  - Added regression coverage in `test/mongoTestEnv.unit.spec.ts` for 200-char suffix normalization to `seer_node_${'x'.repeat(50)}`.
+  - Updated `test/README.md` and `test/ANALYSIS.md` with rationale and scope for the bootstrap reliability guard.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (24 suites, 103 tests)
+- Commit / PR:
+  - `seer-node` `ce26ec4`
+  - https://github.com/arkenrealms/seer-node/pull/3
+- Blockers: none
+- Next target: `arken/seer/protocol`
+
+## 2026-02-21T01:44:26-08:00 — seer/protocol maintenance (slot 3)
+- Synced branch with `origin/main` via fast-forward merge before edits.
+- Hardened pagination envelope behavior in `schema.ts` + `util/schema.ts`:
+  - preserved single-alias normalization (`take`/`limit`),
+  - applied `{ take: 10, limit: 10 }` defaults only when both aliases omitted,
+  - removed redundant `getQueryInput` `.partial()` that bypassed default materialization.
+- Expanded schema regression tests to lock `{}` default envelope parsing and preserve `parse(undefined)` compatibility.
+- Test gate: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (6 suites, 35 tests).
+- Commit: `dfd4818`.
+- PR: https://github.com/arkenrealms/seer-protocol/pull/9
+
+### 2026-02-21T01:54:42-08:00 — sigil/protocol Query not-filter hardening
+- [x] Rotated to `arken/sigil/protocol` (flattened slot 4) and loaded all local `.md` docs before edits.
+- [x] Ran branch hygiene first: `git fetch origin` + `git merge --no-edit origin/main` (fast-forward clean).
+- [x] Hardened top-level `Query` filter parsing in `util/schema.ts` so object-shaped `not` payloads must contain valid operators.
+- [x] Added regression coverage in `test/queryInput.test.ts` to reject `{ not: {} }` and `{ not: { regex: ... } }` cases.
+- [x] Updated touched analysis docs:
+  - `arken/sigil/protocol/util/ANALYSIS.md`
+  - `arken/sigil/protocol/test/ANALYSIS.md`
+- [x] Test validation passed: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (1 suite, 35 tests).
+- [x] Pushed commit `eac7c61` and opened direct repo PR: https://github.com/arkenrealms/sigil-protocol/pull/6
+- [x] Next rotation target: `arken/forge/web`.
+
+## 2026-02-21T02:04:03-08:00 — forge-web repeated content-address prefix normalization
+- Target: `arken/forge/web` (flattened slot 5)
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` on `nel/forge-web-maintenance-20260219-1752` (already up to date)
+- Change summary:
+  - Hardened `src/utils/uriToHttp.ts` normalization for chained/mixed-case namespace prefixes (`ipfs://IPFS/ipfs//...`) so gateway paths no longer retain redundant `ipfs/` or `ipns/` segments.
+  - Added regression coverage in `src/utils/uriToHttp.test.ts` for repeated namespace normalization.
+  - Updated `src/utils/README.md` + `src/utils/ANALYSIS.md` with rationale and scope for the reliability fix.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (12 suites, 111 tests)
+- Commit / PR:
+  - `forge-web` `fe24b17`
+  - https://github.com/arkenrealms/forge-web/pull/11
+- Blockers: none
+- Next target: `arken/forge/protocol`
+
+## 2026-02-21T02:13:33-08:00 — forge-protocol sync handler diagnostic hardening
+- Target: `arken/forge/protocol` (slot 6).
+- Branch prep: `git fetch origin` + `git merge --no-edit origin/main` (clean, up to date) on `nel/forge-protocol-maintenance-20260219-1612`.
+- Source/test updates:
+  - Hardened `describeValueType` to safely handle constructor-introspection throw paths and emit `object:uninspectable-constructor`.
+  - Added regression test covering non-callable `sync` object whose `constructor` accessor throws.
+  - Updated `ANALYSIS.md` and `test/ANALYSIS.md` with rationale and coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/protocol`) ✅ pass (1 suite, 27 tests).
+- Commit/PR:
+  - Commit: `f8175d0`
+  - PR: https://github.com/arkenrealms/forge-protocol/pull/2
+- Next target: `arken/evolution/realm` (slot 7).
+
+## 2026-02-21T02:23:59-08:00 — evolution-realm post-close late-error suppression
+- Target: `arken/evolution/realm` (flattened slot 7)
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` on `nel/evolution-realm-maintenance-20260219-1818` (already up to date)
+- Change summary:
+  - Hardened `trpc-websocket.ts` to ignore late `error`/`connect_error` events once the wrapper is explicitly closed by client intent.
+  - Added regression coverage in `src/trpc-websocket.test.ts` for post-close `error` and post-close `connect_error` suppression.
+  - Updated `src/ANALYSIS.md` and `ANALYSIS.md` with rationale and scope for intentional-shutdown noise suppression.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 23 tests)
+- Commit / PR:
+  - `evolution-realm` `565bbad`
+  - https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers: none
+- Next target: `arken/evolution/shard`
+
+## 2026-02-21T02:33:18-08:00 — evolution-shard maintenance (slot 8)
+- Synced `arken/evolution/shard` with `origin/main` before edits (`git fetch origin && git merge --no-edit origin/main`, already up to date).
+- Hardened shard message parsing for UTF-8 BOM-prefixed JSON payloads in `shard.service.ts` to avoid false invalid-payload errors from BOM-prepended clients.
+- Added regression coverage in `test/shard.service.handleClientMessage.test.ts` for BOM-prefixed JSON dispatch parity.
+- Updated shard docs (`README.md`, `ANALYSIS.md`) with rationale and scope.
+- Validation: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (1 suite, 21 tests).
+- Commit: `bd3da99` (branch `nel/evolution-shard-maintenance-20260220-0552`) pushed; PR updated: https://github.com/arkenrealms/evolution-shard/pull/8
+- Next target: `arken/evolution/protocol` (slot 9).
+
+## 2026-02-21T02:44:42-08:00 — evolution-protocol slot-9 trimmed-key validation parity
+- Target: `arken/evolution/protocol`.
+- Branch hygiene: fetched + merged `origin/main` on `nel/evolution-protocol-maintenance-20260220-0332` (already up to date).
+- Source/test changes:
+  - Tightened map-key validation in `util/schema.ts` so `orderBy`, `cursor`, `include`, and `select` reject leading/trailing whitespace (not just blank keys).
+  - Added parity regressions in `test/schema.test.ts` for `Query.parse` and `getQueryInput(...).parse` covering untrimmed keys.
+  - Updated `ANALYSIS.md` notes in root/util/test plus `util/README.md` rationale.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 46 tests).
+- Git:
+  - Commit: `a3cf2ba`.
+  - PR: https://github.com/arkenrealms/evolution-protocol/pull/7 (open, updated).
+- Next target: `arken/cerebro/hub`.
+
+## 2026-02-21T02:54:18-08:00 — cerebro-hub Seer agent lookup transient fallback
+- Target: `arken/cerebro/hub` (flattened slot 10).
+- Branch: `nel/cerebro-hub-maintenance-20260220-0402` (synced with `origin/main` before edits).
+- Change summary:
+  - Added transient Seer lookup fallback in `src/agents/shogo/agentPersistence.ts` so `/enable-agent` degrades to local model reads/writes when `getAgent/getAgents` fails due to network/timeout class errors.
+  - Added regression tests in `src/agents/shogo/index.test.ts` for transient failures in both Seer lookup paths.
+  - Updated `arken/cerebro/hub/{ANALYSIS.md,README.md}` with rationale and scope.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (4 suites, 42 tests).
+- Commit / PR:
+  - Commit: `07480b3`
+  - PR: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers: none.
+- Next target: `arken/cli`.
+
+## 2026-02-21T03:06:02-08:00 — cli shorthand trailing-empty parameter preservation
+- Target: `arken/cli` (flattened slot 11).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` on Node `20.11.1` before edits (clean).
+- Changes:
+  - Preserved explicit trailing empty shorthand params in `index.ts` parser (`parseParamsString`).
+  - Added regression test in `test/parsing.test.ts` for `cerebro.exec` shorthand (`Gon.ask("hello", "")`).
+  - Updated `ANALYSIS.md` with rationale/scope/impact for this slot.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (8 suites, 66 tests).
+- Commit/PR:
+  - `9ebd6ae` on `nel/cli-maintenance-20260220-0412`.
+  - PR: https://github.com/arkenrealms/cli/pull/10
+- Next target: `arken/node`.
+
+## 2026-02-21T03:13:43-08:00 — node getFilter undefined-equals no-op normalization
+- Target: `arken/node` (flattened rotation slot 1).
+- Changes:
+  - Hardened `getFilter` in `arken/node/api.ts` to treat `equals: undefined` as a no-op fragment.
+  - Added regression test in `arken/node/test/api.spec.ts` for mixed OR/AND clauses with undefined `equals` values.
+  - Updated rationale notes in `arken/node/ANALYSIS.md` and `arken/node/test/ANALYSIS.md`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (5 suites, 103 tests).
+- Commit/PR:
+  - Commit `f6a4763` pushed to `nel/node-maintenance-20260220-0438`.
+  - PR updated: https://github.com/arkenrealms/node/pull/21
+- Next target:
+  - `arken/seer/node` (flattened slot 2).
