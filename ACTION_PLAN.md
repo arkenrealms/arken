@@ -21402,3 +21402,311 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none in this slot.
 - Next rotation target:
   - `arken/node` (flattened slot 1), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T23:08:41-0800 — node empty-in filter no-op guard
+- Target attempted:
+  - `arken/node` (flattened slot 1).
+- Path verification:
+  - `arken/node` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/node-maintenance-20260220-0438`.
+- Markdown preload + deepest-first review:
+  - Preloaded local `.md` files in target repo before edits.
+  - Reviewed leaf runtime/test files first (`api.ts`, `test/api.spec.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/node/api.ts`
+  - `arken/node/test/api.spec.ts`
+  - `arken/node/ANALYSIS.md`
+  - `arken/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/node`) ✅ pass (5 suites, 101 tests).
+- Commits + PR links:
+  - `node` commit `a1f3edf` pushed on `nel/node-maintenance-20260220-0438`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/node/pull/20
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/seer/node` (flattened slot 2), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T23:04:09-0800 — correction note (timestamp typo)
+- Correction: prior run-ledger append timestamp `2026-02-20T23:08:41-0800` was logged ahead of wall-clock.
+- Accurate append window for this node maintenance chunk is `23:02`–`23:04` local.
+
+## Run ledger append — 2026-02-20T23:14:19-0800 — seer-node snapshot tail resilience via backward valid-seq scan
+- Target attempted:
+  - \ (flattened slot 2).
+- Path verification:
+  - \ exists and is initialized.
+- Branch hygiene:
+  - Ran \Already up to date. before edits (already up to date).
+  - Continued on active direct-repo branch \.
+- Markdown preload + deepest-first review:
+  - Preloaded local markdown docs before edits (root/src/test/data/.rush).
+  - Reviewed leaf runtime/test files first (\, \) before docs updates.
+- Conflict notes:
+  - No conflicts found between \, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - \
+  - \
+  - \
+  - \
+  - \
+- Test command + result:
+  - \Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+
+Rush Multi-Project Build Tool 5.110.1 - Node.js 20.11.1 (LTS)
+Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. (in \) ✅ pass (24 suites, 102 tests).
+- Commits + PR links:
+  - \ commit \ pushed on \.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-node/pull/11
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - \ (flattened slot 3), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T23:15:56-0800 — correction note (escaped-markdown logging fix)
+- Correction: prior run-ledger block at `2026-02-20T23:14:19-0800` was partially corrupted by shell interpolation while appending.
+- Authoritative details for that same run:
+  - Target attempted: `arken/seer/node` (flattened slot 2).
+  - Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date).
+  - Files changed:
+    - `arken/seer/node/src/snapshot.ts`
+    - `arken/seer/node/test/snapshot.test.ts`
+    - `arken/seer/node/src/ANALYSIS.md`
+    - `arken/seer/node/test/README.md`
+    - `arken/seer/node/test/ANALYSIS.md`
+  - Test command + result:
+    - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/node`) ✅ pass (24 suites, 102 tests).
+  - Commit + PR:
+    - `seer-node` commit `d9c54fa` pushed on `nel/seer-node-maintenance-20260220-0442`.
+    - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-node/pull/11
+  - Blockers: none.
+  - Next rotation target: `arken/seer/protocol` (flattened slot 3).
+
+## Run ledger append — 2026-02-20T23:14:44-0800 — correction note (timestamp typo)
+- Correction: prior correction block timestamp `2026-02-20T23:15:56-0800` was recorded ahead of wall-clock.
+- Accurate append window for the correction block is `~23:14` local.
+
+## Run ledger append — 2026-02-20T23:34:30-0800 — seer-protocol empty membership-array where-filter guard
+- Target attempted:
+  - `arken/seer/protocol` (flattened slot 3).
+- Path verification:
+  - `arken/seer/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/seer-protocol-maintenance-20260219-2133`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files under `arken/seer/protocol` before edits.
+  - Reviewed leaf runtime/test files first (`schema.ts`, `util/schema.ts`, schema test files) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/protocol`) ✅ pass (6 suites, 34 tests).
+- Commits + PR links:
+  - `seer-protocol` commit `9659cfc` pushed on `nel/seer-protocol-maintenance-20260219-2133`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/sigil/protocol` (flattened slot 4), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T23:47:58-0800 — sigil-protocol empty membership-array where-filter guard
+- Target attempted:
+  - `arken/sigil/protocol` (flattened slot 4).
+- Path verification:
+  - `arken/sigil/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/sigil-protocol-maintenance-20260219-1553`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files in target (`README.md`, `agents.md`, `util/*.md`, `test/*.md`) before edits.
+  - Reviewed leaf runtime/test files first (`util/schema.ts`, `test/queryInput.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/sigil/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 34 tests).
+- Commits + PR links:
+  - `sigil-protocol` commit `dd2b09f` pushed on `nel/sigil-protocol-maintenance-20260219-1553`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/forge/web` (flattened slot 5), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T23:53:56-0800 — forge-web protocol-relative URI normalization
+- Target attempted:
+  - `arken/forge/web` (flattened slot 5).
+- Path verification:
+  - `arken/forge/web` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/forge-web-maintenance-20260219-1752`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files under `arken/forge/web` before edits.
+  - Reviewed leaf runtime/test files first (`src/utils/uriToHttp.ts`, `src/utils/uriToHttp.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/forge/web/src/utils/uriToHttp.ts`
+  - `arken/forge/web/src/utils/uriToHttp.test.ts`
+  - `arken/forge/web/src/utils/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/web`) ✅ pass (12 suites, 111 tests).
+- Commits + PR links:
+  - `forge-web` commit `8de7323` pushed on `nel/forge-web-maintenance-20260219-1752`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/forge-web/pull/11
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/forge/protocol` (flattened slot 6), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T00:04:18-08:00 — forge-protocol constructor-aware sync-handler diagnostics
+- Target attempted:
+  - \ (flattened slot 6).
+- Path verification:
+  - \ exists and is initialized.
+- Branch hygiene:
+  - Ran \Already up to date. before edits (already up to date).
+  - Continued on active direct-repo branch \.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency \ files under \ before source edits.
+  - Reviewed leaf runtime/test files first (\, \) before docs updates.
+- Conflict notes:
+  - No conflicts found between \, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - \
+  - \
+  - \
+  - \
+- Test command + result:
+  - \[1mRush Multi-Project Build Tool 5.158.1[33m (unmanaged)[39m[22m - Node.js 20.11.1 (LTS) (in \) ✅ pass (1 suite, 26 tests).
+- Commits + PR links:
+  - \ commit \ pushed on \.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/forge-protocol/pull/2
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - \ (flattened slot 7), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T00:04:30-08:00 — correction note (escaped-markdown logging fix)
+- Correction: prior run-ledger block at `2026-02-21T00:04:18-08:00` was partially corrupted by shell interpolation while appending.
+- Authoritative details for that same run:
+  - Target attempted: `arken/forge/protocol` (flattened slot 6).
+  - Path verification: `arken/forge/protocol` exists and is initialized.
+  - Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (already up to date).
+  - Continued on active direct-repo branch `nel/forge-protocol-maintenance-20260219-1612`.
+  - Markdown preload + deepest-first review: preloaded all local non-dependency `.md` files under `arken/forge/protocol`; reviewed `core/core.router.ts` and `test/core.router.test.js` before docs updates.
+  - Conflict notes: no conflicts between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+  - Files changed:
+    - `arken/forge/protocol/core/core.router.ts`
+    - `arken/forge/protocol/test/core.router.test.js`
+    - `arken/forge/protocol/{README.md,ANALYSIS.md}`
+    - `arken/forge/protocol/test/ANALYSIS.md`
+  - Test command + result:
+    - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/protocol`) ✅ pass (1 suite, 26 tests).
+  - Commit + PR:
+    - `forge-protocol` commit `1b0becf` pushed on `nel/forge-protocol-maintenance-20260219-1612`.
+    - Direct repo PR verified open + updated: https://github.com/arkenrealms/forge-protocol/pull/2
+  - Blockers: none.
+  - Next rotation target: `arken/evolution/realm` (flattened slot 7).
+
+## Run ledger append — 2026-02-21T00:13:48-08:00 — evolution-realm listener dispatch isolation guard
+- Target attempted:
+  - `arken/evolution/realm` (flattened slot 7).
+- Path verification:
+  - `arken/evolution/realm` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/evolution-realm-maintenance-20260219-1818`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files under `arken/evolution/realm` before source edits.
+  - Reviewed leaf runtime/test files first (`trpc-websocket.ts`, `src/trpc-websocket.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/evolution/realm/trpc-websocket.ts`
+  - `arken/evolution/realm/src/trpc-websocket.test.ts`
+  - `arken/evolution/realm/src/README.md`
+  - `arken/evolution/realm/src/ANALYSIS.md`
+  - `arken/evolution/realm/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/realm`) ✅ pass (1 suite, 21 tests).
+- Commits + PR links:
+  - `evolution-realm` commit `68c717b` pushed on `nel/evolution-realm-maintenance-20260219-1818`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/evolution/shard` (flattened slot 8), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T00:23:46-08:00 — evolution-shard non-object error-log guard
+- Target attempted:
+  - `arken/evolution/shard` (flattened slot 8).
+- Path verification:
+  - `arken/evolution/shard` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/evolution-shard-maintenance-20260220-0552`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files under `arken/evolution/shard` before edits.
+  - Reviewed leaf runtime/test files first (`shard.service.ts`, `test/shard.service.handleClientMessage.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/evolution/shard/shard.service.ts`
+  - `arken/evolution/shard/test/shard.service.handleClientMessage.test.ts`
+  - `arken/evolution/shard/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/shard`) ✅ pass (1 suite, 20 tests).
+- Commits + PR links:
+  - `evolution-shard` commit `ac42f09` pushed on `nel/evolution-shard-maintenance-20260220-0552`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/evolution-shard/pull/8
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/evolution/protocol` (flattened slot 9), then continue strict flattened order.
+
+## Run ledger append — 2026-02-21T00:34:19-08:00 — evolution-protocol cursor-envelope validation parity
+- Target attempted:
+  - `arken/evolution/protocol` (flattened slot 9).
+- Path verification:
+  - `arken/evolution/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/evolution-protocol-maintenance-20260220-0332`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files under `arken/evolution/protocol` before source edits.
+  - Reviewed leaf runtime/test files first (`util/schema.ts`, `test/schema.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/protocol`) ✅ pass (1 suite, 40 tests).
+- Commits + PR links:
+  - `evolution-protocol` commit `1856371` pushed on `nel/evolution-protocol-maintenance-20260220-0332`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/cerebro/hub` (flattened slot 10), then continue strict flattened order.

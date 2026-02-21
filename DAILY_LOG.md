@@ -9150,3 +9150,194 @@
 - [x] Updated `arken/cli/ANALYSIS.md` with rationale/scope for the reliability change.
 - [x] Validated with `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (pass: 7 suites, 63 tests).
 - [x] Pushed commit `a870391` and updated direct PR: https://github.com/arkenrealms/cli/pull/10
+
+### Run append — 2026-02-20T23:08:41-0800
+- Completed `arken/node` (flattened slot 1) maintenance chunk on branch `nel/node-maintenance-20260220-0438`.
+- Hardened `getFilter` empty-operator behavior so `in: []` acts as a no-op fragment (prevents accidental always-empty filters in mixed logical clauses).
+- Added/updated regression coverage + docs:
+  - `arken/node/api.ts`
+  - `arken/node/test/api.spec.ts`
+  - `arken/node/ANALYSIS.md`
+  - `arken/node/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/node` ✅ (5 suites, 101 tests)
+- Commit/PR:
+  - `arken/node` `a1f3edf` pushed
+  - PR updated: https://github.com/arkenrealms/node/pull/20
+- Next target: `arken/seer/node` (flattened slot 2).
+
+### Run append — 2026-02-20T23:04:09-0800 (correction)
+- Correction: previous run append timestamp `23:08:41` was ahead of wall-clock.
+- Accurate append window for this node chunk is `23:02`–`23:04` local.
+
+### Run append — 2026-02-20T23:14:19-0800 — seer-node snapshot tail resilience via backward valid-seq scan
+- [x] Rotated to \ (flattened slot 2) and synced branch with \ before edits.
+- [x] Updated \ in \ to scan backward and return the most recent valid non-negative integer \, instead of trusting only the trailing event.
+- [x] Expanded regression coverage in \ for malformed trailing events with earlier valid seq values and all-invalid fallback behavior.
+- [x] Updated rationale docs in \, \, and \.
+- [x] Ran \Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+
+Rush Multi-Project Build Tool 5.110.1 - Node.js 20.11.1 (LTS)
+Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. in \ (pass: 24 suites, 102 tests).
+- [x] Pushed \ commit \ to \ (PR: https://github.com/arkenrealms/seer-node/pull/11).
+- [ ] Next: continue strict rotation at \ (flattened slot 3).
+
+### Run append — 2026-02-20T23:15:56-0800 — correction (escaped-markdown logging fix)
+- Correction: prior 23:14:19 run block was partially corrupted by shell interpolation while appending.
+- Authoritative summary for that same run:
+  - Rotated to `arken/seer/node` (flattened slot 2), synced with `origin/main` before edits.
+  - Updated `resolveSnapshotMaxSeq` in `src/snapshot.ts` to scan backward for the most recent valid non-negative integer `seq`.
+  - Expanded `test/snapshot.test.ts` for malformed trailing-event fallback to prior valid seq and all-invalid fallback behavior.
+  - Updated rationale docs in `src/ANALYSIS.md`, `test/README.md`, and `test/ANALYSIS.md`.
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` in `arken/seer/node` (pass: 24 suites, 102 tests).
+  - Pushed commit `d9c54fa` to `nel/seer-node-maintenance-20260220-0442` (PR: https://github.com/arkenrealms/seer-node/pull/11).
+  - Next: `arken/seer/protocol` (flattened slot 3).
+
+### Run append — 2026-02-20T23:14:44-0800 — correction (timestamp typo)
+- Correction: prior correction-block timestamp `23:15:56` was ahead of wall-clock.
+- Accurate append window was ~23:14 local.
+
+## 2026-02-20T23:34:30-0800 — seer-protocol empty membership-array where-filter guard
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Branch: `nel/seer-protocol-maintenance-20260219-2133`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Change summary:
+  - Rejected empty `in` / `notIn` arrays in both root + util query operator schemas.
+  - Applied matching guard in recursive `createPrismaWhereSchema` field-operator builders.
+  - Added root/util behavior tests for empty-array rejection + non-empty acceptance.
+  - Updated analysis docs with rationale for deterministic membership-filter semantics.
+- Files changed:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/protocol`) ✅ pass (6 suites, 34 tests).
+- Commit/PR:
+  - Commit `9659cfc` pushed.
+  - PR: https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers: none.
+- Next: `arken/sigil/protocol`.
+
+## 2026-02-20T23:47:58-0800 — sigil-protocol empty membership-array where-filter guard
+- Target: `arken/sigil/protocol` (flattened slot 4).
+- Branch: `nel/sigil-protocol-maintenance-20260219-1553`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Change summary:
+  - Rejected empty `in` / `notIn` arrays in root query operator parsing.
+  - Applied same non-empty guard in recursive `createPrismaWhereSchema` field filters.
+  - Added regression coverage for empty-array rejection across `getQueryInput` + exported `Query`.
+  - Updated `util` + `test` README/ANALYSIS docs with rationale and scope.
+- Files changed:
+  - `arken/sigil/protocol/util/schema.ts`
+  - `arken/sigil/protocol/test/queryInput.test.ts`
+  - `arken/sigil/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/sigil/protocol/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 34 tests).
+- Commit/PR:
+  - Commit `dd2b09f` pushed.
+  - PR: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Blockers: none.
+- Next: `arken/forge/web`.
+
+## 2026-02-20T23:53:56-0800 — forge-web protocol-relative URI normalization
+- Target: `arken/forge/web` (flattened slot 5).
+- Branch: `nel/forge-web-maintenance-20260219-1752`.
+- Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+- Change summary:
+  - Added explicit handling for protocol-relative URLs in `uriToHttp` so `//host/path` returns both `https://...` and `http://...` candidates.
+  - Added regression test coverage for trimmed protocol-relative input expansion.
+  - Updated `src/utils/README.md` and `src/utils/ANALYSIS.md` with rationale and scope for this reliability fix.
+- Files changed:
+  - `arken/forge/web/src/utils/uriToHttp.ts`
+  - `arken/forge/web/src/utils/uriToHttp.test.ts`
+  - `arken/forge/web/src/utils/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/web`) ✅ pass (12 suites, 111 tests).
+- Commit/PR:
+  - Commit `8de7323` pushed.
+  - PR: https://github.com/arkenrealms/forge-web/pull/11
+- Blockers: none.
+- Next: `arken/forge/protocol`.
+
+## 2026-02-21T00:04:18-08:00 — forge-protocol constructor-aware sync-handler diagnostics
+- Target: \ (flattened slot 6).
+- Branch hygiene: fetched origin + merged \ on \ (up to date).
+- Change summary:
+  - Improved \ missing-handler diagnostics to report constructor-aware object type labels (e.g., \).
+  - Added regression test for non-callable object handler diagnostics.
+  - Updated protocol/test analysis notes and README to document the new diagnostic behavior and rationale.
+- Validation:
+  - \[1mRush Multi-Project Build Tool 5.158.1[33m (unmanaged)[39m[22m - Node.js 20.11.1 (LTS) in \ ✅ pass (1 suite, 26 tests).
+- Git:
+  - Commit: \
+  - PR: https://github.com/arkenrealms/forge-protocol/pull/2
+- Blockers: none.
+- Next: \ (flattened slot 7).
+
+## 2026-02-21T00:04:30-08:00 — correction note (escaped-markdown logging fix)
+- Correction: prior daily-log block at `2026-02-21T00:04:18-08:00` was partially corrupted by shell interpolation while appending.
+- Authoritative run details:
+  - Target: `arken/forge/protocol` (flattened slot 6).
+  - Branch: `nel/forge-protocol-maintenance-20260219-1612`.
+  - Branch hygiene: `git fetch origin && git merge --no-edit origin/main` (already up to date).
+  - Change summary:
+    - Improved `core.sync` missing-handler diagnostics to report constructor-aware object type labels (`object:Object`).
+    - Added regression test for non-callable object handler diagnostics.
+    - Updated protocol/test analysis docs and README with rationale and scope.
+  - Validation:
+    - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/protocol`) ✅ pass (1 suite, 26 tests).
+  - Commit/PR:
+    - Commit `1b0becf` pushed.
+    - PR: https://github.com/arkenrealms/forge-protocol/pull/2
+  - Blockers: none.
+  - Next: `arken/evolution/realm` (flattened slot 7).
+
+## 2026-02-21T00:13:48-08:00 — evolution-realm listener dispatch isolation guard
+- Target: `arken/evolution/realm` (flattened slot 7).
+- Branch hygiene: fetched origin + merged `origin/main` on `nel/evolution-realm-maintenance-20260219-1818` (up to date).
+- Change summary:
+  - Hardened `trpc-websocket.ts` listener fan-out by isolating per-listener failures in `dispatchListenerEvent`.
+  - Added regression coverage ensuring one throwing listener does not block subsequent listeners and error logging still occurs.
+  - Updated realm source analysis/readme notes with rationale for the reliability guard.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/realm`) ✅ pass (1 suite, 21 tests).
+- Commit/PR:
+  - Commit `68c717b` pushed.
+  - PR: https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers: none.
+- Next: `arken/evolution/shard` (flattened slot 8).
+
+## 2026-02-21T00:23:46-08:00 — evolution-shard non-object error-log guard
+- Target: `arken/evolution/shard` (flattened slot 8).
+- Branch hygiene: fetched origin + merged `origin/main` on `nel/evolution-shard-maintenance-20260220-0552` (up to date).
+- Change summary:
+  - Hardened shard tRPC error accounting so malformed `socket.shardClient.log` values (non-object primitives) no longer throw while handling client-message failures.
+  - Added regression coverage for non-object `shardClient.log` ensuring normalized error responses still emit and disconnect is not spuriously triggered.
+  - Updated shard README/analysis docs with rationale and scope.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/shard`) ✅ pass (1 suite, 20 tests).
+- Commit/PR:
+  - Commit `ac42f09` pushed.
+  - PR: https://github.com/arkenrealms/evolution-shard/pull/8
+- Blockers: none.
+- Next: `arken/evolution/protocol` (flattened slot 9).
+
+## 2026-02-21T00:34:19-08:00 — evolution-protocol cursor-envelope validation parity
+- Target: `arken/evolution/protocol` (flattened slot 9)
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (clean)
+- Change summary:
+  - Added shared cursor-map guards in `util/schema.ts` for both `Query` and `getQueryInput`.
+  - Cursor envelopes now reject empty maps and blank/whitespace field names.
+  - Added parity regressions in `test/schema.test.ts` for both parser paths.
+  - Updated `README.md`/`ANALYSIS.md` in touched folders with rationale.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 40 tests)
+- Commit / PR:
+  - `evolution-protocol` `1856371`
+  - https://github.com/arkenrealms/evolution-protocol/pull/7
+- Next target: `arken/cerebro/hub`
