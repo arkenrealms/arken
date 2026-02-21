@@ -21376,3 +21376,29 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
 ## Run ledger append — 2026-02-20T22:44:56-0800 — correction note (timestamp typo)
 - Correction: previous cerebro-hub append timestamp `2026-02-20T22:47:31-0800` was logged ahead of wall-clock.
 - Accurate append window for this maintenance chunk is `22:42`–`22:45` local.
+
+## Run ledger append — 2026-02-20T22:57:54-0800 — cli targeted-route instantiation + socket auto-unref
+- Target attempted:
+  - `arken/cli` (flattened slot 11).
+- Path verification:
+  - `arken/cli` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/cli-maintenance-20260220-0412`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files before edits (`README.md`, `ANALYSIS.md`).
+  - Reviewed leaf runtime/test files first (`router.ts`, `test/router-link.test.ts`, `test/e2e.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/cli/router.ts`
+  - `arken/cli/ANALYSIS.md`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/cli`) ✅ pass (7 suites, 63 tests).
+- Commits + PR links:
+  - `cli` commit `a870391` pushed on `nel/cli-maintenance-20260220-0412`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/cli/pull/10
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/node` (flattened slot 1), then continue strict flattened order.

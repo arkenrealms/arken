@@ -9142,3 +9142,11 @@
 ### 2026-02-20T22:44:56-0800 — correction (timestamp typo)
 - Correction: prior cerebro-hub append timestamp (`22:47:31`) was recorded ahead of wall-clock.
 - Accurate run window was ~22:42–22:45 local.
+
+### 2026-02-20 (22:5x PT) — cli targeted-route instantiation reliability chunk
+- [x] Ran required branch hygiene in `arken/cli` (`git fetch origin` + merge `origin/main`, clean/up-to-date).
+- [x] Reduced eager route/backend initialization in `router.ts` for namespaced commands by gating route/socket creation to requested namespace plus local fallbacks.
+- [x] Enabled socket client `autoUnref` to reduce process hang risk for short-lived CLI commands.
+- [x] Updated `arken/cli/ANALYSIS.md` with rationale/scope for the reliability change.
+- [x] Validated with `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (pass: 7 suites, 63 tests).
+- [x] Pushed commit `a870391` and updated direct PR: https://github.com/arkenrealms/cli/pull/10
