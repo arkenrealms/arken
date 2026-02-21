@@ -10602,3 +10602,94 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - `WORKFLOW.md` emphasizes `seer-node + cerebro-link + cerebro-hub`; latest explicit cron instruction required flattened `ACTION_PLAN` rotation, so this run followed explicit instruction + MEMORY guardrails.
 - Next target:
   - `arken/seer/protocol`.
+
+## 2026-02-21T14:03:51-08:00 — seer-protocol finite pagination guard
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Change summary:
+  - Enforced finite pagination numbers in root/util schema query envelopes (`skip`, `take`, legacy `limit`) to reject `±Infinity` values.
+  - Added regression assertions in root/util schema tests for non-finite pagination rejection.
+  - Updated `ANALYSIS.md` docs with rationale.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (7 suites, 43 tests).
+- Commit/PR:
+  - `arken/seer/protocol` `48fee1f` → https://github.com/arkenrealms/seer-protocol/pull/9
+- Notes:
+  - Workflow-scope text in `WORKFLOW.md` conflicts with explicit cron rotation instruction; followed explicit instruction + MEMORY guardrails.
+- Next:
+  - `arken/sigil/protocol`.
+
+## 2026-02-21
+
+### Run block — 2026-02-21T14:12:00-08:00 — node invalid-JSON fail-closed hardening
+- Target attempted: `arken/node` (rotation slot 1 from explicit flattened target list).
+- Branch hygiene: ran `git fetch origin` + `git merge --no-edit origin/main` in `arken/node` before edits (already up to date).
+- Conflict notes:
+  - Layout conflict observed: `ACTION_PLAN.md` still references legacy `arken/packages/...` paths, while explicit user instruction specifies flattened paths (`arken/node`, etc.). Followed MEMORY.md + explicit user instruction as authoritative.
+- Files changed:
+  - `arken/node/web3/httpProvider.ts`
+  - `arken/node/test/httpProvider.spec.ts`
+  - `arken/node/web3/README.md`
+  - `arken/node/web3/ANALYSIS.md`
+- Test command + result:
+  - `rushx test -- test/httpProvider.spec.ts --runInBand` ✅ pass (28/28)
+- Commit + PR:
+  - `arken/node` commit `123f5ff` (pushed)
+  - PR: https://github.com/arkenrealms/node/pull/21
+- Blockers:
+  - Runtime preference mismatch warning remains: Rush warns Node `22.19.0` is untested for this Rush version (preference is `20.11.1` in MEMORY).
+- Next target:
+  - `arken/seer/node` (rotation slot 2).
+
+## 2026-02-21T14:23:58-08:00 — seer-node malformed base-doc id reseed guard
+- Target: `arken/seer/node` (flattened slot 2).
+- Change summary:
+  - Hardened `test/mongoTestEnv.ts` seeding logic to re-seed omniverse/metaverse docs when key-matched records exist but are missing usable own `_id` values.
+  - Added descriptor-based own `_id` extraction to avoid trusting malformed inherited/accessor-only id shapes.
+  - Added regression test in `test/mongoTestEnv.unit.spec.ts` covering malformed existing records and verifying reseed relationship IDs flow into `metaverses`/`applications` inserts.
+  - Updated `test/ANALYSIS.md` with rationale.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (24 suites, 115 tests).
+- Commit/PR:
+  - `1f4c5b2` — https://github.com/arkenrealms/seer-node/pull/12
+- Conflict note:
+  - `WORKFLOW.md` active scope text differs from flattened rotation directive in latest explicit cron instruction; followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/seer/protocol`.
+
+## 2026-02-21T14:34:03-08:00 — seer-protocol strict where-operator key rejection
+- Completed flattened rotation slot `arken/seer/protocol`.
+- Hardened root/util schema operator objects to reject unknown where-operator keys via strict parsing.
+- Added regression tests in `test/schema.query-input.test.ts` and `test/schema.root-query-input.test.ts` for unknown operator rejection (`typoOp`) with positive valid-operator assertions.
+- Updated rationale notes in `ANALYSIS.md`, `util/ANALYSIS.md`, and `test/ANALYSIS.md`.
+- Validation: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (7 suites, 45 tests).
+- Commit pushed: `cbe712b` to `nel/seer-protocol-maintenance-20260219-2133` (PR: https://github.com/arkenrealms/seer-protocol/pull/9).
+
+## 2026-02-21T14:43:29-08:00 — sigil-protocol finite-pagination guard
+- Target: `arken/sigil/protocol` (flattened slot 4).
+- Change summary:
+  - Hardened `Query` + `getQueryInput` pagination fields (`skip`/`take`/`limit`) to require finite numbers before integer/non-negative checks.
+  - Added regression coverage in `test/queryInput.test.ts` rejecting `Infinity`/`-Infinity`/`NaN` pagination payloads (including `Query.parse` path).
+  - Updated `util/README.md`, `util/ANALYSIS.md`, `test/README.md`, and `test/ANALYSIS.md` to document finite-number guard rationale.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 44 tests).
+- Commit/PR:
+  - `d37c482` — https://github.com/arkenrealms/sigil-protocol/pull/6
+- Conflict note:
+  - `WORKFLOW.md` active scope text differs from flattened rotation directive in latest explicit cron instruction; followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/forge/web`.
+
+## 2026-02-21T14:58:40-08:00 — forge-web empty content-address path fail-closed
+- Target: `arken/forge/web` (flattened slot 5).
+- Change summary:
+  - Hardened `src/utils/uriToHttp.ts` to require a non-empty content path for `ipfs://` and `ipns://` payloads after query/fragment splitting.
+  - Added regression assertions in `src/utils/uriToHttp.test.ts` for query-only/fragment-only payloads (`ipfs://?filename=...`, `ipns://#home`) to fail closed with `[]`.
+  - Updated `src/utils/README.md` and `src/utils/ANALYSIS.md` with rationale for empty-path gateway URL rejection.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (13 suites, 121 tests).
+- Commit/PR:
+  - `4f77a41` — https://github.com/arkenrealms/forge-web/pull/11
+- Conflict note:
+  - `WORKFLOW.md` active scope text differs from flattened rotation directive in latest explicit cron instruction; followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/forge/protocol`.
