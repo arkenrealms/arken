@@ -8507,3 +8507,71 @@
 
 ## 2026-02-20T16:14:25-0800 — correction note
 - Correction: prior DAILY_LOG entry timestamp (`2026-02-20T16:16:33-0800`) was ahead of wall-clock time; this note marks the accurate append window for the same evolution-shard chunk.
+
+## 2026-02-20T16:22:25-0800 — evolution-protocol include/select exclusivity guard
+- Target: `arken/evolution/protocol` (flattened slot 9).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/evolution-protocol-maintenance-20260220-0332`.
+- Changes:
+  - Added shared validation guard in `util/schema.ts` so request envelopes cannot include both `include` and `select` together.
+  - Applied guard parity to both direct `Query.parse(...)` and `getQueryInput(...).parse` paths.
+  - Added regression tests in `test/schema.test.ts` for both parser paths.
+  - Updated `ANALYSIS.md` and util/test docs with rationale and coverage details.
+- Files:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/ANALYSIS.md`
+  - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 33 tests).
+- Commit/PR:
+  - Commit `9fde911` pushed to `nel/evolution-protocol-maintenance-20260220-0332`.
+  - PR: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Blockers: none.
+- Next target: `arken/cerebro/hub`.
+
+## 2026-02-20T16:43:45-0800 — cerebro-hub Seer wrapped-single application normalization
+- Target: `arken/cerebro/hub` (flattened slot 10).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/cerebro-hub-maintenance-20260220-0402`.
+- Changes:
+  - Expanded Seer response normalization in `src/agents/shogo/applicationPersistence.ts` to accept wrapped single-record payloads (`item` and `data.item`) in addition to top-level object responses.
+  - Added regression tests in `src/agents/shogo/index.test.ts` covering `getApplications` `{ item: ... }` and `getApplication` `{ data: { item: ... } }` response shapes.
+  - Updated `ANALYSIS.md` and `README.md` with rationale and behavior notes.
+- Files:
+  - `arken/cerebro/hub/src/agents/shogo/applicationPersistence.ts`
+  - `arken/cerebro/hub/src/agents/shogo/index.test.ts`
+  - `arken/cerebro/hub/ANALYSIS.md`
+  - `arken/cerebro/hub/README.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (4 suites, 33 tests).
+- Commit/PR:
+  - Commit `3c89d5b` pushed to `nel/cerebro-hub-maintenance-20260220-0402`.
+  - PR: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers: none.
+- Next target: `arken/cli`.
+
+## 2026-02-20T16:55:40-0800 — cli short-alias equals array-flag coverage
+- Target: `arken/cli` (flattened slot 11).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/cli-maintenance-20260220-0412`.
+- Changes:
+  - Added `isArrayFlagBoundary(...)` in `index.ts` so array-value collection uses declared short aliases/long flags as boundaries.
+  - Added regression coverage in `test/parsing.test.ts` for repeated short-alias equals form (`-v=alpha -v=beta`) on `multiple` array flags.
+  - Updated `ANALYSIS.md` with rationale and behavior notes.
+- Files:
+  - `arken/cli/index.ts`
+  - `arken/cli/test/parsing.test.ts`
+  - `arken/cli/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (7 suites, 62 tests).
+- Commit/PR:
+  - Commit `38306ce` pushed to `nel/cli-maintenance-20260220-0412`.
+  - PR: https://github.com/arkenrealms/cli/pull/10
+- Blockers: none.
+- Next target: `arken/node`.
+
+### 2026-02-20T17:10:24-0800 — node non-finite response-status envelope guard
+- Completed on `arken/node` (`nel/node-maintenance-20260220-0438`): hardened `web3/httpProvider.ts` response-shape validation to reject non-finite `status` values.
+- Added regression in `arken/node/test/httpProvider.spec.ts` for malformed `status: NaN` envelopes and updated touched folder docs (`web3/*`, `test/*`).
+- Validation: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/node`) ✅ pass (5 suites, 98 tests).
+- Pushed commit `ad8d778`; direct PR remains open and updated: https://github.com/arkenrealms/node/pull/20
+- Next target in rotation: `arken/seer/node`.
