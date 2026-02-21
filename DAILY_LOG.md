@@ -10586,3 +10586,19 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
 
 ## 2026-02-21T13:44:11-08:00 — correction note
 - Node direct-repo PR pointer correction: active open PR is https://github.com/arkenrealms/node/pull/21 (`nel/node-maintenance-20260220-0438`); prior legacy PR #15 is merged.
+
+## 2026-02-21T13:53:47-08:00 — seer-node snapshot accessor/inherited seq guard
+- Target: `arken/seer/node` (flattened slot 2).
+- Change summary:
+  - Hardened `src/snapshot.ts` sequence extraction to read only own data-property `seq` values via descriptor lookup.
+  - Prevented snapshot cursor resolution from executing accessor getters or accepting prototype-inherited `seq` values on malformed event payloads.
+  - Added regression tests in `test/snapshot.test.ts` for both throwing accessor and inherited-only `seq` event shapes.
+  - Updated `src/ANALYSIS.md` and `test/ANALYSIS.md` with rationale + coverage notes.
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (24 suites, 114 tests).
+- Commit/PR:
+  - `3efe97b` — https://github.com/arkenrealms/seer-node/pull/12
+- Conflict note:
+  - `WORKFLOW.md` emphasizes `seer-node + cerebro-link + cerebro-hub`; latest explicit cron instruction required flattened `ACTION_PLAN` rotation, so this run followed explicit instruction + MEMORY guardrails.
+- Next target:
+  - `arken/seer/protocol`.
