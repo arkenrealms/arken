@@ -8575,3 +8575,6 @@
 - Validation: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/node`) ✅ pass (5 suites, 98 tests).
 - Pushed commit `ad8d778`; direct PR remains open and updated: https://github.com/arkenrealms/node/pull/20
 - Next target in rotation: `arken/seer/node`.
+
+### 2026-02-20T17:04:45-0800 — correction note
+- Correction: previous DAILY_LOG entry timestamp (`2026-02-20T17:10:24-0800`) was appended with a clock typo; this note records the accurate append window for the same `arken/node` maintenance chunk.

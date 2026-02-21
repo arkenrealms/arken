@@ -20434,3 +20434,6 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none in this slot.
 - Next rotation target:
   - `arken/seer/node` (flattened slot 2), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T17:04:45-0800 — correction note
+- Correction: previous run-ledger timestamp (`2026-02-20T17:10:24-0800`) was appended with a clock typo; this note records the accurate append window for the same `arken/node` maintenance chunk.
