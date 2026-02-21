@@ -8578,3 +8578,190 @@
 
 ### 2026-02-20T17:04:45-0800 — correction note
 - Correction: previous DAILY_LOG entry timestamp (`2026-02-20T17:10:24-0800`) was appended with a clock typo; this note records the accurate append window for the same `arken/node` maintenance chunk.
+
+### 2026-02-20T17:14:25-0800 — seer-node cluster-spec runtime model resolution fix
+- Target: `arken/seer/node` (flattened slot 2).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/seer-node-maintenance-20260220-0442`.
+- Changes:
+  - Updated `test/mongo.cluster.spec.ts` and `test/mongo.pkConfig.spec.ts` to resolve the Cluster model via runtime `mongoose.models.Cluster` lookup.
+  - Removed reliance on non-exported `ClusterModel` symbol from `@arken/node/mongo`, eliminating deterministic `undefined.find/findOne` failures.
+  - Updated `test/README.md` and `test/ANALYSIS.md` with rationale and coverage notes.
+- Files:
+  - `arken/seer/node/test/mongo.cluster.spec.ts`
+  - `arken/seer/node/test/mongo.pkConfig.spec.ts`
+  - `arken/seer/node/test/README.md`
+  - `arken/seer/node/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (24 suites, 98 tests).
+- Commit/PR:
+  - Commit `0ff4f15` pushed to `nel/seer-node-maintenance-20260220-0442`.
+  - PR: https://github.com/arkenrealms/seer-node/pull/10
+- Blockers: none.
+- Next target: `arken/seer/protocol`.
+
+### 2026-02-20T17:14:25-0800 — correction note
+- Correction: previous entry cited PR #10, but that PR is merged.
+- Current open direct PR for this branch is: https://github.com/arkenrealms/seer-node/pull/11
+
+### 2026-02-20T17:26:xx-0800 — seer-protocol trimmed reserved-key guard for query maps
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/seer-protocol-maintenance-20260219-2133`.
+- Changes:
+  - Hardened reserved-key rejection in both `schema.ts` and `util/schema.ts` by trimming map keys before checking `__proto__` / `constructor` / `prototype`.
+  - Added behavior regressions in both schema test suites to reject whitespace-padded reserved keys (for example `' __proto__ '` and `' constructor '`).
+  - Updated touched folder docs (`util/README.md`, `util/ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md`) with rationale and coverage notes.
+- Files:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/util/README.md`
+  - `arken/seer/protocol/util/ANALYSIS.md`
+  - `arken/seer/protocol/test/README.md`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (6 suites, 30 tests).
+- Commit/PR:
+  - Commit `7290c5e` pushed to `nel/seer-protocol-maintenance-20260219-2133`.
+  - PR: https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers: none.
+- Next target: `arken/sigil/protocol`.
+
+### 2026-02-20T17:23:51-0800 — correction note
+- Correction: prior entry timestamp (`2026-02-20T17:26:xx-0800`) used placeholder minutes during append.
+- Authoritative timestamp for this seer-protocol maintenance chunk is `2026-02-20T17:23:51-0800`.
+
+## 2026-02-20T17:34:11-0800 — sigil-protocol where-operator no-op filter hardening
+- Target: `arken/sigil/protocol` (flattened slot 4)
+- Branch: `nel/sigil-protocol-maintenance-20260219-1553`
+- Summary:
+  - Hardened top-level `Query` filter operators to require at least one known operator and reject unknown keys.
+  - Hardened recursive `createPrismaWhereSchema` operator envelopes with the same non-empty known-operator guard.
+  - Added regression tests for empty and unknown field-operator filters.
+  - Updated util/test README + ANALYSIS notes with rationale and coverage scope.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 31 tests)
+- Commit:
+  - `bfd7c39` (`sigil-protocol`) pushed; PR: https://github.com/arkenrealms/sigil-protocol/pull/5
+- Next target:
+  - `arken/forge/web` (flattened slot 5)
+
+### 2026-02-20T17:43:51-0800 — forge-web URI payload normalization hardening
+- Target: `arken/forge/web` (flattened slot 5).
+- Branch hygiene: synced with `origin/main` before edits (already up to date) on `nel/forge-web-maintenance-20260219-1752`.
+- Changes:
+  - Hardened `src/utils/uriToHttp.ts` to trim URI input and normalize `ipfs`/`ipns` payload prefixes/slashes.
+  - Expanded `src/utils/uriToHttp.test.ts` with whitespace + payload normalization cases.
+  - Updated `src/utils/README.md` and `src/utils/ANALYSIS.md` with rationale.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/forge/web`) ✅ pass (12 suites, 108 tests).
+- Git/PR:
+  - Pushed commit `15ed307` to `nel/forge-web-maintenance-20260219-1752`.
+  - Updated direct PR: https://github.com/arkenrealms/forge-web/pull/11
+- Next target:
+  - `arken/forge/protocol`.
+
+## 2026-02-20T17:54:49-0800 — forge-protocol unicode control-class hardening
+- Target: `arken/forge/protocol` (flattened slot 6).
+- Branch: `nel/forge-protocol-maintenance-20260219-1612` (synced with `origin/main` before edits).
+- Summary:
+  - Expanded `core.sync` control-char guard to Unicode `Cc` coverage (not only ASCII control bytes).
+  - Added C1 control test coverage (`\u0085` target entry rejection).
+  - Updated `rushx test` pipeline to build before Jest (`npm run dist && jest --runInBand`) to prevent stale build/test drift.
+  - Refreshed protocol/test README + ANALYSIS docs with rationale and coverage notes.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 22 tests).
+- Commit:
+  - `1083f36` — Harden core.sync unicode control filtering.
+- PR:
+  - https://github.com/arkenrealms/forge-protocol/pull/2
+- Blockers:
+  - none.
+- Next target:
+  - `arken/evolution/realm`.
+
+## 2026-02-20T18:04:03-0800 — evolution-realm native addEventListener parity hardening
+- Target: `arken/evolution/realm` (flattened slot 7).
+- Branch: `nel/evolution-realm-maintenance-20260219-1818` (synced with `origin/main` before edits).
+- Summary:
+  - Fixed `trpc-websocket.ts` so native WebSocket events (`open`, `message`, `error`, `close`) registered through `addEventListener()` are dispatched by wrapper lifecycle paths instead of incorrectly passed to `ioSocket.on(...)`.
+  - Kept Socket.IO passthrough behavior for non-native/custom events.
+  - Added regression coverage in `src/trpc-websocket.test.ts` for native close/message listeners and native close-listener removal semantics.
+  - Updated `src/README.md`, `src/ANALYSIS.md`, and `ANALYSIS.md` with rationale.
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 17 tests).
+- Commit:
+  - `5a640e5` — Fix native addEventListener parity in SocketIO wrapper.
+- PR:
+  - https://github.com/arkenrealms/evolution-realm/pull/25
+- Blockers:
+  - none.
+- Next target:
+  - `arken/evolution/shard` (flattened slot 8).
+
+## 2026-02-20T18:13:51-0800 — evolution-shard binary-view payload normalization hardening
+- Target: `arken/evolution/shard` (flattened slot 8).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/evolution-shard-maintenance-20260220-0552`.
+- Summary:
+  - Hardened `handleClientMessage` to normalize `ArrayBuffer` and generic `ArrayBufferView` payloads (including `DataView`) to UTF-8 before JSON parse.
+  - Prevented valid binary-view JSON envelopes from being misclassified as invalid tRPC payload/method traffic.
+  - Added regression tests for `ArrayBuffer` and `DataView` payload dispatch parity.
+  - Updated root `README.md` and `ANALYSIS.md` with rationale and coverage scope.
+- Files:
+  - `arken/evolution/shard/shard.service.ts`
+  - `arken/evolution/shard/test/shard.service.handleClientMessage.test.ts`
+  - `arken/evolution/shard/README.md`
+  - `arken/evolution/shard/ANALYSIS.md`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 17 tests).
+- Commit/PR:
+  - Commit `0f82476` pushed to `nel/evolution-shard-maintenance-20260220-0552`.
+  - PR: https://github.com/arkenrealms/evolution-shard/pull/8
+- Blockers:
+  - none.
+- Next target:
+  - `arken/evolution/protocol` (flattened slot 9).
+
+## 2026-02-20T18:24:06-0800 — evolution-protocol NOT-array non-empty guard parity
+- Target: `arken/evolution/protocol` (flattened slot 9).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/evolution-protocol-maintenance-20260220-0332`.
+- Summary:
+  - Hardened `util/schema.ts` so array-form `where.NOT` must be non-empty in both exported `Query` and recursive `getQueryInput` where-schema handling.
+  - Added parity regressions in `test/schema.test.ts` covering empty `NOT` array rejection for both parser paths.
+  - Updated protocol/test/util README + ANALYSIS docs with rationale.
+- Files:
+  - `arken/evolution/protocol/util/schema.ts`
+  - `arken/evolution/protocol/test/schema.test.ts`
+  - `arken/evolution/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/test/{README.md,ANALYSIS.md}`
+  - `arken/evolution/protocol/ANALYSIS.md`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (1 suite, 33 tests).
+- Commit/PR:
+  - Commit `b8ca3a4` pushed to `nel/evolution-protocol-maintenance-20260220-0332`.
+  - PR: https://github.com/arkenrealms/evolution-protocol/pull/7
+- Blockers:
+  - none.
+- Next target:
+  - `arken/cerebro/hub` (flattened slot 10).
+
+## 2026-02-20T18:33:37-0800 — cerebro-hub Seer wrapped-list normalization
+- Target: `arken/cerebro/hub` (flattened slot 10).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (`Already up to date`) on `nel/cerebro-hub-maintenance-20260220-0402`.
+- Summary:
+  - Expanded Seer application-list normalization to accept `data.items` and raw `data` array envelopes in addition to existing `items`/`item` forms.
+  - Added regression coverage in `src/agents/shogo/index.test.ts` for both wrapped-list response shapes.
+  - Updated `README.md` and `ANALYSIS.md` with rationale: keep Seer-node tRPC as primary source and avoid unnecessary local Mongo fallback when list payloads are transport-wrapped.
+- Files:
+  - `arken/cerebro/hub/src/agents/shogo/applicationPersistence.ts`
+  - `arken/cerebro/hub/src/agents/shogo/index.test.ts`
+  - `arken/cerebro/hub/{README.md,ANALYSIS.md}`
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (4 suites, 35 tests).
+- Commit/PR:
+  - Commit `d86cf0e` pushed to `nel/cerebro-hub-maintenance-20260220-0402`.
+  - PR: https://github.com/arkenrealms/cerebro-hub/pull/23
+- Blockers:
+  - none.
+- Next target:
+  - `arken/cli` (flattened slot 11).
