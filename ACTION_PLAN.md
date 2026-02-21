@@ -21092,3 +21092,67 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - none in this slot.
 - Next rotation target:
   - `arken/seer/node` (flattened slot 2), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T21:03:36-0800 — seer-node snapshot fallback cursor normalization
+- Target attempted:
+  - `arken/seer/node` (flattened slot 2).
+- Path verification:
+  - `arken/seer/node` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/seer-node-maintenance-20260220-0442`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files in target repo before edits.
+  - Reviewed leaf runtime/test files first (`src/snapshot.ts`, `test/snapshot.test.ts`) before docs updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/seer/node/src/snapshot.ts`
+  - `arken/seer/node/test/snapshot.test.ts`
+  - `arken/seer/node/src/ANALYSIS.md`
+  - `arken/seer/node/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/node`) ✅ pass (24 suites, 101 tests).
+- Commits + PR links:
+  - `seer-node` commit `e1744e4` pushed on `nel/seer-node-maintenance-20260220-0442`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-node/pull/11
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/seer/protocol` (flattened slot 3), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T21:15:34-0800 — seer-protocol non-plain where shorthand guard
+- Target attempted:
+  - `arken/seer/protocol` (flattened slot 3).
+- Path verification:
+  - `arken/seer/protocol` exists and is initialized.
+- Branch hygiene:
+  - Ran `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` before edits (`Already up to date`).
+  - Continued on active direct-repo branch `nel/seer-protocol-maintenance-20260219-2133`.
+- Markdown preload + deepest-first review:
+  - Preloaded all local non-dependency `.md` files in target repo before edits.
+  - Reviewed leaf schema tests (`test/schema.query-input.test.ts`, `test/schema.root-query-input.test.ts`) before shared schema implementation updates.
+- Conflict notes:
+  - No conflicts found between `MEMORY.md`, explicit user instruction, and local markdown guidance.
+- Files changed:
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/ANALYSIS.md`
+  - `arken/seer/protocol/test/{README.md,ANALYSIS.md}`
+- Test command + result:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/protocol`) ✅ pass (6 suites, 32 tests).
+- Commits + PR links:
+  - pending commit/push in this run block.
+  - Direct repo PR target: https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers:
+  - none in this slot.
+- Next rotation target:
+  - `arken/sigil/protocol` (flattened slot 4), then continue strict flattened order.
+
+## Run ledger append — 2026-02-20T21:16:42-0800 — correction note (seer-protocol slot 3 commit details)
+- Correction: prior 21:15:34 block listed commit/push as pending during pre-push logging.
+- Authoritative commit/PR status for that same slot:
+  - `seer-protocol` commit `38bb644` pushed on `nel/seer-protocol-maintenance-20260219-2133`.
+  - Direct repo PR verified open + updated: https://github.com/arkenrealms/seer-protocol/pull/8

@@ -9000,3 +9000,44 @@
   - none.
 - Next target:
   - `arken/seer/node` (flattened slot 2).
+
+## 2026-02-20T21:03:36-0800 — seer-node snapshot fallback cursor normalization
+- Target: `arken/seer/node` (flattened slot 2).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date) on `nel/seer-node-maintenance-20260220-0442`.
+- Changes:
+  - Hardened `src/snapshot.ts` so `resolveSnapshotMaxSeq` first normalizes fallback cursor values and clamps malformed fallback input (`NaN`, non-integer, negative) to safe default `0`.
+  - Added regression in `test/snapshot.test.ts` for invalid fallback cursor handling.
+  - Updated rationale/docs in `src/ANALYSIS.md`, `test/ANALYSIS.md`, and `test/README.md`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/node`) ✅ pass (24 suites, 101 tests).
+- Commit/PR:
+  - Commit `e1744e4` pushed.
+  - PR: https://github.com/arkenrealms/seer-node/pull/11
+- Blockers:
+  - none.
+- Next target:
+  - `arken/seer/protocol` (flattened slot 3).
+
+## 2026-02-20T21:15:34-0800 — seer-protocol non-plain where shorthand guard
+- Target: `arken/seer/protocol` (flattened slot 3).
+- Branch hygiene: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && git fetch origin && git merge --no-edit origin/main` (already up to date) on `nel/seer-protocol-maintenance-20260219-2133`.
+- Changes:
+  - Hardened `schema.ts` and `util/schema.ts` `createPrismaWhereSchema` shorthand preprocessing so only plain records are treated as operator maps.
+  - Non-plain objects now normalize through `{ equals: value }`, preventing silent stripping into empty filters.
+  - Added regression coverage in `test/schema.query-input.test.ts` and `test/schema.root-query-input.test.ts` to ensure non-plain shorthand objects are rejected (instead of silently accepted as empty filters).
+  - Updated rationale docs in `arken/seer/protocol/ANALYSIS.md` and `arken/seer/protocol/test/{README.md,ANALYSIS.md}`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/seer/protocol`) ✅ pass (6 suites, 32 tests).
+- Commit/PR:
+  - Pending commit/push for this run.
+  - PR target: https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers:
+  - none.
+- Next target:
+  - `arken/sigil/protocol` (flattened slot 4).
+
+## 2026-02-20T21:16:42-0800 — correction note (seer-protocol slot 3 commit details)
+- Correction: prior 21:15:34 entry listed commit/push as pending during pre-push logging.
+- Authoritative commit/PR status for that same slot:
+  - Commit `38bb644` pushed on `nel/seer-protocol-maintenance-20260219-2133`.
+  - PR verified open + updated: https://github.com/arkenrealms/seer-protocol/pull/8
