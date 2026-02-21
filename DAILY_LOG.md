@@ -8765,3 +8765,175 @@
   - none.
 - Next target:
   - `arken/cli` (flattened slot 11).
+
+## 2026-02-20T18:45:41-0800 — cli repeated short-alias list-flag coverage
+- Target: \ (flattened slot 11).
+- Branch hygiene: synced with \ before edits (already up to date) on \.
+- Summary:
+  - Added regression coverage in \ for repeated short-alias list flags with spaced values (\) plus trailing flags.
+  - Updated list-style flag examples in \ to explicitly document supported repeated short-alias usage.
+  - Updated \ with rationale and a correction note clarifying unsupported attached shorthand form (\).
+- Tests:
+  - \[1mRush Multi-Project Build Tool 5.158.1[33m (unmanaged)[39m[22m - Node.js 20.11.1 (LTS) ✅ pass (7 suites, 63 tests).
+- Commit/PR:
+  - Commit \ pushed to \.
+  - PR: https://github.com/arkenrealms/cli/pull/10
+- Blockers:
+  - none.
+- Next target:
+  - \ (flattened slot 1).
+
+## 2026-02-20T18:46:30-0800 — correction note (cli slot block rendering)
+- Correction: the immediately previous 18:45:41 entry was appended with shell interpolation artifacts.
+- Authoritative slot details are recorded in the next block.
+
+## 2026-02-20T18:46:30-0800 — cli repeated short-alias list-flag coverage (authoritative)
+- Target: `arken/cli` (flattened slot 11).
+- Branch hygiene: synced with `origin/main` before edits (already up to date) on `nel/cli-maintenance-20260220-0412`.
+- Summary:
+  - Added regression coverage in `test/parsing.test.ts` for repeated short-alias list flags with spaced values (`-v alpha -v beta`) plus trailing flags.
+  - Updated list-style flag examples in `README.md` to explicitly document supported repeated short-alias usage.
+  - Updated `ANALYSIS.md` with rationale and a correction note clarifying unsupported attached shorthand form (`-valpha`).
+- Tests:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (7 suites, 63 tests).
+- Commit/PR:
+  - Commit `827ef83` pushed to `nel/cli-maintenance-20260220-0412`.
+  - PR: https://github.com/arkenrealms/cli/pull/10
+- Blockers:
+  - none.
+- Next target:
+  - `arken/node` (flattened slot 1).
+
+## 2026-02-20T18:54:23-0800 — node api.fetch URL-trim dispatch hardening
+- Target: `arken/node` (flattened slot 1)
+- Change summary:
+  - Trim validated `api.fetch` URL input before axios dispatch so whitespace-padded caller input does not leak malformed URL text to transport.
+  - Added regression test asserting trimmed dispatch behavior.
+  - Updated root/test analysis docs for rationale and coverage scope.
+- Files:
+  - `arken/node/api.ts`
+  - `arken/node/test/api.spec.ts`
+  - `arken/node/ANALYSIS.md`
+  - `arken/node/test/ANALYSIS.md`
+  - `arken/node/test/README.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (5 suites, 99 tests)
+- Commit/PR:
+  - `cf0f7cc` on `nel/node-maintenance-20260220-0438`
+  - https://github.com/arkenrealms/node/pull/20
+- Blockers: none
+- Next: `arken/seer/node`
+
+## 2026-02-20T19:04:31-0800 — seer-node mongo test dbName suffix normalization
+- Target: `arken/seer/node` (slot 2).
+- Branch: `nel/seer-node-maintenance-20260220-0442`
+- Summary:
+  - Normalized `connectTestMongo` dbName suffixes to strip Mongo-invalid characters and fallback to `test` when the suffix normalizes empty.
+  - Added unit coverage for unsafe suffix normalization and all-invalid fallback behavior.
+  - Updated local analysis docs with rationale for the change.
+- Files changed:
+  - `arken/seer/node/test/mongoTestEnv.ts`
+  - `arken/seer/node/test/mongoTestEnv.unit.spec.ts`
+  - `arken/seer/node/test/{README.md,ANALYSIS.md}`
+  - `arken/seer/node/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ (24 suites, 100 tests)
+- Commit:
+  - `ef0a774` (pushed)
+- PR:
+  - https://github.com/arkenrealms/seer-node/pull/11
+- Next:
+  - `arken/seer/protocol` (slot 3)
+
+## 2026-02-20T19:21:40-0800 — seer-protocol untrimmed query-key guard parity
+- Target: `arken/seer/protocol` (flattened slot 3)
+- Branch: `nel/seer-protocol-maintenance-20260219-2133`
+- Summary:
+  - Added query-envelope key trim enforcement so `orderBy`, `include`/`select`, and `cursor` reject leading/trailing-whitespace keys instead of accepting subtly mismatched field names.
+  - Applied parity hardening in both util-layer and root `schema.ts` query validators.
+  - Expanded schema regression tests (util + root) and updated util/test analysis docs with rationale.
+- Files changed:
+  - `arken/seer/protocol/util/schema.ts`
+  - `arken/seer/protocol/schema.ts`
+  - `arken/seer/protocol/test/schema.query-input.test.ts`
+  - `arken/seer/protocol/test/schema.root-query-input.test.ts`
+  - `arken/seer/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/seer/protocol/test/ANALYSIS.md`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` ✅ pass (6 suites, 30 tests)
+- Commit/PR:
+  - `e5efcb5` pushed to `nel/seer-protocol-maintenance-20260219-2133`
+  - https://github.com/arkenrealms/seer-protocol/pull/8
+- Blockers: none
+- Next: `arken/sigil/protocol` (flattened slot 4)
+
+## 2026-02-20T19:16:20-0800 — correction note
+- Correction: previous log block timestamp (`2026-02-20T19:21:40-0800`) was appended ahead of wall-clock time.
+- This note records the accurate append window and preserves append-only history.
+
+## 2026-02-20T19:24:11-0800 — sigil-protocol strict where-key validation
+- Completed flattened slot 4 (`arken/sigil/protocol`).
+- Added strict unknown-key rejection for `where` objects in both `Query` and recursive `getQueryInput` schema paths to avoid silently stripped typo filters.
+- Added regression coverage for unknown top-level `where` keys (including mixed valid+invalid envelopes).
+- Updated touched docs:
+  - `arken/sigil/protocol/util/{README.md,ANALYSIS.md}`
+  - `arken/sigil/protocol/test/{README.md,ANALYSIS.md}`
+- Validation:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/sigil/protocol`) ✅ pass (1 suite, 32 tests).
+- Commit/PR:
+  - `a1983a8` on `nel/sigil-protocol-maintenance-20260219-1553`
+  - https://github.com/arkenrealms/sigil-protocol/pull/5
+- Next:
+  - rotate to `arken/forge/web` (flattened slot 5).
+
+### Run append — 2026-02-20T19:34:11-08:00 — forge-web hex decoder whitespace normalization
+- [x] Continued flattened rotation at `arken/forge/web` (slot 5).
+- [x] Ran branch hygiene first (`git fetch origin` + merge `origin/main`) on Node 20.11.1.
+- [x] Hardened `src/utils/hexToUint8Array.ts` to trim padded input before hex validation.
+- [x] Added parity coverage in `src/utils/contenthashToUri.test.ts` for whitespace-tolerant prefixed hex.
+- [x] Updated touched-folder docs: `src/utils/{README.md,ANALYSIS.md}` with rationale.
+- [x] Validation gate passed: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (12 suites, 109 tests).
+- [x] Pushed direct-repo commit `465a8fa` to branch `nel/forge-web-maintenance-20260219-1752`.
+- [x] Verified active direct PR is open and updated: https://github.com/arkenrealms/forge-web/pull/11
+- [ ] Next: rotate to `arken/forge/protocol` (slot 6).
+
+### Run append — 2026-02-20T19:43:44-08:00 — forge-protocol unicode format-char rejection hardening
+- [x] Continued flattened rotation at `arken/forge/protocol` (slot 6).
+- [x] Ran branch hygiene first (`git fetch origin` + merge `origin/main`) on Node 20.11.1.
+- [x] Hardened `core/core.router.ts` control-byte filter to reject Unicode format controls (`Cf`) in addition to control chars (`Cc`).
+- [x] Added parity coverage in `test/core.router.test.js` for zero-width space (`\u200B`) in `kind`.
+- [x] Updated touched docs: `README.md`, `ANALYSIS.md`, `test/README.md`, `test/ANALYSIS.md` with rationale.
+- [x] Validation gate passed: `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (1 suite, 23 tests).
+- [x] Pushed direct-repo commit `b3f64fa` to branch `nel/forge-protocol-maintenance-20260219-1612`.
+- [x] Verified active direct PR is open and updated: https://github.com/arkenrealms/forge-protocol/pull/2
+- [ ] Next: rotate to `arken/evolution/realm` (flattened slot 7).
+
+## 2026-02-20T19:53:39-0800 — evolution-realm dispatchEvent compatibility routing
+- Target: `arken/evolution/realm` (flattened slot 7).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date) on `nel/evolution-realm-maintenance-20260219-1818`.
+- Changes:
+  - Implemented real `dispatchEvent(event)` routing in `trpc-websocket.ts` for native handlers (`onopen`, `onmessage`, `onerror`, `onclose`) plus native listener dispatch.
+  - Added regression tests for message redispatch + invalid-event rejection in `src/trpc-websocket.test.ts`.
+  - Updated rationale docs in `ANALYSIS.md` and `src/{README.md,ANALYSIS.md}`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/realm`) ✅ pass (1 suite, 19 tests).
+- Commit/PR:
+  - Commit `904bcc4` pushed.
+  - PR: https://github.com/arkenrealms/evolution-realm/pull/25
+- Next target:
+  - `arken/evolution/shard`.
+
+## 2026-02-20T20:03:32-0800 — evolution-shard array-envelope payload guard
+- Target: `arken/evolution/shard` (flattened slot 8).
+- Branch hygiene: `git fetch origin` + `git merge --no-edit origin/main` (already up to date) on `nel/evolution-shard-maintenance-20260220-0552`.
+- Changes:
+  - Hardened `shard.service.ts` payload validation to reject JSON array envelopes before dispatch/destructure.
+  - Added regression coverage for `'[]'` payloads in `test/shard.service.handleClientMessage.test.ts` so malformed list envelopes normalize to invalid-payload errors.
+  - Updated rationale docs in `README.md` and `ANALYSIS.md`.
+- Test:
+  - `source ~/.nvm/nvm.sh && nvm use 20.11.1 >/dev/null && rushx test` (in `arken/evolution/shard`) ✅ pass (1 suite, 18 tests).
+- Commit/PR:
+  - Commit `4b38bb6` pushed.
+  - PR: https://github.com/arkenrealms/evolution-shard/pull/8
+- Next target:
+  - `arken/evolution/protocol`.
