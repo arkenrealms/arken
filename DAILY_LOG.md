@@ -8504,3 +8504,6 @@
   - PR: https://github.com/arkenrealms/evolution-shard/pull/8
 - Next target:
   - `arken/evolution/protocol` (flattened slot 9).
+
+## 2026-02-20T16:14:25-0800 — correction note
+- Correction: prior DAILY_LOG entry timestamp (`2026-02-20T16:16:33-0800`) was ahead of wall-clock time; this note marks the accurate append window for the same evolution-shard chunk.
