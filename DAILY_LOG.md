@@ -9175,7 +9175,7 @@
 - [x] Updated \ in \ to scan backward and return the most recent valid non-negative integer \, instead of trusting only the trailing event.
 - [x] Expanded regression coverage in \ for malformed trailing events with earlier valid seq values and all-invalid fallback behavior.
 - [x] Updated rationale docs in \, \, and \.
-- [x] Ran \Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+- [x] Ran \Found configuration in /Users/web/shared/arken/rush.json
 
 Rush Multi-Project Build Tool 5.110.1 - Node.js 20.11.1 (LTS)
 Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. in \ (pass: 24 suites, 102 tests).

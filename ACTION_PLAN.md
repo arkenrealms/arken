@@ -17699,18 +17699,18 @@ ffmpeg-full includes additional tools and libraries that are not included in the
   - 
   - 
 - Test command + result:
-  - Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+  - Found configuration in /Users/web/shared/arken/rush.json
 
 Rush Multi-Project Build Tool 5.110.1 - Node.js 22.19.0 (LTS)
 Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. (in ) ❌ fail (environment baseline: Mongo-dependent suites time out; plus helper suite import path mismatch surfaced).
-  - Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+  - Found configuration in /Users/web/shared/arken/rush.json
 
 Rush Multi-Project Build Tool 5.110.1 - Node.js 22.19.0 (LTS)
 Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. (in ) ✅ pass (37/37).
 - Commits + PR links:
   -   (pushed) — updates https://github.com/arkenrealms/seer-node/pull/9
 - Blockers:
-  - Full package Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+  - Full package Found configuration in /Users/web/shared/arken/rush.json
 
 Rush Multi-Project Build Tool 5.110.1 - Node.js 22.19.0 (LTS)
 Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. still blocked in this runtime due unavailable Mongo test backend (connection timeouts across mongo integration suites).
@@ -20337,7 +20337,7 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - 
   - 
 - Test command + result:
-  - Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+  - Found configuration in /Users/web/shared/arken/rush.json
 
 Rush Multi-Project Build Tool 5.110.1 - Node.js 20.11.1 (LTS)
 Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. (in ) ✅ pass (4 suites, 33 tests).
@@ -21455,7 +21455,7 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - \
   - \
 - Test command + result:
-  - \Found configuration in /Users/web/.openclaw/workspace-nel/arken/rush.json
+  - \Found configuration in /Users/web/shared/arken/rush.json
 
 Rush Multi-Project Build Tool 5.110.1 - Node.js 20.11.1 (LTS)
 Warning: You are invoking "rushx" inside a Rush repository, but this project is not registered in rush.json. (in \) ✅ pass (24 suites, 102 tests).
