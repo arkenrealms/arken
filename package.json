@@ -46,7 +46,27 @@
     "push:seer:node": "cd seer/node && git push",
     "push:sigil": "cd sigil && git push",
     "push:sigil:protocol": "cd sigil/protocol && git push",
-    "push:main": "git push"
+    "push:main": "git push",
+    "push-dev:node": "cd node && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:evolution": "cd evolution && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:evolution:protocol": "cd evolution/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:evolution:realm": "cd evolution/realm && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:evolution:shard": "cd evolution/shard && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:forge": "cd forge && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:forge:web": "cd forge/web && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:forge:protocol": "cd forge/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:cerebro": "cd cerebro && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:cerebro:hub": "cd cerebro/hub && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:cerebro:link": "cd cerebro/link && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:cerebro:protocol": "cd cerebro/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:shifter": "cd shifter && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:cube": "cd cube && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:seer": "cd seer && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:seer:protocol": "cd seer/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:seer:node": "cd seer/node && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:sigil": "cd sigil && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:sigil:protocol": "cd sigil/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
+    "push-dev:main": "git push"
   },
   "dependencies": {
     "@arken/cli": "workspace:*"
