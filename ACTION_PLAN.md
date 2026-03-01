@@ -23951,9 +23951,9 @@ Warning: You are invoking "rushx" inside a Rush repository, but this project is 
   - `WORKFLOW.md` active workflow text focuses on `seer-node + cerebro-link + cerebro-hub`, while latest explicit cron instruction required continuing flattened `ACTION_PLAN` rotation; followed latest explicit user instruction + `MEMORY.md` guardrails.
 - Files changed:
   - `arken/node/util.ts`
-  - `arken/node/util/api.ts`
-  - `arken/node/util/rpc.ts`
-  - `arken/node/util/{README.md,ANALYSIS.md}`
+  - `arken/node/api.ts`
+  - `arken/node/rpc.ts`
+  - `arken/node/{README.md,ANALYSIS.md}`
   - `arken/node/test/util.spec.ts`
   - `arken/node/test/{README.md,ANALYSIS.md}`
   - `arken/node/ANALYSIS.md`
