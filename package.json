@@ -67,7 +67,7 @@
     "push-dev:seer:node": "cd seer/node && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge --no-ff \"$BR\" && git push -u origin dev && git checkout \"$BR\"",
     "push-dev:sigil": "cd sigil && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge --no-ff \"$BR\" && git push -u origin dev && git checkout \"$BR\"",
     "push-dev:sigil:protocol": "cd sigil/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge --no-ff \"$BR\" && git push -u origin dev && git checkout \"$BR\"",
-    "push-dev:main": "git push"
+    "push-dev:main": "BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge --no-ff \"$BR\" && git push -u origin dev && git checkout \"$BR\""
   },
   "dependencies": {
     "@arken/cli": "workspace:*"
