@@ -48,7 +48,7 @@
     "push:seer:node": "cd seer/node && git push",
     "push:sigil": "cd sigil && git push",
     "push:sigil:protocol": "cd sigil/protocol && git push",
-    "pull-dev": "npx npm-run-all pull:* && npx npm-run-all pull:*:*",
+    "pull-dev": "npx npm-run-all pull-dev:* && npx npm-run-all pull-dev:*:*",
     "pull-dev:main": "START=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge origin/main && git checkout \"$START\"",
     "pull-dev:node": "cd node && START=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge origin/main && git checkout \"$START\"",
     "pull-dev:evolution": "cd evolution && START=$(git rev-parse --abbrev-ref HEAD) && git fetch origin && (git show-ref --verify --quiet refs/heads/dev || git checkout -b dev origin/main 2>/dev/null || git checkout -b dev) && git checkout dev && (git show-ref --verify --quiet refs/remotes/origin/dev && git merge --ff-only origin/dev || true) && git merge origin/main && git checkout \"$START\"",
