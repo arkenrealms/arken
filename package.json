@@ -47,6 +47,7 @@
     "push:sigil": "cd sigil && git push",
     "push:sigil:protocol": "cd sigil/protocol && git push",
     "push:main": "git push",
+    "push-dev": "npx npm-run-all push-dev:* && npx npm-run-all push-dev:*:*",
     "push-dev:node": "cd node && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
     "push-dev:evolution": "cd evolution && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
     "push-dev:evolution:protocol": "cd evolution/protocol && BR=$(git rev-parse --abbrev-ref HEAD) && git fetch origin dev && git checkout dev && git pull --ff-only origin dev && git merge --no-ff \"$BR\" && git push origin dev && git checkout \"$BR\"",
