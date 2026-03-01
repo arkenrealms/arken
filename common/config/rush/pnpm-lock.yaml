@@ -15,7 +15,7 @@ importers:
       '@arken/node': workspace:*
       '@arken/seer-node': workspace:*
       '@arken/seer-protocol': workspace:*
-      '@babel/core': ^7.27.1
+      '@babel/core': ^7
       '@babel/preset-env': ^7
       '@google-cloud/speech': ^6
       '@jup-ag/api': ~6.0.32
@@ -31,8 +31,8 @@ importers:
       '@types/helmet': ^0
       '@types/jest': ^29
       '@types/node': ^20
-      '@typescript-eslint/eslint-plugin': ^8.8.1
-      '@typescript-eslint/parser': ^8.8.1
+      '@typescript-eslint/eslint-plugin': ^8
+      '@typescript-eslint/parser': ^8
       2captcha-ts: ^2
       apollo-boost: ^0
       apollo-cache-inmemory: ^1
@@ -1432,9 +1432,9 @@ importers:
 
   ../../sigil:
     specifiers:
-      '@arken/evolution-protocol': ^2.0.14
-      '@arken/forge-protocol': ^0.1.6
-      '@arken/seer-protocol': ^0.1.10
+      '@arken/evolution-protocol': workspace:^2.0.14
+      '@arken/forge-protocol': workspace:^0.1.6
+      '@arken/seer-protocol': workspace:^0.1.10
       '@trpc/client': 11.0.0-rc.660
       '@trpc/react-query': next
       '@trpc/server': 11.0.0-rc.660
@@ -1461,9 +1461,9 @@ importers:
       xml2js: ^0.6.2
       zod: ^3
     dependencies:
-      '@arken/evolution-protocol': 2.0.14
-      '@arken/forge-protocol': 0.1.6
-      '@arken/seer-protocol': 0.1.10
+      '@arken/evolution-protocol': link:../evolution/protocol
+      '@arken/forge-protocol': link:../forge/protocol
+      '@arken/seer-protocol': link:../seer/protocol
       clsx: 2.1.1
       css-flatten: 2.0.1
       css-simple-parser: 3.0.2
@@ -2434,78 +2434,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-    dev: false
-
-  /@arken/evolution-protocol/2.0.14:
-    resolution: {integrity: sha512-J3WdgguXhVeN6FsF2qjthvvAav6270s87EsrsmblONHQ/xQApf1fN9VlrSSQdN6qIfTLN0/m4PE1kxxRIix+Bg==}
-    dependencies:
-      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
-      '@trpc/server': 11.0.0-rc.660
-      dotenv: 16.6.1
-      lodash: 4.17.23
-      moment: 2.30.1
-      mongoose: 8.23.0
-      pluralize: 8.0.0
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - '@aws-sdk/credential-providers'
-      - '@mongodb-js/zstd'
-      - gcp-metadata
-      - kerberos
-      - mongodb-client-encryption
-      - snappy
-      - socks
-      - supports-color
-      - typescript
-    dev: false
-
-  /@arken/forge-protocol/0.1.6:
-    resolution: {integrity: sha512-oFmTzlvaH5q8qtSArpWOu49FCbvm8tLx7+K/U+i278dK8VR8fiH2eSev0CEcsaifmcnnSP1koCbhcOm/7tth+Q==}
-    dependencies:
-      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
-      '@trpc/server': 11.0.0-rc.660
-      '@types/jest': 29.5.14
-      '@types/node': 20.19.33
-      dotenv: 16.6.1
-      jest: 29.7.0_@types+node@20.19.33
-      make-dir-cli: 3.1.0
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - node-notifier
-      - supports-color
-      - ts-node
-      - typescript
-    dev: false
-
-  /@arken/seer-protocol/0.1.10:
-    resolution: {integrity: sha512-hM5uBF3DUGthKQwOLFJnDh9vlbcP7KGVFQYdV1kdl9hmbjdO2MpzUjasijaaNyk4KVZ0Ie4XJ/T40kegAhxvNQ==}
-    dependencies:
-      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
-      '@trpc/server': 11.0.0-rc.660
-      '@types/jest': 29.5.14
-      '@types/node': 20.19.33
-      dayjs: 1.11.19
-      dotenv: 16.6.1
-      jest: 29.7.0_@types+node@20.19.33
-      lodash: 4.17.23
-      make-dir-cli: 3.1.0
-      mongoose: 8.23.0
-      pluralize: 8.0.0
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - '@aws-sdk/credential-providers'
-      - '@mongodb-js/zstd'
-      - babel-plugin-macros
-      - gcp-metadata
-      - kerberos
-      - mongodb-client-encryption
-      - node-notifier
-      - snappy
-      - socks
-      - supports-color
-      - ts-node
-      - typescript
     dev: false
 
   /@auth/core/0.40.0:

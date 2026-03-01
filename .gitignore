@@ -2,6 +2,7 @@ data
 protocol
 infinite
 portal-ui
+.worktrees
 
 utils
 mongo_backups
