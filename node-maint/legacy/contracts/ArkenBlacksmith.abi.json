@@ -1,0 +1,854 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint16",
+        "name": "itemId",
+        "type": "uint16"
+      }
+    ],
+    "name": "ItemMint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "previousAdminRole",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "newAdminRole",
+        "type": "bytes32"
+      }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "CUBE_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DATABASER_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DEV_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "RAID_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "SENDER_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "ZAVOX_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_item1",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item2",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item3",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item4",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item5",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "rand",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "n",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "craftFromItems",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "ticket",
+        "type": "uint256"
+      }
+    ],
+    "name": "craftFromTicket",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "count",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "craftRandomRunewords",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[5]",
+        "name": "runes",
+        "type": "address[5]"
+      },
+      {
+        "internalType": "uint16",
+        "name": "itemId",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint16",
+        "name": "itemType",
+        "type": "uint16"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint8",
+            "name": "variant",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "attributeId",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "minRange",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "maxRange",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "difficulty",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct ArkenBlacksmith.ArcaneRecipeModifier[]",
+        "name": "attributes",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "deployRuneword",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getRoleMember",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getRoleMemberCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "hasRole",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[5]",
+        "name": "items",
+        "type": "address[5]"
+      },
+      {
+        "internalType": "uint256[5]",
+        "name": "walletRunes",
+        "type": "uint256[5]"
+      },
+      {
+        "internalType": "uint16",
+        "name": "rand",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "n",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "hybridCraft",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IArcaneItemMintingStation",
+        "name": "itemMintingStation_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IArcaneItems",
+        "name": "arcaneItems_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "defaultAdmin_",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "recipients",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint16[]",
+        "name": "itemIds",
+        "type": "uint16[]"
+      }
+    ],
+    "name": "mintArbitraryItems",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint16[]",
+        "name": "itemIds",
+        "type": "uint16[]"
+      }
+    ],
+    "name": "mintItems",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "mintShards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint16",
+        "name": "itemId",
+        "type": "uint16"
+      }
+    ],
+    "name": "mintTransmutedItem",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint16[]",
+        "name": "itemIds",
+        "type": "uint16[]"
+      }
+    ],
+    "name": "mintUpgradedTokens",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "newTokens",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "mintingEnabled_",
+        "type": "bool"
+      }
+    ],
+    "name": "setMintingEnabled",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_item1",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item2",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item3",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item4",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item5",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_itemId",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_itemType",
+        "type": "uint16"
+      }
+    ],
+    "name": "setRecipe",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_item1",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item2",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item3",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item4",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item5",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_index",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_variant",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_attributeId",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_minRange",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_maxRange",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_difficulty",
+        "type": "uint8"
+      }
+    ],
+    "name": "setRecipeMod",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint16",
+        "name": "version_",
+        "type": "uint16"
+      }
+    ],
+    "name": "setVersion",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_item1",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item2",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item3",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item4",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_item5",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "rand",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "n",
+        "type": "uint256"
+      }
+    ],
+    "name": "transmute",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "item1",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "item2",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "item3",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "item4",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "item5",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct ArkenBlacksmith.Recipe[]",
+        "name": "recipes_",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "updateCraftingTicketRunewords",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

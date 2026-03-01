@@ -1,0 +1,47 @@
+{
+  "name": "@arken/sigil",
+  "version": "0.0.1",
+  "description": "Arken Sigil",
+  "homepage": "https://arken.gg",
+  "scripts": {
+    "setup": "npm install && tsc -p tsconfig.json",
+    "switch": "node node_modules/onejs-core/scripts/switch.cjs"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "chokidar-cli": "^3.0.0",
+    "@trpc/server": "11.0.0-rc.660",
+    "@trpc/client": "11.0.0-rc.660",
+    "@trpc/react-query": "next",
+    "esbuild": "^0.20.0",
+    "fs-extra": "^11.2.0",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-selector-parser": "^7.1.0",
+    "rimraf": "^5.0.7",
+    "source-map-support": "^0.5.21",
+    "tar": "^7.2.0",
+    "tiny-glob": "^0.2.9",
+    "lodash": "^4",
+    "xml2js": "^0.6.2"
+  },
+  "dependencies": {
+    "@arken/evolution-protocol": "workspace:^2.0.14",
+    "@arken/seer-protocol": "workspace:^0.1.10",
+    "@arken/forge-protocol": "workspace:^0.1.6",
+    "clsx": "^2.1.1",
+    "css-flatten": "^2.0.0",
+    "css-simple-parser": "^3.0.0",
+    "onejs-comps": "^0.0.14",
+    "onejs-core": "3.0.2",
+    "onejs-preact": "^2.0.0",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^3"
+  },
+  "overrides": {
+    "@trpc/client": "11.0.0-rc.660",
+    "@trpc/server": "11.0.0-rc.660",
+    "onejs-core": "3.0.2"
+  }
+}

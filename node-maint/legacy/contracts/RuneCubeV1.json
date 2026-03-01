@@ -1,0 +1,965 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "RuneCubeV1",
+  "sourceName": "src/RuneCubeV1.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "totalClaim",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "lorekeepers",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "ClaimedShards",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        }
+      ],
+      "name": "Disenchanted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "previousAdminRole",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "newAdminRole",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RoleAdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleGranted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        }
+      ],
+      "name": "Transmuted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "tokens",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DEFAULT_ADMIN_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DEV_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "RAID_MASTER_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "blocked",
+          "type": "address"
+        }
+      ],
+      "name": "blockAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "lorekeepers",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "claimWorldstoneShards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256[]",
+              "name": "disenchantTokenIds",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address",
+              "name": "dustToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "dustAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "purportedSigner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expiry",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "requestId",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct RuneCubeV1.DisenchantData",
+          "name": "data",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "disenchant",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "for_",
+          "type": "address"
+        }
+      ],
+      "name": "getNextNoncesAndExpiry",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "nextDisenchantNonce",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nextTransmuteNonce",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleAdmin",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "lorekeepers",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getShardsClaimable",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "shardsClaimable_",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "lorekeeper",
+          "type": "uint256"
+        }
+      ],
+      "name": "getShardsClaimable",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shardsClaimable_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getShardsClaimablePerLorekeeper",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shardsClaimablePerLorekeeper",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "lorekeepers",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getShardsClaimed",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "shardsClaimed_",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "lorekeeper",
+          "type": "uint256"
+        }
+      ],
+      "name": "getShardsClaimed",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shardsClaimed_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "lorekeepers",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getTotalShardsClaimable",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shardsClaimable_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "lorekeepers",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getTotalShardsClaimed",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shardsClaimed_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getWorldstoneShardTemplate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "grantRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "hasRole",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "authorisedSigner_",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IArkenBlacksmith",
+          "name": "arkenBlacksmith_",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IArcaneItems",
+          "name": "arcaneItems_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expirySeconds_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "shardsClaimable_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "defaultAdmin_",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "isBlocked",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "blocked",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "isLorekeeper",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isLorekeeper_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "itemId",
+          "type": "uint256"
+        }
+      ],
+      "name": "isRuneword",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "_isRuneword",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "isShard",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isShard_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextRaidStarted",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newClaimableShards",
+          "type": "uint256"
+        }
+      ],
+      "name": "overrideClaimableShards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "renounceRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "tokens",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "retrieveTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "revokeRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_authorisedSigner",
+          "type": "address"
+        }
+      ],
+      "name": "setAuthorisedSigner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_expirySeconds",
+          "type": "uint256"
+        }
+      ],
+      "name": "setExpirySeconds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IArkenBlacksmith",
+          "name": "_arkenBlacksmith",
+          "type": "address"
+        }
+      ],
+      "name": "setArkenBlacksmith",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "transmuteTokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "worldstoneShardId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "dustToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "dustAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256[100]",
+              "name": "possibleTransmutes",
+              "type": "uint256[100]"
+            },
+            {
+              "internalType": "uint16",
+              "name": "itemId",
+              "type": "uint16"
+            },
+            {
+              "internalType": "address",
+              "name": "purportedSigner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expiry",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "requestId",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct RuneCubeV1.TransmuteData",
+          "name": "data",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "transmute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "transmuteTokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "worldstoneShardId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "dustToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "dustAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256[100]",
+              "name": "possibleTransmutes",
+              "type": "uint256[100]"
+            },
+            {
+              "internalType": "uint16",
+              "name": "itemId",
+              "type": "uint16"
+            },
+            {
+              "internalType": "address",
+              "name": "purportedSigner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expiry",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "requestId",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct RuneCubeV1.TransmuteData[]",
+          "name": "data",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "signatures",
+          "type": "bytes[]"
+        }
+      ],
+      "name": "transmuteMultiple",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "unblocked",
+          "type": "address"
+        }
+      ],
+      "name": "unblockAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "tokens",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "upgrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
