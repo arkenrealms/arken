@@ -17,6 +17,7 @@ importers:
       '@arken/seer-protocol': workspace:*
       '@babel/core': ^7.27.1
       '@babel/preset-env': ^7
+      '@discordjs/voice': ~0.19.0
       '@google-cloud/speech': ^6
       '@jup-ag/api': ~6.0.32
       '@jup-ag/core': ~4.0.0-beta.21
@@ -144,6 +145,7 @@ importers:
       '@arken/node': link:../../node
       '@arken/seer-node': link:../../seer/node
       '@arken/seer-protocol': link:../../seer/protocol
+      '@discordjs/voice': 0.19.0
       '@google-cloud/speech': 6.7.1
       '@jup-ag/api': 6.0.48
       '@jup-ag/core': 4.0.0-beta.21_31a0f03d1940cb4044f005517e8365b0
@@ -151,7 +153,7 @@ importers:
       '@orca-so/sdk': 1.2.26_typescript@5.9.3
       '@solana/spl-token': 0.4.9_31a0f03d1940cb4044f005517e8365b0
       '@solana/web3.js': 1.31.0
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       '@truffle/hdwallet-provider': 1.7.0_@babel+core@7.29.0
       '@types/cors': 2.8.19
@@ -281,7 +283,7 @@ importers:
       zod: ^3
     dependencies:
       '@arken/node': link:../../node
-      '@trpc/client': 11.0.0-rc.660_@trpc+server@11.0.0-rc.660
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
       '@trpc/server': 11.0.0-rc.660
       dotenv: 16.6.1
       zod: 3.25.76
@@ -326,7 +328,7 @@ importers:
       '@arken/evolution-protocol': link:../evolution/protocol
       '@arken/node': link:../node
       '@arken/seer-protocol': link:../seer/protocol
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       '@types/jest': 29.5.14
       '@types/node': 20.19.35
@@ -389,7 +391,7 @@ importers:
       typescript: ^5
       zod: ^3
     dependencies:
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       dotenv: 16.6.1
       lodash: 4.17.23
@@ -501,7 +503,7 @@ importers:
       '@arken/evolution-shard': link:../shard
       '@arken/node': link:../../node
       '@arken/seer-protocol': link:../../seer/protocol
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.8.0
@@ -628,7 +630,7 @@ importers:
       utf8: 3.0.0
       web3: 1.10.4
     devDependencies:
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       '@types/common-tags': 1.8.4
       '@types/cors': 2.8.19
@@ -665,7 +667,7 @@ importers:
       make-dir-cli: ^3
       zod: ^3
     dependencies:
-      '@trpc/client': 11.0.0-rc.660_@trpc+server@11.0.0-rc.660
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
       '@trpc/server': 11.0.0-rc.660
       '@types/jest': 29.5.14
       '@types/node': 20.19.35
@@ -926,8 +928,8 @@ importers:
       '@testing-library/dom': 10.4.1
       '@testing-library/jest-dom': 6.9.1
       '@testing-library/react': 16.3.2_4f8d64c3ae92827f9405f2b25dbceb52
-      '@trpc/client': 11.0.0-rc.660_5103b75b040ddf7f8db7dff919fea811
-      '@trpc/react-query': 11.0.0_49d76da2948641fc00fa8eae8b04b932
+      '@trpc/client': 11.0.0-rc.660_f22dbf52726fbb292d0b35f46846984c
+      '@trpc/react-query': 11.0.0_ba6f905639179a133c1465377ef21204
       '@trpc/server': 11.0.0-rc.678_typescript@5.9.3
       '@types/jest': 29.5.14
       '@types/react': 19.2.14
@@ -1146,7 +1148,7 @@ importers:
       uuid: ^9
       zod: ^3
     dependencies:
-      '@trpc/client': 11.0.0-rc.660_@trpc+server@11.0.0-rc.660
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
       '@trpc/server': 11.0.0-rc.660
       '@types/socket.io-client': 3.0.0
       axios: 1.13.6
@@ -1342,7 +1344,7 @@ importers:
       '@openzeppelin/contracts': 3.4.2
       '@openzeppelin/test-environment': 0.1.9
       '@openzeppelin/test-helpers': 0.5.16
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       '@truffle/hdwallet-provider': 1.7.0
       '@typechain/ethers-v4': 1.0.1_ethers@5.8.0+typechain@2.0.1
@@ -1415,7 +1417,7 @@ importers:
       typescript: ^5.9.2
       zod: ^3
     dependencies:
-      '@trpc/client': 11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21
+      '@trpc/client': 11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       '@types/jest': 29.5.14
       '@types/node': 20.19.35
@@ -1475,8 +1477,8 @@ importers:
       tailwind-merge: 2.6.1
       zod: 3.25.76
     devDependencies:
-      '@trpc/client': 11.0.0-rc.660_@trpc+server@11.0.0-rc.660
-      '@trpc/react-query': 11.0.0_2d62ceb8fa7ff4022ac02a997316a8a3
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
+      '@trpc/react-query': 11.0.0_f915e42879e809b2c87fc522b72c8f22
       '@trpc/server': 11.0.0-rc.660
       chokidar: 4.0.3
       chokidar-cli: 3.0.0
@@ -1507,7 +1509,7 @@ importers:
       npm-run-all: ^4
       zod: ^3
     dependencies:
-      '@trpc/client': 11.0.0-rc.660_@trpc+server@11.0.0-rc.660
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
       '@trpc/server': 11.0.0-rc.660
       '@types/jest': 29.5.14
       '@types/node': 20.19.35
@@ -4492,6 +4494,24 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       discord-api-types: 0.38.40
+    dev: false
+
+  /@discordjs/voice/0.19.0:
+    resolution: {integrity: sha512-UyX6rGEXzVyPzb1yvjHtPfTlnLvB5jX/stAMdiytHhfoydX+98hfympdOwsnTktzr+IRvphxTbdErgYDJkEsvw==}
+    engines: {node: '>=22.12.0'}
+    dependencies:
+      '@types/ws': 8.18.1
+      discord-api-types: 0.38.40
+      prism-media: 1.3.5
+      tslib: 2.8.1
+      ws: 8.19.0
+    transitivePeerDependencies:
+      - '@discordjs/opus'
+      - bufferutil
+      - ffmpeg-static
+      - node-opus
+      - opusscript
+      - utf-8-validate
     dev: false
 
   /@discordjs/ws/1.2.3:
@@ -15395,7 +15415,15 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@trpc/client/11.0.0-rc.660_5103b75b040ddf7f8db7dff919fea811:
+  /@trpc/client/11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054:
+    resolution: {integrity: sha512-bNpkZEfyMGKHynYFxdLpY8nJ1n7E3JHKcd4Pe2cagmpkzOEF9tFT3kzNf+eLI8XMG8196lTRR0J0W2/1Q8/cug==}
+    peerDependencies:
+      '@trpc/server': 11.0.0-rc.660+74625d5e4
+      typescript: '>=5.6.2'
+    dependencies:
+      '@trpc/server': 11.0.0-rc.660
+
+  /@trpc/client/11.0.0-rc.660_f22dbf52726fbb292d0b35f46846984c:
     resolution: {integrity: sha512-bNpkZEfyMGKHynYFxdLpY8nJ1n7E3JHKcd4Pe2cagmpkzOEF9tFT3kzNf+eLI8XMG8196lTRR0J0W2/1Q8/cug==}
     peerDependencies:
       '@trpc/server': 11.0.0-rc.660+74625d5e4
@@ -15405,15 +15433,7 @@ packages:
       typescript: 5.9.3
     dev: false
 
-  /@trpc/client/11.0.0-rc.660_@trpc+server@11.0.0-rc.660:
-    resolution: {integrity: sha512-bNpkZEfyMGKHynYFxdLpY8nJ1n7E3JHKcd4Pe2cagmpkzOEF9tFT3kzNf+eLI8XMG8196lTRR0J0W2/1Q8/cug==}
-    peerDependencies:
-      '@trpc/server': 11.0.0-rc.660+74625d5e4
-      typescript: '>=5.6.2'
-    dependencies:
-      '@trpc/server': 11.0.0-rc.660
-
-  /@trpc/client/11.0.0-rc.660_fc456f22168b5969b3d2c8e713b52c21:
+  /@trpc/client/11.0.0-rc.660_f72f7849cd1bfde89f84f1c499fd5357:
     resolution: {integrity: sha512-bNpkZEfyMGKHynYFxdLpY8nJ1n7E3JHKcd4Pe2cagmpkzOEF9tFT3kzNf+eLI8XMG8196lTRR0J0W2/1Q8/cug==}
     peerDependencies:
       '@trpc/server': 11.0.0-rc.660+74625d5e4
@@ -15422,21 +15442,7 @@ packages:
       '@trpc/server': 11.0.0-rc.660_typescript@5.9.3
       typescript: 5.9.3
 
-  /@trpc/react-query/11.0.0_2d62ceb8fa7ff4022ac02a997316a8a3:
-    resolution: {integrity: sha512-HeE9bBLA6nqC2xk5wlNZIPQ5vmyli3tgNNab8fTE489+ksNMKxaIx66pZKsMJIorDcP1wS0rWNV+GroU0iR98g==}
-    peerDependencies:
-      '@tanstack/react-query': ^5.67.1
-      '@trpc/client': 11.0.0
-      '@trpc/server': 11.0.0
-      react: '>=18.2.0'
-      react-dom: '>=18.2.0'
-      typescript: '>=5.7.2'
-    dependencies:
-      '@trpc/client': 11.0.0-rc.660_@trpc+server@11.0.0-rc.660
-      '@trpc/server': 11.0.0-rc.660
-    dev: true
-
-  /@trpc/react-query/11.0.0_49d76da2948641fc00fa8eae8b04b932:
+  /@trpc/react-query/11.0.0_ba6f905639179a133c1465377ef21204:
     resolution: {integrity: sha512-HeE9bBLA6nqC2xk5wlNZIPQ5vmyli3tgNNab8fTE489+ksNMKxaIx66pZKsMJIorDcP1wS0rWNV+GroU0iR98g==}
     peerDependencies:
       '@tanstack/react-query': ^5.67.1
@@ -15447,12 +15453,26 @@ packages:
       typescript: '>=5.7.2'
     dependencies:
       '@tanstack/react-query': 5.90.21_react@19.2.4
-      '@trpc/client': 11.0.0-rc.660_5103b75b040ddf7f8db7dff919fea811
+      '@trpc/client': 11.0.0-rc.660_f22dbf52726fbb292d0b35f46846984c
       '@trpc/server': 11.0.0-rc.678_typescript@5.9.3
       react: 19.2.4
       react-dom: 19.2.4_react@19.2.4
       typescript: 5.9.3
     dev: false
+
+  /@trpc/react-query/11.0.0_f915e42879e809b2c87fc522b72c8f22:
+    resolution: {integrity: sha512-HeE9bBLA6nqC2xk5wlNZIPQ5vmyli3tgNNab8fTE489+ksNMKxaIx66pZKsMJIorDcP1wS0rWNV+GroU0iR98g==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.67.1
+      '@trpc/client': 11.0.0
+      '@trpc/server': 11.0.0
+      react: '>=18.2.0'
+      react-dom: '>=18.2.0'
+      typescript: '>=5.7.2'
+    dependencies:
+      '@trpc/client': 11.0.0-rc.660_dec9ab05b59cfcb251b83d88cde10054
+      '@trpc/server': 11.0.0-rc.660
+    dev: true
 
   /@trpc/server/11.0.0-rc.660:
     resolution: {integrity: sha512-QUapcZCNOpHT7ng9LceGc9ImkboWd0Go9ryrduZpL+p4jdfaC6409AQ3x4XEW6Wu3yBmZAn4CywCsDrDhjDy/w==}
@@ -15811,6 +15831,14 @@ packages:
       '@trufflesuite/spinnies': 0.1.1
     dev: false
     optional: true
+
+  /@trufflesuite/bigint-buffer/1.1.10:
+    resolution: {integrity: sha512-pYIQC5EcMmID74t26GCC67946mgTJFiLXOT/BYozgrd4UEY2JHEGLhWi9cMiQCt5BSqFEvKkCHNnoj82SRjiEw==}
+    engines: {node: '>= 14.0.0'}
+    requiresBuild: true
+    dependencies:
+      node-gyp-build: 4.4.0
+    dev: false
 
   /@trufflesuite/chromafi/3.0.0:
     resolution: {integrity: sha512-oqWcOqn8nT1bwlPPfidfzS55vqcIDdpfzo3HbU9EnUmcSTX+I8z0UyUFI3tZQjByVJulbzxHxUGS3ZJPwK/GPQ==}
@@ -29457,6 +29485,7 @@ packages:
     resolution: {integrity: sha512-Tqhd4J3cpiLeYTD6ek/zlchSB107IVPMIm4ypyg+xz1sdkeALUnYYZnmY4Bdjqj3i6QwtlZPCu7U4qKy7HlWTA==}
     hasBin: true
     dependencies:
+      '@trufflesuite/bigint-buffer': 1.1.10
       '@trufflesuite/uws-js-unofficial': 20.30.0-unofficial.0
       '@types/bn.js': 5.2.0
       '@types/lru-cache': 5.1.1
@@ -29465,6 +29494,9 @@ packages:
       abstract-leveldown: 7.2.0
       async-eventemitter: 0.2.4
       emittery: 0.10.0
+      keccak: 3.0.2
+      leveldown: 6.1.1
+      secp256k1: 4.0.3
     optionalDependencies:
       bufferutil: 4.0.5
       utf-8-validate: 5.0.7
@@ -34534,6 +34566,16 @@ packages:
       commander: 8.3.0
     dev: false
 
+  /keccak/3.0.2:
+    resolution: {integrity: sha512-PyKKjkH53wDMLGrvmRGSNWgmSxZOUqbnXwKL9tmgbFYA1iAYqW21kfR7mZXV0MlESiefxQQE9X9fTa3X+2MPDQ==}
+    engines: {node: '>=10.0.0'}
+    requiresBuild: true
+    dependencies:
+      node-addon-api: 2.0.2
+      node-gyp-build: 4.8.4
+      readable-stream: 3.6.2
+    dev: false
+
   /keccak/3.0.4:
     resolution: {integrity: sha512-3vKuW0jV8J3XNTzvfyicFR5qvxrSAGl7KIhvgOu5cmWwM7tZRj3fMbj/pfIf4be7aznbc+prBWGjywox/g2Y6Q==}
     engines: {node: '>=10.0.0'}
@@ -35061,7 +35103,6 @@ packages:
       napi-macros: 2.0.0
       node-gyp-build: 4.8.4
     dev: false
-    optional: true
 
   /levelup/0.18.6:
     resolution: {integrity: sha512-uB0auyRqIVXx+hrpIUtol4VAPhLRcnxcOsd2i2m6rbFIDarO5dnrupLOStYYpEcu8ZT087Z9HEuYw1wjr6RL6Q==}
@@ -37325,7 +37366,6 @@ packages:
   /napi-macros/2.0.0:
     resolution: {integrity: sha512-A0xLykHtARfueITVDernsAWdtIMbOJgKgcluwENp3AlsKN/PloyO10HtmoqnFAQAcxPkgZN7wdfPfEd0zNGxbg==}
     dev: false
-    optional: true
 
   /napi-postinstall/0.3.4:
     resolution: {integrity: sha512-PHI5f1O0EP5xJ9gQmFGMS6IZcrVvTjpXjz7Na41gTE7eE2hK11lg04CECCYEEjdc17EV4DO+fkGEtt7TpTaTiQ==}
@@ -37578,6 +37618,11 @@ packages:
   /node-gyp-build/3.9.0:
     resolution: {integrity: sha512-zLcTg6P4AbcHPq465ZMFNXx7XpKKJh+7kkN699NiQWisR2uWYOWNWqRHAmbnmKiL4e9aLSlmy5U7rEMUXV59+A==}
     hasBin: true
+
+  /node-gyp-build/4.4.0:
+    resolution: {integrity: sha512-amJnQCcgtRVw9SvoebO3BKGESClrfXGCUTX9hSn1OuGQTQBOZmVd0Z0OlecpuRksKvbsUqALE8jls/ErClAPuQ==}
+    hasBin: true
+    dev: false
 
   /node-gyp-build/4.8.4:
     resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
@@ -40667,6 +40712,24 @@ packages:
       minimist: 1.2.8
     dev: true
 
+  /prism-media/1.3.5:
+    resolution: {integrity: sha512-IQdl0Q01m4LrkN1EGIE9lphov5Hy7WWlH6ulf5QdGePLlPas9p2mhgddTEHrlaXYjjFToM1/rWuwF37VF4taaA==}
+    peerDependencies:
+      '@discordjs/opus': '>=0.8.0 <1.0.0'
+      ffmpeg-static: ^5.0.2 || ^4.2.7 || ^3.0.0 || ^2.4.0
+      node-opus: ^0.3.3
+      opusscript: ^0.0.8
+    peerDependenciesMeta:
+      '@discordjs/opus':
+        optional: true
+      ffmpeg-static:
+        optional: true
+      node-opus:
+        optional: true
+      opusscript:
+        optional: true
+    dev: false
+
   /prismjs/1.30.0:
     resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
     engines: {node: '>=6'}
@@ -43704,6 +43767,16 @@ packages:
 
   /sdp/2.12.0:
     resolution: {integrity: sha512-jhXqQAQVM+8Xj5EjJGVweuEzgtGWb3tmEEpl3CLP3cStInSbVHSg0QWOGQzNq8pSID4JkpeV2mPqlMDLrm0/Vw==}
+    dev: false
+
+  /secp256k1/4.0.3:
+    resolution: {integrity: sha512-NLZVf+ROMxwtEj3Xa562qgv2BK5e2WNmXPiOdVIPLgs6lyTzMvBq0aWTYMI5XCP9jZMVKOcqZLw/Wc4vDkuxhA==}
+    engines: {node: '>=10.0.0'}
+    requiresBuild: true
+    dependencies:
+      elliptic: 6.6.1
+      node-addon-api: 2.0.2
+      node-gyp-build: 4.8.4
     dev: false
 
   /secp256k1/4.0.4:
