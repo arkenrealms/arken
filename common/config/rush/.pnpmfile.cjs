@@ -65,5 +65,14 @@ function readPackage(packageJson, context) {
     }
   });
 
+  if (packageJson.name === "@arken/cerebro-hub") {
+    if (packageJson.dependencies?.["@discordjs/voice"]) {
+      packageJson.dependencies["@discordjs/voice"] = "0.19.1";
+      context.log(
+        "[pnpmfile] overriding @discordjs/voice to 0.19.1 for @arken/cerebro-hub"
+      );
+    }
+  }
+
   return packageJson;
 }
